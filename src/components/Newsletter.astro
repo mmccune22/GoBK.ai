@@ -1,0 +1,35 @@
+---
+/** Retention signup. Posts to a placeholder endpoint until a provider is wired in. */
+---
+<section class="newsletter on-green" aria-labelledby="nl-heading">
+  <div class="wrap">
+    <h2 id="nl-heading">The GoBK newsletter, in your inbox.</h2>
+    <p>Practical information about bankruptcy and debt options.</p>
+    <form action="/api/subscribe" method="post" data-newsletter>
+      <label for="nl-email" class="visually-hidden">Email address</label>
+      <input id="nl-email" name="email" type="email" required placeholder="you@example.com" autocomplete="email" />
+      <button type="submit" class="btn btn-primary">Sign me up</button>
+    </form>
+    <p class="note" role="status" aria-live="polite"></p>
+  </div>
+</section>
+<script>
+  document.querySelectorAll<HTMLFormElement>('form[data-newsletter]').forEach((form) => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const note = form.parentElement?.querySelector('.note');
+      if (note) note.textContent = 'Signups are not connected yet. When they are, this will confirm your subscription here.';
+    });
+  });
+</script>
+<style>
+  .newsletter { background: var(--sage); color: #fff; padding-block: var(--space-5) var(--space-6); }
+  h2 { font-size: 1.625rem; color: #fff; }
+  p { color: #fff; margin: 0.5rem 0 0; }
+  form { display: flex; gap: 0.5rem; margin-top: var(--space-3); max-width: 40rem; }
+  input { flex: 1; min-width: 0; padding: 0.85rem 1rem; border: 2px solid #fff; border-radius: var(--radius); background: #fff; font-size: 1.05rem; color: var(--ink); }
+  .newsletter .btn-primary { background: #fff; color: var(--sage-deeper); border-color: #fff; }
+  .newsletter .btn-primary:hover { background: var(--off); }
+  .note { font-size: 0.9rem; color: var(--on-sage-soft); margin-top: 0.6rem; min-height: 1.2em; }
+  @media (max-width: 30rem) { form { flex-direction: column; } }
+</style>

@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+import Why from '../components/home/Why.astro';
+---
+<Base title="About GoBK" description="Why GoBK exists, who is behind it, where it is going, and what it will and will not do.">
+  <section class="section">
+    <div class="wrap narrow">
+      <h1>About GoBK</h1>
+      <p class="lede">GoBK is a resource for people trying to understand bankruptcy, serious debt, and their financial options. It exists to help you understand your situation before you decide what, if anything, to do about it.</p>
+
+      <h2>Why it exists</h2>
+      <p>Most information about bankruptcy online is connected, in one way or another, to selling legal or financial services. That doesn't necessarily make the information wrong. But it can make it difficult to tell where the information ends and the sales pitch begins.</p>
+      <p>GoBK is built on a different idea: give people useful information first.</p>
+      <p>If we know the answer and can responsibly publish it, we publish it. You can read the GoBK Library without telling us who you are. We discuss bankruptcy when bankruptcy makes sense, but we also discuss its downsides, alternatives, and situations where doing nothing may be the better choice.</p>
+      <p>If you leave GoBK better informed and never come back, GoBK has still done its job.</p>
+
+      <h2>Who is behind GoBK</h2>
+      <p>GoBK was founded by Matt McCune, a consumer bankruptcy attorney who has spent about twenty-five years representing people dealing with serious debt.</p>
+      <p>Almost nobody walks into a bankruptcy lawyer's office because they want to file bankruptcy. Most people want to know whether they need to, what their other options are, what they could lose, what it will cost, and what life looks like afterward.</p>
+      <p>Matt has also been through bankruptcy himself. That isn't the focus of GoBK, but it matters to the perspective behind it. Financial problems happen to real people for complicated reasons. GoBK is designed to provide information without judgment, scare tactics, or shame.</p>
+
+      <h2>How the information is kept honest</h2>
+      <ul>
+        <li>Every answer identifies who wrote or reviewed it and when it was last updated.</li>
+        <li>Content awaiting attorney review is identified as such.</li>
+        <li>When an answer depends on state law, local court practice, or individual circumstances, we say so.</li>
+        <li>When we rely on statutes, rules, court materials, or other primary sources, we link to them whenever practical.</li>
+        <li>Technology, including artificial intelligence, helps us research, organize, explain, and maintain information. Legal and editorial judgment remains with people.</li>
+      </ul>
+
+      <h2>Where GoBK is going</h2>
+      <p>Information is only part of the problem.</p>
+      <p>People considering bankruptcy are often asked to collect the same financial information and documents multiple times before they can even understand their options or compare lawyers.</p>
+      <p>We think there is a better way.</p>
+      <p>GoBK is being built to help people understand their financial situation, organize their information and documents, and do more of the preliminary work themselves. Our goal is to help people become better informed and better prepared before they ever decide whether to hire a lawyer.</p>
+      <p>As GoBK develops, it may also provide ways for consumers to connect with independent law firms that work with the GoBK platform. When lawyers or law firms participate in a GoBK service, we believe you should know who they are, understand GoBK's relationship with them, and remain free to decide whether to contact or hire any lawyer.</p>
+
+      <h2>What GoBK is not</h2>
+      <p>GoBK is not a law firm, and using this website does not create an attorney-client relationship with GoBK or with any lawyer.</p>
+      <p>The general information in the GoBK Library is educational information, not legal advice about your individual situation. Bankruptcy law can vary based on your circumstances, your state, and sometimes the court in which a case is filed.</p>
+      <p>GoBK is also not a debt settlement company or credit repair service.</p>
+      <p>Bankruptcy is our primary area of expertise, but bankruptcy is not automatically the answer. Sometimes it is an extraordinarily powerful financial tool. Sometimes there is a better option.</p>
+      <p>Our job is to help you understand the difference.</p>
+    </div>
+  </section>
+  <Why />
+</Base>
+<style>
+  .narrow { max-width: 44rem; }
+  h1 { margin-bottom: var(--space-2); }
+  h2 { font-size: 1.5rem; margin: var(--space-5) 0 var(--space-2); }
+  p { max-width: var(--measure); }
+  p + p { margin-top: var(--space-2); }
+  ul { padding-left: 1.3rem; max-width: var(--measure); }
+  li { margin-bottom: 0.5rem; }
+</style>

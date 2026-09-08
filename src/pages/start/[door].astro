@@ -1,0 +1,89 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ArticleList from '../../components/ArticleList.astro';
+import SearchBox from '../../components/SearchBox.astro';
+import Contents from '../../components/Contents.astro';
+import { doors, getDoor } from '../../data/categories';
+
+export async function getStaticPaths() { return doors.map((d) => ({ params: { door: d.id } })); }
+const door = getDoor(Astro.params.door)!;
+const all = await getCollection('articles');
+/** Curated order for the urgency door: most time-critical first. Unlisted articles follow by weight. */
+const doorRank: Record<string, string[]> = {
+  'help-now': [
+    'can-bankruptcy-stop-wage-garnishment',
+    'served-with-a-lawsuit',
+    'bank-account-frozen-levy',
+    'can-bankruptcy-stop-foreclosure',
+    'stop-repossession-get-car-back',
+    'how-fast-can-i-file',
+    'what-is-the-automatic-stay',
+    'chapter-13-stop-foreclosure-catch-up-mortgage',
+    'chapter-13-keep-car-cramdown',
+    'how-to-find-a-bankruptcy-attorney',
+  ],
+  'way-out': [
+    'what-does-bankruptcy-actually-do',
+    'what-cant-bankruptcy-fix',
+    'alternatives-to-bankruptcy',
+    'which-debts-does-bankruptcy-erase',
+    'chapter-7-vs-chapter-13',
+    'debt-settlement-how-it-works',
+    'debt-management-plans',
+    'debt-consolidation-loans',
+    'judgment-proof-doing-nothing',
+  ],
+  'understanding-bankruptcy': [
+    'what-does-bankruptcy-actually-do',
+    'what-cant-bankruptcy-fix',
+    'chapter-7-vs-chapter-13',
+    'what-are-bankruptcy-exemptions',
+    'will-i-lose-my-house-if-i-file-bankruptcy',
+    'can-i-keep-my-car-in-bankruptcy',
+    'what-is-the-means-test',
+    'what-happens-when-you-file-step-by-step',
+    'how-much-does-bankruptcy-cost',
+    'what-happens-to-my-credit-after-bankruptcy',
+    'is-bankruptcy-public',
+    'bankruptcy-myths-corrected',
+  ],
+};
+const rank = doorRank[door.id] ?? [];
+const articles = all
+  .filter((a) => a.data.doors.includes(door.id))
+  .sort((a, b) => {
+    const ra = rank.indexOf(a.id), rb = rank.indexOf(b.id);
+    const ka = ra === -1 ? 1000 + (a.data.weight ?? 999) : ra;
+    const kb = rb === -1 ? 1000 + (b.data.weight ?? 999) : rb;
+    return ka - kb;
+  });
+---
+<Base title={door.label} description={door.intro} searchable>
+  <section class="head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/library">Library</a> / Starting points</nav>
+      <h1>{door.label}</h1>
+      <p class="lede">{door.intro}</p>
+    </div>
+  </section>
+  <section class="wrap body" data-pagefind-ignore>
+    <div>
+      <ArticleList articles={articles} showAnswer />
+    </div>
+    <aside>
+      <Contents expandable />
+      <div class="search"><p class="k">Have a more specific question?</p><SearchBox /></div>
+    </aside>
+  </section>
+</Base>
+<style>
+  .head { background: var(--grey); padding-block: var(--space-5); }
+  .crumbs { font-size: 0.9rem; color: var(--fg-soft); margin-bottom: var(--space-2); }
+  .head .lede { margin-top: var(--space-2); }
+  .body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: var(--space-6); padding-top: var(--space-5); align-items: start; }
+  .body > aside { order: -1; }
+  aside .search { margin-top: var(--space-4); }
+  aside .search .k { margin-bottom: 0.5rem; }
+  @media (max-width: 48rem) { .body { grid-template-columns: 1fr; gap: var(--space-4); } .body > aside { order: 2; } }
+</style>

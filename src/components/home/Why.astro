@@ -1,0 +1,25 @@
+<section class="why">
+  <div class="wrap cols">
+    <div>
+      <h2>A note from Matt</h2>
+      <p class="note">I've spent 25 years working with people who were struggling with serious debt. Almost none of them wanted to file bankruptcy. Nearly all of them wanted to understand whether they had to, and what would happen if they did.</p>
+      <p class="note">GoBK exists to answer that question honestly, whether the answer is bankruptcy or something else.</p>
+    </div>
+    <a class="video" href="/about" aria-label="Watch a short video from Matt (coming soon)">
+      <span class="play" aria-hidden="true"></span>
+      <span class="vlabel">A short video from Matt<small>About a minute. Coming soon.</small></span>
+    </a>
+  </div>
+</section>
+<style>
+  .why { background: var(--grey); padding-block: var(--space-5); }
+  .cols { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--space-6); align-items: center; }
+  .note { font-size: 1.1875rem; line-height: 1.55; margin: var(--space-2) 0 0; max-width: 58ch; }
+  .video { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.9rem; aspect-ratio: 16 / 10; background: var(--off); border: 2px dashed #c5cbc5; border-radius: 12px; text-decoration: none; color: var(--fg); }
+  .video:hover { border-color: var(--sage); }
+  .play { width: 64px; height: 64px; border-radius: 50%; background: var(--sage); position: relative; }
+  .play::after { content: ''; position: absolute; left: 25px; top: 19px; border-style: solid; border-width: 13px 0 13px 22px; border-color: transparent transparent transparent #fff; }
+  .vlabel { text-align: center; font-weight: 600; font-size: 1.05rem; }
+  .vlabel small { display: block; font-weight: 400; color: var(--fg-soft); font-size: 0.875rem; margin-top: 0.25rem; }
+  @media (max-width: 48rem) { .cols { grid-template-columns: 1fr; gap: var(--space-4); } }
+</style>

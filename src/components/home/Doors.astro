@@ -1,0 +1,24 @@
+---
+import { doors } from '../../data/categories';
+---
+<section class="doors">
+  <div class="wrap">
+    <h2>Which of these sounds like you?</h2>
+    <div class="tiles">
+      {doors.map((d) => (
+        <a class="tile" href={`/start/${d.id}`}><b>{d.label}</b><span>{d.hint}</span></a>
+      ))}
+      <a class="tile" href="/library"><b>I'm just exploring</b><span>I'm not ready to decide anything. I just want to understand how bankruptcy and other options work.</span></a>
+    </div>
+  </div>
+</section>
+<style>
+  .doors { background: var(--grey); padding-block: var(--space-5) 3.5rem; }
+  h2 { margin-bottom: var(--space-3); }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 0.875rem; }
+  .tile { display: block; background: var(--off); border: 2px solid transparent; border-radius: 12px; padding: 1.5rem 1.5rem 1.375rem; text-decoration: none; color: var(--fg); }
+  .tile:hover { border-color: var(--sage); }
+  .tile b { display: block; font-size: 1.375rem; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 0.35rem; }
+  .tile span { display: block; color: var(--fg-soft); font-size: 1rem; line-height: 1.45; }
+  @media (max-width: 40rem) { .tiles { grid-template-columns: 1fr; } }
+</style>

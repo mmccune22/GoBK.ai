@@ -1,0 +1,45 @@
+---
+import Wordmark from './Wordmark.astro';
+interface Props { dark?: boolean }
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/library', label: 'Library' },
+  { href: '/checkup', label: 'Checkup' },
+  { href: '/about', label: 'About' },
+];
+---
+<header class="site-header">
+  <div class="wrap bar">
+    <div class="brand">
+      <Wordmark />
+      <span class="desc">Bankruptcy answers and options</span>
+    </div>
+    <nav aria-label="Primary">
+      <ul>
+        {nav.map((n) => (
+          <li><a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a></li>
+        ))}
+        <li>
+          <a href="/search" class="search-link" aria-current={path.startsWith('/search') ? 'page' : undefined}>
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <span class="sr-only">Search</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<style>
+  .site-header { background: #fff; border-bottom: 1px solid var(--rule); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding-block: 0.9rem; }
+  .brand { display: flex; align-items: center; gap: 0.9rem; }
+  .desc { color: var(--fg); font-size: 1.1875rem; font-weight: 500; }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: clamp(1rem, 2.5vw, 1.75rem); align-items: center; }
+  nav a { color: var(--fg); text-decoration: none; font-size: 1rem; font-weight: 600; padding: 0.35rem 0; border-bottom: 2px solid transparent; }
+  nav a:hover, nav a[aria-current="page"] { border-bottom-color: var(--sage); }
+  .search-link { display: inline-flex; align-items: center; gap: 0.4rem; }
+  @media (max-width: 40rem) {
+    .desc { display: none; }
+    nav a { font-size: 0.95rem; }
+  }
+</style>

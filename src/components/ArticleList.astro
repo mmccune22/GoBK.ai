@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCategory } from '../data/categories';
+interface Props { articles: CollectionEntry<'articles'>[]; showCategory?: boolean; showAnswer?: boolean }
+const { articles, showCategory = false, showAnswer = false } = Astro.props;
+---
+<ul class="qlist">
+  {articles.map((a) => (
+    <li>
+      <a href={`/library/${a.id}`}>
+        {a.data.title}
+        {showAnswer && <span class="meta">{a.data.shortAnswer}</span>}
+        {showCategory && !showAnswer && <span class="meta">{getCategory(a.data.category)?.name}</span>}
+      </a>
+    </li>
+  ))}
+</ul>

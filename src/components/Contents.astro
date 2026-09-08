@@ -1,0 +1,66 @@
+---
+/** The numbered table of contents for the Library. Shown wherever breadth should be one glance away.
+ *  With `expandable`, each chapter becomes an accordion revealing its articles; the current chapter
+ *  opens automatically and the first item inside is the chapter overview. */
+import { categories } from '../data/categories';
+import { getCollection } from 'astro:content';
+interface Props { current?: string; currentSlug?: string; title?: string; expandable?: boolean }
+const { current, currentSlug, title = 'Browse by topic', expandable = false } = Astro.props;
+let byCat: Record<string, { slug: string; title: string }[]> = {};
+if (expandable) {
+  const all = await getCollection('articles');
+  for (const c of categories) {
+    byCat[c.id] = all
+      .filter((a) => a.data.category === c.id)
+      .sort((a, b) => (a.data.weight ?? 999) - (b.data.weight ?? 999) || a.data.title.localeCompare(b.data.title))
+      .map((a) => ({ slug: a.id, title: a.data.title }));
+  }
+}
+---
+<nav class="contents" aria-label="Library topics">
+  <p class="k">{title}</p>
+  {expandable ? (
+    <ol class="acc-list">
+      {categories.map((c) => (
+        <li>
+          <details class="acc" open={c.id === current}>
+            <summary aria-current={c.id === current ? 'true' : undefined}><span class="nm">{c.name}</span><span class="chev" aria-hidden="true"></span></summary>
+            <ol class="arts">
+              <li><a class="overview" href={`/library/${c.id}`}>{c.name}: overview</a></li>
+              {byCat[c.id].map((a) => (
+                <li><a href={`/library/${a.slug}`} aria-current={a.slug === currentSlug ? 'page' : undefined}>{a.title}</a></li>
+              ))}
+            </ol>
+          </details>
+        </li>
+      ))}
+    </ol>
+  ) : (
+    <ol>
+      {categories.map((c) => (
+        <li><a href={`/library/${c.id}`} aria-current={c.id === current ? 'page' : undefined}>{c.name}</a></li>
+      ))}
+    </ol>
+  )}
+</nav>
+<style>
+  .acc-list { list-style: none; margin: 0; padding: 0; counter-reset: cat; }
+  .acc-list > li { counter-increment: cat; border-bottom: 1px solid var(--line); }
+  .acc-list > li:last-child { border-bottom: 0; }
+  .acc summary { display: flex; align-items: baseline; gap: 0.6rem; cursor: pointer; list-style: none; padding: 0.55rem 0.1rem; font-weight: 600; color: var(--fg); }
+  .acc summary::-webkit-details-marker { display: none; }
+  .acc summary::before { content: counter(cat, decimal-leading-zero); color: var(--deep-sage); font-weight: 600; font-size: 0.9rem; min-width: 1.5rem; }
+  .acc summary:hover .nm { color: var(--deep-sage); }
+  .acc summary[aria-current] .nm { color: var(--deep-sage); }
+  .chev { margin-left: auto; border: solid var(--fg-soft); border-width: 0 2px 2px 0; padding: 3px; transform: rotate(45deg); transition: transform 0.15s; align-self: center; }
+  .acc[open] > summary .chev { transform: rotate(-135deg); }
+  .arts { list-style: none; margin: 0 0 0.6rem; padding: 0 0 0 2.1rem; display: grid; gap: 0.35rem; counter-reset: none; }
+  .arts li { padding: 0; }
+  .arts li::before { content: none !important; }
+  .arts a { display: block; padding: 0; }
+  .arts a::before { content: none !important; }
+  .arts a { text-decoration: none; color: var(--fg-soft); font-size: 0.95rem; line-height: 1.35; display: block; }
+  .arts a:hover { color: var(--deep-sage); text-decoration: underline; }
+  .arts a.overview { font-style: italic; }
+  .arts a[aria-current] { color: var(--deep-sage); font-weight: 600; }
+</style>

@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import { doors } from '../data/categories';
+---
+<Base title="Bankruptcy Checkup" description="A short questionnaire about your income, expenses, assets, and debts that shows you whether bankruptcy looks like a good fit and, if not, what other options are worth exploring.">
+  <section class="section">
+    <div class="wrap narrow">
+      <h1>Bankruptcy Checkup</h1>
+      <p class="lede">The Bankruptcy Checkup asks a few questions about your income, expenses, assets, and debts. It will show you whether bankruptcy looks like a good fit for you and, if it doesn't, what other options are worth exploring. It takes about five minutes and no email is needed to see your result.</p>
+
+      <h2>What it is</h2>
+      <p>The Library answers general questions. The Checkup is for the next question: <em>what about me?</em> It asks a few questions about the things that actually change the answer, such as your household income and size, whether you own a home or vehicles, what kinds of debt you have, and whether anything urgent is already happening, like a garnishment or a foreclosure.</p>
+      <p>At the end you get a plain-English roadmap: which options are realistic for someone in your position, which probably are not, and what to read next. Bankruptcy will be one of the options it considers. It will not be the assumed answer.</p>
+
+      <h2>What it is not</h2>
+      <p>It is not a bankruptcy qualification test, a debt relief application, a credit repair service, or legal advice. It will not sell your information. It will not call you.</p>
+
+      <h2>Where it stands</h2>
+      <p>We're building it now and would rather get it right than get it out. Until it's ready, the Library covers most of the same ground, and these starting points are a good substitute:</p>
+      <ul class="qlist">
+        {doors.map((d) => <li><a href={`/start/${d.id}`}>{d.label}</a></li>)}
+      </ul>
+      <p class="after">If you'd like to know when the Checkup is ready, the newsletter at the bottom of any Library page is the way to hear about it.</p>
+    </div>
+  </section>
+</Base>
+<style>
+  .narrow { max-width: 44rem; }
+  h1 { margin-bottom: var(--space-2); }
+  h2 { font-size: 1.5rem; margin: var(--space-5) 0 var(--space-2); }
+  .qlist { margin-top: var(--space-3); }
+  .after { margin-top: var(--space-3); color: var(--fg-soft); }
+</style>

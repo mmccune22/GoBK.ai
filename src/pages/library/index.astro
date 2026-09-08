@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SearchBox from '../../components/SearchBox.astro';
+import Newsletter from '../../components/Newsletter.astro';
+import { categories } from '../../data/categories';
+
+const all = await getCollection('articles');
+const byCat = categories.map((c) => ({
+  ...c,
+  articles: all
+    .filter((a) => a.data.category === c.id)
+    .sort((a, b) => (a.data.weight ?? 999) - (b.data.weight ?? 999) || a.data.title.localeCompare(b.data.title)),
+}));
+---
+<Base title="The GoBK Library" description="Plain-English answers about bankruptcy, debt, and your options, organized by the questions people actually ask.">
+  <section class="head">
+    <div class="wrap">
+      <h1>The GoBK Library</h1>
+      <p class="lede">Answers about bankruptcy, debt, and your options. Browse freely.</p>
+      <SearchBox size="large" />
+    </div>
+  </section>
+  <section class="wrap catalog" data-pagefind-ignore>
+    {byCat.map((c, i) => (
+      <section class="cat">
+        <h2><a href={`/library/${c.id}`}><span class="num">{String(i + 1).padStart(2, '0')}</span>{c.name}</a></h2>
+        <p class="blurb">{c.blurb}</p>
+        <ul>
+          {c.articles.map((a) => <li><a href={`/library/${a.id}`}>{a.data.title}</a></li>)}
+        </ul>
+      </section>
+    ))}
+  </section>
+  <section class="section"><div class="wrap"><Newsletter /></div></section>
+</Base>
+<style>
+  .head { background: var(--grey); padding-block: var(--space-5); }
+  .head .lede { margin: var(--space-2) 0 var(--space-3); }
+  .catalog { padding-top: var(--space-5); max-width: 46rem; }
+  .cat { margin-bottom: var(--space-5); }
+  .cat h2 { font-size: 1.25rem; margin-bottom: 0.35rem; }
+  .cat h2 a { color: var(--fg); text-decoration: none; display: flex; align-items: baseline; gap: 0.65rem; }
+  .cat h2 a:hover { color: var(--sage-deep); }
+  .cat .num { color: var(--sage-deep); font-size: 0.95rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .cat .blurb { color: var(--fg-soft); font-size: 0.95rem; margin-bottom: 0.6rem; }
+  .cat ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .cat li { border-bottom: 1px solid var(--line); }
+  .cat li a { display: block; padding: 0.5rem 0.1rem; color: var(--fg); text-decoration: none; font-size: 0.98rem; line-height: 1.35; }
+  .cat li a:hover { color: var(--sage-deep); text-decoration: underline; }
+
+</style>

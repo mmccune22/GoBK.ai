@@ -1,0 +1,18 @@
+---
+interface Props { author: string; reviewer: string; published: Date; updated: Date; status: 'draft' | 'reviewed' }
+const { author, reviewer, published, updated, status } = Astro.props;
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+---
+<div class="byline">
+  <p>
+    {status === 'reviewed'
+      ? <>By the GoBK team. Reviewed by {reviewer}, consumer bankruptcy attorney.</>
+      : <>By the GoBK team. <span class="draft">Pending review by {reviewer}, consumer bankruptcy attorney.</span></>}
+  </p>
+  <p>Updated {fmt(updated)}{published.getTime() !== updated.getTime() && <> (first published {fmt(published)})</>}</p>
+</div>
+<style>
+  .byline { font-size: 0.9rem; color: var(--fg-soft); }
+  .byline p { margin: 0 0 0.2em; }
+  .draft { color: var(--evergreen); font-weight: 500; }
+</style>

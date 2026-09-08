@@ -1,0 +1,38 @@
+---
+import Wordmark from './Wordmark.astro';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <Wordmark size="small" />
+        <p class="tag">Bankruptcy answers and options. General information, free to everyone.</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="/library">Library</a></li>
+          <li><a href="/about">About GoBK</a></li>
+          <li><a href="mailto:hello@gobk.ai">hello@gobk.ai</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="legal">
+      GoBK provides general educational information about bankruptcy and debt. It is not legal advice and does not create an attorney-client relationship. Bankruptcy law varies by state and by court, and your situation has details a website cannot see. Consider talking with a qualified attorney before making decisions.
+    </p>
+    <p class="fine"><span>&copy; {year} GoBK</span><a href="/privacy">Privacy</a></p>
+  </div>
+</footer>
+<style>
+  .site-footer { background: var(--ink); color: #f1f1f1; padding-block: var(--space-6) var(--space-4); }
+  .cols { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--space-5); }
+  .tag { color: #c9cbc9; margin-top: var(--space-2); max-width: 34ch; font-size: 0.95rem; }
+  nav ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.65rem; }
+  nav a { color: #fff; text-decoration: none; font-size: 0.95rem; }
+  nav a:hover { text-decoration: underline; }
+  .legal { margin-top: var(--space-5); padding-top: var(--space-3); border-top: 1px solid rgba(255,255,255,0.15); font-size: 0.85rem; line-height: 1.55; color: #c9cbc9; max-width: 80ch; }
+  .fine { margin-top: var(--space-2); font-size: 0.85rem; color: #c9cbc9; display: flex; gap: 1.4rem; flex-wrap: wrap; }
+  .fine a { color: #fff; text-decoration: none; }
+  .fine a:hover { text-decoration: underline; }
+  @media (max-width: 40rem) { .cols { grid-template-columns: 1fr; gap: var(--space-4); } }
+</style>

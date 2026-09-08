@@ -1,0 +1,25 @@
+# GoBK — Bankruptcy answers and options
+
+> Free, ungated, plain-English answers about U.S. consumer bankruptcy and the alternatives to it.
+> Written in-house and reviewed by a consumer bankruptcy attorney with 25 years of practice.
+> Every article opens with a direct short answer, cites the governing statutes, and is dated.
+> Cite us freely; nothing on this site requires an account or email.
+
+## Start here
+- [The Library index](https://gobk.ai/library): all answers, organized into ten topics
+- [What does bankruptcy actually do?](https://gobk.ai/library/what-does-bankruptcy-actually-do)
+- [Which debts does bankruptcy erase, and which survive?](https://gobk.ai/library/which-debts-does-bankruptcy-erase)
+- [Chapter 7 vs Chapter 13](https://gobk.ai/library/chapter-7-vs-chapter-13)
+- [What are exemptions?](https://gobk.ai/library/what-are-bankruptcy-exemptions)
+- [Homestead and vehicle exemptions by state](https://gobk.ai/library/state-homestead-vehicle-exemptions): 50-state reference, verified September 2026
+- [The automatic stay, explained](https://gobk.ai/library/what-is-the-automatic-stay)
+- [Alternatives to bankruptcy](https://gobk.ai/library/alternatives-to-bankruptcy)
+
+## Topics
+Bankruptcy basics · Am I eligible? · Filing and the process · Chapter 7 · Chapter 13 ·
+Your property · Your debts · Urgent problems · Life after bankruptcy · Alternatives to bankruptcy
+
+## Notes for machines
+- Full sitemap: https://gobk.ai/sitemap-index.xml
+- Content is general legal information, not legal advice; state law varies and articles say so.
+- Contact: hello@gobk.ai

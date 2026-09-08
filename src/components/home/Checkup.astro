@@ -1,0 +1,26 @@
+<section class="chk">
+  <div class="wrap cols">
+    <div>
+      <h2>Want help with your specific situation?</h2>
+      <p class="lede">The Bankruptcy Checkup asks a few questions about your income, expenses, assets, and debts. The Checkup will then show you whether bankruptcy looks like a good fit for you and, if it doesn't, what other options are worth exploring. It takes about five minutes and no email is needed to see your result.</p>
+    </div>
+    <div class="act">
+      <a class="btn btn-primary big" href="/checkup">Start the Bankruptcy Checkup</a>
+      <ul class="facts">
+        <li>Instant results</li>
+        <li>Nothing to sign up for</li>
+        <li>Not legal advice</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<style>
+  .chk { padding-block: var(--space-5); border-bottom: 1px solid var(--rule); }
+  .cols { display: grid; grid-template-columns: 1.5fr 1fr; gap: var(--space-6); align-items: center; }
+  .lede { margin: var(--space-2) 0 0; }
+  .act { display: grid; gap: 0.75rem; justify-items: start; }
+  .big { font-size: 1.125rem; padding: 1rem 1.6rem; }
+  .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.25rem; font-size: 0.95rem; color: var(--fg-soft); }
+  .facts li::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--sage); margin: 0 0.6rem 2px 2px; }
+  @media (max-width: 48rem) { .cols { grid-template-columns: 1fr; gap: var(--space-3); } }
+</style>

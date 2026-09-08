@@ -1,0 +1,32 @@
+---
+/**
+ * One flat namespace under /library for both categories and articles.
+ * Articles are the canonical content; categories are views over them.
+ * A guard below fails the build if an article slug collides with a category id.
+ */
+import { getCollection } from 'astro:content';
+import ArticleView from '../../components/ArticleView.astro';
+import CategoryView from '../../components/CategoryView.astro';
+import { categories } from '../../data/categories';
+
+export async function getStaticPaths() {
+  const all = await getCollection('articles');
+  const ids = new Set(categories.map((c) => c.id));
+  for (const a of all) {
+    if (ids.has(a.id as any)) throw new Error(`Article slug "${a.id}" collides with a category id.`);
+  }
+  const byWeight = (x: typeof all[number], y: typeof all[number]) =>
+    (x.data.weight ?? 999) - (y.data.weight ?? 999) || x.data.title.localeCompare(y.data.title);
+  return [
+    ...categories.map((c) => ({
+      params: { slug: c.id },
+      props: { kind: 'category', category: c, articles: all.filter((a) => a.data.category === c.id).sort(byWeight) },
+    })),
+    ...all.map((a) => ({ params: { slug: a.id }, props: { kind: 'article', article: a, all } })),
+  ];
+}
+const p = Astro.props as any;
+---
+{p.kind === 'category'
+  ? <CategoryView category={p.category} articles={p.articles} />
+  : <ArticleView article={p.article} all={p.all} />}

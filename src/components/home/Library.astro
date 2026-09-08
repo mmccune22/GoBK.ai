@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleList from '../ArticleList.astro';
+import Contents from '../Contents.astro';
+const all = await getCollection('articles');
+const common = all.filter((a) => a.data.startHere).sort((x, y) => x.data.weight - y.data.weight).slice(0, 6);
+---
+<section class="section library">
+  <div class="wrap">
+    <h2>The GoBK Library</h2>
+    <p class="lede">Answers about bankruptcy, debt, and your options. Browse freely.</p>
+    <div class="grid">
+      <Contents />
+      <div>
+        <p class="k">Common questions</p>
+        <ArticleList articles={common} />
+        <p class="more"><a href="/library">See everything in the Library</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .lede { margin: var(--space-2) 0 0; }
+  .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: var(--space-6); margin-top: var(--space-4); align-items: start; }
+  .more { margin-top: var(--space-3); font-size: 0.98rem; }
+  @media (max-width: 48rem) { .grid { grid-template-columns: 1fr; gap: var(--space-4); } }
+</style>

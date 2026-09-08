@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroBand from '../components/home/HeroBand.astro';
+import Doors from '../components/home/Doors.astro';
+import Library from '../components/home/Library.astro';
+import Checkup from '../components/home/Checkup.astro';
+import Why from '../components/home/Why.astro';
+import Newsletter from '../components/Newsletter.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'GoBK',
+  url: 'https://gobk.ai/',
+  potentialAction: { '@type': 'SearchAction', target: 'https://gobk.ai/search?q={search_term_string}', 'query-input': 'required name=search_term_string' },
+};
+---
+<Base title="GoBK" description="Bankruptcy answers and options. Wondering if bankruptcy is the right decision? We help you find answers and point you in the right direction (even if it's not bankruptcy)." jsonLd={jsonLd}>
+  <HeroBand />
+  <Doors />
+  <Checkup />
+  <Library />
+  <Why />
+  <Newsletter />
+</Base>

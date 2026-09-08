@@ -1,0 +1,161 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Byline from './Byline.astro';
+import Callout from './Callout.astro';
+import CheckupCta from './CheckupCta.astro';
+import ArticleList from './ArticleList.astro';
+import Newsletter from './Newsletter.astro';
+import Contents from './Contents.astro';
+import { getCategory } from '../data/categories';
+
+interface Props { article: CollectionEntry<'articles'>; all: CollectionEntry<'articles'>[] }
+const { article, all } = Astro.props;
+const { Content, headings } = await render(article);
+const toc = headings.filter((h) => h.depth === 2);
+const category = getCategory(article.data.category)!;
+
+// Related: shared tags first, then same category. Never the article itself.
+const score = (b: CollectionEntry<'articles'>) => {
+  if (b.id === article.id) return -1;
+  const shared = b.data.tags.filter((t) => article.data.tags.includes(t)).length;
+  return shared * 2 + (b.data.category === article.data.category ? 1 : 0);
+};
+const related = all
+  .map((b) => ({ b, s: score(b) }))
+  .filter((x) => x.s > 0)
+  .sort((x, y) => y.s - x.s)
+  .slice(0, 5)
+  .map((x) => x.b);
+
+const url = `https://gobk.ai/library/${article.id}`;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: article.data.title,
+  description: article.data.description,
+  datePublished: article.data.published.toISOString(),
+  dateModified: article.data.updated.toISOString(),
+  author: { '@type': 'Person', name: article.data.author },
+  publisher: { '@type': 'Organization', name: 'GoBK', url: 'https://gobk.ai' },
+  mainEntityOfPage: url,
+  articleSection: category.name,
+};
+---
+<Base title={article.data.title} description={article.data.description} searchable jsonLd={jsonLd}>
+  <article class="wrap article" data-pagefind-meta={`category:${category.name}`}>
+    <header class="article-head">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/library">Library</a> / <a href={`/library/${category.id}`}>{category.name}</a>
+      </nav>
+      <h1>{article.data.title}</h1>
+      <p class="short-answer">{article.data.shortAnswer}</p>
+      <Byline
+        author={article.data.author}
+        reviewer={article.data.reviewer}
+        published={article.data.published}
+        updated={article.data.updated}
+        status={article.data.status}
+      />
+    </header>
+
+    <div class="article-grid">
+      <aside class="side" data-pagefind-ignore>
+        {toc.length > 2 && (
+          <nav class="toc" aria-label="In this answer">
+            <p class="k">In this answer</p>
+            <ol>
+              {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+            </ol>
+          </nav>
+        )}
+        <Contents current={category.id} currentSlug={article.id} title="More in the Library" expandable />
+      </aside>
+
+      <div class="main">
+        {toc.length > 2 && (
+          <details class="toc-mobile" data-pagefind-ignore>
+            <summary>In this answer</summary>
+            <ol>
+              {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+            </ol>
+          </details>
+        )}
+
+        <div class="prose">
+          <Content />
+          {article.data.jurisdictionNote && (
+            <Callout title="Where you live matters">
+              <p>{article.data.jurisdictionNote}</p>
+            </Callout>
+          )}
+        </div>
+
+        {article.data.sources.length > 0 && (
+          <section class="sources" aria-labelledby="sources-h" data-pagefind-ignore>
+            <h2 id="sources-h">Sources</h2>
+            <ul>
+              {article.data.sources.map((s) => <li><a href={s.url} rel="noopener">{s.title}</a></li>)}
+            </ul>
+          </section>
+        )}
+
+        <p class="not-advice" data-pagefind-ignore>
+          This is general information, not legal advice. The right answer for you depends on details a website cannot see, and rules vary by state and by court.
+        </p>
+
+        {article.data.showCheckup && <CheckupCta />}
+
+        {related.length > 0 && (
+          <section class="related" aria-labelledby="related-h" data-pagefind-ignore>
+            <h2 id="related-h">Related questions</h2>
+            <ArticleList articles={related} showCategory />
+          </section>
+        )}
+
+        <p class="back" data-pagefind-ignore>
+          <a href={`/library/${category.id}`}>More in {category.name}</a> or <a href="/library">back to the Library</a>.
+        </p>
+
+        <div class="nl" data-pagefind-ignore><Newsletter /></div>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .article { padding-top: var(--space-4); }
+  .crumbs { font-size: 0.9rem; color: var(--fg-soft); margin-bottom: var(--space-2); }
+  .crumbs a { color: inherit; }
+  .article-head { max-width: 46rem; }
+  .short-answer {
+    font-size: clamp(1.1875rem, 1.8vw, 1.375rem); line-height: 1.45; font-weight: 500;
+    margin: var(--space-3) 0; padding: 1rem 1.25rem;
+    background: var(--grey); border-left: 5px solid var(--sage); border-radius: 0 var(--radius) var(--radius) 0;
+    max-width: none;
+  }
+  .article-grid { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: var(--space-6); margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--rule); align-items: start; }
+  .side { position: sticky; top: var(--space-3); display: grid; gap: var(--space-3); }
+  .toc { background: var(--off); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1rem 1.25rem; }
+  .toc ol, .toc-mobile ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.45rem; }
+  .toc a, .toc-mobile a { font-size: 0.95rem; color: var(--fg); text-decoration: none; line-height: 1.35; display: block; }
+  .toc a:hover, .toc-mobile a:hover { color: var(--sage-deep); text-decoration: underline; }
+  .toc-mobile { display: none; margin-bottom: var(--space-4); border: 1px solid var(--rule); border-radius: var(--radius); padding: 0.75rem 1rem; background: var(--off); }
+  .toc-mobile summary { cursor: pointer; font-weight: 600; font-size: 0.95rem; }
+  .toc-mobile ol { margin-top: 0.75rem; }
+  .sources { margin-top: var(--space-5); font-size: 0.95rem; max-width: var(--measure); }
+  .sources h2 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+  .sources ul { padding-left: 1.2rem; margin: 0; }
+  .sources li { margin-bottom: 0.35rem; }
+  .not-advice { margin-top: var(--space-4); font-size: 0.9rem; color: var(--fg-soft); max-width: var(--measure); }
+  .related { margin-top: var(--space-6); max-width: var(--measure); }
+  .related h2 { font-size: 1.5rem; margin-bottom: var(--space-2); }
+  .back { margin-top: var(--space-4); font-size: 0.95rem; }
+  .nl { margin-top: var(--space-6); }
+  @media (max-width: 60rem) {
+    .article-grid { grid-template-columns: 1fr; gap: 0; }
+    .side { display: none; }
+    .toc-mobile { display: block; }
+  }
+</style>

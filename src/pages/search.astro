@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import SearchBox from '../components/SearchBox.astro';
+---
+<Base title="Search" description="Search the GoBK Library for answers about bankruptcy, debt, and your financial options.">
+  <section class="section head">
+    <div class="wrap">
+      <h1>Search GoBK</h1>
+      <p class="lede">Ask the question the way you'd say it. "Can I keep my car?" works better than "vehicle exemption."</p>
+      <SearchBox size="large" autofocus />
+    </div>
+  </section>
+
+  <section class="wrap results-wrap">
+    <div id="results" aria-live="polite" aria-busy="false">
+      <div class="idle">
+        <p>Not sure where to start? Try one of these, or <a href="/library">browse the Library</a>.</p>
+        <ul class="suggest">
+          <li><a href="/search?q=garnishment">Can bankruptcy stop a wage garnishment?</a></li>
+          <li><a href="/search?q=house">Will I lose my house?</a></li>
+          <li><a href="/search?q=credit">What happens to my credit?</a></li>
+          <li><a href="/search?q=chapter 7 chapter 13">Chapter 7 or Chapter 13?</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const results = document.getElementById('results')!;
+  const input = document.getElementById('q') as HTMLInputElement;
+  const idle = results.innerHTML;
+
+  const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+
+  let pagefind: any = null;
+  async function load() {
+    if (pagefind) return pagefind;
+    try {
+      // The index is generated at build time by `pagefind --site dist`.
+      // Loaded via Function() so Vite leaves the import untouched.
+      pagefind = await new Function('return import("/pagefind/pagefind.js")')();
+      await pagefind.init();
+      return pagefind;
+    } catch {
+      return null;
+    }
+  }
+
+  async function run(q: string) {
+    q = q.trim();
+    if (!q) { results.innerHTML = idle; return; }
+    results.setAttribute('aria-busy', 'true');
+    const pf = await load();
+    if (!pf) {
+      results.innerHTML = `<p class="soft">Search is available on the published site. In development, browse the <a href="/library">Library</a> instead.</p>`;
+      results.setAttribute('aria-busy', 'false');
+      return;
+    }
+    const search = await pf.search(q);
+    const hits = await Promise.all(search.results.slice(0, 12).map((r: any) => r.data()));
+    if (hits.length === 0) {
+      results.innerHTML = `
+        <div class="none">
+          <h2>Nothing matched "${esc(q)}"</h2>
+          <p>Try fewer words, or a different way of asking. If we don't have this answer yet, we'd like to know: <a href="mailto:hello@gobk.ai">tell us what you were looking for</a>.</p>
+        </div>`;
+    } else {
+      results.innerHTML = `
+        <p class="count">${hits.length === 1 ? '1 answer' : hits.length + ' answers'} for "${esc(q)}"</p>
+        <ul class="qlist">
+          ${hits.map((h: any) => `
+            <li><a href="${esc(h.url.replace(/\/$/, ''))}">${esc(h.meta.title ?? '')}
+              <span class="meta">${h.excerpt}</span></a></li>`).join('')}
+        </ul>`;
+    }
+    results.setAttribute('aria-busy', 'false');
+  }
+
+  const initial = new URLSearchParams(location.search).get('q') ?? '';
+  if (initial) { input.value = initial; run(initial); }
+
+  let t: number | undefined;
+  input.addEventListener('input', () => {
+    window.clearTimeout(t);
+    t = window.setTimeout(() => {
+      run(input.value);
+      const u = new URL(location.href);
+      if (input.value.trim()) u.searchParams.set('q', input.value.trim()); else u.searchParams.delete('q');
+      history.replaceState(null, '', u);
+    }, 180);
+  });
+  input.form?.addEventListener('submit', (e) => { e.preventDefault(); run(input.value); });
+</script>
+
+<style>
+  .head { padding-bottom: var(--space-4); }
+  .head .lede { margin: var(--space-2) 0 var(--space-4); }
+  .results-wrap { max-width: min(100% - 2 * var(--gutter), 48rem); margin-inline: 0; margin-left: max(var(--gutter), calc((100% - var(--site-max)) / 2)); }
+  .idle p { color: var(--fg-soft); }
+  .suggest { list-style: none; margin: 0 0 var(--space-4); padding: 0; display: grid; gap: 0.5rem; }
+  .suggest a { font-family: var(--serif); font-size: 1.2rem; text-decoration: none; }
+  .suggest a:hover { text-decoration: underline; }
+  .topics { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.95rem; }
+  :global(#results .count) { color: var(--fg-soft); font-size: 0.95rem; margin-bottom: var(--space-2); }
+  :global(#results .qlist .meta) { font-family: var(--sans); }
+  :global(#results mark) { background: var(--sage); color: inherit; }
+  :global(#results .none h2) { font-size: 1.5rem; margin-bottom: 0.5rem; }
+</style>

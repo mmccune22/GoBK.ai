@@ -1,0 +1,28 @@
+---
+/** A simple GET form that lands on /search?q=... Works without JavaScript. */
+interface Props { placeholder?: string; size?: 'large' | 'default'; autofocus?: boolean; value?: string }
+const { placeholder = 'Ask a question, like "can I keep my car?"', size = 'default', autofocus = false, value = '' } = Astro.props;
+---
+<form class:list={['searchbox', size]} action="/search" method="get" role="search">
+  <label for="q" class="visually-hidden">Search GoBK</label>
+  <input id="q" name="q" type="search" placeholder={placeholder} value={value} autocomplete="off" autofocus={autofocus} />
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
+<style>
+  .searchbox { display: flex; gap: 0.5rem; max-width: 40rem; }
+  input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.85rem 1rem;
+    border: 2px solid var(--line);
+    border-radius: var(--radius);
+    background: #fff;
+    font-size: 1rem;
+  }
+  input::placeholder { color: var(--ink-soft); }
+  input:focus { border-color: var(--sage-deep); outline: none; box-shadow: 0 0 0 3px var(--grey); }
+  .large input { font-size: 1.125rem; padding: 1rem 1.1rem; }
+  @media (max-width: 30rem) {
+    .searchbox { flex-direction: column; }
+  }
+</style>

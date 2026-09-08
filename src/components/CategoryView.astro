@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ArticleList from '../components/ArticleList.astro';
+import SearchBox from '../components/SearchBox.astro';
+import Contents from '../components/Contents.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { categories } from '../data/categories';
+
+interface Props { category: (typeof categories)[number]; articles: CollectionEntry<'articles'>[] }
+const { category, articles } = Astro.props;
+---
+<Base title={category.name} description={category.blurb} searchable>
+  <section class="head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/library">Library</a> / {category.name}</nav>
+      <h1>{category.name}</h1>
+      <p class="lede">{category.blurb}</p>
+    </div>
+  </section>
+  <section class="wrap body" data-pagefind-ignore>
+    <div>
+      {articles.length > 0 ? (
+        <ArticleList articles={articles} showAnswer />
+      ) : (
+        <div class="empty">
+          <p>No answers in this topic yet. We're writing them. In the meantime, search the Library or try another topic.</p>
+          <SearchBox />
+        </div>
+      )}
+    </div>
+    <aside><Contents current={category.id} expandable /></aside>
+  </section>
+  <section class="section"><div class="wrap"><Newsletter /></div></section>
+</Base>
+<style>
+  .head { background: var(--grey); padding-block: var(--space-5); }
+  .crumbs { font-size: 0.9rem; color: var(--fg-soft); margin-bottom: var(--space-2); }
+  .head .lede { margin-top: var(--space-2); }
+  .body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: var(--space-6); padding-top: var(--space-5); align-items: start; }
+  .body > aside { order: -1; }
+  .empty p { color: var(--fg-soft); }
+  @media (max-width: 48rem) { .body { grid-template-columns: 1fr; gap: var(--space-4); } .body > aside { order: 2; } }
+</style>
