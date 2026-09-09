@@ -5,7 +5,7 @@
 import { categories } from '../data/categories';
 import { getCollection } from 'astro:content';
 interface Props { current?: string; currentSlug?: string; title?: string; expandable?: boolean }
-const { current, currentSlug, title = 'Browse by topic', expandable = false } = Astro.props;
+const { current, currentSlug, title = 'Browse the Library', expandable = false } = Astro.props;
 let byCat: Record<string, { slug: string; title: string }[]> = {};
 if (expandable) {
   const all = await getCollection('articles');

@@ -70,7 +70,7 @@ const jsonLd = {
             </ol>
           </nav>
         )}
-        <Contents current={category.id} currentSlug={article.id} title="More in the Library" expandable />
+        <Contents current={category.id} currentSlug={article.id} title="Browse the Library" expandable />
       </aside>
 
       <div class="main">
@@ -136,7 +136,11 @@ const jsonLd = {
     max-width: none;
   }
   .article-grid { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: var(--space-6); margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--rule); align-items: start; }
-  .side { position: sticky; top: var(--space-3); display: grid; gap: var(--space-3); }
+  .side {
+    position: sticky; top: var(--space-3); display: grid; gap: var(--space-3);
+    max-height: calc(100vh - var(--space-4)); overflow-y: auto;
+    overscroll-behavior: contain; scrollbar-width: thin; padding-right: 0.35rem;
+  }
   .toc { background: var(--off); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1rem 1.25rem; }
   .toc ol, .toc-mobile ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.45rem; }
   .toc a, .toc-mobile a { font-size: 0.95rem; color: var(--fg); text-decoration: none; line-height: 1.35; display: block; }
