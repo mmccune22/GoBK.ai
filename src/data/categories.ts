@@ -7,12 +7,12 @@ export const categories = [
   {
     id: 'income-and-eligibility',
     name: 'Am I eligible?',
-    blurb: 'The means test, what counts as income, filing alone or with a spouse, and filing again after a prior case.',
+    blurb: 'The means test, whether above-median income rules you out, filing when you\'re unemployed or retired, and filing alone or with a spouse.',
   },
   {
     id: 'filing-process',
     name: 'Filing and the process',
-    blurb: 'What actually happens step by step: the paperwork, the trustee, the 341 meeting, and the required courses.',
+    blurb: 'What actually happens step by step: the paperwork, the trustee, and the two required courses.',
   },
   {
     id: 'chapter-7',
@@ -27,7 +27,7 @@ export const categories = [
   {
     id: 'property-and-assets',
     name: 'Your property',
-    blurb: 'Your house, car, bank accounts, retirement, and how exemptions protect them.',
+    blurb: 'Your house, car, retirement, property you own with someone else, and how exemptions protect them.',
   },
   {
     id: 'debts',
@@ -47,12 +47,12 @@ export const categories = [
   {
     id: 'alternatives',
     name: 'Alternatives to bankruptcy',
-    blurb: 'Settlement, debt management plans, negotiating yourself, doing nothing, and finding an attorney.',
+    blurb: 'Settlement, debt management plans, consolidation loans, and when doing nothing is a real option.',
   },
   {
     id: 'before-hiring',
     name: 'Before you hire a lawyer',
-    blurb: 'How to arrive at a consultation informed and organized: your numbers, your documents, your questions, and what technology can and can\'t do.',
+    blurb: 'How to arrive at a consultation informed and organized: your numbers, your documents, what it will cost, and what technology can and can\'t do.',
   },
 ] as const;
 
