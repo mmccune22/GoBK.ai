@@ -1,6 +1,6 @@
 ---
 title: "What does bankruptcy actually do?"
-shortAnswer: "Two things, at their core: it stops collection immediately (the automatic stay) and it ends your legal responsibility for most debts permanently (the discharge). Everything else, the chapters, the trustee, the paperwork, is machinery serving those two. It's a legal process in federal court, used by hundreds of thousands of households a year, most of whom keep everything they own."
+shortAnswer: "From the debtor’s perspective, bankruptcy does two things at its core: it stops collection through the automatic stay, and it permanently ends your legal responsibility for most debts through the discharge. Everything else — the chapters, the trustee, the paperwork — is machinery serving those two purposes. But bankruptcy is also a balancing act: the system is designed to give honest debtors meaningful relief and a fresh start while protecting creditors’ rights and providing a fair distribution to creditors when assets or income are available. It’s a legal process in federal court, used by hundreds of thousands of households every year, most of whom keep everything they own."
 description: "The two core mechanisms of bankruptcy, the machinery around them, and a level-set for someone starting from zero."
 category: bankruptcy-basics
 tags: [basics, automatic-stay, discharge, chapter-7, chapter-13]
