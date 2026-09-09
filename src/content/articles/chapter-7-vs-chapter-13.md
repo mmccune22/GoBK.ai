@@ -20,8 +20,6 @@ sources:
     url: "https://www.uscourts.gov/services-forms/fees/bankruptcy-court-miscellaneous-fee-schedule"
 ---
 
-There are other chapters of bankruptcy, but for individuals it almost always comes down to these two. They solve different problems.
-
 ## The short version
 
 **Chapter 7** is for people whose problem is unsecured debt they cannot pay: credit cards, medical bills, personal loans, old utility bills, deficiency balances from a repossession or foreclosure. The case takes about four months. At the end, those debts are discharged. You keep everything that is protected by an exemption, which for most people is everything they own.

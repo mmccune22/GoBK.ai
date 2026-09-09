@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/1328"
 ---
 
-Life doesn't promise one crisis per customer, so this question is more common than people admit. The rules are precise, and they limit something narrower than most assume.
-
 ## The waiting periods
 
 All clocks run **from the filing date of the old case to the filing date of the new one**, not from discharge to discharge:

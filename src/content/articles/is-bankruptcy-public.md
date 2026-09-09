@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/525"
 ---
 
-The fear underneath this question is shame, so it deserves a precise answer rather than a soothing one.
-
 ## Public, but not publicized
 
 A bankruptcy is a federal court case, and federal court records are public: anyone with a PACER account (the courts' paid records system) can look yours up. That's "public." Here's "publicized": local papers stopped printing filing lists long ago in most places, there's no posting, no announcement, and no notification to anyone beyond the people entitled to it. The practical audience is: your **creditors** (all of them, by law, which is rather the point), the **trustee and court**, anyone who **pulls your credit** for the next several years, and anyone who deliberately goes looking. Neighbors, coworkers, extended family: they learn only if told. Twenty-five years of these cases teaches one consistent lesson: the world is far less interested in your filing than you fear, because everyone is busy with their own ledger.

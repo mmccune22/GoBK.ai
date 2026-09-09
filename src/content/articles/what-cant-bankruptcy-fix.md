@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/1301"
 ---
 
-A site built on "sometimes it is, sometimes it isn't" owes you this page. Bankruptcy is a powerful tool with hard edges, and most bad bankruptcy experiences trace to expecting something it never promised.
-
 ## Debts it can't end
 
 The survivors' list, covered fully in the Debts section: child support and alimony, recent income taxes, most student loans absent the extra hardship case, criminal fines and restitution, DUI injury debts, and debts procured by fraud when the creditor proves it. If your problem debt is on that list, bankruptcy may still help by clearing everything *around* it, but go in knowing the difference.
