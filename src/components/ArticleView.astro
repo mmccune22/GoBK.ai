@@ -62,15 +62,7 @@ const jsonLd = {
 
     <div class="article-grid">
       <aside class="side" data-pagefind-ignore>
-        {toc.length > 2 && (
-          <nav class="toc" aria-label="In this answer">
-            <p class="k">In this answer</p>
-            <ol>
-              {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
-            </ol>
-          </nav>
-        )}
-        <Contents current={category.id} currentSlug={article.id} title="Browse the Library" expandable />
+        <Contents current={category.id} currentSlug={article.id} title="Browse the Library" expandable headings={toc} />
       </aside>
 
       <div class="main">

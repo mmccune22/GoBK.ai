@@ -4,8 +4,8 @@
  *  opens automatically and the first item inside is the chapter overview. */
 import { categories } from '../data/categories';
 import { getCollection } from 'astro:content';
-interface Props { current?: string; currentSlug?: string; title?: string; expandable?: boolean }
-const { current, currentSlug, title = 'Browse the Library', expandable = false } = Astro.props;
+interface Props { current?: string; currentSlug?: string; title?: string; expandable?: boolean; headings?: { slug: string; text: string }[] }
+const { current, currentSlug, title = 'Browse the Library', expandable = false, headings = [] } = Astro.props;
 let byCat: Record<string, { slug: string; title: string }[]> = {};
 if (expandable) {
   const all = await getCollection('articles');
@@ -28,7 +28,14 @@ if (expandable) {
             <ol class="arts">
               <li><a class="overview" href={`/library/${c.id}`}>{c.name}: overview</a></li>
               {byCat[c.id].map((a) => (
-                <li><a href={`/library/${a.slug}`} aria-current={a.slug === currentSlug ? 'page' : undefined}>{a.title}</a></li>
+                <li>
+                  <a href={`/library/${a.slug}`} aria-current={a.slug === currentSlug ? 'page' : undefined}>{a.title}</a>
+                  {a.slug === currentSlug && headings.length > 0 && (
+                    <ol class="secs">
+                      {headings.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+                    </ol>
+                  )}
+                </li>
               ))}
             </ol>
           </details>
@@ -63,4 +70,8 @@ if (expandable) {
   .arts a:hover { color: var(--deep-sage); text-decoration: underline; }
   .arts a.overview { font-style: italic; }
   .arts a[aria-current] { color: var(--deep-sage); font-weight: 600; }
+  .secs { list-style: none; margin: 0.3rem 0 0.5rem; padding: 0 0 0 0.85rem; display: grid; gap: 0.3rem; border-left: 2px solid var(--line); }
+  .secs li::before { content: none !important; }
+  .secs a { font-size: 0.9rem; color: var(--fg-soft); text-decoration: none; line-height: 1.3; display: block; }
+  .secs a:hover { color: var(--deep-sage); text-decoration: underline; }
 </style>

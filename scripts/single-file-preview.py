@@ -39,7 +39,10 @@ doc=f'''<!doctype html><html lang="en"><head><meta name="robots" content="noinde
 <title>GoBK preview</title><link rel="icon" href="data:image/svg+xml;base64,{fav}"><style>{css}</style><style>.pg[hidden]{{display:none}}{bar_css}</style></head><body>
 {bar}{''.join(sections)}
 <script>var titles={json.dumps(titles)};
-function show(){{var id=(location.hash||'#home').slice(1);if(!document.getElementById('pg-'+id))id='home';
+function show(){{var id=(location.hash||'#home').slice(1);
+if(!document.getElementById('pg-'+id)){{var t=document.getElementById(id);
+if(t&&t.closest('.pg')&&!t.closest('.pg').hidden){{t.scrollIntoView({{behavior:'smooth',block:'start'}});return;}}
+id='home';}}
 document.querySelectorAll('.pg').forEach(function(p){{p.hidden=p.id!=='pg-'+id}});document.querySelectorAll('.vbar a').forEach(function(a){{a.classList.toggle('on',a.dataset.v===id)}});document.title=titles[id]||'GoBK';window.scrollTo(0,0);}}
 addEventListener('hashchange',show);show();
 document.addEventListener('submit',function(e){{e.preventDefault();var n=e.target.parentElement&&e.target.parentElement.querySelector('.note');if(n)n.textContent='Signups are not connected in this preview.';}});
