@@ -3,7 +3,7 @@ Usage: python3 scripts/single-file-preview.py out.html [--switcher]
 --switcher adds a small bar to compare homepage variants under /design/."""
 import re, os, glob, base64, json, sys
 dist='dist'; out=sys.argv[1]; switcher='--switcher' in sys.argv
-css=''.join(open(f).read() for f in glob.glob(f'{dist}/_astro/*.css'))
+css=''.join(open(f).read() for f in sorted(glob.glob(f'{dist}/_astro/*.css')))
 def font_repl(m):
     b=base64.b64encode(open(os.path.join(dist,'_astro',os.path.basename(m.group(1))),'rb').read()).decode()
     return f'url(data:font/woff2;base64,{b})'
@@ -35,7 +35,7 @@ if switcher:
     bar_css='.vbar{position:sticky;top:0;z-index:50;background:#242826;color:#f7f5ef;font:500 13px/1 Inter Variable,system-ui,sans-serif;padding:10px 16px;display:flex;gap:14px;align-items:center}.vbar a{color:#c9d6cd;text-decoration:none;padding:4px 8px;border-radius:3px}.vbar a.on{background:#173c35;color:#fff}'
 else: bar_css=''
 fav=base64.b64encode(open('public/favicon.svg','rb').read()).decode()
-doc=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+doc=f'''<!doctype html><html lang="en"><head><meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GoBK preview</title><link rel="icon" href="data:image/svg+xml;base64,{fav}"><style>{css}</style><style>.pg[hidden]{{display:none}}{bar_css}</style></head><body>
 {bar}{''.join(sections)}
 <script>var titles={json.dumps(titles)};
