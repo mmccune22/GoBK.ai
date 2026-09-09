@@ -26,15 +26,19 @@ The moment a case is filed, a federal injunction called the automatic stay halts
 
 ## The discharge
 
-At the end of a successful case comes the discharge: a court order permanently erasing your legal responsibility for the covered debts. Not a pause, not a settlement. It is backed by its own injunction against anyone ever trying to collect again. Most unsecured debt (cards, medical, personal loans) discharges; a defined list (child support, recent taxes, most student loans, fines) survives. The [Your debts](/library/debts) section maps that line in detail.
+At the end of a successful case comes the discharge: a court order permanently erasing your legal responsibility for the covered debts. Not a pause, not a settlement. It is backed by its own injunction against anyone ever trying to collect again. Most unsecured debt (cards, medical, personal loans) discharges; a defined list (child support, recent taxes, most student loans, fines) survives. The [Your debts](/library/debts) section gives more detail on which debts go away and which survive.
 
-## Everything else
+## Different chapters
 
-The Bankruptcy Code has several chapters, but consumers use two. **Chapter 7** reaches the discharge in about four months for those who qualify. **Chapter 13** works through a three-to-five-year plan and can fix problems Chapter 7 can't, like a defaulted mortgage. The **trustee** audits the paperwork. **Exemptions** decide what you keep, and they're generous enough that the typical case is "everything." The **341 meeting** is five minutes of questions. The whole thing happens in federal court and almost never in a courtroom; almost all hearings are now held on Zoom.
+The Bankruptcy Code has several chapters, but consumers use two. **Chapter 7** reaches the discharge in about four months for those who qualify. **Chapter 13** works through a three-to-five-year plan and can fix problems Chapter 7 can't, like a defaulted mortgage.
+
+## How a case runs
+
+The **trustee** audits the paperwork. **Exemptions** decide what you keep, and they're generous enough that the typical case is "everything." The **341 meeting** is five minutes of questions. It all happens in federal court, but you will almost never set foot in a courtroom; hearings are now held on Zoom.
 
 ## What it is not
 
-There are no debtors' prisons, and honest filers face no punishment beyond the process itself. It is not a moral verdict. The Constitution told Congress to create bankruptcy laws, and the people who use them are overwhelmingly ordinary households hit by job loss, illness, and divorce. It is not rare, and it is not permanent ruin. Credit for most filers begins recovering within a couple of years, covered honestly in the [Life after bankruptcy](/library/life-after-bankruptcy) section.
+There are no debtors' prisons, and honest filers face no punishment beyond the process itself. It is not a moral verdict. The Constitution told Congress to create bankruptcy laws, and the people who use them are overwhelmingly ordinary households hit by job loss, illness, divorce, or simply too much debt. It is not rare, and it is not permanent ruin. Credit for most filers begins recovering within a couple of years, covered honestly in the [Life after bankruptcy](/library/life-after-bankruptcy) section.
 
 ## The bottom line
 
