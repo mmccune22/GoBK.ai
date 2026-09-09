@@ -3,7 +3,7 @@ title: "What makes a bankruptcy case simple or complicated?"
 shortAnswer: "Not the size of the debt. Complexity lives in features: income above the median, a house with meaningful equity, a business, recent transfers or family repayments, tax years, prior filings, lawsuits mid-flight, cosigners to protect. Zero features is the routine four-month Chapter 7. Each feature adds analysis, not doom — but knowing your count tells you what kind of help you need and what questions to ask."
 description: "The feature list that determines bankruptcy complexity, why debt size barely matters, and how to read your own count honestly."
 category: before-hiring
-tags: [complexity, consultation, chapter-7, chapter-13]
+tags: [fraud, attorney, chapter-7, chapter-13]
 doors: []
 published: 2026-09-04
 updated: 2026-09-04

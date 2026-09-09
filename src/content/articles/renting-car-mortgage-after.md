@@ -3,7 +3,7 @@ title: "Renting, car loans, and mortgages after bankruptcy"
 shortAnswer: "All three come back, on different clocks. Renting: many landlords weigh income and rental history over the filing, and a discharged filer often screens better than an applicant with active judgments. Car loans: available almost immediately, at rates that improve every six months you wait. Mortgages: the government-backed programs have published waiting periods of roughly two to four years after discharge, sometimes less with documented extenuating circumstances. The filing date starts every clock, which is one more cost of waiting years to file."
 description: "The practical timelines for housing and lending after a bankruptcy: apartment screening, auto lending reality, and mortgage seasoning periods."
 category: life-after-bankruptcy
-tags: [renting, car-loans, mortgage, waiting-periods, fha]
+tags: [renting, car, house, timing]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

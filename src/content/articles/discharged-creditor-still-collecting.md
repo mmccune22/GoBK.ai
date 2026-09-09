@@ -3,7 +3,7 @@ title: "A discharged creditor is still trying to collect. What do I do?"
 shortAnswer: "They're violating a federal court injunction, and you have the leverage. Don't pay, don't panic: send or show the discharge order, and if collection continues, tell your bankruptcy attorney, because courts award damages and attorney fees against discharge violators, which is why attorneys often handle these calls for free. Also check your credit reports; discharged debts must show zero balance, and 're-aged' discharged debt is a scam with a paper trail."
 description: "The discharge injunction and its teeth, the steps when a discharged debt resurfaces, zombie debt buyers, and the credit report fix."
 category: life-after-bankruptcy
-tags: [discharge-injunction, collections, zombie-debt, credit-report]
+tags: [discharge, collections, credit]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

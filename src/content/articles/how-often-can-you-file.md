@@ -3,7 +3,7 @@ title: "How often can you file bankruptcy?"
 shortAnswer: "You can file anytime; the limits are on how often you can receive a discharge. The big ones: eight years between Chapter 7 discharges, two years between Chapter 13 discharges, four years from a Chapter 7 to a later Chapter 13 discharge, and six years the other direction (with exceptions). The clocks run filing date to filing date. And a case without a discharge can still be worth filing, which is the part people miss."
 description: "The discharge waiting periods between chapters, how the clocks are measured, and when a no-discharge filing still makes sense."
 category: bankruptcy-basics
-tags: [refiling, discharge, chapter-7, chapter-13, timing]
+tags: [timing, discharge, chapter-7, chapter-13]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

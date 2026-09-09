@@ -3,7 +3,7 @@ title: "What documents will I need to file bankruptcy?"
 shortAnswer: "The core pile: six months of pay stubs or income proof, two years of tax returns, several months of bank statements for every account, current statements for every debt, and documentation of what you own (vehicle registrations, mortgage and deed, retirement and insurance statements). Plus photo ID and your Social Security card for the 341. Start gathering before the consultation; the pile is the case."
 description: "The document checklist for a consumer bankruptcy, why each item is needed, and how to handle the ones you can't find."
 category: before-hiring
-tags: [documents, checklist, preparation, 341-meeting]
+tags: [documents, 341-meeting]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

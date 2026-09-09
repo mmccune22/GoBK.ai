@@ -3,7 +3,7 @@ title: "How Chapter 7 works, beginning to end"
 shortAnswer: "Chapter 7 is the fast chapter: file, attend one short meeting about a month later, and receive a discharge wiping out most unsecured debt roughly four months after filing. Despite being called 'liquidation,' most cases liquidate nothing, because exemptions cover what filers own. The price of the speed: it helps less with catching up secured debts like a defaulted mortgage; that's Chapter 13's territory."
 description: "The Chapter 7 timeline, what liquidation actually means in practice, who it fits, and its honest limits."
 category: chapter-7
-tags: [chapter-7, discharge, liquidation, exemptions, timeline]
+tags: [chapter-7, discharge, exemptions]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

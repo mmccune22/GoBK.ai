@@ -3,7 +3,7 @@ title: "Can married people file bankruptcy alone? Should we file together?"
 shortAnswer: "You can absolutely file without your spouse; marriage doesn't merge your debts. One person files when the debt is mostly theirs, protecting the other's credit and property. But even in a solo filing, the household's combined income counts for the means test, and joint debts still land on the non-filing spouse. Filing jointly costs the same single filing fee and one case; when debts are shared, together is usually cheaper and cleaner."
 description: "Solo versus joint filing for married couples: whose debts, whose income counts, community property wrinkles, and how to decide."
 category: income-and-eligibility
-tags: [married, joint-filing, spouse, means-test, cosigners]
+tags: [married, means-test, joint-ownership]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

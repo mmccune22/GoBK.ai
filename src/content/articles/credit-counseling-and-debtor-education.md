@@ -3,7 +3,7 @@ title: "The two required courses: credit counseling and debtor education"
 shortAnswer: "Every filer takes two short courses from approved providers: a credit counseling briefing before filing (your certificate must be no older than 180 days on filing day) and a debtor education course after filing, required before the discharge issues. Both are about an hour, online or by phone, cost roughly $10 to $50 each with fee waivers available, and neither is a test you can fail. The only way they hurt you is by being forgotten."
 description: "What the pre-filing and post-filing courses involve, deadlines and fee waivers, and the discharge-delay trap of skipping course two."
 category: filing-process
-tags: [credit-counseling, debtor-education, deadlines, discharge]
+tags: [credit-counseling, timing, discharge]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

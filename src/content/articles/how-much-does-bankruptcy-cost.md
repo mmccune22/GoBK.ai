@@ -3,7 +3,7 @@ title: "How much does it cost to file bankruptcy?"
 shortAnswer: "Three pieces: the court filing fee ($338 for Chapter 7, $313 for Chapter 13, waivable or payable in installments for low-income Chapter 7 filers), two required courses (roughly $10-$50 each), and the attorney fee, which is the real number. Chapter 7 attorney fees are flat and vary by market and complexity; Chapter 13 has the structural kindness that most of the fee is paid through the plan, so little money down. Yes, it's strange that being broke costs money; here's how people actually manage it."
 description: "The real costs of each chapter, how people afford to file, fee waivers and installments, and why the cheap quote isn't always the cheap case."
 category: before-hiring
-tags: [cost, fees, attorney, filing-fee, chapter-13]
+tags: [cost, attorney, chapter-13]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

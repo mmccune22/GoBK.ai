@@ -3,7 +3,7 @@ title: "Do I need a lawyer to file bankruptcy?"
 shortAnswer: "Legally, no; individuals can file pro se. Practically: a dead-simple Chapter 7 (no house, modest property, income clearly under median, no recent transfers) is genuinely doable alone or with the help of a reputable nonprofit tool. Everything else, and essentially every Chapter 13, is attorney territory; the statistics on pro se Chapter 13 outcomes are grim. The honest test isn't intelligence; it's whether your case has any feature that can go wrong expensively."
 description: "When self-filing is reasonable, when it's a false economy, the nonprofit tools that exist, and the petition-preparer trap."
 category: before-hiring
-tags: [pro-se, attorney, upsolve, petition-preparers, chapter-13]
+tags: [attorney, ai, chapter-13]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

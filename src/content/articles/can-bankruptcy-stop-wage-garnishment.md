@@ -3,7 +3,7 @@ title: "Can bankruptcy stop a wage garnishment?"
 shortAnswer: "Yes, in almost every case. Filing bankruptcy triggers an automatic stay that requires most creditors to stop garnishing immediately, and it usually takes effect within one or two pay periods."
 description: "How the automatic stay stops wage garnishment, which garnishments it doesn't stop, what happens to money already taken, and whether the debt comes back."
 category: creditor-actions
-tags: [garnishment, automatic-stay, chapter-7, chapter-13, judgments]
+tags: [garnishment, automatic-stay, chapter-7, chapter-13, lawsuit]
 doors: [help-now]
 published: 2026-08-15
 updated: 2026-09-01

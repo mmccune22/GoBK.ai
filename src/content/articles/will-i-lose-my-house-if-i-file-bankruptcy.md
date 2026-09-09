@@ -3,7 +3,7 @@ title: "Will I lose my house if I file bankruptcy?"
 shortAnswer: "Probably not. Most people who file bankruptcy keep their home. The two things that decide it are how much equity you have compared with your state's homestead exemption, and whether you can keep making the mortgage payment."
 description: "How Chapter 7 and Chapter 13 treat your home, what equity and the homestead exemption have to do with it, and when a house is at risk."
 category: property-and-assets
-tags: [house, exemptions, chapter-7, chapter-13, mortgage, foreclosure]
+tags: [house, exemptions, chapter-7, chapter-13, foreclosure]
 doors: [understanding-bankruptcy]
 published: 2026-08-15
 updated: 2026-09-01

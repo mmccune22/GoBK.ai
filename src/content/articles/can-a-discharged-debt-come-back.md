@@ -3,7 +3,7 @@ title: "Can a discharged debt ever come back?"
 shortAnswer: "A properly discharged debt is dead forever: no expiration, no revival by payment, promise, or the debt being sold. The genuine exceptions are narrow: a reaffirmation you signed during the case, a discharge revoked for fraud within a year, liens that were never avoided (the debt died; the collateral claim didn't), and debts that were never actually in the discharge, like support or recent taxes. Everything else claiming to be a comeback is a zombie collector bluffing."
 description: "Why discharges are permanent, the short list of true exceptions, partial payments and new promises, and the sold-debt myth."
 category: debts
-tags: [discharge, reaffirmation, zombie-debt, liens, permanence]
+tags: [discharge, reaffirmation, exemptions, credit]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

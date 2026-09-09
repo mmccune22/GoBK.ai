@@ -3,7 +3,7 @@ title: "Rebuilding credit after bankruptcy: a realistic first year"
 shortAnswer: "The playbook is boring and it works: fix report errors first, add one secured card or credit-builder loan, keep utilization tiny, pay perfectly, and let time compound. Ignore the flood of predatory 'fresh start' offers that follow your discharge. Most filers who do the boring things see meaningful score recovery inside a year and real lending access inside two."
 description: "A month-by-month realistic plan for the first year after discharge: cleanup, one tradeline, utilization, the offers to ignore, and calibrated expectations."
 category: life-after-bankruptcy
-tags: [rebuilding, credit-score, secured-card, utilization]
+tags: [credit]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

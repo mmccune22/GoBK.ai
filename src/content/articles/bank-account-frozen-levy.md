@@ -3,7 +3,7 @@ title: "My bank account was frozen or levied. What can I do?"
 shortAnswer: "Act the same day if you can. Find out who levied and under what authority, because your protections depend on it. Some money is protected no matter what: Social Security and similar federal benefits, and state-exempt wages. Claiming those protections can free part or all of the account. Filing bankruptcy stops further levies immediately and can sometimes claw back what was just taken."
 description: "The difference between a freeze and a levy, the money that's protected, the exemption-claim process, and where bankruptcy fits."
 category: creditor-actions
-tags: [bank-levy, garnishment, exemptions, automatic-stay, judgments]
+tags: [bank-accounts, garnishment, exemptions, automatic-stay, lawsuit]
 doors: [help-now]
 published: 2026-09-01
 updated: 2026-09-01

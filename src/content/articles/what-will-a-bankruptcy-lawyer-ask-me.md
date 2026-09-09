@@ -3,7 +3,7 @@ title: "What will a bankruptcy lawyer ask me about?"
 shortAnswer: "Five subjects, every time: your debts, your income, what you own, your household, and what's moved lately — recent payments, transfers, and anything urgent bearing down. None of it is judgment; all of it maps to specific legal rules. Knowing the questions in advance turns an interrogation into a conversation."
 description: "The standard bankruptcy intake explained from the consumer's side: what gets asked, and the legal reason behind each question."
 category: before-hiring
-tags: [consultation, intake, attorney, questions]
+tags: [attorney, documents]
 doors: []
 published: 2026-09-04
 updated: 2026-09-04

@@ -3,7 +3,7 @@ title: "Can bankruptcy wipe out tax debt?"
 shortAnswer: "Sometimes. Recent income taxes survive bankruptcy, but older income tax debt can be discharged if it meets a set of timing rules: roughly, the taxes are at least three years old, you filed the returns at least two years ago, and the IRS assessed them at least 240 days ago. Payroll taxes and fraud penalties never discharge. The timing rules are exact, so this is a calendar question, and sometimes waiting a few months changes the answer."
 description: "The timing rules that decide whether income tax debt is dischargeable, what happens to tax liens, and why the filing date matters so much."
 category: debts
-tags: [taxes, irs, discharge, timing, chapter-13]
+tags: [taxes, discharge, timing, chapter-13]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

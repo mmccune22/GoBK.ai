@@ -3,7 +3,7 @@ title: "Who is the trustee, and what do they actually do?"
 shortAnswer: "The trustee is a private professional, usually a lawyer or accountant, appointed to administer your case: verify your paperwork, run the 341 meeting, and, in Chapter 7, look for non-exempt assets to distribute to creditors (in most cases there are none). In Chapter 13, the trustee collects your plan payments and pays creditors. The trustee is not your lawyer and not your enemy; they're the system's auditor, and honest paperwork is the entire relationship."
 description: "The trustee's role in Chapter 7 and Chapter 13, how they're paid, what they look for, and how filers should deal with them."
 category: filing-process
-tags: [trustee, 341-meeting, chapter-7, chapter-13, preferences]
+tags: [trustee, 341-meeting, chapter-7, chapter-13]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

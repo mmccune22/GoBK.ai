@@ -3,7 +3,7 @@ title: "How fast can I file if something is days away?"
 shortAnswer: "Same-day is possible. A bare-bones 'emergency' or 'skeleton' filing needs the petition, the list of creditors, and a credit counseling certificate you can earn online in an hour or two, and the automatic stay starts the moment it's filed. The rest of the paperwork is due within 14 days, and blowing that deadline gets cases dismissed, so an emergency filing is a sprint that must immediately become a marathon."
 description: "How emergency bankruptcy filings work: the minimum documents, the counseling requirement, the 14-day completion deadline, and when racing the clock is worth it."
 category: before-hiring
-tags: [emergency-filing, automatic-stay, foreclosure, garnishment, credit-counseling]
+tags: [timing, automatic-stay, foreclosure, garnishment, credit-counseling]
 doors: [help-now]
 published: 2026-09-01
 updated: 2026-09-01

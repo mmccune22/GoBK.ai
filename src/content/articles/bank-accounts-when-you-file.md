@@ -3,7 +3,7 @@ title: "What happens to my bank accounts when I file bankruptcy?"
 shortAnswer: "You keep using them. Your balance on the filing date must be listed and covered by an exemption (wildcard and wage exemptions usually do it, but the room varies by state), so attorneys time filings when balances are low. Two real traps: banks where you owe money can sometimes offset your deposits, so many people move accounts before filing; and a couple of large banks freeze accounts when they hear of a bankruptcy even when nothing is owed."
 description: "How checking and savings are treated on filing day, the bank setoff and freeze issues, and practical account hygiene before a case."
 category: before-hiring
-tags: [bank-accounts, exemptions, setoff, timing]
+tags: [bank-accounts, exemptions, timing]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

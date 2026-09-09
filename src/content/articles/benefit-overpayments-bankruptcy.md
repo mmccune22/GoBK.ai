@@ -3,7 +3,7 @@ title: "Can bankruptcy erase benefit overpayments (Social Security, unemployment
 shortAnswer: "Usually yes. Overpayments of Social Security, unemployment, SNAP, and similar benefits are ordinary dischargeable debts; owing the government doesn't change that. The exception is fraud: if you got the benefits by lying (or knowingly kept collecting after returning to work), the agency can fight the discharge, and courts side with agencies on genuine misrepresentation. Agency 'at fault' letters aren't the bankruptcy standard, and the bankruptcy standard is friendlier to you."
 description: "How overpayment debts are treated in bankruptcy, the fraud exception, recoupment from ongoing benefits, and why the agency's fault finding isn't the last word."
 category: debts
-tags: [overpayments, social-security, unemployment, discharge, fraud]
+tags: [nondischargeable, income, discharge, fraud]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

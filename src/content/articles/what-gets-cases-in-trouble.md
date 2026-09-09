@@ -3,7 +3,7 @@ title: "What gets bankruptcy cases in trouble?"
 shortAnswer: "Almost never poverty, and almost always candor: hidden or 'forgotten' assets, property moved to relatives, undisclosed income or transfers, and broken promises to the trustee. Bankruptcy isn't a cafeteria plan where you take the discharge and skip the disclosure. The system is startlingly forgiving of honest mess and unforgiving of clever mess; every trouble pattern below has honesty as its antidote."
 description: "The patterns that turn routine cases into problems: concealment, transfers, false statements, broken trustee agreements, and how each is avoided."
 category: before-hiring
-tags: [discharge-denial, fraud, transfers, trustee, honesty]
+tags: [nondischargeable, fraud, trustee]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

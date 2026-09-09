@@ -3,7 +3,7 @@ title: "Know your own numbers: the facts to have straight before a consultation"
 shortAnswer: "Six short lists, built from memory and mail, no lawyer required: your debts by type, your income sources, your house and car equity, your accounts and what's in them, money that's moved in the past year, and anything expected soon (refund, inheritance, settlement). An evening's work, and it converts your consultation from archaeology into advice."
 description: "A self-inventory for anyone considering bankruptcy: the six fact-lists that drive every legal answer, and how to build them safely at home."
 category: before-hiring
-tags: [preparation, inventory, debts, income, equity]
+tags: [documents, income, house]
 doors: []
 published: 2026-09-04
 updated: 2026-09-04

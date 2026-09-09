@@ -3,7 +3,7 @@ title: "Homestead and vehicle exemptions by state"
 shortAnswer: "The two exemptions people ask about first, home equity and vehicle, for all fifty states and D.C., verified against current sources in September 2026. Use this as a first-look map, not a final answer: several states adjust these amounts every year, some let you choose the federal list instead, and the number that matters is your equity, not your home's value. Your state's line here is also what the BK Checkup uses for its first read."
 description: "A verified fifty-state reference table of homestead and vehicle exemption amounts, with the caveats that make the numbers usable."
 category: property-and-assets
-tags: [exemptions, homestead, vehicle, states, reference]
+tags: [exemptions, house, car, documents]
 doors: []
 published: 2026-09-01
 updated: 2026-09-02

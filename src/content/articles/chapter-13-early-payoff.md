@@ -3,7 +3,7 @@ title: "Can I pay off my Chapter 13 plan early?"
 shortAnswer: "Usually not by simply writing a check, and the reason surprises people: for most plans, paying 'the plan balance' early invites the trustee to argue your improved finances should raise what unsecured creditors receive, up to 100% of their claims. True early completion works mainly when you pay all allowed claims in full. The real questions behind this one, an inheritance arrived, income jumped, I want out, each have better answers than quiet prepayment."
 description: "Why prepaying a percentage plan doesn't end it, the 100% payoff exception, windfalls mid-plan, and the legitimate exits."
 category: chapter-13
-tags: [chapter-13, early-payoff, windfall, modification, discharge]
+tags: [chapter-13, chapter-13-plan, income, discharge]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

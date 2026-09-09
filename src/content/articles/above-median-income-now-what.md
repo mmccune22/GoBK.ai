@@ -3,7 +3,7 @@ title: "I'm above the median income. Can I still file Chapter 7?"
 shortAnswer: "Often, yes. Above-median just means you take the long-form means test, which subtracts allowed expenses, many at IRS standard amounts, plus your actual mortgage, car payments, taxes, insurance, and support obligations. Plenty of above-median households pass because their secured payments and mandatory costs eat the surplus. And if the math truly shows disposable income, Chapter 13 with a five-year plan is the path, not a locked door."
 description: "How the long-form means test works, the expenses that count, special circumstances, and what failing actually means."
 category: income-and-eligibility
-tags: [means-test, above-median, chapter-7, chapter-13, expenses]
+tags: [means-test, chapter-7, chapter-13]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

@@ -3,7 +3,7 @@ title: "Court fines, traffic tickets, and restitution in bankruptcy"
 shortAnswer: "Mostly survivors. Criminal fines, restitution, and penalties payable to the government don't discharge in Chapter 7, and criminal restitution survives Chapter 13 too. But the map has real openings: some civil and older government penalties can discharge in Chapter 13, parking and traffic fines vary by how your jurisdiction classifies them, and bankruptcy can still stop license suspensions over unpaid *judgments* and clear the debts around the fines so they're payable."
 description: "The fines-and-penalties rules chapter by chapter, the Chapter 13 openings, license suspensions, and what bankruptcy can still do when the fine itself survives."
 category: debts
-tags: [fines, restitution, penalties, chapter-13, license-suspension]
+tags: [nondischargeable, chapter-13, employment]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

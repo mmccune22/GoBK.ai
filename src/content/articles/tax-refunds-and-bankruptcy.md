@@ -3,7 +3,7 @@ title: "Will I lose my tax refund if I file bankruptcy?"
 shortAnswer: "It depends almost entirely on timing and your state's exemptions. The refund you've earned but not yet received is an asset on filing day, even mid-year, prorated. Trustees love refunds because they're pure, easy cash. The playbook: either receive and reasonably spend the refund on necessities before filing, or make sure an exemption covers it. Filed already? Don't spend an expected refund until you know whose it is."
 description: "Why tax refunds are the asset trustees chase, how the timing works across the calendar, EITC protection, and the safe ways to handle a refund before filing."
 category: before-hiring
-tags: [tax-refund, timing, exemptions, trustee, chapter-13]
+tags: [taxes, timing, exemptions, trustee, chapter-13]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

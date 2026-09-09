@@ -3,7 +3,7 @@ title: "Can bankruptcy get rid of student loans? The honest current answer"
 shortAnswer: "Sometimes, and more often than people think. Student loans aren't erased automatically; you have to file a separate case inside your bankruptcy and show hardship. But since 2022, the government evaluates federal loan cases under a standardized process, and most people who actually ask are getting some or all of their loans wiped out. The tragedy is how few people ask."
 description: "The real rules on discharging student loans: the extra step required, how the government's attestation process works, and who has a realistic shot."
 category: debts
-tags: [student-loans, discharge, adversary-proceeding, hardship]
+tags: [student-loans, discharge, lawsuit]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

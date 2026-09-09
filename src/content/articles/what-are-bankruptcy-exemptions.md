@@ -3,7 +3,7 @@ title: "What are exemptions? Why most people keep everything"
 shortAnswer: "Exemptions are the lists of property the law puts off-limits to creditors and the bankruptcy trustee: home equity up to an amount, a vehicle, household goods, retirement accounts, and more. They're why the great majority of Chapter 7 cases are 'no-asset' cases where the filer keeps everything they own. Which list applies depends on your state, and that single fact changes more outcomes than almost anything else."
 description: "How bankruptcy exemptions work, why state law controls, what's typically protected, and what happens to property that isn't."
 category: property-and-assets
-tags: [exemptions, homestead, chapter-7, chapter-13, property]
+tags: [exemptions, house, chapter-7, chapter-13]
 doors: [understanding-bankruptcy]
 published: 2026-09-01
 updated: 2026-09-01

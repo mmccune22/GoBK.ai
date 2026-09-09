@@ -3,7 +3,7 @@ title: "How Chapter 13 saves a house: curing mortgage arrears"
 shortAnswer: "Chapter 13 stops a foreclosure the moment it's filed, even days before the sale, and then does what almost nothing else can: it forces the lender to accept the missed payments spread over three to five years while you resume regular payments. No lender approval needed. The catch is discipline: you must make both the plan payment and the ongoing mortgage payment, every month, to the end."
 description: "The mechanics of curing a mortgage default through a Chapter 13 plan, the deadlines that matter, and where these cases go wrong."
 category: chapter-13
-tags: [chapter-13, foreclosure, mortgage, arrears, automatic-stay]
+tags: [chapter-13, foreclosure, house, arrears, automatic-stay]
 doors: [help-now]
 published: 2026-09-01
 updated: 2026-09-01

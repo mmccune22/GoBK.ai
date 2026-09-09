@@ -3,7 +3,7 @@ title: "What counts as income for the means test?"
 shortAnswer: "Almost everything that came in during the six calendar months before filing, from every source: wages, self-employment, unemployment, rental income, bonuses, family help you receive regularly, even a household member's income. The biggest exception is Social Security benefits, which don't count. Because it's a six-month average, the month you file can change the answer."
 description: "The six-month lookback, the sources that count, the Social Security exception, and why filing-month timing matters."
 category: before-hiring
-tags: [means-test, income, timing, social-security]
+tags: [means-test, income, timing]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

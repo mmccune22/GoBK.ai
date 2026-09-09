@@ -3,7 +3,7 @@ title: "I owe money to family and friends. What happens to those loans?"
 shortAnswer: "Legally, Mom is just another unsecured creditor: the loan must be listed, it gets discharged with the rest, and here's the part nobody expects: if you repaid family in the year before filing, the trustee can sue them to take the money back. The law can't stop you from voluntarily repaying anyone after your discharge, and many people quietly do. What you must not do is pay family first on the way in, or leave them off the paperwork."
 description: "How family loans are treated, the one-year insider preference rule, why hiding or prepaying relatives backfires, and the honorable path: voluntary repayment after discharge."
 category: debts
-tags: [family-loans, insiders, preferences, discharge]
+tags: [family-loans, fraud, discharge]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

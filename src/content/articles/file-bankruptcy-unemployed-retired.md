@@ -3,7 +3,7 @@ title: "Can I file bankruptcy if I'm unemployed, retired, or on Social Security?
 shortAnswer: "Yes. There's no job requirement for Chapter 7, and low or no income usually means you pass the means test automatically. For retirees, Social Security doesn't count as means test income and retirement accounts are protected. The better question for many low-income people is whether you need to file at all: if everything you have is protected, you may be 'judgment-proof,' and that's a real option with its own article."
 description: "Bankruptcy without a paycheck: how no income affects each chapter, the retiree picture, and the judgment-proof alternative."
 category: income-and-eligibility
-tags: [unemployed, retired, social-security, judgment-proof, chapter-13]
+tags: [income, chapter-13]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

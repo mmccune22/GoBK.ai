@@ -3,7 +3,7 @@ title: "What can't bankruptcy fix?"
 shortAnswer: "A fair amount, and knowing it up front prevents expensive disappointment. It can't erase support, recent taxes, most student loans, or fines. It can't keep a house or car you can't afford going forward. It can't protect cosigners (except partially in Chapter 13), restore your credit overnight, or undo transfers and payments already made. And it can't fix an income that doesn't cover a reasonable life; it only clears the debt standing between you and one."
 description: "The honest list of bankruptcy's limits: the debts, the property, the people, and the problems outside its reach."
 category: bankruptcy-basics
-tags: [basics, limits, cosigners, secured-debt, nondischargeable]
+tags: [basics, nondischargeable, joint-ownership, secured-debt]
 doors: [understanding-bankruptcy, way-out]
 published: 2026-09-01
 updated: 2026-09-01

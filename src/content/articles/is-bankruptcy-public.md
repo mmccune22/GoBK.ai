@@ -3,7 +3,7 @@ title: "Will everyone know I filed? Is bankruptcy public?"
 shortAnswer: "It's a public court record, but in practice almost nobody looks. There's no newspaper announcement anymore, no list at the courthouse door, and your employer isn't notified (with narrow exceptions like an active wage garnishment ending). The people who reliably learn are your creditors, anyone you owe, and whoever pulls your credit. For most filers, the audience is exactly the people who already knew about the debt."
 description: "Who actually finds out about a bankruptcy filing, who doesn't, employer and job questions, and the difference between public and publicized."
 category: bankruptcy-basics
-tags: [privacy, public-record, employment, pacer]
+tags: [privacy, employment]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

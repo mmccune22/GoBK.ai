@@ -3,7 +3,7 @@ title: "How do I get ready to talk to a bankruptcy lawyer?"
 shortAnswer: "Four steps, none of them legal work: know your own numbers (debts, income, what you own, recent money moves), gather the documents that prove them, write down your questions, and touch nothing in the meantime — no transfers, no repaying family, no draining retirement. A consultation with a prepared person spends its time on judgment instead of reconstruction, and judgment is what you're there for."
 description: "The preparation sequence before a bankruptcy consultation: facts, documents, questions, and the standstill rule."
 category: before-hiring
-tags: [preparation, consultation, attorney, checklist]
+tags: [attorney, documents]
 doors: []
 published: 2026-09-04
 updated: 2026-09-04

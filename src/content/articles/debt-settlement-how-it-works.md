@@ -3,7 +3,7 @@ title: "Debt settlement: how it really works, and the tax surprise"
 shortAnswer: "Settlement means paying creditors less than the balance to close accounts, either by negotiating yourself or through a for-profit settlement company. It genuinely works sometimes, mostly for people with a lump sum and a small number of debts. The industry version has rough edges: months of strategic default, fees, lawsuits that don't pause, no legal protection while you wait, and a surprise at the end bankruptcy doesn't have: forgiven debt is usually taxable income, and the 1099-C arrives in January."
 description: "The mechanics of debt settlement, DIY versus companies, the failure modes, the insolvency exception, and the honest comparison with bankruptcy."
 category: alternatives
-tags: [debt-settlement, 1099-c, taxes, negotiation, alternatives]
+tags: [settlement, taxes]
 doors: [way-out]
 published: 2026-09-01
 updated: 2026-09-01

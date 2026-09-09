@@ -3,7 +3,7 @@ title: "How to find a bankruptcy attorney (and what it will cost)"
 shortAnswer: "Look for someone who does consumer bankruptcy as their main work, in your district. The NACBA directory (the national consumer bankruptcy attorneys' association) is a good starting list; nearly all offer free consultations, so talk to two. Chapter 7 attorney fees are typically flat and quoted up front; most Chapter 13 fees are paid through the plan, which is why people with no cash can often still get into a 13. If you can't afford anyone, legal aid and pro bono programs exist."
 description: "Where to look, what consultations are like, how fees really work in each chapter, the questions to ask, and the warning signs of a mill."
 category: before-hiring
-tags: [attorney, nacba, fees, consultation, legal-aid]
+tags: [attorney, cost]
 doors: [help-now]
 published: 2026-09-01
 updated: 2026-09-01

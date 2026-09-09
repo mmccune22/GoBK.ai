@@ -3,7 +3,7 @@ title: "How much would my Chapter 13 payment be?"
 shortAnswer: "There's no rate card. Your payment is built from your actual numbers: what you must pay through the plan (mortgage arrears, car, recent taxes, attorney fees) plus what your budget shows you can afford for everything else. Two households with identical debts can have very different payments. The way to a real number is a real budget."
 description: "The pieces that make up a Chapter 13 plan payment, the floors the law sets, and why online estimates mislead."
 category: chapter-13
-tags: [chapter-13, plan-payment, disposable-income, budget]
+tags: [chapter-13, chapter-13-plan, means-test, documents]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

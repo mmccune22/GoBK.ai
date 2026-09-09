@@ -3,7 +3,7 @@ title: "Keeping a car in Chapter 7: reaffirm, redeem, or just keep paying?"
 shortAnswer: "Three doors. Reaffirmation re-signs you personally on the loan, giving up the discharge's protection for that debt; it's sometimes necessary and often a bad deal. Redemption pays the lender the car's current value in one lump sum and owns it outright, powerful for badly underwater cars if you can raise the cash. And in much of the country there's the quiet third door: stay current and keep driving without re-signing, where lender practice allows. Never reaffirm reflexively."
 description: "The Chapter 7 options for a financed car: how reaffirmation, redemption, and retain-and-pay actually compare, and the questions to ask before signing anything."
 category: chapter-7
-tags: [reaffirmation, redemption, car, chapter-7, secured-debt]
+tags: [reaffirmation, car, chapter-7, secured-debt]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

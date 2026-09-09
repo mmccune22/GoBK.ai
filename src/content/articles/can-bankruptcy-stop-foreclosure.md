@@ -3,7 +3,7 @@ title: "Can bankruptcy stop a foreclosure?"
 shortAnswer: "Yes. Filing bankruptcy stops a foreclosure sale immediately, even the day before it is scheduled. Whether you keep the house afterward depends on the chapter: Chapter 13 lets you catch up on missed payments over three to five years, while Chapter 7 usually only delays the sale."
 description: "How the automatic stay stops a foreclosure sale, how Chapter 13 cures mortgage arrears, why Chapter 7 is usually only a delay, and what to do about the deficiency."
 category: creditor-actions
-tags: [foreclosure, house, automatic-stay, chapter-13, chapter-7, mortgage]
+tags: [foreclosure, house, automatic-stay, chapter-13, chapter-7]
 doors: [help-now]
 published: 2026-08-15
 updated: 2026-09-01

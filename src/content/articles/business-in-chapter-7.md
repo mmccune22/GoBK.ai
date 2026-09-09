@@ -3,7 +3,7 @@ title: "What happens to my small business in Chapter 7?"
 shortAnswer: "Depends what the 'business' is. A solo service business that's really your own labor (a trade, consulting, gig work) usually continues; tools are often exempt and you are not an asset. A business with real inventory, equipment, or receivables is property the trustee can close and liquidate. And an LLC or corporation is a separate question: your bankruptcy takes your ownership interest, not the company's assets, but the interest itself has value. Personal guarantees on business debt are usually what actually drives these filings."
 description: "Sole proprietors versus entities in a personal Chapter 7, what trustees do with each, personal guarantees, and when Chapter 13 or closing first is smarter."
 category: chapter-7
-tags: [small-business, sole-proprietor, llc, personal-guarantee]
+tags: [self-employed]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

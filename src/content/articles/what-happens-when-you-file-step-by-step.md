@@ -3,7 +3,7 @@ title: "What actually happens when you file bankruptcy, step by step"
 shortAnswer: "A consumer bankruptcy is mostly paperwork, one short meeting, and waiting. The real work happens before filing: gathering documents and preparing accurate schedules. After filing, the automatic stay protects you immediately, the 341 meeting comes about a month in and lasts minutes, and in a Chapter 7 the discharge typically arrives about two months after that, roughly four months start to finish. Chapter 13 follows the same opening, then runs its three-to-five-year plan."
 description: "The consumer bankruptcy timeline from first consultation to discharge, and what each step feels like from the filer's side."
 category: filing-process
-tags: [process, timeline, 341-meeting, discharge, credit-counseling]
+tags: [process, 341-meeting, discharge, credit-counseling]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

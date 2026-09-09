@@ -3,7 +3,7 @@ title: "What happens to property I own with someone else?"
 shortAnswer: "Only your share enters your bankruptcy: co-owning with a non-filer doesn't drag their half in. Usually your share is covered by exemptions and nothing happens. The uncomfortable exception: if your share has real non-exempt value, a Chapter 7 trustee can in some circumstances sell the whole asset and pay the co-owner their portion, which is rare, disruptive, and exactly the situation Chapter 13 exists to prevent. Names on titles matter more than family understandings, so inventory them before filing."
 description: "Co-owned houses, cars, and accounts in bankruptcy: whose share counts, when a trustee can force a sale, entireties protection, and the name-on-title traps."
 category: property-and-assets
-tags: [joint-ownership, co-owners, trustee-sale, entireties, titles]
+tags: [joint-ownership, house, car]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

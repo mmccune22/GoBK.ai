@@ -3,7 +3,7 @@ title: "Should I stop paying my credit cards?"
 shortAnswer: "If you are going to file bankruptcy, continuing to pay credit cards that will be discharged is usually money you will never get back. But stopping payments without a plan creates new problems, and a few things you might do in the meantime can hurt your case. Decide the plan first, then the payments."
 description: "When it makes sense to stop paying unsecured debt, what happens when you do, and the mistakes people make in the months before filing."
 category: debts
-tags: [credit-cards, chapter-7, timing, preferences, alternatives]
+tags: [credit-cards, chapter-7, timing]
 doors: []
 published: 2026-08-15
 updated: 2026-09-01

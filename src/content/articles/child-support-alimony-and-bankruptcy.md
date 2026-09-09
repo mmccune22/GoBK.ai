@@ -3,7 +3,7 @@ title: "What happens to child support and alimony in bankruptcy?"
 shortAnswer: "They survive. Child support and alimony can't be discharged in any bankruptcy, past-due amounts keep their first-in-line status, and collection of support from your wages continues even during the case. What bankruptcy can do is clear away the other debts so support is actually payable, and Chapter 13 can give you a structured way to catch up big arrears."
 description: "The one category of debt bankruptcy never touches, what filing does and doesn't pause, and how Chapter 13 helps people who are behind."
 category: debts
-tags: [child-support, alimony, domestic-support, chapter-13, divorce]
+tags: [child-support, chapter-13, divorce]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

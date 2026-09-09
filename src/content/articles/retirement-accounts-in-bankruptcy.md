@@ -3,7 +3,7 @@ title: "What happens to my 401(k), IRA, or pension in bankruptcy?"
 shortAnswer: "Almost always: nothing. Employer plans like 401(k)s and pensions aren't even part of the bankruptcy estate, and IRAs are exempt up to a cap well over a million dollars (rollovers from employer plans don't count against it). Retirement money is the best-protected asset class in the entire system, which is exactly why cashing it out to pay dischargeable debt is the most expensive mistake in consumer finance."
 description: "The near-absolute protection of retirement accounts in bankruptcy, the exceptions worth knowing, and the cash-out trap."
 category: property-and-assets
-tags: [retirement, 401k, ira, pension, exemptions]
+tags: [retirement, exemptions]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

@@ -3,7 +3,7 @@ title: "Jobs, security clearances, and bankruptcy"
 shortAnswer: "Your current job is safe: no employer, government or private, may fire you over a bankruptcy, and government employers can't refuse to hire over one either. Private hiring is the soft spot, mostly in finance and security roles that run credit checks with your consent. And the counterintuitive truth security-clearance holders learn: adjudicators treat unresolved debt as the risk, not resolved debt; filing bankruptcy is routinely viewed as responsibly addressing the problem."
 description: "The anti-discrimination rules, where credit checks actually bite, the clearance calculus, and licensed professions."
 category: life-after-bankruptcy
-tags: [employment, security-clearance, credit-checks, licenses]
+tags: [employment, credit]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

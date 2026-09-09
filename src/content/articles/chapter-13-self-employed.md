@@ -3,7 +3,7 @@ title: "Chapter 13 when you're self-employed"
 shortAnswer: "Self-employed people file Chapter 13 successfully all the time; 'regular income' means reliably recurring, not W-2. The differences are workload, not eligibility: you'll document income with profit-and-loss statements instead of pay stubs, propose a payment sized for a fluctuating business, keep operating (the Code says so), and stay ruthlessly current on quarterly taxes, because new tax debt is the classic way self-employed plans die."
 description: "How the self-employed run a Chapter 13: documentation, budgeting for fluctuation, operating rights, the tax discipline, and business debts in the plan."
 category: chapter-13
-tags: [chapter-13, self-employed, business, taxes, documentation]
+tags: [chapter-13, self-employed, taxes, documents]
 doors: []
 published: 2026-09-01
 updated: 2026-09-01

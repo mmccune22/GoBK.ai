@@ -3,7 +3,7 @@ title: "Should I use ChatGPT or another AI to analyze my bankruptcy?"
 shortAnswer: "Use AI to get smarter; don't ask it to be your lawyer. Chatbots are genuinely good at explaining concepts, helping you organize facts, and generating questions to ask. They're unreliable at legal conclusions: they only know the facts you thought to mention, may miss your state's rules or current law, and can state wrong things confidently. And never paste identifying or account information into a public chatbot. Arrive prepared; let a lawyer supply the judgment."
 description: "An honest guide to using AI before hiring a bankruptcy lawyer: what it's good for, where it fails, the privacy rule, and why AI-generated legal analyses backfire."
 category: before-hiring
-tags: [ai, chatgpt, preparation, privacy, consultation]
+tags: [ai, privacy, attorney]
 doors: []
 published: 2026-09-04
 updated: 2026-09-04
