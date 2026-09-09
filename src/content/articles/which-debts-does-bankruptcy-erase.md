@@ -61,4 +61,4 @@ The Chapter 13 discharge, which arrives after you complete your plan, covers a f
 
 ## The bottom line
 
-Most people who file bankruptcy discharge most of what they owe, and the debts that survive are usually the ones you would guess: support, recent taxes, student loans, and fines. The judgment call is rarely "will bankruptcy erase my debt" and more often "is what's left after the discharge something I can live with." That's exactly the question the Bankruptcy Checkup is built to help you think through.
+Most people who file bankruptcy discharge most of what they owe, and the debts that survive are usually the ones you would guess: support, recent taxes, student loans, and fines. The judgment call is rarely "will bankruptcy erase my debt" and more often "is what's left after the discharge something I can live with." That's exactly the question the BK Checkup is built to help you think through.

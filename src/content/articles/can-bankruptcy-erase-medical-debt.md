@@ -39,4 +39,4 @@ Don't drain retirement accounts or take out home equity to pay medical bills bef
 
 ## The bottom line
 
-If medical debt is a major part of what you owe, bankruptcy handles it about as well as it handles anything. The harder question is usually everything else attached to it: the income lost during an illness, the mortgage that fell behind. Those are the situations the rest of this Library, and the Bankruptcy Checkup, are here to help you sort out.
+If medical debt is a major part of what you owe, bankruptcy handles it about as well as it handles anything. The harder question is usually everything else attached to it: the income lost during an illness, the mortgage that fell behind. Those are the situations the rest of this Library, and the BK Checkup, are here to help you sort out.
