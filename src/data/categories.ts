@@ -2,7 +2,7 @@ export const categories = [
   {
     id: 'bankruptcy-basics',
     name: 'Bankruptcy basics',
-    blurb: 'What bankruptcy actually does, what it costs, how long it takes, and whether it fits your situation.',
+    blurb: 'What bankruptcy actually does, what it can\'t do, and whether it fits your situation.',
   },
   {
     id: 'income-and-eligibility',
