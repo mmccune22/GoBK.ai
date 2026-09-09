@@ -5,12 +5,12 @@
   <div class="wrap">
     <h2 id="nl-heading">The GoBK newsletter, in your inbox.</h2>
     <p>Practical information about bankruptcy and debt options.</p>
-    <form action="/api/subscribe" method="post" data-newsletter>
+    <form action="#" data-newsletter>
       <label for="nl-email" class="visually-hidden">Email address</label>
-      <input id="nl-email" name="email" type="email" required placeholder="you@example.com" autocomplete="email" />
-      <button type="submit" class="btn btn-primary">Sign me up</button>
+      <input id="nl-email" name="email" type="email" disabled placeholder="Preview only" autocomplete="off" />
+      <button type="submit" class="btn btn-primary" disabled>Signup preview</button>
     </form>
-    <p class="note" role="status" aria-live="polite"></p>
+    <p class="note" role="status" aria-live="polite">This experimental site does not collect email. Signup integration is a separate task.</p>
   </div>
 </section>
 <script>
