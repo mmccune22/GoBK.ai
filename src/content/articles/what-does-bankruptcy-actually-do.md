@@ -10,7 +10,7 @@ updated: 2026-09-01
 status: draft
 startHere: true
 weight: 5
-showCheckup: false
+showCheckup: true
 sources:
   - title: "U.S. Courts, Bankruptcy Basics"
     url: "https://www.uscourts.gov/services-forms/bankruptcy/bankruptcy-basics"
@@ -89,5 +89,3 @@ But that doesn't mean bankruptcy is right for everyone. Your income, debts, asse
 That's what the BK Checkup is designed to help you begin figuring out. It takes what you've learned here and applies it to your situation, helping you understand whether bankruptcy may make sense, which chapter might fit, what issues you should be thinking about, and what questions you may want to ask a bankruptcy lawyer.
 
 And if talking with a lawyer is the right next step, we'll help you understand how to find one, what to look for, and how to prepare for that conversation so you can make a more informed choice. That's the [Before you hire a lawyer](/library/before-hiring) section.
-
-**[Take the BK Checkup →](/checkup)**
