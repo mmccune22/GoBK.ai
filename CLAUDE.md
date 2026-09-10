@@ -48,10 +48,13 @@ Check the deploy through the API instead:
 
 ```
 curl -sS -H "Authorization: Bearer $TOKEN" \
-  https://api.github.com/repos/mmccune22/GoBK.ai/pages/builds/latest
+  "https://api.github.com/repos/mmccune22/GoBK.ai/actions/runs?per_page=3"
 ```
 
-`status: built` plus a matching commit sha means it's live. Hand Matt a
+Look for the "pages build and deployment" run whose `head_sha` matches the
+commit, with `conclusion: success`. Do **not** use `/pages/builds/latest` —
+it lags and can report an older commit long after the newer one deployed,
+which looks exactly like a failed deploy. Hand Matt a
 cache-busted link (`?v=<sha>`) so his browser can't show him a stale copy.
 
 ## Traps discovered the hard way
