@@ -35,7 +35,7 @@ The common retiree case, fixed income, protected home equity, medical and card d
 
 ## The question underneath: do you need to file at all?
 
-Here's the counterintuitive part. If your income is all protected benefits and your property is all exempt, creditors may have **no lawful way to collect from you even with a judgment**. Lawyers call it being judgment-proof. They can sue and win, and then own a piece of paper. For some people, especially older debtors with no plans to borrow again, doing nothing, calmly and with knowledge, beats filing: no case, no fee, no process. It has real costs too (the calls continue unless you cut them off in writing, suits still arrive, and the situation changes the moment you have wages or non-exempt assets again), which is why it earns its own article in the Alternatives section rather than a slogan here.
+Here's the counterintuitive part. If your income is all protected benefits and your property is all exempt, creditors may have **no lawful way to collect from you even with a judgment**. Lawyers call it being judgment-proof. They can sue and win, and then own a piece of paper. For some people, especially older debtors with no plans to borrow again, doing nothing, calmly and with knowledge, beats filing: no case, no fee, no process. It has real costs too (the calls continue unless you cut them off in writing, suits still arrive, and the situation changes the moment you have wages or non-exempt assets again), which is why it gets a full treatment in ['Judgment-proof': when doing nothing is a real option](/library/judgment-proof-doing-nothing) rather than a slogan here.
 
 ## The bottom line
 

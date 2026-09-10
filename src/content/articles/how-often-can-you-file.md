@@ -26,7 +26,7 @@ All clocks run **from the filing date of the old case to the filing date of the 
 - **Chapter 13 after a Chapter 7 discharge: four years** for a discharge in the new case.
 - **Chapter 7 after a Chapter 13 discharge: six years**, unless the 13 paid unsecured creditors in full, or paid 70% under a best-efforts plan.
 
-Cases that ended **without** a discharge (dismissed, for instance) generally don't start these clocks, though a dismissal can carry its own short refiling bars, covered in the Chapter 13 section.
+Cases that ended **without** a discharge (dismissed, for instance) generally don't start these clocks, though a dismissal can carry its own short refiling bars.
 
 ## The part people miss: filing without a discharge
 

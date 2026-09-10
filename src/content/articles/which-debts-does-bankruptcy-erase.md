@@ -39,8 +39,8 @@ There is no dollar limit and no partial forgiveness. A discharged debt is gone, 
 Congress made a list of debts the discharge does not reach. The ones that matter most in real cases:
 
 - **Child support and alimony.** These survive every kind of bankruptcy, always. (As they should.)
-- **Recent income taxes.** Very roughly: taxes from the last three years, recently assessed taxes, and taxes for years where no return was filed stick around. Older income tax debt can sometimes be discharged, which surprises people. That one deserves its own answer, and it has one in this Library.
-- **Most student loans.** They are not automatically discharged; erasing them requires a separate case showing hardship. The honest current picture is covered in the student loan answer.
+- **Recent income taxes.** Very roughly: taxes from the last three years, recently assessed taxes, and taxes for years where no return was filed stick around. Older income tax debt can sometimes be discharged, which surprises people. That one is covered in [Can bankruptcy wipe out tax debt?](/library/can-old-tax-debt-be-discharged).
+- **Most student loans.** They are not automatically discharged; erasing them requires a separate case showing hardship. The honest current picture is covered in [Can bankruptcy get rid of student loans?](/library/student-loans-and-bankruptcy).
 - **Court fines, criminal restitution, and most government penalties.**
 - **Debts from a DUI injury.** Anything you owe because you hurt someone while driving intoxicated.
 - **Debts you didn't list.** If a creditor never appears in your paperwork, their debt may survive. Complete and honest paperwork matters.
@@ -51,7 +51,7 @@ Some debts survive only if the creditor objects in time and wins. The big catego
 
 ## Secured debts are their own story
 
-A mortgage or car loan has two parts: your personal promise to pay, and the lender's lien on the property. The discharge erases the promise, not the lien. In plain terms: bankruptcy can wipe out what you owe on the house or car, but if you want to keep the thing, you keep paying for it. There is no free house and no free car in bankruptcy. What your options actually look like, keeping and paying, reaffirming, redeeming, or walking away clean, is covered in the house and car answers.
+A mortgage or car loan has two parts: your personal promise to pay, and the lender's lien on the property. The discharge erases the promise, not the lien. In plain terms: bankruptcy can wipe out what you owe on the house or car, but if you want to keep the thing, you keep paying for it. There is no free house and no free car in bankruptcy. What your options actually look like, keeping and paying, reaffirming, redeeming, or walking away clean, is covered in [Will I lose my house if I file bankruptcy?](/library/will-i-lose-my-house-if-i-file-bankruptcy) and [Can I keep my car if I file bankruptcy?](/library/can-i-keep-my-car-in-bankruptcy).
 
 ## Chapter 13 erases a little more
 

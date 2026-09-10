@@ -19,7 +19,7 @@ sources:
 
 ## How long it stays on your report
 
-A Chapter 7 bankruptcy is reported for ten years from the filing date. A Chapter 13 is reported for seven years from the filing date. The two-clocks story, why scores recover long before the entry disappears, has its own answer in this section. The accounts included in the bankruptcy should be updated to show a zero balance and a notation that they were discharged. If they keep showing a balance after the discharge, that is a reporting error you can dispute.
+A Chapter 7 bankruptcy is reported for ten years from the filing date. A Chapter 13 is reported for seven years from the filing date. The two-clocks story, why scores recover long before the entry disappears, is covered in [How long does bankruptcy stay on my credit report?](/library/when-does-bankruptcy-fall-off-credit-report). The accounts included in the bankruptcy should be updated to show a zero balance and a notation that they were discharged. If they keep showing a balance after the discharge, that is a reporting error you can dispute.
 
 ## What happens to your score
 

@@ -19,7 +19,7 @@ sources:
 
 ## Debts it can't end
 
-The survivors' list, covered fully in the Debts section: child support and alimony, recent income taxes, most student loans absent the extra hardship case, criminal fines and restitution, DUI injury debts, and debts procured by fraud when the creditor proves it. If your problem debt is on that list, bankruptcy may still help by clearing everything *around* it, but go in knowing the difference.
+The survivors' list, covered fully in [Which debts does bankruptcy erase, and which survive?](/library/which-debts-does-bankruptcy-erase): child support and alimony, recent income taxes, most student loans absent the extra hardship case, criminal fines and restitution, DUI injury debts, and debts procured by fraud when the creditor proves it. If your problem debt is on that list, bankruptcy may still help by clearing everything *around* it, but go in knowing the difference.
 
 ## Deals it can't rewrite (much)
 

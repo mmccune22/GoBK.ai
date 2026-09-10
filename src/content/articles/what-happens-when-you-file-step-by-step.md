@@ -36,7 +36,7 @@ The case is filed electronically; there is no ceremony, and most filers are at w
 
 ## About a month in: the 341 meeting
 
-The famous "meeting of creditors": a short, recorded meeting where the trustee, not a judge (judges are actually barred from attending), verifies your identity and asks standard questions about your paperwork. Creditors may attend and almost never do. Most meetings last about five minutes, which tells you what they are: a checkpoint, not a trial. It has its own article, including how to prepare, which is mostly "reread your schedules and bring your ID."
+The famous "meeting of creditors": a short, recorded meeting where the trustee, not a judge (judges are actually barred from attending), verifies your identity and asks standard questions about your paperwork. Creditors may attend and almost never do. Most meetings last about five minutes, which tells you what they are: a checkpoint, not a trial. Preparing for it is mostly "reread your schedules and bring your ID."
 
 ## The quiet stretch
 

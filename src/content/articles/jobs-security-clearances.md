@@ -19,7 +19,7 @@ sources:
 
 ## Your current job: protected
 
-The Code's anti-discrimination section is blunt: no private employer may **terminate** you, and no government employer may terminate, deny employment, or discriminate against you, because of a bankruptcy. Filing also tends to *reach* your employer only through mechanics covered in the is-it-public article: the garnishment order ending (welcome news to deliver) or a Chapter 13 wage deduction where local practice uses one.
+The Code's anti-discrimination section is blunt: no private employer may **terminate** you, and no government employer may terminate, deny employment, or discriminate against you, because of a bankruptcy. Filing also tends to *reach* your employer only through mechanics covered in [Will everyone know I filed? Is bankruptcy public?](/library/is-bankruptcy-public): the garnishment order ending (welcome news to deliver) or a Chapter 13 wage deduction where local practice uses one.
 
 ## Hiring: the honest soft spot
 

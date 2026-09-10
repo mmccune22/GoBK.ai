@@ -31,7 +31,7 @@ Each myth below links to the full answer elsewhere in the Library.
 
 **"I'll go in front of a judge and be interrogated."** The one appearance is a roughly five-minute meeting with a trustee; judges are legally barred from attending it. See [What is a 341 meeting?](/library/what-is-a-341-meeting)
 
-**"There's a trick to keep the house and stop paying for it."** There is no free house and no free car; bankruptcy erases promises, not liens. What it *can* do for a house in trouble is real and covered honestly in the Chapter 13 shelf.
+**"There's a trick to keep the house and stop paying for it."** There is no free house and no free car; bankruptcy erases promises, not liens. What it *can* do for a house in trouble is real and covered honestly in [How Chapter 13 saves a house: curing mortgage arrears](/library/chapter-13-stop-foreclosure-catch-up-mortgage).
 
 **"Filing means I failed."** The bankruptcy power is in the Constitution, the customers are overwhelmingly ordinary households hit by illness, job loss, and divorce, and the people who judge filers most harshly have generally never read a medical bill. Using a legal tool for its intended purpose is called planning.
 

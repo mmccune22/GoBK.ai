@@ -31,7 +31,7 @@ A six-month average has a memory. A layoff three months ago hasn't fully faded f
 
 ## Below median, above median
 
-Add up the countable income, multiply by twelve, and compare it to the published median for your household size in your state (the figures update a few times a year). At or below median: the means test is over, Chapter 7 is presumptively available, and a Chapter 13 plan, if you choose one, can be three years. Above median: you're not disqualified, you've just been handed the long form, which is its own article.
+Add up the countable income, multiply by twelve, and compare it to the published median for your household size in your state (the figures update a few times a year). At or below median: the means test is over, Chapter 7 is presumptively available, and a Chapter 13 plan, if you choose one, can be three years. Above median: you're not disqualified, you've just been handed the long form, covered in [I'm above the median income. Can I still file Chapter 7?](/library/above-median-income-now-what).
 
 ## The bottom line
 

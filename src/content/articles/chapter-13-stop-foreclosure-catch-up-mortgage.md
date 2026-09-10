@@ -21,7 +21,7 @@ sources:
 
 ## What happens the day you file
 
-The automatic stay stops the foreclosure immediately: the sale can't happen, and one scheduled for Friday is off if you file Thursday. (Filing *after* the sale is usually too late to undo it, which is why "how fast can I file" is its own answer in the Urgent problems section. If a sale date is close, treat it as the emergency it is.)
+The automatic stay stops the foreclosure immediately: the sale can't happen, and one scheduled for Friday is off if you file Thursday. (Filing *after* the sale is usually too late to undo it, which is why [How fast can I file if something is days away?](/library/how-fast-can-i-file) has its own page. If a sale date is close, treat it as the emergency it is.)
 
 ## The cure: bankruptcy's quiet superpower
 

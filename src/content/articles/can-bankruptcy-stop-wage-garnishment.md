@@ -35,7 +35,7 @@ The stay has a few exceptions that matter here:
 - **Criminal fines and restitution.** These are not stopped and not discharged.
 - **Repeat filings.** If you had a bankruptcy case dismissed within the past year, the stay in a new case lasts only 30 days unless you ask the court to extend it. If you had two cases dismissed in the past year, there is no automatic stay at all without a court order.
 
-The stay itself, everything it stops and everything it doesn't, has its own full answer in this section.
+The stay itself, everything it stops and everything it doesn't, is covered in [The automatic stay, explained](/library/what-is-the-automatic-stay).
 
 Garnishments for federal taxes and student loans are stopped by the stay. Whether the underlying debt survives the bankruptcy is a separate question, and often the answer is that it does. The garnishment stops; the debt may not.
 
@@ -53,7 +53,7 @@ In **Chapter 13**, the garnishment stays stopped for the life of the plan, typic
 
 ## Timing
 
-If you are being garnished now, timing matters more than usual. Every pay period before filing is money you will probably not get back. That said, filing in a rush without gathering the required documents, completing the pre-filing credit counseling course, and reviewing your whole situation can create bigger problems than one more garnished paycheck. A good attorney can often file an emergency "skeleton" petition within a day or two and complete the rest of the paperwork within two weeks; exactly how that works, including the counseling course you can knock out online today, is covered in the how-fast-can-I-file answer.
+If you are being garnished now, timing matters more than usual. Every pay period before filing is money you will probably not get back. That said, filing in a rush without gathering the required documents, completing the pre-filing credit counseling course, and reviewing your whole situation can create bigger problems than one more garnished paycheck. A good attorney can often file an emergency "skeleton" petition within a day or two and complete the rest of the paperwork within two weeks; exactly how that works, including the counseling course you can knock out online today, is covered in [How fast can I file if something is days away?](/library/how-fast-can-i-file).
 
 ## Things that change the answer
 

@@ -23,7 +23,7 @@ If the enterprise is your hands and your reputation, the handyman, the hairdress
 
 ## The business that owns things
 
-Inventory, equipment beyond the exemptions, valuable receivables, a sellable customer list: those are estate assets, and a Chapter 7 trustee can shut the operation and liquidate them, sometimes quickly, since running a business is risk trustees rarely accept. If the operating assets matter and the business is viable, this is Chapter 13's territory again: keep operating, pay non-exempt value through the plan, self-employment income and all (its own article covers that).
+Inventory, equipment beyond the exemptions, valuable receivables, a sellable customer list: those are estate assets, and a Chapter 7 trustee can shut the operation and liquidate them, sometimes quickly, since running a business is risk trustees rarely accept. If the operating assets matter and the business is viable, this is Chapter 13's territory again: keep operating, pay non-exempt value through the plan, self-employment income and all.
 
 ## The entity twist
 

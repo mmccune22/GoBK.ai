@@ -48,7 +48,7 @@ Filing looks like Chapter 7 (petition, schedules, a $313 filing fee) plus the pl
 
 ## The honest drawback
 
-Three to five years is a long time, and life doesn't pause for it. Jobs are lost, cars get wrecked, marriages change. A meaningful share of Chapter 13 plans don't make it to the end. That isn't a reason to avoid the chapter; it's a reason to know that the plan can bend: payments can be modified, cases can convert to Chapter 7, and hardship discharges exist. What happens when a plan goes sideways has its own answer in this Library, because it deserves one.
+Three to five years is a long time, and life doesn't pause for it. Jobs are lost, cars get wrecked, marriages change. A meaningful share of Chapter 13 plans don't make it to the end. That isn't a reason to avoid the chapter; it's a reason to know that the plan can bend: payments can be modified, cases can convert to Chapter 7, and hardship discharges exist. What happens when a plan goes sideways is covered in [What happens if I can't finish my Chapter 13 plan?](/library/what-if-i-cant-finish-chapter-13).
 
 ## The bottom line
 

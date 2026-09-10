@@ -31,7 +31,7 @@ Fees vary by region, by complexity, and by market, enough that quoting a nationa
 
 ## About doing it for the price of the filing fee
 
-Filing without a lawyer is legal and has a real place, covered honestly in its own article. The cost question has a sharper version, though: the expensive bankruptcy isn't the one with the higher quote; it's the one that goes wrong. A lost car that should have been exempt, a denied discharge, a dismissed 13 that burns the stay for the refile: any of these costs multiples of every fee discussed here. Price the risk, not just the retainer, and be suspicious of quotes dramatically below your market; volume mills make their margins somewhere.
+Filing without a lawyer is legal and has a real place, covered honestly in [Do I need a lawyer to file bankruptcy?](/library/do-i-need-a-lawyer-to-file). The cost question has a sharper version, though: the expensive bankruptcy isn't the one with the higher quote; it's the one that goes wrong. A lost car that should have been exempt, a denied discharge, a dismissed 13 that burns the stay for the refile: any of these costs multiples of every fee discussed here. Price the risk, not just the retainer, and be suspicious of quotes dramatically below your market; volume mills make their margins somewhere.
 
 ## The bottom line
 

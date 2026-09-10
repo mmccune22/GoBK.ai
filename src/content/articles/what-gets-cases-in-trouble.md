@@ -33,7 +33,7 @@ The bargain is explicit: full disclosure in exchange for the fresh start. You do
 
 **Broken promises to the trustee.** Agreeing to turn over the non-exempt slice of a tax refund, then spending it, is the quiet classic; discharges get revoked over it. If you can't perform an agreement, say so before the deadline, not after the money's gone.
 
-**Silence in Chapter 13.** Plans fail softly through unreturned calls; every rescue tool works better early. Covered fully in the what-if-I-can't-finish answer.
+**Silence in Chapter 13.** Plans fail softly through unreturned calls; every rescue tool works better early. Covered fully in [What happens if I can't finish my Chapter 13 plan?](/library/what-if-i-cant-finish-chapter-13).
 
 ## The reassurance, which is also the rule
 

@@ -35,7 +35,7 @@ Your realistic options for the car:
 
 - **Chapter 13 can be powerful here.** The loan can be restructured in your plan, often at the car's actual value rather than the inflated balance, at a sane interest rate instead of triple digits, and repossession is stopped while you pay.
 - **In Chapter 7,** you can sometimes redeem the car (pay the lender its current value in a lump sum), negotiate, or surrender it and walk away owing nothing, which for a badly underwater title loan is often the honest best outcome.
-- If the lender is **already moving to repossess**, filing stops it immediately; that's the automatic stay doing its job, and it's covered in the repossession answer in the Urgent problems section.
+- If the lender is **already moving to repossess**, filing stops it immediately; that's the automatic stay doing its job, and it's covered in [Can bankruptcy stop a repossession, or get my car back?](/library/stop-repossession-get-car-back).
 
 ## The bottom line
 
