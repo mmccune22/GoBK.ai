@@ -19,8 +19,6 @@ sources:
     url: "https://www.justice.gov/opa/pr/justice-department-and-department-education-announce-continuing-success-student-loan"
 ---
 
-For decades, "you can't bankrupt student loans" has been repeated so often that most people believe it absolutely. It has never been quite true, and in the last few years it has become a lot less true. Here is the honest picture.
-
 ## Why student loans are different
 
 Congress put student loans on the list of debts that survive bankruptcy unless you prove that repaying them would impose an "undue hardship" on you and your dependents. Proving that requires filing a separate mini-lawsuit inside your bankruptcy case, called an adversary proceeding. Your credit cards and medical bills get discharged without you lifting a finger; your student loans require you to raise your hand.

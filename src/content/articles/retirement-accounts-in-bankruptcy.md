@@ -19,8 +19,6 @@ sources:
     url: "https://supreme.justia.com/cases/federal/us/573/122/"
 ---
 
-Here's a sentence that changes decisions: a person can file bankruptcy with hundreds of thousands of dollars, even a million, in retirement savings, wipe out their unsecured debt, and keep every cent of the retirement money, legally, and with no tax consequences. It sounds like a loophole. It's the design.
-
 ## The protection, tier by tier
 
 **Employer plans: 401(k), 403(b), most pensions.** These never enter the bankruptcy estate at all; the Supreme Court settled it decades ago. The trustee doesn't weigh them against exemptions, because there's nothing to exempt; the money simply isn't on the table. Loans you took from your own 401(k) are also insulated in a related way: the plan repays itself from your contributions, and that arrangement rides through.

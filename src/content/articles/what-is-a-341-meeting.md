@@ -17,8 +17,6 @@ sources:
     url: "https://www.uscourts.gov/services-forms/bankruptcy/bankruptcy-basics/process-bankruptcy-basics"
 ---
 
-The name comes from section 341 of the Bankruptcy Code. It is the one required appearance in most consumer bankruptcy cases, and it is the part people dread most before they've been through it and shrug about afterward.
-
 ## When and where
 
 The meeting is scheduled roughly three to six weeks after you file. The court sends a notice with the date, time, and either a location or the phone or video instructions. It is not held in a courtroom and there is no judge. In fact, the judge is prohibited from attending.

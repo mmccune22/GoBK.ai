@@ -17,8 +17,6 @@ sources:
     url: "https://www.dni.gov/files/NCSC/documents/Regulations/SEAD-4-Adjudicative-Guidelines-U.pdf"
 ---
 
-For a lot of people the debt fear and the career fear are the same fear. Separate them, because the law already has.
-
 ## Your current job: protected
 
 The Code's anti-discrimination section is blunt: no private employer may **terminate** you, and no government employer may terminate, deny employment, or discriminate against you, because of a bankruptcy. Filing also tends to *reach* your employer only through mechanics covered in the is-it-public article: the garnishment order ending (welcome news to deliver) or a Chapter 13 wage deduction where local practice uses one.

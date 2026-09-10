@@ -17,8 +17,6 @@ sources:
     url: "https://www.justice.gov/ust/means-testing"
 ---
 
-"Above median" gets heard as "disqualified." It isn't. It means the shortcut is gone and the arithmetic begins, and arithmetic has been kind to a lot of families with big gross incomes and bigger fixed costs.
-
 ## The long form, in one paragraph
 
 Start with your six-month average income. Subtract living expenses, mostly at **standardized IRS amounts** for food, clothing, housing, utilities, and transportation that depend on your county and household size, not your receipts. Then subtract several categories at your **actual** numbers: payroll taxes, health, disability, and term life insurance, court-ordered support, mandatory retirement deductions where they qualify, childcare, health expenses above the standard, and, crucially, your average monthly payments on **secured debts**: the mortgage and the car loans. What's left is your monthly disposable income under the test. If it's under the statutory floor, you pass and Chapter 7 is available. Over the ceiling, the presumption is you can pay something. In between, the answer depends on whether the surplus could pay a meaningful slice of your unsecured debt.

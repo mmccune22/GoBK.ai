@@ -20,8 +20,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/1328"
 ---
 
-The whole point of a consumer bankruptcy is the discharge: a court order, signed by a federal judge you will probably never meet, that wipes out your personal responsibility for a lot of debt. Not necessarily all of it. So the practical question is which debts the discharge covers, and the best way to think about it is this: **assume a debt goes away, then check the exceptions.**
-
 ## Debts that bankruptcy erases
 
 For most people, the discharge takes care of the debts that pushed them toward bankruptcy in the first place:

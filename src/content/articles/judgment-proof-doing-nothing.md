@@ -17,8 +17,6 @@ sources:
     url: "https://www.ecfr.gov/current/title-31/subtitle-A/part-212"
 ---
 
-Here is a thing consumer lawyers tell certain clients that no collector ever will: *you may not need to do anything at all.*
-
 ## The idea
 
 A creditor's endgame is a judgment, and a judgment collects through three tools: garnishing wages, levying bank accounts, and liening property. If you have no garnishable wages (protected benefit income isn't), no levyable money (exempt funds, properly held), and no property beyond your exemptions, the judgment is a piece of paper. Lawyers call the person holding that position judgment-proof, or more precisely, collection-proof: they can be sued, and it doesn't matter.

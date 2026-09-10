@@ -18,8 +18,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/727"
 ---
 
-When people say "bankruptcy" with no adjective, they usually mean Chapter 7. It's the most-filed chapter, the fastest, and the one whose scary nickname least matches its reality.
-
 ## The shape of a case
 
 File the petition and schedules; the automatic stay starts instantly. About a month later, the 341 meeting: five-ish minutes of standard questions from the trustee, no judge (they're barred from attending). Then a roughly 60-day objection window during which, in the typical case, nothing happens. Then the discharge order arrives by mail, about four months after filing, ending your personal liability on the discharged debts forever. Which debts those are, and the exceptions, is the Debts shelf's anchor article.

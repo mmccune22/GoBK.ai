@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/rules/frbp/rule_1006"
 ---
 
-The dark joke every filer eventually makes: you have to afford to go broke. Here's the honest math and the honest workarounds.
-
 ## The fixed costs
 
 The **court filing fee**: $338 for Chapter 7, $313 for Chapter 13 (amounts change occasionally; the courts publish the current schedule). Chapter 7 filers below 150% of the poverty line can apply for a full **waiver**; anyone can ask to pay in **installments** over a few months after filing. The **two courses** (pre-filing counseling, post-filing education) run roughly $10 to $50 each, with waivers for low-income filers. So the government's share of a bankruptcy is modest and flexible.

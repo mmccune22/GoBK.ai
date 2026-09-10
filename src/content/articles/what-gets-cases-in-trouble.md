@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/548"
 ---
 
-The bankruptcy system processes hundreds of thousands of honest disasters a year without drama. The cases that go sideways share a short list of patterns, and none of them is "was too broke." Here's the list, so you can recognize the edges from a distance.
-
 ## The deal underneath the discharge
 
 The bargain is explicit: full disclosure in exchange for the fresh start. You don't get to say yes to the discharge and no thanks to the transparency; it isn't a cafeteria plan. Courts can deny the *entire* discharge, every debt, over concealment or false statements, and a discharge obtained then revoked over misconduct is worse than none: those debts can become undischargeable in any later case, forever.

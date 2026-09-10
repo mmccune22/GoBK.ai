@@ -19,8 +19,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/1328"
 ---
 
-Three to five years is a long time, and life doesn't check your plan before it happens. Jobs end, cars die, people get sick. Courts and trustees have seen every version of it, and the Code was written by people who knew plans would need to bend. Here's the menu, roughly in the order it's usually considered.
-
 ## Modify the plan
 
 The workhorse. If income drops or a necessary expense appears, the plan can be amended: lower payments, a longer schedule (up to the five-year maximum), or changed treatment of a creditor, like surrendering a wrecked car and discharging the balance instead of paying for a vehicle that no longer runs. Modification requires court approval and current numbers, and it works best *early*, while a missed payment is a wobble rather than a default. The single most useful sentence in this article is: call your attorney the month things change, not the month the trustee moves to dismiss.

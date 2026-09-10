@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/1328"
 ---
 
-The law's theory here is simple: bankruptcy exists to referee between you and your creditors, not between you and the state's power to punish. So punishment-debts get special armor, but the armor has seams worth knowing.
-
 ## What survives, where
 
 **Chapter 7:** fines, penalties, and forfeitures payable to a governmental unit, criminal fines, criminal restitution, most court-imposed penalties, ride through untouched. **Chapter 13's** discharge is slightly broader on paper (criminal *restitution* and criminal *fines* are expressly excluded, while some civil penalties and older tax penalties that would survive a 7 can discharge in a 13), which occasionally makes the chapter choice matter for someone whose debt pile is penalty-heavy. Two categories that follow their own articles: DUI injury debts survive everything, and support-related court obligations live under the support rules.

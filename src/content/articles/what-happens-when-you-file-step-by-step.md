@@ -20,8 +20,6 @@ sources:
     url: "https://www.law.cornell.edu/rules/frbp/rule_4004"
 ---
 
-People picture courtrooms, judges, and cross-examination. A typical consumer case has none of those. Here's the actual shape of it, in order.
-
 ## Before filing: where the work lives
 
 **The consultation.** You bring the honest picture: income, debts, property, and anything urgent. A good consultation ends with a recommendation, sometimes "don't file."

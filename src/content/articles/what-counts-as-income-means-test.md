@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/707"
 ---
 
-The means test doesn't ask what you make. It asks what you *made*: your average monthly income over the **six full calendar months before the month you file**, from nearly every source. The law calls it "current monthly income," which is a strange name for a backward-looking average, and that strangeness is where most of the surprises live.
-
 ## What counts
 
 Wages and salary (gross, before withholding), self-employment and gig income, bonuses and commissions, rental income, unemployment in most districts, pension and retirement plan income, interest and dividends, and any money someone else regularly contributes to your household bills, like a partner covering rent. If you're married, a non-filing spouse's income enters the picture too for household purposes, with an adjustment for the spouse's own separate expenses.

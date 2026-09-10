@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/707"
 ---
 
-The means test was added to bankruptcy law in 2005 to steer higher-income filers into Chapter 13 repayment plans instead of Chapter 7. It sounds intimidating. For most people it is a single comparison, and most people pass it.
-
 ## Step one: are you below the median?
 
 Add up all household income received in the six full calendar months before the month you file, from every source except Social Security benefits and a few other exclusions. Divide by six. That is your current monthly income. Multiply by twelve.

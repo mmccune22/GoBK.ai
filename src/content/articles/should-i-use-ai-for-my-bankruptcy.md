@@ -15,8 +15,6 @@ sources:
     url: "https://consumer.ftc.gov/consumer-alerts"
 ---
 
-Plenty of people now arrive at bankruptcy consultations holding a chatbot's analysis of their case. This site is built with AI's help and says so on the About page, so you won't get a lecture about robots here. You'll get the distinction that matters: AI is a powerful way to *become informed*; it is a poor substitute for *being advised*.
-
 ## What AI is genuinely good for
 
 - **Understanding concepts.** "Explain a cramdown like I'm tired" is a perfect chatbot request, and asking follow-ups until something clicks is what the tools do best.

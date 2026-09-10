@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/722"
 ---
 
-Your Chapter 7 discharge erases your personal obligation on the car loan; the lender's lien on the car survives. So the real question is what deal, if any, to make about the car. There are three, and they are not equal.
-
 ## Reaffirmation: think twice, then think again
 
 A reaffirmation agreement re-creates your personal liability on the loan, as if the bankruptcy never touched it, usually on the original terms. Signed, court-filed, and after that, if the car dies or gets repossessed next year, the deficiency follows you, discharge notwithstanding. That's precisely the outcome bankruptcy existed to prevent, which is why the law surrounds these agreements with disclosures and, for unrepresented filers, a judge's review, and why plenty of judges decline to approve reaffirmations that don't make sense.

@@ -17,8 +17,6 @@ sources:
     url: "https://www.consumerfinance.gov/ask-cfpb/how-do-i-dispute-an-error-on-my-credit-report-en-314/"
 ---
 
-Two clocks run after a bankruptcy, and people usually watch the wrong one.
-
 ## The reporting clocks
 
 Federal law caps how long the public-record entry can appear: **ten years from filing** for bankruptcies generally, and by longstanding bureau practice, completed **Chapter 13s come off at seven** (a small, real reward for finishing a plan). The individual accounts that went through the bankruptcy follow the ordinary rule for negative account history, dropping off about **seven years from their first delinquency**, which for most filers is earlier than the bankruptcy entry itself. Each account should report as "included in bankruptcy" with a **zero balance**; more on that below.

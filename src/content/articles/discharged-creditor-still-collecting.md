@@ -17,8 +17,6 @@ sources:
     url: "https://supreme.justia.com/cases/federal/us/587/554/"
 ---
 
-Your discharge order wasn't a request. It's a permanent federal injunction, and a creditor collecting a discharged debt is in contempt of it. This page is about using that fact calmly.
-
 ## Why this happens at all
 
 Discharged debts get sold in bulk to "zombie debt" buyers whose business model is betting you don't know your rights: a letter, a call, a small "settlement offer" hoping you'll pay something on a legally dead debt. Sometimes it's sloppier than sinister: a creditor's system never processed the bankruptcy notice. Either way the law doesn't care much about their intent; the debt is dead, and collecting it is the violation.

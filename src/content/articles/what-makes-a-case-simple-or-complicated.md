@@ -15,8 +15,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/707"
 ---
 
-"How bad is mine?" is what everyone actually wants to know before calling anyone. Here's the honest answer: bankruptcy complexity is a checklist, not a thermometer, and the debt total is barely on it.
-
 ## Why $80,000 can be simpler than $8,000
 
 A filer with $80,000 in cards and medical bills, a rented apartment, a modest car, and below-median wages has a textbook case: everything dischargeable, everything exempt, four months, done. A filer with $8,000 in debt, a jointly-owned house with equity, a repaid loan to Dad, and an unfiled tax year has four separate analysis problems. The system prices analysis, not balances.

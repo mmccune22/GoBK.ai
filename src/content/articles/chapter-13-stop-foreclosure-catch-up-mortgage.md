@@ -19,8 +19,6 @@ sources:
     url: "https://www.law.cornell.edu/rules/frbp/rule_3002.1"
 ---
 
-If you're behind on your mortgage and the lender won't work with you, Chapter 13 is the tool built for exactly your situation. It's the single most common reason people choose this chapter.
-
 ## What happens the day you file
 
 The automatic stay stops the foreclosure immediately: the sale can't happen, and one scheduled for Friday is off if you file Thursday. (Filing *after* the sale is usually too late to undo it, which is why "how fast can I file" is its own answer in the Urgent problems section. If a sale date is close, treat it as the emergency it is.)

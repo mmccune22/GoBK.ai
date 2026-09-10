@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/727"
 ---
 
-People carry a quiet fear that the fresh start has fine print, that the debts are waiting somewhere. Here's the actual permanence, and the short, real list of exceptions.
-
 ## The rule: dead is dead
 
 The discharge is a permanent federal injunction with no expiration date. Selling the debt transfers nothing but paper: buyers inherit the injunction along with the account. Making a **partial payment doesn't revive it** (pay a zombie collector $50 and the other $4,950 is still dead), and even *promising* to pay a discharged debt is unenforceable unless it was done through the formal reaffirmation process during your case; post-discharge promises, however solemn, revive nothing. Outside bankruptcy, old debts can be re-aged and re-sued in ways that surprise people; discharged debt uniquely cannot. It's the most final thing consumer law produces.

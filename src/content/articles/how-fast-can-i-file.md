@@ -19,8 +19,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/521"
 ---
 
-A foreclosure sale Friday. A paycheck that garnishes Monday. This is the situation where people finally ask how fast bankruptcy can move, and the answer is: faster than anything else in the legal system, if you do it right.
-
 ## The minimum filing
 
 A complete bankruptcy takes a stack of schedules and statements. An **emergency filing** doesn't wait for the stack. The genuine minimum is small: the voluntary petition, the list of your creditors' names and addresses (the "matrix"), the filing fee or an application to pay it in installments, and proof you completed **credit counseling**.

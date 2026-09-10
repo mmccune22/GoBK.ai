@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/522"
 ---
 
-Nobody takes your checkbook. Bankruptcy cases run for months while filers deposit paychecks and pay rent from the same accounts as always. But the filing *date* takes a snapshot, and a few bank-specific quirks are worth knowing before that snapshot gets taken.
-
 ## The snapshot
 
 Whatever is in your accounts at the moment of filing is property of the estate and must be disclosed to the penny; the trustee will see the statements. Whether you keep it depends on exemptions: some states protect deposited wages, some offer a wildcard amount that covers cash, some leave little room. Where the room is small, the fix is timing rather than trickery: file when the balance is naturally low, after rent and the bills are paid. What you must never do is "manage" the snapshot by hiding money, handing cash to relatives, or fudging the number; balances are the single easiest thing a trustee verifies, and honesty about an extra $400 costs far less than cleverness about it.

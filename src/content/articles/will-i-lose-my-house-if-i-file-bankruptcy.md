@@ -21,8 +21,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/522"
 ---
 
-The fear of losing a home stops many people from even looking into bankruptcy. It is worth separating the fear from the mechanics, because the mechanics are not that complicated, and they are usually on your side.
-
 ## The two questions that matter
 
 **How much equity do you have?** Equity is what your house is worth minus what you owe on it. If your house would sell for $350,000 and you owe $310,000, you have about $40,000 in equity.

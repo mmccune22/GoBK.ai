@@ -16,8 +16,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/522"
 ---
 
-If the discharge is bankruptcy's engine, exemptions are its suspension: the part that makes the trip survivable. They answer the question underneath every other question people ask us: *what do I get to keep?*
-
 ## The idea
 
 When you file, your property technically becomes part of a "bankruptcy estate." Nobody shows up to pack your things; it's a legal construct. Then exemptions pull property back out of the estate, beyond the reach of the trustee and your creditors. Exempt property is yours, discharge and all. The policy is old and humane: wiping out debt would be a hollow gift if the price was walking out with nothing. Exemptions are what keep the fresh start from being a bare start, and they're one of the last real safety nets ordinary people have against the collections industry.

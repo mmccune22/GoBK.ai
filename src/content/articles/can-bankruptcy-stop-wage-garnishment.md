@@ -21,8 +21,6 @@ sources:
     url: "https://www.dol.gov/agencies/whd/garnishment"
 ---
 
-A wage garnishment is what happens after a creditor has already won. They sued you, got a judgment, and sent an order to your employer. Now a slice of every paycheck goes to them before you see it. It is one of the most common reasons people finally look into bankruptcy, and it is one of the things bankruptcy handles most cleanly.
-
 ## How the stay works
 
 The moment a bankruptcy case is filed, a federal rule called the automatic stay goes into effect. It is not something a judge has to grant. It exists the instant the case number is issued, and it prohibits most creditors from continuing any collection activity against you, including garnishment.

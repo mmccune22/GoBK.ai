@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/523"
 ---
 
-Medical debt is one of the leading reasons Americans file bankruptcy, and it is also one of the simplest kinds of debt to deal with in a bankruptcy case.
-
 ## Why it discharges so cleanly
 
 The law treats medical bills as ordinary unsecured debt, the same category as credit cards. Congress's list of debts that survive bankruptcy (taxes, support, student loans, fines, fraud) says nothing about medical care. So hospital bills, surgeon bills, ambulance rides, lab work, and the credit card you used to pay a deductible are all discharged in full.

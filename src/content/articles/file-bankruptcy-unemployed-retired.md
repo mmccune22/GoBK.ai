@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/101"
 ---
 
-People assume bankruptcy requires an income the way a loan does. It's closer to the opposite: Chapter 7 was built for exactly the moment when the income is gone and the debts aren't.
-
 ## Unemployed
 
 No job is no barrier to Chapter 7; if anything it clears the path, since little or no income in the six-month lookback usually means passing the means test outright. (Recent layoffs are the nuance: high earnings from a few months ago linger in the average, and sometimes the advice is to wait a month or two while they age out. Unemployment benefits count as income in most places; even so, they rarely push anyone over median.) The practical hurdles are humbler: the filing fee, which can be paid in installments or waived for the lowest-income filers, and the attorney fee, which is a real conversation to have openly at consultations; many practices have seen every version of it and have answers.

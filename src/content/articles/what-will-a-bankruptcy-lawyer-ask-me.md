@@ -15,8 +15,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/521"
 ---
 
-People walk into consultations braced to be judged and walk out surprised: it's not an audit, it's a mapping exercise. Every question connects to a rule. Here's the map, so nothing catches you off guard.
-
 ## The five subjects
 
 **Your debts.** Who you owe, roughly how much, and what kind — cards and medical, taxes, student loans, support, anything with collateral behind it, anything already in lawsuit or judgment form. The kinds matter more than the amounts, because the law treats each kind differently: the which-debts-erase answer is the why behind every question in this cluster.

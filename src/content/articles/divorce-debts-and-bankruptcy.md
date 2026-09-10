@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/1328"
 ---
 
-Divorce and bankruptcy travel together so often that the Code has rules written specifically for their intersection, and the rules turn entirely on one distinction.
-
 ## Pile one: support
 
 Anything that *is* support, child support, alimony, and anything a court decides *functions* as support regardless of its label (attorney fee awards in custody fights often count, so can "mortgage payments in lieu of alimony"), survives every chapter, always. Courts look at function over labels in both directions, which cuts against creative decree drafting and occasionally rescues a filer whose "alimony" was really a disguised property buyout. The full support rules live in the child-support article.

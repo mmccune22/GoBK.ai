@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/522"
 ---
 
-Ask any Chapter 7 trustee where the money in consumer cases comes from and tax refunds are near the top of the list. Not because the law singles them out, but because they're the one meaningful asset ordinary households reliably have: liquid, exact to the dollar, and delivered by the government on a schedule. So this deserves more planning attention than people give it.
-
 ## How a refund becomes the estate's
 
 Your refund is just your own money coming back, which means you *earned* it across the tax year, and the bankruptcy estate captures the portion earned before your filing date. File in March before receiving last year's refund, and that entire refund is an estate asset. File in October, and roughly ten-twelfths of *next* spring's refund is too, even though it won't arrive for months. Trustees in many districts routinely hold cases open for exactly this, sometimes with an agreement that you'll send a portion of the refund when it comes. If you make such an agreement, honor it; a discharge can be revoked over a kept-and-spent refund, and that's a self-inflicted wound with no remedy.

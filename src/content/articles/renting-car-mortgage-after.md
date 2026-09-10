@@ -17,8 +17,6 @@ sources:
     url: "https://www.consumerfinance.gov/ask-cfpb/"
 ---
 
-"Will anyone ever rent to me, finance a car, or give me a mortgage again?" Yes, yes, and yes, on three different clocks. Here's each one honestly.
-
 ## Renting
 
 Landlords screening applications care about a ranked list: income versus rent, rental history and references, evictions, and then credit. A bankruptcy on the report is a known, closed event; what large landlords' screening actually flags hardest are evictions, active judgments, and unpaid *prior landlords*, and here's the quiet advantage: a discharge that cleared old debts, including old landlord debts, often screens better than the alternative universe where those stayed active. Practical moves: apply with proof of income up front, offer a slightly larger deposit or an extra month where lawful, get a reference letter from any landlord you paid well, and favor individual landlords over big algorithmic complexes when the report is fresh. People rent apartments the same year they file, routinely.

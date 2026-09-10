@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/524"
 ---
 
-No debt on the schedules carries more emotional weight per dollar, and no debt produces more well-intentioned mistakes. The rules, and the honorable path through them:
-
 ## Family is a creditor, with an asterisk
 
 The $5,000 from your parents goes on the schedules like the Visa balance: listing every debt is mandatory, the discharge covers it, and your parents will receive the same court notices every creditor gets (yes, that conversation is coming; better it comes from you first). The asterisk is that the law treats relatives and close associates as **insiders**, and watches money flowing to insiders with special attention.

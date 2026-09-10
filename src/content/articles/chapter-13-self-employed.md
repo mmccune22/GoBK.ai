@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/1304"
 ---
 
-The gig worker, the contractor, the shop owner: none of them is disqualified from the wage-earner's chapter, whose actual requirement is income "sufficiently stable and regular" to fund a plan. Irregular *amounts* are fine; what matters is that money reliably comes. Here's what changes when it's your business writing the checks.
-
 ## Documentation is the entry fee
 
 No pay stubs means you build the record: **profit-and-loss statements** for the means-test lookback and likely monthly-ish during the case, bank statements that reconcile with them, and filed tax returns (the four-year filing requirement bites hardest here; unfiled years become an immediate to-do). Trustees scrutinize self-employed budgets harder precisely because the numbers are self-reported, and the winning posture is boring bookkeeping: separate business account, real records, expenses that survive a skeptical read. If the books are currently a shoebox, the two months spent fixing that before filing repay themselves at confirmation.

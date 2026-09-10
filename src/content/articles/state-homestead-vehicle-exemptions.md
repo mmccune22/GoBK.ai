@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/522"
 ---
 
-The exemptions explainer covers how this system works; this page is the map. Two columns, because they answer the two questions everyone asks first: *how much of my home's equity is protected, and can I keep my car?*
-
 ## How to read this table
 
 - **These are equity figures, not value figures.** A $400,000 house with a $340,000 mortgage has $60,000 of equity; that is the number the homestead protects. Most homeowners have less exposed equity than they think, and sale costs shrink it further.

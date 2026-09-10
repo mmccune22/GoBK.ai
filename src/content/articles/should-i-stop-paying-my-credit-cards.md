@@ -18,8 +18,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/547"
 ---
 
-This is one of the most common questions people ask once they start considering bankruptcy, and the honest answer is that it depends on what you are going to do next.
-
 ## If you have decided to file
 
 Once you have decided to file, and especially once you have hired an attorney, most attorneys will tell you to stop paying unsecured debts that will be discharged. Every dollar you send a credit card company at that point is a dollar that disappears, and it is a dollar you may need for the filing fee, the attorney fee, or simply for living. There is no legal obligation to keep paying, and stopping does not affect your ability to file.

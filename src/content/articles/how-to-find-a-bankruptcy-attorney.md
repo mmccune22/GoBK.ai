@@ -17,8 +17,6 @@ sources:
     url: "https://www.lsc.gov/about-lsc/what-legal-aid/get-legal-help"
 ---
 
-GoBK can explain the system; it can't file your case or give you advice about your facts. When it's time for a person, here's how to find a good one.
-
 ## Where to look
 
 - **The NACBA directory.** The National Association of Consumer Bankruptcy Attorneys is the trade association for lawyers who represent people (not banks) in bankruptcy. Its public finder searches members by zip code. Membership isn't a vetting badge, but in this field it's a meaningful signal: these are lawyers invested in consumer work specifically.

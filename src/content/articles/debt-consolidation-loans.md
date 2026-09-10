@@ -15,8 +15,6 @@ sources:
     url: "https://www.consumerfinance.gov/ask-cfpb/what-do-i-need-to-know-about-consolidating-my-credit-card-debt-en-1861/"
 ---
 
-Consolidation is the alternative that *sounds* the most responsible, which is exactly why it deserves the most skeptical math. One principle sorts every version: **consolidation changes the container, not the amount.** The debt is identical the day after; only the rate, the term, and your behavior can make it smaller.
-
 ## When it genuinely helps
 
 All four at once: a **fixed rate meaningfully below** your blended current rate, *after* origination fees are counted; a **term that doesn't quietly extend** the debt so long that "lower payment" means "more total interest"; the old cards **closed or frozen**, not refreshed to zero and waiting; and income that comfortably covers the new payment. A person with decent credit, 24% card debt, and a 11% fixed personal loan who then freezes the cards has done something real. Balance-transfer cards with 0% windows can work the same way for smaller balances *if* the payoff fits inside the window and the transfer fee is priced in; the teaser expiring into a high rate with the balance intact is the standard failure.

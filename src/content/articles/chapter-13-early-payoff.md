@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/1328"
 ---
 
-It sounds like the most virtuous question in bankruptcy: can I finish faster? The answer is one of Chapter 13's genuine curveballs.
-
 ## Why prepayment backfires
 
 Your plan promised your **disposable income** for the applicable period, with unsecured creditors receiving whatever percentage the numbers produced. Show up in year two with a lump sum to "pay off the plan," and you've announced that the numbers changed, and the trustee (or creditors) can respond with a modification motion: if there's suddenly money, the percentage to unsecureds should rise, potentially to full payment, before any early exit. So the attempted shortcut converts a 30% plan into a fight about a 100% one. The clean exception: if you *are* paying **all allowed claims in full** (plus the trustee's percentage), early completion is generally available; nobody has grounds to complain, and the discharge follows. How these situations are handled in practice varies by district and by trustee, which is one more reason the move gets planned with counsel rather than sprung on anyone. For low-percentage plans, that's a much bigger check than people expect.

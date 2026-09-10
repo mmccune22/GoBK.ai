@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/101"
 ---
 
-The fear version of this question is usually "will my bankruptcy wreck my spouse?" The planning version is "one case or two names on one case?" Both have clean answers.
-
 ## The ground rules
 
 Marriage doesn't make you liable for each other's debts (with a community-property-state asterisk below). Debt belongs to whoever signed. So the starting analysis is an inventory: whose name is on what? A spouse who brought premarital credit cards, a failed business, or a medical event into the marriage can file alone, discharge *their* debts, and the non-filing spouse's credit report shows nothing, because nothing of theirs was in the case.

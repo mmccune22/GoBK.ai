@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/110"
 ---
 
-A site whose whole premise is free information owes you a straight answer here, and the straight answer has two halves.
-
 ## When self-filing is reasonable
 
 The genuinely simple Chapter 7 exists, and it looks like this: income comfortably below your state's median, no real estate (or equity clearly inside the homestead), an ordinary car, no business, no recent property transfers or big payments to relatives, no lawsuits mid-flight, debts that are plainly the dischargeable kind. For that case, the forms are tedious but not treacherous, courts publish pro se guides, and **Upsolve**, a legitimate nonprofit, provides a free tool that has helped many thousands of simple-case filers prepare Chapter 7 paperwork. If that paragraph describes you and money is truly unavailable, self-filing is a defensible path. (So is one more attempt at counsel: legal aid offices and bar pro bono programs handle exactly these cases, and the find-an-attorney article covers who to call.)

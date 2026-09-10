@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/507"
 ---
 
-People assume tax debt is untouchable in bankruptcy. It isn't. It's on a timer.
-
 ## The timing rules, in plain English
 
 Ordinary income tax debt can be discharged if all of these are true:

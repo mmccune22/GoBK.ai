@@ -17,8 +17,6 @@ sources:
     url: "https://consumer.ftc.gov/articles/how-get-out-debt"
 ---
 
-Settlement is the alternative everyone's heard advertised, so here's what's actually inside the box.
-
 ## The mechanics
 
 Creditors sell defaulted debt for pennies, so a lump-sum offer of 40 or 60 cents on the dollar can beat their alternative, and they know it. That's the entire logic. It works best when three things are true: the debts are few, the money for lump sums exists or will soon, and the creditors are the settling kind. It can absolutely be done **yourself**: wait until the account is delinquent enough to have a hardship department, offer what you have, and get the deal in writing before a dollar moves. "In writing, first" is the whole DIY rulebook.

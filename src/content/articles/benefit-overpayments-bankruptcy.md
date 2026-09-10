@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/553"
 ---
 
-The overpayment letter is uniquely crushing: money you received in good faith, often the agency's own error, now demanded back from a budget that never had slack, frequently by shrinking the very benefits you live on. Bankruptcy handles these better than people expect.
-
 ## The rule
 
 Overpayment debts have no special protection: no exception to discharge exists just because the creditor is a government agency. An overpayment caused by administrative error, a paperwork lag, or an honest reporting mistake discharges like a credit card, in either chapter. Courts settled long ago, over agencies' objections, that Social Security overpayments are dischargeable, and once discharged, the agency generally can't keep deducting the old overpayment from your *future* benefit checks, because those checks are post-bankruptcy money that the old debt can no longer touch. For someone whose monthly benefit is being garnished-by-recoupment, that's the headline: filing can restore the full check.

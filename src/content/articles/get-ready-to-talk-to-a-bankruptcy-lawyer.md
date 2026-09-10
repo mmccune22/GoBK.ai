@@ -16,8 +16,6 @@ sources:
     url: "https://www.uscourts.gov/services-forms/bankruptcy/bankruptcy-basics"
 ---
 
-The most useful thing to understand about a bankruptcy consultation is that it runs on information you already have. The lawyer brings the law; you bring your financial life. How well you've got hold of yours decides how far the conversation gets.
-
 ## Step one: know your facts
 
 Before any paperwork, get the picture straight in your own head: what you owe and to whom, what comes in each month and from where, what you own and roughly what it's worth, and what money has moved lately — payments to relatives, anything sold or transferred, big purchases. The know-your-numbers answer in this section walks the whole inventory. You don't need precision; you need honesty and rough completeness. Surprises are the enemy of good advice, and every fact a lawyer learns in month two instead of minute ten costs something.

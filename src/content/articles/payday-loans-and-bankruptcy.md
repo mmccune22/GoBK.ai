@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/362"
 ---
 
-Payday and title lenders are very good at making their loans feel un-escapable. They are among the easiest debts bankruptcy deals with, with two wrinkles worth understanding.
-
 ## Payday loans discharge like anything else
 
 A payday loan is unsecured debt. It discharges in Chapter 7 and Chapter 13 the same as a credit card, and it doesn't matter that the balance has rolled over a dozen times or ballooned with fees; the whole thing goes. The moment you file, the automatic stay also stops the collection machinery: the calls, the threats, the new lawsuits.

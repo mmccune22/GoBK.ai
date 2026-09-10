@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/727"
 ---
 
-Once the 341 is behind you, the case goes quiet, and the quiet makes people nervous. Here's what the clock is actually doing.
-
 ## The routine timeline
 
 Creditors and the trustee have **60 days from the first date set for your 341** to object to your discharge or to the dischargeability of particular debts. When that window closes with no objections, and your paperwork is complete, the clerk enters the discharge, typically within days to a couple of weeks. Net: discharge orders commonly arrive 60 to 75 days post-341, four-ish months after filing. It comes by mail, it looks unremarkable, and it's the whole point; keep it forever (and yes, copies are retrievable from the court later, for a fee, when the mortgage refinance asks in nine years).

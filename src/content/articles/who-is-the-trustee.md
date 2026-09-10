@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/1302"
 ---
 
-Every bankruptcy has one, most filers meet them exactly once, and misunderstanding them causes needless fear. Here's who they are.
-
 ## The job
 
 In **Chapter 7**, the trustee's assignment is to find value for creditors: review your schedules, question you briefly at the 341, and determine whether anything you own exceeds your exemptions or whether any recent transactions can be unwound. In the large majority of cases the answer is no, the trustee files a "no-asset" report, and their involvement ends there. When there *is* value, expect practicality over drama: trustees would usually rather accept a payment plan for the non-exempt portion of something, or sell an item back to you, than pay an auctioneer to haul it.

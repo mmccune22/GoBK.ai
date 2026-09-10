@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/542"
 ---
 
-For most working people the car is the job, the school run, and the ability to comply with everything else life demands. The law's help here is real, but it's front-loaded: your options are strongest before and immediately after the truck shows up, and they shrink to zero at the auction.
-
 ## Before the repo: filing stops it cold
 
 There's no notice requirement for most repossessions; if you're in default, the truck can come tonight. But the instant a bankruptcy is filed, the automatic stay makes repossession illegal, and a lender who takes the car anyway (or refuses to call off a repo already dispatched) is violating a federal injunction, with damages available. If you're days from a likely repo and bankruptcy is on the table anyway, sequencing matters: file first, then breathe.

@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/506"
 ---
 
-Cars are where Chapter 13 does some of its best work, because car loans are where consumers get some of their worst deals.
-
 ## First, the emergency part
 
 Filing stops a repossession instantly, and if the car was just taken but not yet sold, filing a Chapter 13 can often force its return so it can be paid for through the plan. If that's tonight's problem, the repossession answer in Urgent problems covers the fast-moving details; come back here for how the plan handles the loan.

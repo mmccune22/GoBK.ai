@@ -20,8 +20,6 @@ sources:
     url: "https://www.irs.gov/taxtopics/tc431"
 ---
 
-Bankruptcy is one tool. It is a strong one, and for many people it is the right one. But a site that only told you about bankruptcy would not be much use. Here are the alternatives that actually exist, without the sales pitch.
-
 ## Creditor hardship programs
 
 Most major credit card issuers, and many lenders, have internal hardship programs. They typically reduce the interest rate, sometimes to zero, and set a fixed payment for a period of months or years. The account is usually closed to new charges.

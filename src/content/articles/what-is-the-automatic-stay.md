@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/1301"
 ---
 
-Every urgent-problem answer in this Library eventually points at the same piece of law, so it deserves its own page. The automatic stay is the mechanism that makes bankruptcy work in an emergency, and understanding it explains most of what filing can and can't do for you.
-
 ## What it is
 
 The filing of a bankruptcy case, any chapter, automatically creates an injunction against essentially all collection activity on debts from before the case. "Automatic" is literal: no hearing, no judge's signature, no discretion. The case number existing is the order. Creditors who are notified must stop, and even ones who haven't heard yet are bound; actions taken in ignorance of the stay generally get undone.

@@ -19,8 +19,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/547"
 ---
 
-Waking up to a frozen account is one of the most frightening moments in the whole debt-collection machine, because it takes grocery money, not abstract credit. It also moves fast, so this answer is organized by what to do, in order.
-
 ## First, find out what happened
 
 Call the bank and ask three questions: who levied, for how much, and what court or agency issued it. The answer sorts you into one of three tracks:

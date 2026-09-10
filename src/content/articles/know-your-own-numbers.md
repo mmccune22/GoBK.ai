@@ -15,8 +15,6 @@ sources:
     url: "https://www.annualcreditreport.com/"
 ---
 
-Lawyers analyze facts. Most people arrive with feelings — *drowning, behind, scared* — which are real but not analyzable. This page turns the feelings into six lists. Pen and paper or a notes app; keep it private at home; nothing gets sent to anyone, including us.
-
 ## List one: debts, by kind
 
 Pull your three free credit reports (annualcreditreport.com, the official site) and add anything that doesn't report — medical bills, payday loans, money owed to people. For each: who, roughly how much, and the kind, because kind is destiny in bankruptcy: cards/medical/personal loans in one group; taxes with the years noted; student loans; support; anything secured by property; anything already sued on or garnishing, with dates. Precision optional. Completeness not.

@@ -20,8 +20,6 @@ sources:
     url: "https://www.uscourts.gov/services-forms/bankruptcy/bankruptcy-basics/chapter-13-bankruptcy-basics"
 ---
 
-For most people a car is not optional. It is how they get to the job that pays for everything else. Bankruptcy law recognizes that, and the rules around vehicles are designed to let you keep one that you need. The path depends on whether you own the car, finance it, or lease it.
-
 ## If you own the car outright
 
 Your car's value is protected up to the motor vehicle exemption available to you. If the car is worth less than the exemption, it is fully protected and nothing happens to it.

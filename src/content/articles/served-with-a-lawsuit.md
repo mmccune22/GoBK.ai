@@ -16,8 +16,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/362"
 ---
 
-Getting served is designed to feel like the end of something. It's actually the beginning of a process with rules, deadlines, and more options than the paperwork suggests.
-
 ## What the lawsuit means
 
 A creditor or, more often, a debt buyer who purchased the account for pennies, is asking a court to turn the debt into a **judgment**. The debt itself can't touch your paycheck. A judgment can: it's the key that unlocks wage garnishment, bank levies, and liens. That's the whole game, and it's why the suit deserves a response even when the debt is real.

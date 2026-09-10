@@ -17,8 +17,6 @@ sources:
     url: "https://www.nfcc.org/"
 ---
 
-Between "keep drowning" and "file bankruptcy" sits a legitimate middle option most people have never had explained straight. Here it is.
-
 ## The mechanics
 
 A **nonprofit** credit counseling agency reviews your budget and proposes a plan: you make one payment to the agency monthly, it distributes to your unsecured creditors, and the creditors, per standing arrangements with these agencies, typically drop interest rates dramatically (high-20s cards commonly fall to single digits), waive late fees, and re-age accounts to current. You repay **all of the principal**, usually over three to five years. Accounts on the plan get closed, a small monthly agency fee applies (regulated, modest, waivable in hardship), and the plan only binds creditors who accept, though the major card issuers nearly all do.

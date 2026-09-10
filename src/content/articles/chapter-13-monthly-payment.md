@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/1322"
 ---
 
-This is the first question everyone asks about Chapter 13, and the only honest answer is: it's arithmetic, and it's *your* arithmetic. Here are the pieces the arithmetic is made of.
-
 ## What must be paid through the plan
 
 Some things have to be paid in full during the plan, and they form the base of the payment:

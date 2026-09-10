@@ -19,8 +19,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/727"
 ---
 
-Congress added these in 2005 on the theory that filers needed counseling out of bankruptcy and education against returning. In practice, they're two short administrative hoops. Here's exactly what they are so neither one costs you anything but the hour.
-
 ## Course one: credit counseling, before you file
 
 A briefing from a government-approved nonprofit covering your budget and the alternatives to bankruptcy. Online or by phone, about an hour, and the provider must issue your certificate promptly. Realities worth knowing:

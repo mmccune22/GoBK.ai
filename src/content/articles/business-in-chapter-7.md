@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/522"
 ---
 
-"Will I lose my business?" needs one clarifying question first: what does the business *consist of*?
-
 ## The business that is you
 
 If the enterprise is your hands and your reputation, the handyman, the hairdresser, the consultant, the driver, there's little to liquidate: you can't be sold, tools-of-trade exemptions cover working equipment in most states, and filers in service trades routinely work straight through their Chapter 7. Trustees may ask about receivables and want proof of insurance for ongoing operations, but "keep working" is the normal outcome. Income going forward simply becomes your income for the case's purposes.

@@ -20,8 +20,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/1328"
 ---
 
-Chapter 7 gets the headlines because it's fast. Chapter 13 is slower, and for a lot of people it's the friendlier place to be. Here's how it actually works.
-
 ## The basic deal
 
 You propose a plan: one monthly payment, for three to five years, to a court-appointed trustee who distributes it to your creditors according to rules that decide who gets paid what. While the plan runs, the automatic stay protects you: no garnishments, no foreclosure sales, no repossessions, no collection calls. You keep all of your property, including things a Chapter 7 trustee might have taken. Finish the plan and the court discharges the unsecured debt that remains.

@@ -20,8 +20,6 @@ sources:
     url: "https://www.consumerfinance.gov/consumer-tools/mortgages/"
 ---
 
-A foreclosure notice has a date on it, and the date does strange things to people. Some freeze. Some scramble. It helps to know exactly what bankruptcy can and cannot do, because the answer is different depending on what you want.
-
 ## Stopping the sale
 
 The automatic stay takes effect the instant your case is filed, and it stops the foreclosure sale. A sale held after the filing, even by mistake, is generally void. This works whether you file Chapter 7 or Chapter 13, and it works right up until the sale actually happens. After the sale, it is usually too late; the house belongs to someone else.

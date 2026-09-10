@@ -17,8 +17,6 @@ sources:
     url: "https://www.hud.gov/program_offices/housing/sfh/handbook_4000-1"
 ---
 
-People worry about credit more than almost anything else in bankruptcy, and the worry is usually out of proportion to what actually happens. Here is the sequence.
-
 ## How long it stays on your report
 
 A Chapter 7 bankruptcy is reported for ten years from the filing date. A Chapter 13 is reported for seven years from the filing date. The two-clocks story, why scores recover long before the entry disappears, has its own answer in this section. The accounts included in the bankruptcy should be updated to show a zero balance and a notation that they were discharged. If they keep showing a balance after the discharge, that is a reporting error you can dispute.

@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/rules/frbp/rule_4002"
 ---
 
-Bankruptcy paperwork is sworn arithmetic, and the documents are where the numbers come from. Gathering them early is the single biggest thing you control about how smoothly a case runs. The checklist:
-
 ## Income
 
 - **Pay stubs for the last six months**, every job, both spouses if filing jointly (the means test's lookback window). Self-employed: profit-and-loss statements for the same period, however informal.

@@ -19,8 +19,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/1322"
 ---
 
-Bankruptcy law protects a lot of debtors from a lot of creditors. It does not protect anyone from their kids. Support obligations sit at the very top of the system's priorities, above almost everything else, and every consumer bankruptcy treats them that way.
-
 ## The rules, plainly
 
 - **No discharge, ever.** Child support and alimony survive Chapter 7 and Chapter 13, no exceptions, no hardship argument, no waiting period. This includes past-due amounts (arrears) and, generally, obligations owed to the state when it has paid benefits on your family's behalf.

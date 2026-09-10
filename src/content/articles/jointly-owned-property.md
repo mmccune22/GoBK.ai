@@ -17,8 +17,6 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/522"
 ---
 
-The house with your sister on the deed, the car titled with Dad who co-signed, the account with Mom's name "for convenience": co-ownership is everywhere, and it's one of the first things to map before filing.
-
 ## The baseline: your share, not theirs
 
 Your bankruptcy estate takes your *interest*: half of the jointly deeded cabin, your share of the joint account. The co-owner's share never becomes estate property, and your exemptions then apply to your slice, which for most co-owned assets, once mortgages and realistic sale costs are subtracted, means the familiar outcome: exempt, disclosed, untouched.

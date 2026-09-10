@@ -15,8 +15,6 @@ sources:
     url: "https://www.consumerfinance.gov/ask-cfpb/how-do-i-rebuild-my-credit-history-en-1114/"
 ---
 
-The discharge stopped the damage; rebuilding is a separate project with its own sequence. Here's the realistic version, stripped of both doom and hype.
-
 ## Months one to three: cleanup
 
 Pull all three reports (annualcreditreport.com, the official free one). Every discharged account should read "included in bankruptcy," **zero balance**, no post-filing delinquencies. Errors here are common and they suppress scores as surely as new missed payments; dispute them in writing with the discharge order attached. This unglamorous step is frequently worth more points than anything you can buy.
