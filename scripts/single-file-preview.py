@@ -35,6 +35,7 @@ if switcher:
     bar_css='.vbar{position:sticky;top:0;z-index:50;background:#242826;color:#f7f5ef;font:500 13px/1 Inter Variable,system-ui,sans-serif;padding:10px 16px;display:flex;gap:14px;align-items:center}.vbar a{color:#c9d6cd;text-decoration:none;padding:4px 8px;border-radius:3px}.vbar a.on{background:#173c35;color:#fff}'
 else: bar_css=''
 fav=base64.b64encode(open('public/favicon.svg','rb').read().replace(b'\r\n',b'\n')).decode()
+frame_script=open('public/checkup-beta-frame.js',encoding='utf-8').read()
 doc=f'''<!doctype html><html lang="en"><head><meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GoBK preview</title><link rel="icon" href="data:image/svg+xml;base64,{fav}"><style>{css}</style><style>.pg[hidden]{{display:none}}{bar_css}</style></head><body>
 {bar}{''.join(sections)}
@@ -49,5 +50,6 @@ cur=id;
 document.querySelectorAll('.pg').forEach(function(p){{p.hidden=p.id!=='pg-'+id}});document.querySelectorAll('.vbar a').forEach(function(a){{a.classList.toggle('on',a.dataset.v===id)}});document.title=titles[id]||'GoBK';window.scrollTo(0,0);}}
 addEventListener('hashchange',show);show();
 document.addEventListener('submit',function(e){{e.preventDefault();var n=e.target.parentElement&&e.target.parentElement.querySelector('.note');if(n)n.textContent='Signups are not connected in this preview.';}});
+{frame_script}
 </script></body></html>'''
 open(out,'w').write(doc); print(out, len(doc)//1024,'KB', len(pages),'pages')
