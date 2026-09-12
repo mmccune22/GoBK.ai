@@ -5,6 +5,7 @@ const path = Astro.url.pathname;
 const nav = [
   { href: '/library', label: 'Library' },
   { href: '/checkup', label: 'Checkup' },
+  { href: '/bankruptcy-checkup-beta', label: 'Bankruptcy Checkup (Beta)' },
   { href: '/about', label: 'About' },
 ];
 ---
@@ -39,6 +40,9 @@ const nav = [
   nav a:hover, nav a[aria-current="page"] { border-bottom-color: var(--sage); }
   .search-link { display: inline-flex; align-items: center; gap: 0.4rem; }
   @media (max-width: 40rem) {
+    .bar { flex-wrap: wrap; }
+    nav { width: 100%; }
+    nav ul { flex-wrap: wrap; gap: 0.65rem 1rem; }
     .desc { display: none; }
     nav a { font-size: 0.95rem; }
   }

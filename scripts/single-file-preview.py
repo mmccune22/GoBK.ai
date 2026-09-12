@@ -15,7 +15,7 @@ for m in re.finditer(r'@font-face\{[^}]*\}',css):
 css=''.join(faces)+re.sub(r'@font-face\{[^}]*\}','',css)
 pages={}
 for f in sorted(glob.glob(f'{dist}/**/index.html',recursive=True)):
-    rel=os.path.relpath(os.path.dirname(f),dist); url='/' if rel=='.' else '/'+rel
+    rel=os.path.relpath(os.path.dirname(f),dist).replace(os.sep,'/'); url='/' if rel=='.' else '/'+rel
     pages[url]=('home' if rel=='.' else rel.replace('/','--'), f)
 def rl(m):
     base=m.group(1).split('?')[0].rstrip('/') or '/'
@@ -34,7 +34,7 @@ if switcher:
     bar='<div class="vbar">Homepage direction: '+' '.join(f'<a href="#{pid}" data-v="{pid}">{lbl}</a>' for pid,lbl in variants)+'</div>'
     bar_css='.vbar{position:sticky;top:0;z-index:50;background:#242826;color:#f7f5ef;font:500 13px/1 Inter Variable,system-ui,sans-serif;padding:10px 16px;display:flex;gap:14px;align-items:center}.vbar a{color:#c9d6cd;text-decoration:none;padding:4px 8px;border-radius:3px}.vbar a.on{background:#173c35;color:#fff}'
 else: bar_css=''
-fav=base64.b64encode(open('public/favicon.svg','rb').read()).decode()
+fav=base64.b64encode(open('public/favicon.svg','rb').read().replace(b'\r\n',b'\n')).decode()
 doc=f'''<!doctype html><html lang="en"><head><meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GoBK preview</title><link rel="icon" href="data:image/svg+xml;base64,{fav}"><style>{css}</style><style>.pg[hidden]{{display:none}}{bar_css}</style></head><body>
 {bar}{''.join(sections)}

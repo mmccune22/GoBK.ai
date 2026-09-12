@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+const beta = 'https://gobk-checkup-beta.jimmydanol.chatgpt.site';
+---
+<Base title="Bankruptcy Checkup (Beta)" description="Try the synthetic-data beta: a monthly financial snapshot with urgent-issue flags. Draft for review, not an eligibility determination.">
+  <section class="section beta-section">
+    <div class="wrap">
+      <h1>Bankruptcy Checkup (Beta)</h1>
+      <p class="lede">Try the working beta with invented figures. It shows a monthly financial snapshot, keeps reported urgent concerns visible, and explains what has not been assessed.</p>
+      <p class="beta-notice"><strong>Synthetic data only. Draft, not attorney-approved.</strong> Do not enter real consumer data. No signup, email or saved assessment is required. This beta does not determine bankruptcy eligibility, property protection or which debts can be discharged.</p>
+      <p><a href={beta} target="_blank" rel="noopener noreferrer">Open the beta in its own window</a></p>
+      <iframe src={beta} title="Bankruptcy Checkup (Beta) synthetic-data questionnaire" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+    </div>
+  </section>
+</Base>
+<style>
+  h1 { margin-bottom: var(--space-2); }
+  .beta-notice { border-left: 4px solid var(--sage); padding: 1rem; background: var(--paper, #f7f5ef); margin-block: 1.5rem; }
+  iframe { display: block; width: 100%; height: 1600px; border: 1px solid var(--rule); border-radius: 8px; background: #f7f5ef; }
+  @media (max-width: 40rem) { iframe { height: 1900px; } }
+</style>
