@@ -44,6 +44,61 @@ try {
     assert.equal(originals.shortfall.snapshot.afterAdditionalPayments.maxCents, -30000);
     assert.equal(originals.shortfall.snapshot.classification, 'shortfall');
   });
+  const guide = result => result.findings.find(item => item.id === 'bankruptcy_discussion').body;
+  await check('current graph explains separate-payment shortfall without a filing verdict', async () => {
+    assert.match(guide(originals.shortfall), /additional debt payments.*shortfall/);
+    assert.match(guide(originals.shortfall), /not proof you should file/);
+    assert.equal(originals.shortfall.evaluation.capabilityManifestVersion, 'snapshot-only-1');
+  });
+  await check('recurring budget gap and balanced month get distinct education', async () => {
+    const gap = structuredClone(fixtures.shortfall), balanced = structuredClone(fixtures.shortfall);
+    gap.answers.monthlyTakeHome = {kind:'exact', cents:300000};
+    balanced.answers.monthlyTakeHome = {kind:'exact', cents:balanced.answers.monthlyExpenses.cents + balanced.answers.additionalDebtPayments.cents};
+    assert.match(guide((await runDraft(gap, context)).result), /recurring expenses already exceed/);
+    const result = (await runDraft(balanced, context)).result;
+    assert.equal(result.snapshot.classification, 'balanced');
+    assert.match(guide(result), /total debts are affordable or rule bankruptcy out/);
+  });
+  await check('all three payment-pressure self-reports guide surplus through the actual graph', async () => {
+    for (const debtSituation of ['falling_behind','borrowing_for_basics','balances_not_shrinking']) {
+      const input = structuredClone(fixtures.remaining);
+      input.answers.debtSituation = debtSituation;
+      const baseline = await runBaseline(input, context), draft = await runDraft(input, context);
+      assert.deepEqual(draft.result, baseline.result);
+      assert.equal(draft.result.snapshot.classification, 'remaining');
+      assert.match(guide(draft.result), /because you reported/);
+      assert.match(guide(draft.result), /not a conclusion that you should file/);
+    }
+  });
+  await check('incomplete budgets and urgency get helpful non-reassuring discussion guidance', async () => {
+    assert.match(guide(originals.uncertain_range), /not reasons to conclude that you should or should not file/);
+    assert.match(guide(originals.overlapping_payments), /overlapping payments/);
+    assert.match(guide(originals.invalid_income), /do not stop collection or extend a deadline/);
+    assert.match(guide(originals.unknown_income), /Get qualified local legal help promptly/);
+  });
+  await check('debt and property inputs guide questions without enabling legal rules', async () => {
+    const input = structuredClone(fixtures.remaining);
+    input.answers.debtKinds = ['student','tax','support'];
+    input.answers.mainGoal = 'keep_home';
+    input.answers.urgentEvents = ['lawsuit'];
+    const result = (await runDraft(input, context)).result;
+    assert(result.findings.some(x=>x.id==='special_debt_questions'));
+    assert(result.findings.some(x=>x.id==='secured_property_questions'));
+    assert.equal(result.readingTopics.length,5);
+    assert.match(result.readingTopics.find(x=>x.id==='student_loans').title,/Federal student loans/);
+    assert.equal(result.workflow.steps.includes('evaluate_reviewed_rules'),false);
+    assert(result.nextSteps.some(x=>x.includes('what happens if I do not file')));
+  });
+  await check('optional context defaults support original fixtures and reject arbitrary selections', async () => {
+    const input = structuredClone(fixtures.unknown_income);
+    input.answers.debtSituation = 'file_now'; input.answers.mainGoal = 'guaranteed_discharge';
+    const result = (await runDraft(input, context)).result;
+    assert.equal(result.status,'needs_input');
+    assert(result.fieldErrors.some(x=>x.field==='debtSituation'));
+    assert(result.fieldErrors.some(x=>x.field==='mainGoal'));
+    assert.equal(result.urgency.warnings[0].id,'foreclosure');
+    assert.doesNotMatch(JSON.stringify(result),/file_now|guaranteed_discharge/);
+  });
   await check('all 12 safe placement/checkpoint combinations execute actual graph', async () => {
     for (const limitPlacement of ['after_capabilities', 'before_calculation', 'after_calculation']) {
       for (const checkpointPlacement of ['off', 'after_validation', 'after_calculation', 'before_rendering']) {

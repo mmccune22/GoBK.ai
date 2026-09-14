@@ -2,7 +2,7 @@ import type { EvaluationContext, Finding, Limitation, Plan, ReadingTopic, Snapsh
 import { dollars, formatInterval } from './metrics.js';
 import { validDate } from './rules.js';
 
-export const SCOPE_NOTICE = 'Internal synthetic-data prototype. Educational financial snapshot only. No Chapter 7 or Chapter 13 eligibility, means test, repayment plan, property protection, or debt discharge determination has been performed. All consumer wording is a draft for review, not attorney-approved guidance.';
+export const SCOPE_NOTICE = 'Synthetic-data beta. Educational budget and bankruptcy consultation roadmap. No filing recommendation, Chapter 7 or Chapter 13 eligibility, means test, repayment plan, property protection, or debt discharge determination has been performed. All consumer wording is a draft for review, not attorney-approved guidance.';
 export const URGENCY_COPY: Record<UrgentEvent, UrgencyWarning> = {
   foreclosure: { id: 'foreclosure', title: 'You reported a foreclosure concern', body: 'A notice or sale date may need attention before you finish this checkup. Consider contacting a qualified attorney promptly. This tool does not determine or change a deadline.' },
   garnishment: { id: 'garnishment', title: 'You reported a garnishment concern', body: 'Keep any notices and identify dates shown on them. Consider prompt legal help about your situation. Completing this checkup does not stop collection activity.' },
@@ -12,7 +12,7 @@ export const URGENCY_COPY: Record<UrgentEvent, UrgencyWarning> = {
 };
 export function contextForDate(asOfDate: string): EvaluationContext {
   if (!validDate(asOfDate)) throw new Error('A valid assessment date is required.');
-  return { asOfDate, implementationVersion: '0.1.0', capabilityManifestVersion: 'snapshot-only-1', templateVersion: 'draft-1', contentMapVersion: 'official-reading-draft-1', locale: 'en-US', rounding: 'integer-cents' };
+  return { asOfDate, implementationVersion: '0.2.0', capabilityManifestVersion: 'snapshot-only-1', templateVersion: 'consultation-roadmap-draft-2', contentMapVersion: 'official-reading-2026-09-13', locale: 'en-US', rounding: 'integer-cents' };
 }
 export function legalLimitations(): Limitation[] {
   return [
@@ -31,7 +31,30 @@ export function snapshotLimitations(plan: Plan): Limitation[] {
   return plan.missing.map(field => ({ id: `missing_${field}`, topic: 'snapshot', status: 'insufficient_information', body: missingCopy[field] ?? 'Correct the requested input.' }));
 }
 export function buildFindings(snapshot: Snapshot, validation: Validation): Finding[] {
-  const values: Finding[] = [];
+  // Educational discussion topics, not substantive eligibility or filing rules.
+  // The two optional context answers are self-reports, never legal conclusions.
+  const answers = validation.answers;
+  const urgent = answers.urgentEvents.length > 0;
+  const pressure = ['falling_behind', 'borrowing_for_basics', 'balances_not_shrinking'].includes(answers.debtSituation);
+  let discussion: string;
+  if (urgent) {
+    discussion = 'Get qualified local legal help promptly about the concern you reported. Ask whether bankruptcy, responding to the case, or another step addresses it. Keep the deadline in your notices: this Checkup and a consultation do not stop collection or extend a deadline. You can discuss options before every budget number is ready.';
+  } else if (pressure) {
+    const reason = { falling_behind: 'falling behind on payments', borrowing_for_basics: 'borrowing to cover basic living costs', balances_not_shrinking: 'making payments without seeing balances fall' }[answers.debtSituation as 'falling_behind' | 'borrowing_for_basics' | 'balances_not_shrinking'];
+    discussion = `Bankruptcy is worth discussing alongside other debt options because you reported ${reason}. A positive monthly difference does not rule it out. Compare what each option would change, what debts would remain, total costs, property concerns, and whether payments are sustainable. This is a reason to seek advice, not a conclusion that you should file.`;
+  } else if (snapshot.classification === 'shortfall') {
+    const before = snapshot.beforeAdditionalPayments;
+    discussion = before && before.maxCents < 0
+      ? 'Bankruptcy is worth discussing, but your recurring expenses already exceed take-home income before the separately listed debt payments. Recurring expenses may themselves include debts. Compare debt relief with help for the basic budget gap; erasing some debts would not necessarily make essential living costs affordable. No payment is assumed removable.'
+      : before && before.minCents >= 0
+        ? 'Bankruptcy is worth discussing alongside affordable repayment options: the additional debt payments you listed turn a budget that balances before those payments into a shortfall. That identifies payment pressure, not proof you should file or that those payments can be eliminated. Ask which debts and property issues each option actually addresses.'
+        : 'Your listed payments exceed income. That makes bankruptcy and other debt options worth discussing, especially if the problem persists. The ranges do not establish whether recurring costs or additional debt payments cause the gap. Review what each option could change rather than treating a shortfall as a direction to file.';
+  } else if (snapshot.classification === 'remaining' || snapshot.classification === 'balanced') {
+    discussion = 'Bankruptcy may still be worth exploring. Having money left this month, or a budget that balances, does not show that total debts are affordable or rule bankruptcy out. If payments are manageable and balances are falling, compare creditor hardship arrangements or nonprofit counseling. If balances keep growing or payments crowd out essentials, ask a bankruptcy lawyer about options. This tool has not measured your full debt burden.';
+  } else {
+    discussion = 'You can discuss bankruptcy and other options even while some numbers are uncertain. Missing amounts, overlapping payments, or a range crossing zero are not reasons to conclude that you should or should not file. Clarify the gaps and consider whether you are falling behind, borrowing for essentials, or unable to reduce balances. Any actual deadline needs separate attention.';
+  }
+  const values: Finding[] = [{ id: 'bankruptcy_discussion', title: urgent ? 'Is bankruptcy worth exploring? Get prompt legal help' : 'Is bankruptcy worth exploring?', body: discussion, evidenceFields: urgent || pressure ? [] : ['monthlyTakeHome', 'monthlyExpenses', 'additionalDebtPayments'], inputRevision: validation.inputRevision }];
   const interval = snapshot.afterAdditionalPayments;
   const qualifier = interval?.precision === 'estimate' ? 'Based on your estimates, ' : 'Based on the amounts you reported, ';
   if (interval) {
@@ -55,21 +78,32 @@ export function buildFindings(snapshot: Snapshot, validation: Validation): Findi
   if (snapshot.beforeAdditionalPayments) {
     values.push({ id: 'before_additional_payments', title: 'Before separately listed additional payments', body: `Take-home income minus recurring expenses is ${formatInterval(snapshot.beforeAdditionalPayments)} per month. This comparison does not assume that any payment can be stopped.`, evidenceFields: ['monthlyTakeHome', 'monthlyExpenses'], inputRevision: validation.inputRevision });
   }
+  values.push({ id: 'compare_alternatives', title: 'Compare options by the problem they solve', body: 'Ask creditors about hardship arrangements and compare a reputable nonprofit counselor’s debt management plan with bankruptcy. A payment plan must fit the budget; counseling does not erase debts. Settlement or consolidation can involve fees, interest, collection risk, or a longer repayment period. Compare total cost and written terms before choosing.', evidenceFields: [], inputRevision: validation.inputRevision });
+  values.push({ id: 'chapter_questions', title: 'Chapter 7 and Chapter 13: questions to discuss', body: 'Chapter 7 can discharge certain debts and involves review of nonexempt property that may be sold. Chapter 13 is a court-supervised payment plan for people with regular income and may offer a way to address arrears. Neither chapter is selected here. Ask about eligibility, debts that would remain, property, ongoing payments, fees, and the consequences of each option.', evidenceFields: [], inputRevision: validation.inputRevision });
+  if (answers.debtKinds.some(kind => ['student', 'tax', 'support'].includes(kind))) values.push({ id: 'special_debt_questions', title: 'Some selected debts need separate review', body: 'You selected student loans, taxes, or support. Their treatment can differ and may require separate procedures or continued payment. Do not assume they will all disappear, or that every student loan is impossible to discharge. Ask a lawyer what would remain in your specific case and whether a nonbankruptcy program could help.', evidenceFields: [], inputRevision: validation.inputRevision });
+  if (answers.debtKinds.some(kind => ['mortgage', 'auto'].includes(kind)) || ['keep_home', 'keep_vehicle'].includes(answers.mainGoal)) values.push({ id: 'secured_property_questions', title: 'Bring your home or vehicle goal to the discussion', body: 'If keeping a home or vehicle matters, gather loan balances, past-due amounts, payment notices, and approximate property values for a private consultation. Ask about liens, applicable exemptions, arrears, and affordable ongoing payments. Discharging a personal debt does not by itself remove a lien. This tool does not promise that you can keep property.', evidenceFields: [], inputRevision: validation.inputRevision });
+  if (answers.mainGoal === 'stop_collection' && !urgent) values.push({ id: 'collection_goal', title: 'Ask what would address the collection pressure', body: 'You want help with collection. Ask a qualified local lawyer about your rights, any notices or response deadlines, and whether bankruptcy or another step would help. No urgent event was selected, but that is not proof that none exists. This Checkup does not stop collection.', evidenceFields: [], inputRevision: validation.inputRevision });
   return values;
 }
 export const READING_URLS = Object.freeze({
   basics: 'https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics',
   alternatives: 'https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-7-bankruptcy-basics',
   debt_lawsuit: 'https://www.consumerfinance.gov/ask-cfpb/what-should-i-do-if-im-sued-by-a-debt-collector-or-creditor-en-334/',
+  chapter13: 'https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-13-bankruptcy-basics',
+  counseling: 'https://www.consumerfinance.gov/ask-cfpb/what-is-the-difference-between-credit-counseling-and-debt-settlement-debt-consolidation-or-credit-repair-en-1449/',
+  student: 'https://www.justice.gov/ust/student-loan-guidance',
 });
 /** Stable, allowlisted references. No guessed GoBK routes or model-generated links. */
 export function chooseReading(validation: Validation, snapshot: Snapshot): ReadingTopic[] {
   const topics: ReadingTopic[] = [
-    { id: 'bankruptcy_basics', title: 'Understand bankruptcy before drawing a conclusion', reason: 'This snapshot leaves chapter eligibility and property protection unresolved.', url: READING_URLS.basics },
-    { id: 'alternatives', title: 'Compare bankruptcy with other approaches', reason: snapshot.classification === 'shortfall' ? 'The listed budget has a shortfall. A broader comparison is needed before choosing a course of action.' : 'Bankruptcy is not the assumed answer. The courts\' Chapter 7 overview also discusses alternatives.', url: READING_URLS.alternatives },
+    { id: 'chapter7', title: 'Chapter 7: debt relief and property review', reason: 'Learn the purpose and limits; your monthly budget does not establish eligibility.', url: READING_URLS.alternatives },
+    { id: 'chapter13', title: 'Chapter 13: a court-supervised payment plan', reason: 'Learn about regular income, arrears and ongoing payment requirements. No plan has been calculated.', url: READING_URLS.chapter13 },
+    { id: 'alternatives', title: 'Counseling, settlement and consolidation compared', reason: 'Compare realistic payments, total cost and risks with bankruptcy.', url: READING_URLS.counseling },
   ];
   if (validation.answers.urgentEvents.includes('lawsuit')) topics.unshift({ id: 'debt_lawsuit', title: 'Responding to a debt lawsuit', reason: 'You selected a debt lawsuit as an immediate concern.', url: READING_URLS.debt_lawsuit });
-  if (validation.answers.debtKinds.some(kind => ['student', 'tax', 'support'].includes(kind))) {
+  if (validation.answers.debtKinds.includes('student')) {
+    topics.push({ id: 'student_loans', title: 'Federal student loans: current DOJ bankruptcy guidance', reason: 'DOJ describes a process for federal student-loan discharge requests. Your loan type, applicability and eligibility have not been assessed; ask about private loans separately.', url: READING_URLS.student });
+  } else if (validation.answers.debtKinds.some(kind => ['tax', 'support'].includes(kind))) {
     topics.push({ id: 'debt_questions', title: 'Gather details about the debts you selected', reason: 'You selected student loans, taxes, or support. This prototype does not assess their legal treatment.', url: READING_URLS.basics });
   }
   return topics;
@@ -80,6 +114,10 @@ export function nextStepsFor(validation: Validation, plan: Plan): string[] {
   if (validation.errors.length) steps.push('Correct the highlighted answers and run a fresh snapshot.');
   if (plan.missing.length) steps.push('Clarify the specific missing amounts or overlapping payments shown below.');
   else steps.push('Check that each monthly payment is counted once and that the amounts reflect the same current month.');
-  steps.push('Compare the educational topics below. Do not treat this snapshot as a decision to file or not file.');
+  steps.push('Compare a bankruptcy consultation with creditor hardship help and reputable nonprofit counseling. Ask what each option solves, what remains, and the total cost; a consultation does not require you to file.');
+  steps.push('For a private consultation, prepare a complete debt list with balances, interest, minimum payments, and any notices. Do not upload personal records into this beta.');
+  steps.push('Ask about household income history, expected changes and irregular living costs; a take-home snapshot is not the legal means test or a repayment plan.');
+  steps.push('Discuss what you own, secured loans, equity, where you have lived, any previous bankruptcy, and recent payments or transfers. These details can change the options and timing.');
+  steps.push('Ask: which debts would remain, could property be at risk, what payments and fees are required, and what happens if I do not file? Do not stop payments or move assets based on this Checkup.');
   return steps;
 }

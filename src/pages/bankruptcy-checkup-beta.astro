@@ -3,13 +3,14 @@ import Base from '../layouts/Base.astro';
 const beta = 'https://gobk-checkup-beta.jimmydanol.chatgpt.site';
 const frameScript = `${import.meta.env.BASE_URL}checkup-beta-frame.js`;
 ---
-<Base title="Bankruptcy Checkup (Beta)" description="Try the synthetic-data beta: a monthly financial snapshot with urgent-issue flags. Draft for review, not an eligibility determination.">
+<Base title="Bankruptcy Checkup (Beta)" description="Explore debt pressure, bankruptcy discussion topics and alternatives with invented examples. Draft for review, not a filing determination.">
   <section class="section beta-section">
     <div class="wrap">
       <h1>Bankruptcy Checkup (Beta)</h1>
-      <p class="lede">Try the working beta with invented figures. It shows a monthly financial snapshot, keeps reported urgent concerns visible, and explains what has not been assessed.</p>
+      <p class="lede">Is bankruptcy worth exploring? Try invented examples to see why a consultation might help, compare alternatives and prepare useful questions. The Checkup now considers payment pressure and your main goal alongside the monthly budget.</p>
       <p class="beta-notice"><strong>Synthetic data only. Draft, not attorney-approved.</strong> Do not enter real consumer data. No signup, email or saved assessment is required. This beta does not determine bankruptcy eligibility, property protection or which debts can be discharged.</p>
       <p><a href={beta} target="_blank" rel="noopener noreferrer">Open the beta in its own window</a></p>
+      <p>Want to see why a result appears? Open <a href="/bankruptcy-checkup-beta-workflow">Bankruptcy Checkup Beta Workflow</a>, or test different answers and draft step arrangements in <a href="/bankruptcy-checkup-beta-workflow-interactive">the interactive workflow</a>. A surplus does not rule bankruptcy out; a shortfall does not prove you should file.</p>
       <iframe data-gobk-checkup-beta src={beta} title="Bankruptcy Checkup (Beta) synthetic-data questionnaire" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
     </div>
   </section>

@@ -1,10 +1,10 @@
 # Interactive Checkup workflow tab
 
-The separate development sandbox bundles the real LangGraph package, the unchanged existing GoBK calculation/validation stages, and the original baseline graph. `ENGINE_PROVENANCE.json` records the copied source hashes. It does not import the core-preview evaluator or call the hosted consumer API.
+The separate development sandbox bundles the real LangGraph package and the current GoBK stages. Financial calculations and graph routing remain unchanged; the v0.2.0 education extension adds optional payment-situation/main-goal answers, contextual bankruptcy discussion, alternatives and preparation questions. `ENGINE_PROVENANCE.json` distinguishes original, unchanged and updated source hashes. It does not import the core-preview evaluator or call the hosted consumer API.
 
 `model.ts` creates a fresh, actual StateGraph for each draft. Its bounded configuration moves the legal-limits node among three dependency-safe positions, inserts one optional review checkpoint, and chooses full or before-debt calculation scope. All eight mandatory core stages remain; legal rules stay disabled. Checkpoint IDs are sandbox metadata and cannot escape the existing public-result allowlist. Observers receive a copied projection of invented state, never raw requests or capability internals.
 
-`app.ts` implements editing, cancellation, manual stepping, node inspection, side-by-side original/draft results and file/link sharing. No assessment requests, model calls, automatic storage, tracing or analytics are used. Share links contain configuration and a review note only, not financial answers. A link opens an independent copy; this is not simultaneous collaboration or a public questionnaire editor. Synthetic format markers cannot detect real consumer data, so the UI requires invented examples.
+`app.ts` implements editing, cancellation, manual stepping, node inspection, side-by-side current-default/draft results and file/link sharing. Debt types and the optional context are visible editable controls. No assessment requests, model calls, automatic storage, tracing or analytics are used. Share links contain configuration and a review note only, not financial answers. A link opens an independent copy; this is not simultaneous collaboration or a public questionnaire editor. Synthetic format markers cannot detect real consumer data, so the UI requires invented examples.
 
 ## Build and verify
 

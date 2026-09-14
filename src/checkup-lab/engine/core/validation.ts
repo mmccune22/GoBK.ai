@@ -34,6 +34,7 @@ export function emptyAnswers(): Answers {
     monthlyTakeHome: { kind: 'not_provided' }, monthlyExpenses: { kind: 'not_provided' },
     additionalDebtPayments: { kind: 'not_provided' }, additionalPaymentsSeparate: 'not_provided',
     urgentEvents: [], urgencyResponse: 'not_answered', debtKinds: [],
+    debtSituation: 'unknown', mainGoal: 'unsure',
   };
 }
 const moneyError = (field: FieldName): FieldError => ({
@@ -56,7 +57,7 @@ export function validateInput(raw: unknown): Validation {
   else invalidEnvelope();
   if (!isObject(raw.answers)) { invalidEnvelope(); return result; }
   const source = raw.answers;
-  if (!hasOnlyKeys(source, [...MONEY_FIELDS, 'additionalPaymentsSeparate', 'urgentEvents', 'debtKinds'])) invalidEnvelope();
+  if (!hasOnlyKeys(source, [...MONEY_FIELDS, 'additionalPaymentsSeparate', 'urgentEvents', 'debtKinds', 'debtSituation', 'mainGoal'])) invalidEnvelope();
   for (const field of MONEY_FIELDS) {
     const parsed = parseMoney(source[field]);
     if (parsed === null) result.errors.push(moneyError(field));
@@ -84,6 +85,16 @@ export function validateInput(raw: unknown): Validation {
       result.answers.debtKinds = DEBT_KINDS.filter(kind => (source.debtKinds as unknown[]).slice(0, 16).includes(kind));
       if (source.debtKinds.length > 16 || source.debtKinds.some(kind => !DEBT_KINDS.includes(kind as DebtKind))) result.errors.push({ field: 'debtKinds', code: 'INVALID_SELECTION', message: 'Choose debt types from the provided list.' });
     } else result.errors.push({ field: 'debtKinds', code: 'INVALID_SELECTION', message: 'Choose debt types from the provided list.' });
+  }
+  const situations = ['keeping_up', 'falling_behind', 'borrowing_for_basics', 'balances_not_shrinking'] as const;
+  if (source.debtSituation !== undefined && source.debtSituation !== 'unknown') {
+    if (situations.includes(source.debtSituation as typeof situations[number])) result.answers.debtSituation = source.debtSituation as typeof situations[number];
+    else result.errors.push({ field: 'debtSituation', code: 'INVALID_SELECTION', message: 'Choose a payment situation from the list, or not sure.' });
+  }
+  const goals = ['debt_relief', 'keep_home', 'keep_vehicle', 'stop_collection'] as const;
+  if (source.mainGoal !== undefined && source.mainGoal !== 'unsure') {
+    if (goals.includes(source.mainGoal as typeof goals[number])) result.answers.mainGoal = source.mainGoal as typeof goals[number];
+    else result.errors.push({ field: 'mainGoal', code: 'INVALID_SELECTION', message: 'Choose a goal from the list, or still exploring.' });
   }
   return result;
 }

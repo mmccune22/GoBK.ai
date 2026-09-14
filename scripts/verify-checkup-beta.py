@@ -19,21 +19,25 @@ assert headers.count('>Bankruptcy Checkup (Beta)</a>')==97
 assert headers.count('>Bankruptcy Checkup Beta Workflow</a>')==97
 assert 'https://gobk-checkup-beta.jimmydanol.chatgpt.site' in new['bankruptcy-checkup-beta']
 assert not any('\\' in pid for pid in new)
-beta_baseline=sections(subprocess.check_output(['git','show','f86c0cbdc05c7376b53407f2e97dad0441f00d2c:docs/index.html']).decode('utf-8').replace('\r\n','\n'))
-assert trim(beta_baseline['bankruptcy-checkup-beta'])==trim(new['bankruptcy-checkup-beta']),'Existing Beta body changed'
-previous=sections(subprocess.check_output(['git','show','dcc3de6c274be372ebbba62a3e22e2f7fb4d3224:docs/index.html']).decode('utf-8').replace('\r\n','\n'))
-assert len(previous)==96
+previous=sections(subprocess.check_output(['git','show','4006d095bff3113a969a7635bcf17a5dcb3ef524:docs/index.html']).decode('utf-8').replace('\r\n','\n'))
+authorized={'bankruptcy-checkup-beta','bankruptcy-checkup-beta-workflow','bankruptcy-checkup-beta-workflow-interactive'}
+assert len(previous)==97
 for pid,body in previous.items():
-    assert trim(body)==trim(new[pid]),f'Previous page body changed: {pid}'
+    if pid not in authorized:
+        assert body==new[pid],f'Unrelated previous page/header/footer changed: {pid}'
+assert 'payment pressure' in new['bankruptcy-checkup-beta']
 assert headers.count('>Bankruptcy Checkup Beta Workflow (Interactive)</a>')==97
 lab=new['bankruptcy-checkup-beta-workflow-interactive']
 assert 'id="checkup-workflow-lab"' in lab
 assert 'id="lab-checkpoint-placement"' in lab
 assert 'id="lab-share"' in lab
 assert 'id="lab-next"' in lab
+assert 'id="lab-debt-situation"' in lab
+assert 'id="lab-main-goal"' in lab
+assert len(re.findall(r'data-debt-kind',lab))==9
 assert Path('public/checkup-workflow-lab.js').read_text(encoding='utf-8').replace('</script', '<\\/script') in current
 workflow=new['bankruptcy-checkup-beta-workflow']
 assert len(re.findall(r'data-workflow-step="[^"]+"',workflow))==8
 assert len(re.findall(r'href="https://smith.langchain.com/public/[^"]+"',workflow))==7
 assert 'href="#bankruptcy-checkup-beta"' in workflow
-print(json.dumps({'passed':True,'originalPagesPreserved':94,'existingBetaBodyPreserved':True,'allPreviousPagesPreserved':96,'interactiveBundleIncluded':True,'totalPages':97,'workflowSteps':8,'publicReviewLinks':7,'aboutArticleFooterBodiesUnchanged':True,'noindexPreserved':True,'legacyFormsDisconnected':True}))
+print(json.dumps({'passed':True,'originalPagesPreserved':94,'authorizedChangedTabs':sorted(authorized),'unrelatedPreviousPagesAndHeadersPreserved':94,'interactiveBundleIncluded':True,'totalPages':97,'workflowSteps':8,'publicReviewLinks':7,'aboutArticleFooterBodiesUnchanged':True,'noindexPreserved':True,'legacyFormsDisconnected':True}))

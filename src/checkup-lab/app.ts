@@ -14,12 +14,12 @@ function initialize(root: HTMLElement) {
   const el = <T extends HTMLElement = HTMLElement>(id: string) => root.querySelector<T>(`#lab-${id}`)!;
   const titles: Record<string, [string, string]> = {
     validate_and_preserve_urgency: ['Check answers and urgency', 'Validate the supported answers. A recognized urgent concern survives an invalid or unknown amount.'],
-    load_capabilities: ['Check enabled capabilities', 'The current capability is a monthly snapshot. No reviewed legal rules are enabled.'],
+    load_capabilities: ['Check enabled capabilities', 'The current capabilities are a monthly snapshot and fixed educational guidance. No reviewed legal assessment rules are enabled.'],
     plan_supported_work: ['Plan supported calculations', 'Decide which comparisons have sufficient answers. Do not subtract additional payments twice. The draft scope can stop at the before-debt comparison.'],
     calculate_snapshot: ['Calculate the snapshot', 'Use the existing integer-cent functions. Income minus expenses produces the first comparison; confirmed separate payments produce the second. Ranges keep their lower and upper bounds.'],
     record_legal_limits: ['State the legal limits', 'Record that chapter eligibility, property protection and debt treatment are outside this version. You can move this node without changing those limits.'],
     draft_review_checkpoint: ['Review checkpoint', 'An extra real graph node for your draft review note. In Step through mode execution waits here until you press Next step. The note does not change the calculation.'],
-    assemble_findings: ['Build the explanation', 'Combine the supported calculations with fixed draft explanations, missing-information limits and relevant educational reading.'],
+    assemble_findings: ['Build the options roadmap', 'Explain whether bankruptcy is worth discussing, which alternatives to compare, and what questions the selected debt types raise. These source-backed draft explanations use the supported snapshot and reported concerns; they do not decide whether to file.'],
     render_result: ['Assemble the result', 'Prepare the structured result, including urgent concerns, supported amounts, errors and next steps.'],
     validate_public_result: ['Check the public result', 'The existing strict output validator checks the result contract, amounts, classification and answer revision.'],
   };
@@ -30,6 +30,7 @@ function initialize(root: HTMLElement) {
   let waitingNode: string | null = null, selected = 'validate_and_preserve_urgency';
   let steps: LabStep[] = [], baseline: PublicResult | null = null, draft: PublicResult | null = null;
   const fields = Array.from(root.querySelectorAll<HTMLElement>('[data-money-field]'));
+  const debtChoices = Array.from(root.querySelectorAll<HTMLInputElement>('[data-debt-kind]'));
   const setStatus = (text: string) => { el('status').textContent = text; };
   const setFileStatus = (text: string) => { el('file-status').textContent = text; };
   const button = (id: string) => el<HTMLButtonElement>(id);
@@ -65,6 +66,9 @@ function initialize(root: HTMLElement) {
     }
     el<HTMLSelectElement>('separate').value = example.answers.additionalPaymentsSeparate;
     el<HTMLSelectElement>('urgency').value = example.answers.urgentEvents[0] ?? 'none';
+    el<HTMLSelectElement>('debt-situation').value = example.answers.debtSituation ?? 'unknown';
+    el<HTMLSelectElement>('main-goal').value = example.answers.mainGoal ?? 'unsure';
+    for (const choice of debtChoices) choice.checked = (example.answers.debtKinds ?? []).includes(choice.value);
   }
   function readInput() {
     const answers: Record<string, unknown> = {};
@@ -77,7 +81,9 @@ function initialize(root: HTMLElement) {
     const separate = el<HTMLSelectElement>('separate').value;
     if (separate !== 'not_provided') answers.additionalPaymentsSeparate = separate;
     answers.urgentEvents = [el<HTMLSelectElement>('urgency').value];
-    answers.debtKinds = (fixtures as Record<string, any>)[el<HTMLSelectElement>('example').value].answers.debtKinds;
+    answers.debtKinds = debtChoices.filter(choice => choice.checked).map(choice => choice.value);
+    answers.debtSituation = el<HTMLSelectElement>('debt-situation').value;
+    answers.mainGoal = el<HTMLSelectElement>('main-goal').value;
     return { schemaVersion: '1', synthetic: true, inputRevision: revision, answers };
   }
   function stop() {
@@ -129,11 +135,38 @@ function initialize(root: HTMLElement) {
         inputRevision: step.inputRevision, validation: step.validation, calculationPlan: step.plan,
         snapshot: step.snapshot, findingCount: step.findingCount,
         completedCoreSteps: step.coreStepIds, publicResultStatus: step.result?.status ?? null,
+        optionsRoadmap: step.result?.findings.filter(finding => ['bankruptcy_discussion', 'compare_alternatives', 'special_debt_questions', 'secured_property_questions'].includes(finding.id)) ?? null,
+        nextSteps: step.result?.nextSteps ?? null,
       }, null, 2); container.append(pre);
     }
   }
   function resultView(container: HTMLElement, result: PublicResult) {
     container.replaceChildren();
+    for (const warning of result.urgency.warnings) {
+      const card = document.createElement('div'), heading = document.createElement('h4'), body = document.createElement('p');
+      card.className = 'lab-result-warning'; card.dataset.urgencyId = warning.id;
+      heading.textContent = warning.title; body.textContent = warning.body; card.append(heading, body); container.append(card);
+    }
+    if (result.fieldErrors.length) {
+      const errors = document.createElement('ul'); errors.className = 'lab-result-errors';
+      for (const error of result.fieldErrors) { const li = document.createElement('li'); li.textContent = error.message; errors.append(li); }
+      container.append(errors);
+    }
+    const discussion = result.findings.find(finding => finding.id === 'bankruptcy_discussion');
+    if (discussion) {
+      const roadmap = document.createElement('section'), heading = document.createElement('h4'), body = document.createElement('p');
+      roadmap.className = 'lab-options-roadmap'; roadmap.dataset.guidanceId = discussion.id;
+      heading.textContent = 'Is bankruptcy worth exploring?';
+      if (discussion.title !== heading.textContent) { const title = document.createElement('p'); title.className = 'lab-guidance-answer'; title.textContent = discussion.title; roadmap.append(heading, title); }
+      else roadmap.append(heading);
+      body.textContent = discussion.body; roadmap.append(body); container.append(roadmap);
+    }
+    for (const finding of result.findings.filter(finding => finding.id !== 'bankruptcy_discussion')) {
+      const card = document.createElement('section'), heading = document.createElement('h4'), body = document.createElement('p');
+      card.className = 'lab-result-finding'; card.dataset.guidanceId = finding.id;
+      heading.textContent = finding.title; body.textContent = finding.body; card.append(heading, body); container.append(card);
+    }
+    const snapshotHeading = document.createElement('h4'); snapshotHeading.textContent = 'The monthly snapshot'; container.append(snapshotHeading);
     const dl = document.createElement('dl');
     const values = [
       ['Execution', 'Real LangGraph · on this device'], ['Status', result.status],
@@ -143,16 +176,19 @@ function initialize(root: HTMLElement) {
     ];
     for (const [title, value] of values) { const dt = document.createElement('dt'), dd = document.createElement('dd'); dt.textContent = title; dd.textContent = value; dl.append(dt, dd); }
     container.append(dl);
-    const messages = [...result.urgency.warnings.map(v => `${v.title}: ${v.body}`), ...result.fieldErrors.map(v => v.message), ...result.findings.map(v => `${v.title}: ${v.body}`)];
-    if (messages.length) { const ul = document.createElement('ul'); for (const message of messages) { const li = document.createElement('li'); li.textContent = message; ul.append(li); } container.append(ul); }
+    if (result.nextSteps.length) {
+      const nextHeading = document.createElement('h4'), nextList = document.createElement('ol'); nextHeading.textContent = 'Your next steps';
+      for (const next of result.nextSteps) { const li = document.createElement('li'); li.textContent = next; nextList.append(li); }
+      container.append(nextHeading, nextList);
+    }
+    if (result.readingTopics.length) {
+      const readingHeading = document.createElement('h4'), readingList = document.createElement('ul'); readingHeading.textContent = 'Learn more and find help';
+      for (const topic of result.readingTopics) { const li = document.createElement('li'), a = document.createElement('a'); a.textContent = topic.title; a.href = topic.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; const why = document.createElement('p'); why.textContent = topic.reason; li.append(a, why); readingList.append(li); }
+      container.append(readingHeading, readingList);
+    }
     const details = document.createElement('details'), summary = document.createElement('summary'); summary.textContent = 'Limits and completed steps';
     const p = document.createElement('p'); p.className = 'lab-small'; p.textContent = result.limitations.map(v => v.body).join(' ');
     const code = document.createElement('p'); code.className = 'lab-small'; code.textContent = result.workflow.steps.join(' → '); details.append(summary, p, code); container.append(details);
-    const reading = document.createElement('details'), readingSummary = document.createElement('summary'); readingSummary.textContent = 'Suggested reading and next steps'; reading.append(readingSummary);
-    const readingList = document.createElement('ul');
-    for (const topic of result.readingTopics) { const li = document.createElement('li'), a = document.createElement('a'); a.textContent = topic.title; a.href = topic.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; const why = document.createElement('p'); why.textContent = topic.reason; li.append(a, why); readingList.append(li); }
-    reading.append(readingList);
-    const nextList = document.createElement('ul'); for (const next of result.nextSteps) { const li = document.createElement('li'); li.textContent = next; nextList.append(li); } reading.append(nextList); container.append(reading);
   }
   function waitForNext(id: string, signal: AbortSignal, token: number) {
     return new Promise<void>((resolve, reject) => {
@@ -168,7 +204,7 @@ function initialize(root: HTMLElement) {
     stop(); steps = []; baseline = null; draft = null;
     const token = generation, currentController = new AbortController(); controller = currentController;
     button('stop').disabled = false;
-    el('baseline').textContent = 'Running the unchanged Beta graph locally…'; el('draft').textContent = manual ? 'Step through the draft to produce its result.' : 'Running your draft graph…'; el('difference').textContent = '';
+    el('baseline').textContent = 'Running the current Beta default graph locally…'; el('draft').textContent = manual ? 'Step through the draft to produce its result.' : 'Running your draft graph…'; el('difference').textContent = '';
     try {
       config = getConfig(); renderNodes(); renderInspection(); setStatus('Running the actual LangGraph library…');
       const raw = readInput(), context = contextForDate(new Date().toISOString().slice(0, 10));
@@ -183,7 +219,8 @@ function initialize(root: HTMLElement) {
       draft = experiment.result; resultView(el('draft'), draft);
       if (experiment.draftNotes.length) { const p = document.createElement('p'); p.className = 'lab-small'; p.textContent = experiment.draftNotes.join(' '); el('draft').append(p); }
       const snapshotSame = JSON.stringify(baseline.snapshot) === JSON.stringify(draft.snapshot);
-      el('difference').textContent = snapshotSame ? `Same snapshot as the current Beta. Your draft executed ${experiment.order.length} nodes${config.limitPlacement !== 'after_calculation' ? ' with different connections' : ''}${config.checkpointPlacement !== 'off' ? ' and an added review checkpoint' : ''}.` : 'The draft produces a different snapshot. Compare the amounts and calculation scope above.';
+      const roadmapSame = JSON.stringify([baseline.findings, baseline.nextSteps, baseline.readingTopics]) === JSON.stringify([draft.findings, draft.nextSteps, draft.readingTopics]);
+      el('difference').textContent = snapshotSame && roadmapSame ? `Same snapshot and options roadmap as the current Beta. Your draft executed ${experiment.order.length} nodes${config.limitPlacement !== 'after_calculation' ? ' with different connections' : ''}${config.checkpointPlacement !== 'off' ? ' and an added review checkpoint' : ''}.` : 'The draft produces a different snapshot or explanation. Compare the roadmap, amounts and calculation scope above.';
       setStatus(`Complete. Real LangGraph executed ${experiment.order.length} draft nodes and validated the result.`);
     } catch {
       if (token === generation) { steps = []; draft = null; el('draft').textContent = 'The draft could not complete. Check the settings and run again.'; setStatus('Run failed. No draft result is being shown.'); renderNodes(); renderInspection(); }
@@ -192,7 +229,8 @@ function initialize(root: HTMLElement) {
     }
   }
   for (const field of fields) for (const control of field.querySelectorAll<HTMLInputElement | HTMLSelectElement>('input,select')) control.addEventListener('input', () => { syncMoney(field); invalidate(); });
-  for (const id of ['title', 'review-note', 'limit-placement', 'checkpoint-placement', 'calculation-scope', 'separate', 'urgency']) el(id).addEventListener('input', invalidate);
+  for (const choice of debtChoices) choice.addEventListener('change', invalidate);
+  for (const id of ['title', 'review-note', 'limit-placement', 'checkpoint-placement', 'calculation-scope', 'separate', 'urgency', 'debt-situation', 'main-goal']) el(id).addEventListener('input', invalidate);
   el('example').addEventListener('change', () => { loadExample(el<HTMLSelectElement>('example').value); invalidate(); });
   button('run').addEventListener('click', () => { void run(false); });
   button('step').addEventListener('click', () => { void run(true); });

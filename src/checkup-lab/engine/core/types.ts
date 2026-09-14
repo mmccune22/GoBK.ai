@@ -6,7 +6,9 @@ export type MoneyAnswer =
 export type MoneyField = 'monthlyTakeHome' | 'monthlyExpenses' | 'additionalDebtPayments';
 export type UrgentEvent = 'foreclosure' | 'garnishment' | 'repossession' | 'lawsuit' | 'deadline';
 export type DebtKind = 'credit_card' | 'medical' | 'personal_loan' | 'mortgage' | 'auto' | 'student' | 'tax' | 'support' | 'other';
-export type FieldName = MoneyField | 'additionalPaymentsSeparate' | 'urgentEvents' | 'debtKinds' | '_request';
+export type DebtSituation = 'keeping_up' | 'falling_behind' | 'borrowing_for_basics' | 'balances_not_shrinking' | 'unknown';
+export type MainGoal = 'debt_relief' | 'keep_home' | 'keep_vehicle' | 'stop_collection' | 'unsure';
+export type FieldName = MoneyField | 'additionalPaymentsSeparate' | 'urgentEvents' | 'debtKinds' | 'debtSituation' | 'mainGoal' | '_request';
 export interface FieldError { field: FieldName; code: string; message: string }
 export interface Answers {
   monthlyTakeHome: MoneyAnswer;
@@ -16,6 +18,8 @@ export interface Answers {
   urgentEvents: UrgentEvent[];
   urgencyResponse: 'selected' | 'none_reported' | 'unknown' | 'not_answered';
   debtKinds: DebtKind[];
+  debtSituation: DebtSituation;
+  mainGoal: MainGoal;
 }
 export interface Validation {
   inputRevision: number | null;
