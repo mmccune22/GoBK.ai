@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && pagefind --site dist",
-    "preview": "astro preview"
+    "build": "npm run build:checkup-lab && astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "build:checkup-lab": "node scripts/build-checkup-lab.mjs",
+    "test:checkup-lab": "node scripts/test-checkup-lab.mjs",
+    "check:checkup-lab": "tsc -p tsconfig.checkup-lab.json"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.0.0",
@@ -20,9 +23,13 @@
     "@fontsource-variable/source-serif-4": "^5.3.0",
     "@fontsource/atkinson-hyperlegible": "^5.3.0",
     "@fontsource/ibm-plex-sans-condensed": "^5.3.0",
+    "@langchain/core": "1.2.11",
+    "@langchain/langgraph": "1.4.15",
     "astro": "^7.2.10"
   },
   "devDependencies": {
-    "pagefind": "^1.5.2"
+    "esbuild": "0.28.2",
+    "pagefind": "^1.5.2",
+    "typescript": "5.9.3"
   }
 }

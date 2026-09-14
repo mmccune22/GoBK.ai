@@ -1,0 +1,191 @@
+{
+  "shortfall": {
+    "schemaVersion": "1",
+    "synthetic": true,
+    "inputRevision": 1,
+    "answers": {
+      "monthlyTakeHome": {
+        "kind": "estimate",
+        "cents": 420000
+      },
+      "monthlyExpenses": {
+        "kind": "estimate",
+        "cents": 365000
+      },
+      "additionalDebtPayments": {
+        "kind": "estimate",
+        "cents": 85000
+      },
+      "additionalPaymentsSeparate": "yes",
+      "urgentEvents": [
+        "none"
+      ],
+      "debtKinds": [
+        "credit_card",
+        "medical"
+      ]
+    }
+  },
+  "remaining": {
+    "schemaVersion": "1",
+    "synthetic": true,
+    "inputRevision": 1,
+    "answers": {
+      "monthlyTakeHome": {
+        "kind": "estimate",
+        "cents": 600000
+      },
+      "monthlyExpenses": {
+        "kind": "estimate",
+        "cents": 350000
+      },
+      "additionalDebtPayments": {
+        "kind": "estimate",
+        "cents": 50000
+      },
+      "additionalPaymentsSeparate": "yes",
+      "urgentEvents": [
+        "none"
+      ],
+      "debtKinds": [
+        "credit_card",
+        "medical"
+      ]
+    }
+  },
+  "uncertain_range": {
+    "schemaVersion": "1",
+    "synthetic": true,
+    "inputRevision": 1,
+    "answers": {
+      "monthlyTakeHome": {
+        "kind": "range",
+        "minCents": 350000,
+        "maxCents": 420000
+      },
+      "monthlyExpenses": {
+        "kind": "estimate",
+        "cents": 350000
+      },
+      "additionalDebtPayments": {
+        "kind": "estimate",
+        "cents": 35000
+      },
+      "additionalPaymentsSeparate": "yes",
+      "urgentEvents": [
+        "none"
+      ],
+      "debtKinds": [
+        "credit_card",
+        "medical"
+      ]
+    }
+  },
+  "unknown_income": {
+    "schemaVersion": "1",
+    "synthetic": true,
+    "inputRevision": 1,
+    "answers": {
+      "monthlyTakeHome": {
+        "kind": "unknown"
+      },
+      "monthlyExpenses": {
+        "kind": "estimate",
+        "cents": 365000
+      },
+      "additionalDebtPayments": {
+        "kind": "estimate",
+        "cents": 85000
+      },
+      "additionalPaymentsSeparate": "yes",
+      "urgentEvents": [
+        "foreclosure"
+      ],
+      "debtKinds": [
+        "credit_card",
+        "medical"
+      ]
+    }
+  },
+  "invalid_income": {
+    "schemaVersion": "1",
+    "synthetic": true,
+    "inputRevision": 1,
+    "answers": {
+      "monthlyTakeHome": {
+        "kind": "exact",
+        "cents": -1
+      },
+      "monthlyExpenses": {
+        "kind": "estimate",
+        "cents": 365000
+      },
+      "additionalDebtPayments": {
+        "kind": "estimate",
+        "cents": 85000
+      },
+      "additionalPaymentsSeparate": "yes",
+      "urgentEvents": [
+        "foreclosure"
+      ],
+      "debtKinds": [
+        "credit_card",
+        "medical"
+      ]
+    }
+  },
+  "overlapping_payments": {
+    "schemaVersion": "1",
+    "synthetic": true,
+    "inputRevision": 1,
+    "answers": {
+      "monthlyTakeHome": {
+        "kind": "estimate",
+        "cents": 420000
+      },
+      "monthlyExpenses": {
+        "kind": "estimate",
+        "cents": 365000
+      },
+      "additionalDebtPayments": {
+        "kind": "estimate",
+        "cents": 85000
+      },
+      "additionalPaymentsSeparate": "no",
+      "urgentEvents": [
+        "none"
+      ],
+      "debtKinds": [
+        "credit_card",
+        "medical"
+      ]
+    }
+  },
+  "zero_income": {
+    "schemaVersion": "1",
+    "synthetic": true,
+    "inputRevision": 1,
+    "answers": {
+      "monthlyTakeHome": {
+        "kind": "exact",
+        "cents": 0
+      },
+      "monthlyExpenses": {
+        "kind": "estimate",
+        "cents": 150000
+      },
+      "additionalDebtPayments": {
+        "kind": "exact",
+        "cents": 0
+      },
+      "additionalPaymentsSeparate": "unknown",
+      "urgentEvents": [
+        "none"
+      ],
+      "debtKinds": [
+        "credit_card",
+        "medical"
+      ]
+    }
+  }
+}

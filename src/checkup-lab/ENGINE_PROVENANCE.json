@@ -1,0 +1,25 @@
+{
+  "source": "Existing GoBK Checkup prototype v0.1.0, verified September 13, 2026",
+  "unchangedSourceFiles": {
+    "core/content.ts": "b3e4f45a605b36f3e5c06bd4c96e2c86de2be06b61540513aa874c59566b7d43",
+    "core/metrics.ts": "ec696d3f96d156cb96752f74e91428e0d69744c3855d88156349ca05ae968a12",
+    "core/output.ts": "115d1b6307c6d3da992fb1d5a962769d8ed627b876051b42b3cf906552b9ac00",
+    "core/preview.ts": "2c2587ff430afc82c41ea66c00ec113105d26b813c7542bf40b388e50cba9038",
+    "core/rules.ts": "262ef69836d575343e68c92d0176e7860df4c852ea0d49581a9ed0b594c7ed9b",
+    "core/stages.ts": "7d8bbcad1d50d099175e0541fc0a2ad7befee76c175f1423af54607d70b7d3c3",
+    "core/types.ts": "9a70d7ff50b27a6f99f7579ab3ef5f206eef12e42c8d6fe096659301c302ba13",
+    "core/validation.ts": "ec8e6efd01ebdc9ac8b83038e73d81c1855f461fade5f52ad76aa262802453af",
+    "langgraph/evaluate.ts": "ee0e00e5fe8835ff16d36b5cf8c576415f277a6f753bac578290aa759cdc0d1b",
+    "langgraph/graph.ts": "5333111c9b27609b47b574bf63a5f6cef69056c3e138f5e428f1c9803ab32e05"
+  },
+  "fixtureSha256": "afc48271e16e709e6586d238fee936c5f740a53510e70a0869b432abeb90875b",
+  "baselineGraph": "engine/langgraph/graph.ts",
+  "draftGraph": "model.ts",
+  "actualLibraryVersions": {
+    "@langchain/langgraph": "1.4.15",
+    "@langchain/core": "1.2.11"
+  },
+  "models": false,
+  "tracing": false,
+  "persistence": false
+}

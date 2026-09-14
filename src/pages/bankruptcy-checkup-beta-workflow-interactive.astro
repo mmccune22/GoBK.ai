@@ -1,0 +1,116 @@
+---
+import Base from '../layouts/Base.astro';
+const scriptUrl = `${import.meta.env.BASE_URL}checkup-workflow-lab.js`;
+const moneyFields = [
+  ['monthlyTakeHome', 'Monthly take-home income', '4200'],
+  ['monthlyExpenses', 'Recurring monthly expenses', '3650'],
+  ['additionalDebtPayments', 'Additional monthly debt payments', '850'],
+];
+---
+<Base title="Bankruptcy Checkup Beta Workflow (Interactive)" description="Experiment with the Checkup's actual LangGraph workflow using invented examples." searchable={false}>
+  <section class="lab-main wrap">
+    <p class="lab-kicker">GOBK · DEVELOPMENT WORKSPACE</p>
+    <h1>Bankruptcy Checkup Beta Workflow (Interactive)</h1>
+    <p class="lab-lead">Change a draft workflow. Run it. See what each step does.</p>
+    <p>This tab runs the real LangGraph library on this device, using the Checkup's existing calculation and validation code. A node is a step, an edge connects steps, and state is the information carried between them.</p>
+    <div class="lab-notice">Use invented examples only. These are draft experiments, not legal assessments. Changes here affect this sandbox. The public <a href="/bankruptcy-checkup-beta">Bankruptcy Checkup (Beta)</a> keeps its current server workflow.</div>
+    <noscript><p>This interactive tab needs JavaScript. The <a href="/bankruptcy-checkup-beta-workflow">written workflow explanation</a> is available without it.</p></noscript>
+    <section id="checkup-workflow-lab" aria-label="Interactive Checkup workflow">
+      <div class="lab-toolbar">
+        <button type="button" id="lab-run" class="lab-primary">Run draft</button>
+        <button type="button" id="lab-step">Step through</button>
+        <button type="button" id="lab-next" disabled>Next step</button>
+        <button type="button" id="lab-stop" disabled>Stop</button>
+        <button type="button" id="lab-reset">Reset workflow</button>
+        <span id="lab-status" role="status" aria-live="polite">Loading the real LangGraph library…</span>
+      </div>
+      <div class="lab-workspace">
+        <section class="lab-panel lab-editor" aria-labelledby="lab-editor-title">
+          <h2 id="lab-editor-title">1. Edit the draft</h2>
+          <label for="lab-title">Draft name</label><input id="lab-title" maxlength="100" value="My Checkup workflow draft" />
+          <label for="lab-limit-placement">Place the legal-limits step</label>
+          <select id="lab-limit-placement"><option value="after_calculation">After the calculation (current Beta)</option><option value="after_capabilities">After checking capabilities</option><option value="before_calculation">Before the calculation</option></select>
+          <label for="lab-calculation-scope">Calculation scope</label>
+          <select id="lab-calculation-scope"><option value="full">Before and after separate debt payments</option><option value="before_only">Before debt payments only</option></select>
+          <label for="lab-checkpoint-placement">Add a review checkpoint</label>
+          <select id="lab-checkpoint-placement"><option value="off">No checkpoint (current Beta)</option><option value="after_validation">After checking answers</option><option value="after_calculation">After the calculation</option><option value="before_rendering">Before assembling the result</option></select>
+          <label for="lab-review-note">Checkpoint review note</label><textarea id="lab-review-note" maxlength="600" rows="3" placeholder="For example: review missing answers before showing the result."></textarea>
+          <p class="lab-small">Moving the limits step changes real graph edges. A checkpoint adds a real graph node with a review note. The scope control changes the draft's calculation plan. Notes are for reviewers and do not alter arithmetic or legal conclusions.</p>
+          <details><summary>Why some steps stay fixed</summary><p>Answers must be checked before calculating. Explanations need the calculation first, and the completed output must be checked last. Those dependencies stay in place. No legal rules can be enabled here.</p></details>
+          <h3>Share a draft</h3>
+          <div class="lab-share-actions"><button type="button" id="lab-share">Create draft link</button><button type="button" id="lab-export">Download draft</button></div>
+          <label class="lab-small" for="lab-import">Open a saved draft (.json)</label><input id="lab-import" type="file" accept="application/json,.json" />
+          <details><summary>Open or edit draft JSON</summary><label for="lab-json">Workflow settings as JSON</label><textarea id="lab-json" rows="5" maxlength="8192" spellcheck="false" placeholder="Paste the contents of a saved workflow draft."></textarea><button type="button" id="lab-apply-json">Open JSON draft</button><p class="lab-small">Only the supported workflow settings are accepted. Code and test answers cannot be included.</p></details>
+          <div id="lab-share-result" hidden><label for="lab-share-url">Shareable draft link</label><input id="lab-share-url" readonly /><a id="lab-open-share" target="_blank" rel="noopener noreferrer">Open this draft</a><p class="lab-small">Anyone with this link can open their own copy. The link includes workflow settings and the review note, but no entered amounts. It is not a shared live document.</p></div>
+          <p id="lab-file-status" role="status" aria-live="polite"></p>
+        </section>
+        <section class="lab-panel lab-flow" aria-labelledby="lab-flow-title"><h2 id="lab-flow-title">2. Follow the steps</h2><p class="lab-small">Select any node to read its role. Use Step through, then Next step, to inspect what it receives and produces.</p><ol id="lab-nodes" aria-label="Draft graph nodes"></ol><p id="lab-order-note" class="lab-small"></p></section>
+        <section class="lab-panel lab-inspector" aria-labelledby="lab-inspector-title"><h2 id="lab-inspector-title">3. Inspect a node</h2><div id="lab-inspection">Select a node to inspect it.</div></section>
+      </div>
+      <section class="lab-panel lab-inputs" aria-labelledby="lab-input-title"><h2 id="lab-input-title">Test answers</h2><p>Change these invented answers and rerun. Unknown and zero have different meanings. Range calculations use both ends, not an average.</p>
+        <label for="lab-example">Load an invented example</label><select id="lab-example"><option value="shortfall">Monthly shortfall</option><option value="remaining">Money remaining</option><option value="uncertain_range">Uncertain range</option><option value="unknown_income">Unknown income with foreclosure concern</option><option value="invalid_income">Invalid income with foreclosure concern</option><option value="overlapping_payments">Payments already included in expenses</option><option value="zero_income">Zero income</option></select>
+        <div class="lab-money-grid">{moneyFields.map(([field,label,amount]) => <fieldset data-money-field={field}><legend>{label}</legend><label for={`lab-${field}-kind`}>Amount type</label><select id={`lab-${field}-kind`} data-money-kind><option value="estimate">Estimate</option><option value="exact">Reported amount</option><option value="range">Range</option><option value="unknown">Unknown</option><option value="not_provided">Not provided</option></select><label for={`lab-${field}-amount`} data-amount-label>Amount ($)</label><input id={`lab-${field}-amount`} data-money-amount inputmode="decimal" value={amount} /><div data-range-row hidden><label for={`lab-${field}-maximum`}>Maximum ($)</label><input id={`lab-${field}-maximum`} data-money-maximum inputmode="decimal" value={amount} /></div></fieldset>)}</div>
+        <div class="lab-choice-grid"><div><label for="lab-separate">Are additional payments separate from expenses?</label><select id="lab-separate"><option value="yes">Yes, not already included</option><option value="no">No, already included</option><option value="unknown">Not sure</option><option value="not_provided">Not provided</option></select></div><div><label for="lab-urgency">Invented urgent concern</label><select id="lab-urgency"><option value="none">None reported</option><option value="foreclosure">Foreclosure</option><option value="garnishment">Garnishment</option><option value="repossession">Repossession</option><option value="lawsuit">Lawsuit</option><option value="deadline">Deadline</option><option value="unknown">Not sure</option></select></div></div>
+      </section>
+      <section class="lab-panel lab-comparison" aria-labelledby="lab-comparison-title"><h2 id="lab-comparison-title">Compare the result</h2><p class="lab-small">Both columns execute real LangGraph locally. The baseline runs the unchanged Beta graph source; it is not a request to the public server or proof of that server's availability.</p><div class="lab-results-grid"><article><h3>Current Beta logic</h3><div id="lab-baseline">Run an example to see the baseline.</div></article><article><h3>Your draft logic</h3><div id="lab-draft">Run an example to see the draft.</div></article></div><p id="lab-difference" role="status" aria-live="polite"></p></section>
+    </section>
+    <p class="lab-footer-note">Nothing is automatically saved or uploaded by this tab. Download a draft or create a link to keep your settings. To change the public questionnaire, review the draft, edit its source code, test it and publish a separate update. <a href="/bankruptcy-checkup-beta-workflow">Read the complete workflow explanation and recorded LangSmith examples.</a></p>
+  </section>
+  <script is:inline src={scriptUrl}></script>
+</Base>
+<style is:global>
+  .lab-main { padding-block: 2.5rem 4rem; }
+  .lab-kicker { font-size: .8rem; letter-spacing: .09em; color: var(--sage-deep); font-weight: 700; }
+  .lab-main h1 { font-size: clamp(1.8rem,3.3vw,2.7rem); max-width: 28ch; line-height: 1.15; }
+  .lab-lead { font-size: 1.35rem; margin-block: 1rem; }
+  .lab-notice { background: var(--off); border-left: 4px solid var(--sage); padding: 1rem 1.25rem; margin-block: 1.5rem; }
+  #checkup-workflow-lab { margin-top: 2rem; }
+  #checkup-workflow-lab button, #checkup-workflow-lab input, #checkup-workflow-lab select, #checkup-workflow-lab textarea { font: inherit; }
+  #checkup-workflow-lab button { padding: .6rem .8rem; border: 1px solid var(--sage-deep); border-radius: 5px; background: #fff; color: var(--sage-deep); cursor: pointer; }
+  #checkup-workflow-lab button:hover { background: var(--off); }
+  #checkup-workflow-lab button:disabled { color: #707670; border-color: #bcc3bc; cursor: default; }
+  #checkup-workflow-lab button.lab-primary { color: #fff; background: var(--sage-deep); }
+  #checkup-workflow-lab :focus-visible { outline: 3px solid var(--sage); outline-offset: 3px; }
+  #checkup-workflow-lab label { display: block; font-weight: 600; font-size: .9rem; margin-block: .85rem .25rem; }
+  #checkup-workflow-lab input:not([type=file]), #checkup-workflow-lab select, #checkup-workflow-lab textarea { width: 100%; min-width: 0; background: #fff; color: var(--ink); border: 1px solid #aab3aa; border-radius: 4px; padding: .5rem; }
+  #checkup-workflow-lab input:disabled { background: var(--off); color: #737973; }
+  #checkup-workflow-lab input[type=file] { max-width: 100%; font-size: .85rem; }
+  .lab-toolbar { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-bottom: 1rem; }
+  #lab-status { flex-basis: 100%; margin-block: .3rem; }
+  .lab-workspace { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.1fr) minmax(0,1fr); gap: 1rem; align-items: start; }
+  .lab-panel { min-width: 0; padding: 1.25rem; background: #fff; border: 1px solid var(--rule); border-radius: 7px; }
+  .lab-panel h2 { font-size: 1.2rem; margin-top: 0; }
+  .lab-panel h3 { font-size: 1rem; }
+  .lab-small { font-size: .85rem; line-height: 1.5; }
+  .lab-editor details { font-size: .85rem; margin-block: 1rem; }
+  .lab-editor summary { cursor: pointer; font-weight: 600; }
+  .lab-share-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+  #lab-file-status, #lab-difference { font-weight: 600; overflow-wrap: anywhere; }
+  #lab-nodes { padding: 0; list-style: none; }
+  #lab-nodes li { position: relative; padding-bottom: 1.2rem; }
+  #lab-nodes li:not(:last-child)::after { content: '↓'; display: block; text-align: center; height: 1.2rem; color: var(--sage-deep); }
+  #lab-nodes button { width: 100%; text-align: left; display: grid; grid-template-columns: 1.5rem 1fr; gap: .5rem; border-color: #b9c6ba; }
+  #lab-nodes button[aria-pressed=true] { outline: 2px solid var(--sage-deep); }
+  #lab-nodes button[data-state=done] { background: #edf3ee; }
+  #lab-nodes button[data-state=waiting] { background: #fff5d9; border-color: #927426; }
+  #lab-nodes small { display: block; font-size: .72rem; font-weight: 400; margin-top: .2rem; }
+  .lab-node-number { font-weight: 700; }
+  #lab-inspection h3 { margin-block: .5rem; }
+  #lab-inspection code { overflow-wrap: anywhere; font-size: .75rem; }
+  #lab-inspection dl, .lab-results-grid dl { margin-block: 1rem; }
+  #lab-inspection dt, .lab-results-grid dt { font-size: .8rem; color: var(--sage-deep); }
+  #lab-inspection dd, .lab-results-grid dd { margin: 0 0 .7rem; font-weight: 600; overflow-wrap: anywhere; }
+  #lab-inspection pre { max-height: 24rem; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font-size: .75rem; background: var(--off); padding: .7rem; }
+  .lab-inputs, .lab-comparison { margin-top: 1rem; }
+  .lab-money-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; margin-top: 1rem; }
+  .lab-money-grid fieldset { min-width: 0; border: 1px solid var(--rule); border-radius: 5px; padding: 1rem; }
+  .lab-money-grid legend { font-size: .9rem; font-weight: 700; }
+  .lab-choice-grid, .lab-results-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+  .lab-results-grid article { padding: 1rem; background: var(--off); border-radius: 5px; }
+  .lab-results-grid h3 { margin-top: 0; }
+  .lab-results-grid li { margin-bottom: .5rem; }
+  .lab-results-grid ul { padding-left: 1.2rem; font-size: .85rem; }
+  .lab-footer-note { font-size: .9rem; margin-top: 1.5rem; }
+  @media (max-width: 64rem) { .lab-workspace { grid-template-columns: repeat(2,minmax(0,1fr)); } .lab-inspector { grid-column: 1 / -1; } }
+  @media (max-width: 42rem) { .lab-workspace, .lab-money-grid, .lab-choice-grid, .lab-results-grid { grid-template-columns: minmax(0,1fr); } .lab-inspector { grid-column: auto; } .lab-panel { padding: 1rem; } }
+</style>
