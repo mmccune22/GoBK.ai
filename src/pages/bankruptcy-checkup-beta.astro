@@ -3,11 +3,11 @@ import Base from '../layouts/Base.astro';
 const beta = 'https://gobk-checkup-beta.jimmydanol.chatgpt.site';
 const frameScript = `${import.meta.env.BASE_URL}checkup-beta-frame.js`;
 ---
-<Base title="Bankruptcy Checkup (Beta)" description="Explore your budget and bankruptcy options with invented answers. Draft educational guidance.">
+<Base title="Bankruptcy Checkup (Beta)" description="Seven simple questions about bankruptcy options. Draft educational guidance using invented answers.">
   <section class="section beta-section">
     <div class="wrap">
       <div class="beta-heading"><h1>Bankruptcy Checkup (Beta)</h1><a href={beta} target="_blank" rel="noopener noreferrer">Open full screen ↗</a></div>
-      <p class="lede">Explore your budget and which bankruptcy options to discuss.</p>
+      <p class="lede">Answer seven simple questions. See which options to discuss and where to get help.</p>
       <p class="beta-notice"><strong>Invented data only. Draft, not attorney-approved.</strong> Do not enter real consumer data. No filing or eligibility verdict.</p>
       <iframe data-gobk-checkup-beta src={beta} height="2400" title="Bankruptcy Checkup (Beta) synthetic-data questionnaire" loading="eager" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
       <nav class="beta-links" aria-label="Checkup workflow"><a href="/bankruptcy-checkup-beta-workflow">See the workflow</a><a href="/bankruptcy-checkup-beta-workflow-interactive">Explore the interactive workflow</a></nav>

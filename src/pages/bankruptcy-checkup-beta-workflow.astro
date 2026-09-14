@@ -35,12 +35,12 @@ const examples = [
       </div>
 
       <figure class="flow-overview" aria-label="Answers go to the Checkup server, then through eight named steps, then return as a checked result">
-        <div><span>INPUT</span><strong>Your test answers</strong><small>Amounts, debt types, income regularity, missed secured payments, earlier cases, goals and urgency</small></div>
+        <div><span>INPUT</span><strong>Seven short questions</strong><small>Urgency, goals, debts, payments, steady income, past-due loans and earlier bankruptcy. Monthly budget optional.</small></div>
         <span class="flow-arrow" aria-hidden="true">→</span>
         <div><span>PROCESS</span><strong>Eight controlled steps</strong><small>Check → plan → calculate → explain options → validate</small></div>
         <span class="flow-arrow" aria-hidden="true">→</span>
         <div><span>OUTPUT</span><strong>An educational roadmap</strong><small>Legal-help priority, chapter discussion order, alternatives and preparation questions</small></div>
-        <figcaption>The questionnaire sends its test answers to the Checkup server for calculation. The server runs LangGraph and returns the result for the page to display.</figcaption>
+        <figcaption>The Checkup asks seven short questions and sends invented answers to the server. Adding a monthly budget is optional. LangGraph runs the fixed steps and returns a discussion starting point; missing budget amounts stay missing.</figcaption>
       </figure>
 
       <section class="workflow-block" aria-labelledby="workflow-roadmap-heading">
