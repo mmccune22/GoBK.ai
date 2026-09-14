@@ -3,24 +3,34 @@ import Base from '../layouts/Base.astro';
 const beta = 'https://gobk-checkup-beta.jimmydanol.chatgpt.site';
 const frameScript = `${import.meta.env.BASE_URL}checkup-beta-frame.js`;
 ---
-<Base title="Bankruptcy Checkup (Beta)" description="Explore why legal help may matter and which bankruptcy chapter to discuss first, using invented answers about debts, income, missed payments and goals. Draft educational guidance.">
+<Base title="Bankruptcy Checkup (Beta)" description="Explore your budget and bankruptcy options with invented answers. Draft educational guidance.">
   <section class="section beta-section">
     <div class="wrap">
-      <h1>Bankruptcy Checkup (Beta)</h1>
-      <p class="lede">Is bankruptcy worth exploring, and which chapter should you ask about first? Try invented examples to see a clear discussion path based on debts, regular income, missed home or vehicle payments, earlier bankruptcies and your main goal. The result explains when legal help should come first, while keeping alternatives and useful preparation questions visible.</p>
-      <p class="beta-notice"><strong>Synthetic data only. Draft, not attorney-approved.</strong> Do not enter real consumer data. No signup, email or saved assessment is required. This beta does not determine bankruptcy eligibility, property protection or which debts can be discharged.</p>
-      <p><a href={beta} target="_blank" rel="noopener noreferrer">Open the beta in its own window</a></p>
-      <p>Want to see why a result appears? Open <a href="/bankruptcy-checkup-beta-workflow">Bankruptcy Checkup Beta Workflow</a>, or test different answers and draft step arrangements in <a href="/bankruptcy-checkup-beta-workflow-interactive">the interactive workflow</a>. Chapter 7 or Chapter 13 appearing first means “start the discussion here.” It is not an eligibility finding or an instruction to file. A surplus does not rule bankruptcy out; a shortfall does not prove you should file.</p>
-      <p>Individuals can represent themselves in bankruptcy. The <a href="https://www.uscourts.gov/court-programs/bankruptcy/filing-without-attorney" target="_blank" rel="noopener noreferrer">U.S. Courts strongly recommends qualified legal help</a>. The Checkup explains the reasons to seek advice; it does not say an attorney is legally mandatory. Ask about consultation fees and available legal aid.</p>
-      <p>Open the optional explanations to understand income and household questions, earlier cases, property and the selected debt types. The roadmap also supplies consultation questions for student loans, taxes and support separately. Bring documents to a private consultation; this beta does not accept uploads. <a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-find-an-attorney-in-my-state-en-1549/" target="_blank" rel="noopener noreferrer">Find an attorney or local legal-help resource</a>.</p>
-      <iframe data-gobk-checkup-beta src={beta} title="Bankruptcy Checkup (Beta) synthetic-data questionnaire" loading="lazy" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+      <div class="beta-heading"><h1>Bankruptcy Checkup (Beta)</h1><a href={beta} target="_blank" rel="noopener noreferrer">Open full screen ↗</a></div>
+      <p class="lede">Explore your budget and which bankruptcy options to discuss.</p>
+      <p class="beta-notice"><strong>Invented data only. Draft, not attorney-approved.</strong> Do not enter real consumer data. No filing or eligibility verdict.</p>
+      <iframe data-gobk-checkup-beta src={beta} title="Bankruptcy Checkup (Beta) synthetic-data questionnaire" loading="eager" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+      <nav class="beta-links" aria-label="Checkup workflow"><a href="/bankruptcy-checkup-beta-workflow">See the workflow</a><a href="/bankruptcy-checkup-beta-workflow-interactive">Explore the interactive workflow</a></nav>
+      <details class="beta-about"><summary>About this beta</summary>
+        <p>Is bankruptcy worth exploring, and which chapter should you ask about first? Try invented answers. A chapter discussion starting point is not an eligibility finding or an instruction to file. A surplus does not rule bankruptcy out; a shortfall does not prove you should file.</p>
+        <p>No signup, email, saved assessment or uploads. Eligibility, property protection and debt discharge are not determined.</p>
+        <p>Individuals may represent themselves; the <a href="https://www.uscourts.gov/court-programs/bankruptcy/filing-without-attorney" target="_blank" rel="noopener noreferrer">U.S. Courts recommends qualified legal help</a>. <a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-find-an-attorney-in-my-state-en-1549/" target="_blank" rel="noopener noreferrer">Find legal help</a>.</p>
+      </details>
     </div>
   </section>
 </Base>
 <script is:inline src={frameScript}></script>
 <style>
-  h1 { margin-bottom: var(--space-2); }
-  .beta-notice { border-left: 4px solid var(--sage); padding: 1rem; background: var(--paper, #f7f5ef); margin-block: 1.5rem; }
-  iframe { display: block; width: 100%; height: 1600px; border: 1px solid var(--rule); border-radius: 8px; background: #f7f5ef; }
-  @media (max-width: 40rem) { iframe { height: 1900px; } }
+  .beta-section { padding-top: var(--space-4); }
+  .beta-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1rem; }
+  h1 { margin-bottom: .5rem; }
+  .beta-heading a, .beta-links, .beta-about { font-size: .9rem; }
+  .lede { margin-bottom: .5rem; }
+  .beta-notice { border-left: 3px solid var(--sage); padding: .55rem .8rem; background: var(--paper, #f7f5ef); margin-block: .5rem 1rem; font-size: .85rem; }
+  iframe { display: block; width: 100%; height: 1000px; border: 1px solid var(--rule); border-radius: 8px; background: #f7f5ef; }
+  .beta-links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-block: 1rem; }
+  .beta-about { border-top: 1px solid var(--rule); padding-top: .75rem; }
+  .beta-about summary { cursor: pointer; }
+  .beta-about p { margin-block: .75rem; }
+  @media (max-width: 40rem) { iframe { height: 900px; } }
 </style>
