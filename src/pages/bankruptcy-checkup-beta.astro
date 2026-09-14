@@ -9,7 +9,7 @@ const frameScript = `${import.meta.env.BASE_URL}checkup-beta-frame.js`;
       <div class="beta-heading"><h1>Bankruptcy Checkup (Beta)</h1><a href={beta} target="_blank" rel="noopener noreferrer">Open full screen ↗</a></div>
       <p class="lede">Explore your budget and which bankruptcy options to discuss.</p>
       <p class="beta-notice"><strong>Invented data only. Draft, not attorney-approved.</strong> Do not enter real consumer data. No filing or eligibility verdict.</p>
-      <iframe data-gobk-checkup-beta src={beta} title="Bankruptcy Checkup (Beta) synthetic-data questionnaire" loading="eager" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+      <iframe data-gobk-checkup-beta src={beta} height="2400" title="Bankruptcy Checkup (Beta) synthetic-data questionnaire" loading="eager" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
       <nav class="beta-links" aria-label="Checkup workflow"><a href="/bankruptcy-checkup-beta-workflow">See the workflow</a><a href="/bankruptcy-checkup-beta-workflow-interactive">Explore the interactive workflow</a></nav>
       <details class="beta-about"><summary>About this beta</summary>
         <p>Is bankruptcy worth exploring, and which chapter should you ask about first? Try invented answers. A chapter discussion starting point is not an eligibility finding or an instruction to file. A surplus does not rule bankruptcy out; a shortfall does not prove you should file.</p>
@@ -27,10 +27,9 @@ const frameScript = `${import.meta.env.BASE_URL}checkup-beta-frame.js`;
   .beta-heading a, .beta-links, .beta-about { font-size: .9rem; }
   .lede { margin-bottom: .5rem; }
   .beta-notice { border-left: 3px solid var(--sage); padding: .55rem .8rem; background: var(--paper, #f7f5ef); margin-block: .5rem 1rem; font-size: .85rem; }
-  iframe { display: block; width: 100%; height: 1000px; border: 1px solid var(--rule); border-radius: 8px; background: #f7f5ef; }
+  iframe { display: block; width: 100%; border: 0; background: transparent; }
   .beta-links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-block: 1rem; }
   .beta-about { border-top: 1px solid var(--rule); padding-top: .75rem; }
   .beta-about summary { cursor: pointer; }
   .beta-about p { margin-block: .75rem; }
-  @media (max-width: 40rem) { iframe { height: 900px; } }
 </style>
