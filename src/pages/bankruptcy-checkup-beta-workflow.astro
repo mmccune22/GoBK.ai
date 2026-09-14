@@ -1,0 +1,180 @@
+---
+import Base from '../layouts/Base.astro';
+
+const steps = [
+  { id: 'validate_and_preserve_urgency', title: 'Check the answers. Keep urgent concerns.', body: 'Check amounts and selections. Missing or invalid income does not erase a recognized foreclosure, garnishment, repossession, lawsuit or deadline concern.', result: 'Usable answers, specific errors and reported urgent concerns.' },
+  { id: 'load_capabilities', title: 'Check what this version supports.', body: 'Load only capabilities enabled in trusted code. The current version supports the monthly snapshot; legal assessment rules are disabled.', result: 'A clear boundary around what this run can assess.' },
+  { id: 'plan_supported_work', title: 'Decide what can be calculated.', body: 'Identify missing amounts and check whether additional debt payments are already included in recurring expenses. Calculate only the comparisons the answers support.', result: 'A calculation plan, with unanswered questions kept visible.' },
+  { id: 'calculate_snapshot', title: 'Calculate the monthly snapshot.', body: 'Subtract recurring expenses from monthly take-home income. Then subtract additional debt payments only when confirmed as separate, or explicitly zero. Keep estimates and ranges as reported.', result: 'The monthly difference before and after separate payments.' },
+  { id: 'record_legal_limits', title: 'State the legal limits.', body: 'Explain that chapter eligibility, the bankruptcy means test, property protection and debt discharge have not been assessed.', result: 'Explicit limits alongside the numbers.' },
+  { id: 'assemble_findings', title: 'Build the explanation.', body: 'Describe the calculated difference, identify missing information and select existing educational reading relevant to the answers.', result: 'Plain explanations tied to the entered amounts and selections.' },
+  { id: 'render_result', title: 'Assemble the result.', body: 'Bring together the snapshot, urgent concerns, highlighted errors, limitations and next steps. Ask for more input when needed, while keeping any supported calculation.', result: 'A result to display, or a request for missing or corrected answers.' },
+  { id: 'validate_public_result', title: 'Check the result before showing it.', body: 'Verify the response has the expected fields and valid amounts. A technical failure returns an unavailable result instead of pretending the calculation succeeded.', result: 'A checked response, without stale or guessed figures.' },
+];
+
+const examples = [
+  { title: 'Monthly shortfall', outcome: '$550 before separate payments; −$300 after.', token: 'a5e8f45d-3a7b-49be-8b7e-8c568f3e0657' },
+  { title: 'Money remaining', outcome: '$2,500 before; $2,000 after.', token: '1f9101f5-0b1a-4dd2-a0c8-b78357c415f2' },
+  { title: 'Uncertain range', outcome: '$0 to $700 before; −$350 to $350 after. No forced positive or negative conclusion.', token: 'd374cb55-fed4-4385-9ada-73b047297a55' },
+  { title: 'Unknown income + urgency', outcome: 'Requests the missing amount and preserves the reported foreclosure concern.', token: '7565bfdd-f326-4502-a861-0b855e04c69c' },
+  { title: 'Invalid income + urgency', outcome: 'Requests a corrected amount and preserves the reported foreclosure concern.', token: 'f088b478-4308-4c23-9d72-60e70e0c81ca' },
+  { title: 'Possible double-counting', outcome: 'Keeps $550 before payments; withholds the after amount until the overlap is clarified.', token: '2c9fffd6-f52d-45d2-a96a-0ebbb3dcaabe' },
+  { title: 'Zero income', outcome: 'Calculates −$1,500 before and after. Zero is a known amount.', token: '884b8827-3327-4b4e-a4b8-251b72c8cf3f' },
+];
+---
+
+<Base title="Bankruptcy Checkup Beta Workflow" description="A plain-English map of the current Checkup Beta: eight workflow steps, cash-flow calculations, uncertain answers and real invented review examples.">
+  <section class="section workflow-page">
+    <div class="wrap">
+      <div class="intro">
+        <p class="k">HOW THE BETA WORKS</p>
+        <h1>Bankruptcy Checkup Beta Workflow</h1>
+        <p class="lede">See how the Beta turns the amounts you enter into a monthly financial snapshot. The same named steps run each time, showing what can be calculated and what still needs an answer.</p>
+        <p class="review-note"><strong>Draft for review. Use invented figures only.</strong> The current version explains cash flow and flags reported urgent concerns. It does not decide whether someone should file bankruptcy.</p>
+        <a class="btn btn-primary" href="/bankruptcy-checkup-beta">Try Bankruptcy Checkup (Beta)</a>
+      </div>
+
+      <figure class="flow-overview" aria-label="Answers go to the Checkup server, then through eight named steps, then return as a checked result">
+        <div><span>INPUT</span><strong>Your test answers</strong><small>Amounts, payment overlap, debt types and urgent concerns</small></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div><span>PROCESS</span><strong>Eight controlled steps</strong><small>Check → plan → calculate → explain → validate</small></div>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <div><span>OUTPUT</span><strong>A checked snapshot</strong><small>Supported numbers, missing information and clear limits</small></div>
+        <figcaption>The questionnaire sends its test answers to the Checkup server for calculation. The server runs LangGraph and returns the result for the page to display.</figcaption>
+      </figure>
+
+      <section class="workflow-block" aria-labelledby="workflow-steps-heading">
+        <h2 id="workflow-steps-heading">The eight steps, in order</h2>
+        <p>Each step receives the answers and work so far, adds its part, and passes that information to the next step.</p>
+        <ol class="workflow-list">
+          {steps.map((step, index) => (
+            <li data-workflow-step={step.id}>
+              <span class="step-number" aria-hidden="true">{index + 1}</span>
+              <div>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+                <p class="step-result"><strong>Passes forward:</strong> {step.result}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section class="workflow-block worked-example" aria-labelledby="workflow-example-heading">
+        <p class="k">ONE INVENTED EXAMPLE</p>
+        <h2 id="workflow-example-heading">How $550 becomes a $300 shortfall</h2>
+        <dl class="example-inputs">
+          <div><dt>Monthly take-home income</dt><dd>$4,200</dd></div>
+          <div><dt>Recurring monthly expenses</dt><dd>$3,650</dd></div>
+          <div><dt>Additional debt payments, not already counted</dt><dd>$850</dd></div>
+        </dl>
+        <div class="equations">
+          <p><span>Before separate payments</span><strong>$4,200 − $3,650 = $550</strong></p>
+          <p><span>After separate payments</span><strong>$550 − $850 = −$300</strong></p>
+        </div>
+        <p>The listed monthly outgoings exceed listed income by $300. This describes the entered budget. It does not mean a payment can be stopped, that a debt will disappear, or that bankruptcy is the right choice.</p>
+      </section>
+
+      <section class="workflow-block" aria-labelledby="workflow-uncertainty-heading">
+        <h2 id="workflow-uncertainty-heading">What happens when an answer is uncertain?</h2>
+        <div class="answer-grid">
+          <article><h3>Unknown is not zero.</h3><p>An unknown, missing or invalid amount asks for clarification. An entered $0 is a real amount that can be calculated.</p></article>
+          <article><h3>Ranges stay ranges.</h3><p>For the low end, subtract the largest expense from the smallest income. For the high end, subtract the smallest expense from the largest income. A range crossing zero stays uncertain.</p></article>
+          <article><h3>Count each payment once.</h3><p>If additional payments overlap recurring expenses, keep the supported before amount and withhold the after amount until clarified. Do not subtract the same payment twice.</p></article>
+          <article><h3>Keep urgent concerns visible.</h3><p>Incomplete numbers do not erase a recognized urgent concern. The Beta flags what was reported; it does not calculate deadlines or stop collection activity.</p></article>
+        </div>
+        <p class="change-note">Changing answers starts a fresh evaluation. Earlier figures are not reused as the result for new answers.</p>
+      </section>
+
+      <section class="workflow-block" aria-labelledby="workflow-tools-heading">
+        <h2 id="workflow-tools-heading">Where LangChain fits</h2>
+        <p><strong>LangGraph is the workflow organizer.</strong> It runs the named steps in order and carries the answers and results between them. The arithmetic and explanations come from ordinary code; the consumer calculation has no AI language model making decisions.</p>
+        <p><strong>LangSmith is the review window.</strong> It records selected invented example runs so reviewers can inspect what each step received and returned. These review recordings are separate from ordinary questionnaire use; consumer tracing remains disabled.</p>
+        <p>Both are part of the LangChain toolkit. A <strong>node</strong> is one step, <strong>state</strong> is the information carried through the run, and an <strong>edge</strong> points to the next step.</p>
+        <details class="technical-map">
+          <summary>Show the names you will see in a recorded run</summary>
+          <ol>{steps.map(step => <li><strong>{step.title}</strong><code>{step.id}</code></li>)}</ol>
+          <p>The source also defines an alternative legal-rule step, but it is skipped in the current version because no legal assessment rules are enabled.</p>
+        </details>
+      </section>
+
+      <section class="workflow-block" aria-labelledby="workflow-reviews-heading">
+        <h2 id="workflow-reviews-heading">Review the actual tested runs</h2>
+        <p>Seven invented examples passed through the real graph. Each completed all eight current steps, and every public review was checked without a login or API key.</p>
+        <div class="review-grid">
+          {examples.map(example => (
+            <article>
+              <h3>{example.title}</h3>
+              <p>{example.outcome}</p>
+              <a href={`https://smith.langchain.com/public/${example.token}/r`} target="_blank" rel="noopener noreferrer">Review {example.title.toLowerCase()} run <span aria-hidden="true">↗</span></a>
+            </article>
+          ))}
+        </div>
+        <p class="soft review-footnote">LangSmith links are view-only recordings of invented data and open in another tab. The workflow explanation here remains useful even if a recording expires.</p>
+        <p>The offline HTML preview uses the calculation functions alone. It does not run LangGraph; these recorded graph runs are the evidence for the steps shown above.</p>
+      </section>
+
+      <section class="workflow-block editing-block" aria-labelledby="workflow-editing-heading">
+        <h2 id="workflow-editing-heading">How Matt and Jimmy can change the process</h2>
+        <ol>
+          <li>Review a step or example and describe the specific behavior or wording that should change.</li>
+          <li>Edit the source code that controls the wording, calculation or step order.</li>
+          <li>Rerun the invented examples and relevant tests, then publish a new review after checking the results.</li>
+        </ol>
+        <p>Public recordings do not grant editing access. The Studio browser connection is still unresolved; the working review links are not a visual code editor. Updating source or a review recording does not automatically update the live Beta.</p>
+        <p><strong>Still outside this version:</strong> Chapter 7 or Chapter 13 eligibility, the means test, exemptions, property protection, debt discharge, repayment-plan amounts and filing recommendations. Consumer wording remains draft pending attorney review.</p>
+        <a class="btn btn-secondary" href="/bankruptcy-checkup-beta">Return to the Beta</a>
+      </section>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .intro { max-width: 58rem; }
+  h1 { margin-bottom: var(--space-3); }
+  h2 { margin-bottom: var(--space-3); }
+  h3 { margin-bottom: 0.65rem; }
+  .review-note, .change-note { padding: 1rem 1.25rem; background: var(--off); border-left: 4px solid var(--sage); }
+  .flow-overview { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 1rem; margin: 3rem 0; padding: 1.5rem; background: var(--grey); border-radius: var(--radius); }
+  .flow-overview div { min-width: 0; }
+  .flow-overview div > span { display: block; font-size: 0.8rem; letter-spacing: 0.06em; font-weight: 700; color: var(--sage-deep); }
+  .flow-overview strong { display: block; margin-block: 0.45rem; font-size: 1.2rem; }
+  .flow-overview small { display: block; line-height: 1.5; }
+  .flow-arrow { font-size: 1.8rem; color: var(--sage-deep); }
+  figcaption { grid-column: 1 / -1; border-top: 1px solid var(--rule); padding-top: 1rem; font-size: 0.95rem; }
+  .workflow-block { margin-top: var(--space-6); }
+  .workflow-list { list-style: none; padding: 0; margin: 2rem 0 0; }
+  .workflow-list li { display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); gap: 1.2rem; padding-bottom: 1.75rem; position: relative; }
+  .workflow-list li:not(:last-child)::before { content: ''; position: absolute; top: 2.75rem; bottom: 0; left: 1.35rem; border-left: 2px solid var(--rule); }
+  .step-number { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: var(--sage-deep); color: #fff; font-weight: 700; }
+  .workflow-list li > div { padding: 1.25rem 1.5rem; background: var(--off); border: 1px solid var(--rule); border-radius: var(--radius); }
+  .workflow-list p { max-width: 76ch; }
+  .step-result { font-size: 0.95rem; color: var(--fg-soft); margin-bottom: 0; }
+  .worked-example, .editing-block { padding: clamp(1.25rem, 4vw, 2.25rem); border: 1px solid var(--rule); border-radius: var(--radius); background: var(--off); }
+  .example-inputs { margin: 1.5rem 0; max-width: 42rem; }
+  .example-inputs div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.75rem; border-bottom: 1px solid var(--rule); }
+  .example-inputs dd { margin: 0; font-weight: 700; white-space: nowrap; }
+  .equations { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-block: 1.5rem; }
+  .equations p { padding: 1rem; background: var(--white); border-radius: var(--radius-sm); margin: 0; }
+  .equations span { display: block; font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .equations strong { font-size: clamp(1.1rem, 2.4vw, 1.6rem); }
+  .answer-grid, .review-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-block: 1.5rem; }
+  .answer-grid article, .review-grid article { padding: 1.5rem; border: 1px solid var(--rule); border-radius: var(--radius); }
+  .answer-grid article p { margin-bottom: 0; }
+  .technical-map { padding: 1.25rem; border: 1px solid var(--rule); border-radius: var(--radius); margin-top: 1.5rem; }
+  summary { cursor: pointer; font-weight: 600; }
+  .technical-map li { padding-block: 0.6rem; }
+  .technical-map code { display: block; font-size: 0.9rem; margin-top: 0.4rem; overflow-wrap: anywhere; }
+  .technical-map p { margin-bottom: 0; }
+  .review-footnote { font-size: 0.95rem; }
+  .editing-block li { padding-bottom: 0.8rem; max-width: 70ch; }
+  @media (max-width: 45rem) {
+    .flow-overview { grid-template-columns: 1fr; padding: 1.25rem; }
+    .flow-arrow { transform: rotate(90deg); justify-self: start; }
+    .answer-grid, .review-grid, .equations { grid-template-columns: 1fr; }
+    .workflow-list li { grid-template-columns: 2.25rem minmax(0, 1fr); gap: 0.75rem; }
+    .step-number { width: 2.25rem; height: 2.25rem; }
+    .workflow-list li:not(:last-child)::before { left: 1.1rem; top: 2.25rem; }
+    .workflow-list li > div { padding: 1rem; }
+  }
+</style>
