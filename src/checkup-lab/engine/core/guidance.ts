@@ -5,16 +5,20 @@ import type { Finding, Validation } from './types.js';
  * Sources and branch boundaries: reports/DETERMINISTIC_CHAPTER_ATTORNEY_GUIDANCE_RESEARCH.md.
  * Cash-flow sign deliberately never chooses a chapter. No model or network calls.
  */
-export function buildDecisionGuidance(validation: Validation): Finding[] {
+export function missingDiscussionFacts(validation: Validation): string[] {
   const a = validation.answers;
-  const special = a.debtKinds.some(kind => ['student', 'tax', 'support', 'other'].includes(kind));
-  const missing = [
+  return [
     ...(a.incomeRegularity === 'unknown' ? ['whether income is regular'] : []),
     ...(a.securedArrears === 'unknown' ? ['whether home or vehicle payments are past due'] : []),
     ...(a.priorBankruptcy === 'unknown' ? ['whether there was an earlier bankruptcy'] : []),
     ...(a.mainGoal === 'unsure' ? ['the main goal'] : []),
     ...(a.debtKinds.length === 0 ? ['which debt types are involved'] : []),
   ];
+}
+export function buildDecisionGuidance(validation: Validation): Finding[] {
+  const a = validation.answers;
+  const special = a.debtKinds.some(kind => ['student', 'tax', 'support', 'other'].includes(kind));
+  const missing = missingDiscussionFacts(validation);
   const invalid = !validation.envelopeValid || validation.errors.some(error =>
     ['incomeRegularity', 'securedArrears', 'priorBankruptcy', 'mainGoal', 'debtKinds', 'urgentEvents'].includes(error.field));
   const property = ['keep_home', 'keep_vehicle'].includes(a.mainGoal) ||

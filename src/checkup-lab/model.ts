@@ -4,6 +4,7 @@ import { createStages, initialState } from './engine/core/stages.js';
 import { assertPublicResult } from './engine/core/output.js';
 import { validateInput } from './engine/core/validation.js';
 import { createCheckupGraph } from './engine/langgraph/graph.js';
+import { PREPARATION_IDS } from './engine/core/preparation.js';
 
 export interface LabConfig {
   schemaVersion: 1;
@@ -138,7 +139,7 @@ function project(nodeId: string, state: EngineState): LabStep {
       securedArrears: state.validation.answers.securedArrears,
       priorBankruptcy: state.validation.answers.priorBankruptcy,
     } : null,
-    guidance: state.findings.filter(finding => ['attorney_guidance', 'chapter_guidance', 'bankruptcy_discussion', 'compare_alternatives', 'special_debt_questions', 'secured_property_questions'].includes(finding.id)),
+    guidance: state.findings.filter(finding => ['attorney_guidance', 'chapter_guidance', 'bankruptcy_discussion', 'compare_alternatives', 'special_debt_questions', 'secured_property_questions', ...PREPARATION_IDS].includes(finding.id)),
     plan: state.plan,
     snapshot: state.snapshot,
     findingCount: state.findings.length,

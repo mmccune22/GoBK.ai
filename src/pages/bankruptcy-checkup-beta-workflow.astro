@@ -7,7 +7,7 @@ const steps = [
   { id: 'plan_supported_work', title: 'Decide what can be calculated.', body: 'Identify missing amounts and check whether additional debt payments are already included in recurring expenses. Calculate only the comparisons the answers support.', result: 'A calculation plan, with unanswered questions kept visible.' },
   { id: 'calculate_snapshot', title: 'Calculate the monthly snapshot.', body: 'Subtract recurring expenses from monthly take-home income. Then subtract additional debt payments only when confirmed as separate, or explicitly zero. Keep estimates and ranges as reported.', result: 'The monthly difference before and after separate payments.' },
   { id: 'record_legal_limits', title: 'State the legal limits.', body: 'Explain that chapter eligibility, the bankruptcy means test, property protection and debt discharge have not been assessed.', result: 'Explicit limits alongside the numbers.' },
-  { id: 'assemble_findings', title: 'Build the educational roadmap.', body: 'Explain the budget pressure, then use fixed decision branches to choose the legal-help priority and chapter discussion order from debts, income regularity, secured arrears, earlier cases and the main goal. Unknown facts stay unknown; no branch determines eligibility or instructs someone to file.', result: 'A reasoned discussion path, alternatives and questions for professional review.' },
+  { id: 'assemble_findings', title: 'Build the educational roadmap.', body: 'Explain the budget pressure, then use fixed decision branches to choose the legal-help priority and chapter discussion order from debts, income regularity, secured arrears, earlier cases and the main goal. Add matching consultation questions for the selected debts and any earlier case, plus income, household and property preparation. Unknown facts stay unknown; no branch determines eligibility or instructs someone to file.', result: 'A reasoned discussion path, alternatives and questions for professional review.' },
   { id: 'render_result', title: 'Assemble the result.', body: 'Show urgent concerns first, then the educational roadmap, supported snapshot, specific questions, limitations and reading. Ask for missing or corrected answers while preserving urgency and usable calculations.', result: 'A practical next-step roadmap, with the limits of this Checkup stated clearly.' },
   { id: 'validate_public_result', title: 'Check the result before showing it.', body: 'Verify the response has the expected fields and valid amounts. A technical failure returns an unavailable result instead of pretending the calculation succeeded.', result: 'A checked response, without stale or guessed figures.' },
 ];
@@ -199,10 +199,23 @@ const examples = [
         <a class="btn btn-secondary" href="/bankruptcy-checkup-beta">Return to the Beta</a>
       </section>
 
+      <section class="workflow-block" aria-labelledby="workflow-guide-preparation-heading">
+        <h2 id="workflow-guide-preparation-heading">From a short answer to a useful consultation question</h2>
+        <p>Matt’s older free-guide videos explain why each question matters. This draft adapts those explanations into optional question help and a preparation checklist. The graph selects the checklist inside <code>assemble_findings</code>, using the validated answers. It adds no eligibility, waiting-period, exemption or discharge calculation.</p>
+        <ul>
+          <li><strong>Income, marriage and household:</strong> gather income history, household contributions, dependents and joint-debt information. Current take-home pay is a budget figure; the means test has not been performed.</li>
+          <li><strong>Home, vehicle and other assets:</strong> prepare values, ownership, liens, loan balances and past-due amounts. Include paid-off assets, retirement accounts and expected refunds. This does not establish that property is protected.</li>
+          <li><strong>Earlier bankruptcy:</strong> gather chapter, dates and outcome for review. Filing again and receiving another discharge are separate questions; no waiting period is calculated.</li>
+          <li><strong>Credit cards, medical bills and loans:</strong> keep balances separate from monthly payments and identify collateral, co-borrowers and recent borrowing. A debt label does not guarantee discharge.</li>
+          <li><strong>Student loans, taxes and support:</strong> show a separate preparation topic for each selected type. Ask about the applicable student-loan procedure, tax history and liens, or ongoing support and arrears.</li>
+        </ul>
+        <p>In <a href="/bankruptcy-checkup-beta-workflow-interactive">the interactive workflow</a>, load one of the new options examples. Change the debt types, run the draft and open the consultation questions. They should match the new answers; an earlier result is not reused.</p>
+      </section>
       <section class="workflow-block source-block" aria-labelledby="workflow-sources-heading">
         <h2 id="workflow-sources-heading">Sources behind the discussion guide</h2>
         <p>The linked U.S. Courts, CFPB and FTC pages explain bankruptcy, responding to collections, finding help and comparing debt-relief services. They were checked September 13, 2026. They support the education; they do not approve this software or any individual's result.</p>
         <p>The guide also draws on a comparison of eight bankruptcy law-firm sites. Their useful preparation questions were checked against official guidance. Firm advertisements, local dollar thresholds, guaranteed outcomes and credit-score predictions are not executable rules here.</p>
+        <p>The guide-informed preparation copy was checked September 14, 2026 against <a href="https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-7-bankruptcy-basics" target="_blank" rel="noopener noreferrer">Chapter 7 Basics</a>, <a href="https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/discharge-bankruptcy-bankruptcy-basics" target="_blank" rel="noopener noreferrer">Discharge Basics</a> and <a href="https://www.justice.gov/ust/student-loan-guidance" target="_blank" rel="noopener noreferrer">DOJ student-loan guidance</a>. Old guide shortcuts and outcome promises are not enabled as rules. <a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-find-an-attorney-in-my-state-en-1549/" target="_blank" rel="noopener noreferrer">CFPB explains how to find an attorney and local help</a>.</p>
       </section>
     </div>
   </section>

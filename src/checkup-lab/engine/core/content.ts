@@ -1,7 +1,8 @@
 import type { EvaluationContext, Finding, Limitation, Plan, ReadingTopic, Snapshot, UrgencyWarning, UrgentEvent, Validation } from './types.js';
 import { dollars, formatInterval } from './metrics.js';
 import { validDate } from './rules.js';
-import { buildDecisionGuidance } from './guidance.js';
+import { buildDecisionGuidance, missingDiscussionFacts } from './guidance.js';
+import { buildPreparationFindings } from './preparation.js';
 
 export const SCOPE_NOTICE = 'Synthetic-data beta. Educational budget and bankruptcy consultation roadmap. No filing recommendation, Chapter 7 or Chapter 13 eligibility, means test, repayment plan, property protection, or debt discharge determination has been performed. All consumer wording is a draft for review, not attorney-approved guidance.';
 export const URGENCY_COPY: Record<UrgentEvent, UrgencyWarning> = {
@@ -13,7 +14,7 @@ export const URGENCY_COPY: Record<UrgentEvent, UrgencyWarning> = {
 };
 export function contextForDate(asOfDate: string): EvaluationContext {
   if (!validDate(asOfDate)) throw new Error('A valid assessment date is required.');
-  return { asOfDate, implementationVersion: '0.3.0', capabilityManifestVersion: 'snapshot-only-1', templateVersion: 'chapter-attorney-roadmap-draft-3', contentMapVersion: 'official-reading-2026-09-13', locale: 'en-US', rounding: 'integer-cents' };
+  return { asOfDate, implementationVersion: '0.3.1', capabilityManifestVersion: 'snapshot-only-1', templateVersion: 'guide-informed-roadmap-draft-4', contentMapVersion: 'official-reading-2026-09-14', locale: 'en-US', rounding: 'integer-cents' };
 }
 export function legalLimitations(): Limitation[] {
   return [
@@ -84,6 +85,7 @@ export function buildFindings(snapshot: Snapshot, validation: Validation): Findi
   if (answers.debtKinds.some(kind => ['student', 'tax', 'support'].includes(kind))) values.push({ id: 'special_debt_questions', title: 'Some selected debts need separate review', body: 'You selected student loans, taxes, or support. Their treatment can differ and may require separate procedures or continued payment. Do not assume they will all disappear, or that every student loan is impossible to discharge. Ask a lawyer what would remain in your specific case and whether a nonbankruptcy program could help.', evidenceFields: [], inputRevision: validation.inputRevision });
   if (answers.debtKinds.some(kind => ['mortgage', 'auto'].includes(kind)) || ['keep_home', 'keep_vehicle'].includes(answers.mainGoal)) values.push({ id: 'secured_property_questions', title: 'Bring your home or vehicle goal to the discussion', body: 'If keeping a home or vehicle matters, gather loan balances, past-due amounts, payment notices, and approximate property values for a private consultation. Ask about liens, applicable exemptions, arrears, and affordable ongoing payments. Discharging a personal debt does not by itself remove a lien. This tool does not promise that you can keep property.', evidenceFields: [], inputRevision: validation.inputRevision });
   if (answers.mainGoal === 'stop_collection' && !urgent) values.push({ id: 'collection_goal', title: 'Ask what would address the collection pressure', body: 'You want help with collection. Ask a qualified local lawyer about your rights, any notices or response deadlines, and whether bankruptcy or another step would help. No urgent event was selected, but that is not proof that none exists. This Checkup does not stop collection.', evidenceFields: [], inputRevision: validation.inputRevision });
+  values.push(...buildPreparationFindings(validation));
   return values;
 }
 export const READING_URLS = Object.freeze({
@@ -93,6 +95,7 @@ export const READING_URLS = Object.freeze({
   chapter13: 'https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-13-bankruptcy-basics',
   counseling: 'https://www.consumerfinance.gov/ask-cfpb/what-is-the-difference-between-credit-counseling-and-debt-settlement-debt-consolidation-or-credit-repair-en-1449/',
   student: 'https://www.justice.gov/ust/student-loan-guidance',
+  legal_help: 'https://www.consumerfinance.gov/ask-cfpb/how-do-i-find-an-attorney-in-my-state-en-1549/',
 });
 /** Stable, allowlisted references. No guessed GoBK routes or model-generated links. */
 export function chooseReading(validation: Validation, snapshot: Snapshot): ReadingTopic[] {
@@ -110,15 +113,20 @@ export function chooseReading(validation: Validation, snapshot: Snapshot): Readi
   return topics;
 }
 export function nextStepsFor(validation: Validation, plan: Plan): string[] {
+  const a = validation.answers;
   const steps: string[] = [];
-  if (validation.answers.urgentEvents.length) steps.push('Give the reported time-sensitive issue attention without waiting for this questionnaire to be complete.');
+  if (a.urgentEvents.length) steps.push('Contact qualified local legal help promptly about the reported concern. Keep the notices and stated dates; do not wait for the budget to be complete. This Checkup does not stop collection or extend a deadline.');
   if (validation.errors.length) steps.push('Correct the highlighted answers and run a fresh snapshot.');
-  if (plan.missing.length) steps.push('Clarify the specific missing amounts or overlapping payments shown below.');
+  if (plan.missing.length) steps.push(plan.missing.map(field => missingCopy[field] ?? 'Correct the requested input.').join(' '));
   else steps.push('Check that each monthly payment is counted once and that the amounts reflect the same current month.');
+  const discussionGaps = missingDiscussionFacts(validation);
+  if (discussionGaps.length) steps.push(`Before ranking chapters, clarify ${discussionGaps.join('; ')}. Unknown answers do not establish that the case is simple. You can seek advice while gathering these facts.`);
+  if (a.priorBankruptcy === 'yes') steps.push('Find the earlier case’s chapter, filing date, discharge or dismissal date, and outcome. Have a lawyer review timing and protections; no waiting period is calculated here.');
+  if (a.debtKinds.some(kind => ['student', 'tax', 'support', 'other'].includes(kind))) steps.push('Use the debt-specific preparation questions below for the selected student loans, taxes, support or other debts. Ask which obligations would remain and which need a separate procedure.');
+  if (a.debtKinds.some(kind => ['mortgage', 'auto'].includes(kind)) || ['keep_home', 'keep_vehicle'].includes(a.mainGoal) || ['mortgage', 'vehicle', 'both'].includes(a.securedArrears)) steps.push('For the home or vehicle concern, gather approximate values, ownership details, loan balances, arrears and notices. Ask what keeping it would require under each option; property protection has not been assessed.');
   steps.push('Compare a bankruptcy consultation with creditor hardship help and reputable nonprofit counseling. Ask what each option solves, what remains, and the total cost; a consultation does not require you to file.');
-  steps.push('For a private consultation, prepare a complete debt list with balances, interest, minimum payments, and any notices. Do not upload personal records into this beta.');
-  steps.push('Ask about household income history, expected changes and irregular living costs; a take-home snapshot is not the legal means test or a repayment plan.');
-  steps.push('Discuss what you own, secured loans, equity, where you have lived, any previous bankruptcy, and recent payments or transfers. These details can change the options and timing.');
+  steps.push('Prepare a complete debt list with balances and monthly payments kept separate. Include joint debts, income history and a full property list, including paid-off assets and expected refunds, for a private consultation. Do not upload personal records into this beta.');
+  steps.push('Ask about representation fees and local legal aid or court referral resources. The legal-help link below explains how to find an attorney; free help depends on availability and eligibility.');
   steps.push('Ask: which debts would remain, could property be at risk, what payments and fees are required, and what happens if I do not file? Do not stop payments or move assets based on this Checkup.');
   return steps;
 }

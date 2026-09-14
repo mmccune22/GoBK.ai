@@ -21,8 +21,8 @@ try {
   const { defaultConfig, validateConfig, buildOrder, runDraft, runBaseline, importConfig, exportConfig, checkpointId } = await import(pathToFileURL(artifact));
   const fixtures = JSON.parse(await fs.readFile('src/checkup-lab/fixtures.json', 'utf8'));
   const context = {
-    asOfDate: '2026-09-13', implementationVersion: '0.3.0', capabilityManifestVersion: 'snapshot-only-1',
-    templateVersion: 'chapter-attorney-roadmap-draft-3', contentMapVersion: 'official-reading-2026-09-13', locale: 'en-US', rounding: 'integer-cents',
+    asOfDate: '2026-09-14', implementationVersion: '0.3.1', capabilityManifestVersion: 'snapshot-only-1',
+    templateVersion: 'guide-informed-roadmap-draft-4', contentMapVersion: 'official-reading-2026-09-14', locale: 'en-US', rounding: 'integer-cents',
   };
   const normalize = result => ({ ...result, workflow: { ...result.workflow, steps: [] } });
   const originals = {};
@@ -39,6 +39,29 @@ try {
       originals[name] = baseline.result;
     });
   }
+  const roadmapFixtures = JSON.parse(await fs.readFile('src/checkup-lab/roadmap-fixtures.json', 'utf8'));
+  const roadmapChapters = {ordinary_debt_relief:'Chapter 7: discuss this option first',keep_home_roadmap:'Chapter 13: discuss this option first',debt_specific_review:'Chapter 7 or 13? Compare both with debt-specific advice',earlier_case_review:'Chapter 7 or 13? Review the earlier case first'};
+  for (const [name, input] of Object.entries(roadmapFixtures)) {
+    await check(`guide-informed roadmap fixture baseline/draft equivalence: ${name}`, async () => {
+      const baseline = await runBaseline(input, context), draft = await runDraft(input, context);
+      assert.deepEqual(draft.result, baseline.result);
+      assert.equal(draft.result.findings.find(x=>x.id==='chapter_guidance').title, roadmapChapters[name]);
+      const assembly = draft.steps.find(step=>step.nodeId==='assemble_findings');
+      assert.deepEqual(assembly.guidance.filter(x=>x.id.startsWith('prepare_')), draft.result.findings.filter(x=>x.id.startsWith('prepare_')));
+    });
+  }
+  await check('debt-specific consultation questions are fresh and independent of checkbox order', async () => {
+    const input = structuredClone(roadmapFixtures.debt_specific_review);
+    const first = (await runDraft(input, context)).result;
+    const prep = result => result.findings.filter(x=>x.id.startsWith('prepare_'));
+    assert.deepEqual(prep(first).map(x=>x.id), ['prepare_income','prepare_property','prepare_student','prepare_tax','prepare_support']);
+    input.answers.debtKinds.reverse();
+    assert.deepEqual(prep((await runDraft(input, context)).result), prep(first));
+    input.inputRevision=22;input.answers.debtKinds=['medical'];
+    const fresh = (await runDraft(input, context)).result;
+    assert.deepEqual(prep(fresh).map(x=>x.id), ['prepare_income','prepare_property','prepare_unsecured']);
+    assert.ok(fresh.findings.every(x=>x.inputRevision===22));
+  });
   await check('shortfall arithmetic remains integer cents', async () => {
     assert.equal(originals.shortfall.snapshot.beforeAdditionalPayments.minCents, 55000);
     assert.equal(originals.shortfall.snapshot.afterAdditionalPayments.maxCents, -30000);

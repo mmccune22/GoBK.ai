@@ -5,6 +5,10 @@ import { contextForDate } from './engine/core/content';
 import { centsFromDollars } from './engine/core/validation';
 import { formatInterval } from './engine/core/metrics';
 import fixtures from './fixtures.json';
+import roadmapFixtures from './roadmap-fixtures.json';
+import { PREPARATION_IDS } from './engine/core/preparation';
+import { READING_URLS } from './engine/core/content';
+const examples = { ...fixtures, ...roadmapFixtures };
 
 // Real LangGraph is bundled here. No preview evaluator, model, cloud tracing,
 // storage, or assessment request is used by this separate development sandbox.
@@ -19,7 +23,7 @@ function initialize(root: HTMLElement) {
     calculate_snapshot: ['Calculate the snapshot', 'Use the existing integer-cent functions. Income minus expenses produces the first comparison; confirmed separate payments produce the second. Ranges keep their lower and upper bounds.'],
     record_legal_limits: ['State the legal limits', 'Record that chapter eligibility, property protection and debt treatment are outside this version. You can move this node without changing those limits.'],
     draft_review_checkpoint: ['Review checkpoint', 'An extra real graph node for your draft review note. In Step through mode execution waits here until you press Next step. The note does not change the calculation.'],
-    assemble_findings: ['Build the options roadmap', 'Ordinary TypeScript checks reported concerns, debt types, income regularity, arrears, goals and prior bankruptcy to choose attorney and chapter discussion topics. The same validated answers and supported snapshot take the same decision path. This decision runs inside the assembly node, without a language model or an eligibility verdict.'],
+    assemble_findings: ['Build the options roadmap', 'Ordinary TypeScript checks reported concerns, debt types, income regularity, arrears, goals and prior bankruptcy to choose attorney and chapter discussion topics. It adds matching consultation questions for selected debts and earlier cases, plus household, income and property preparation. The same validated answers take the same decision path, without a language model or an eligibility verdict.'],
     render_result: ['Assemble the result', 'Prepare the structured result, including urgent concerns, supported amounts, errors and next steps.'],
     validate_public_result: ['Check the public result', 'The existing strict output validator checks the result contract, amounts, classification and answer revision.'],
   };
@@ -56,7 +60,7 @@ function initialize(root: HTMLElement) {
     field.querySelector<HTMLInputElement>('[data-money-amount]')!.disabled = ['unknown', 'not_provided'].includes(kind);
   }
   function loadExample(name: string) {
-    const example = (fixtures as Record<string, any>)[name];
+    const example = (examples as Record<string, any>)[name];
     for (const field of fields) {
       const value = example.answers[field.dataset.moneyField!];
       field.querySelector<HTMLSelectElement>('[data-money-kind]')!.value = value.kind;
@@ -175,7 +179,7 @@ function initialize(root: HTMLElement) {
       else roadmap.append(heading);
       body.textContent = discussion.body; roadmap.append(body); container.append(roadmap);
     }
-    for (const finding of result.findings.filter(finding => !['bankruptcy_discussion', 'attorney_guidance', 'chapter_guidance'].includes(finding.id))) {
+    for (const finding of result.findings.filter(finding => !['bankruptcy_discussion', 'attorney_guidance', 'chapter_guidance', ...PREPARATION_IDS].includes(finding.id))) {
       const card = document.createElement('section'), heading = document.createElement('h4'), body = document.createElement('p');
       card.className = 'lab-result-finding'; card.dataset.guidanceId = finding.id;
       heading.textContent = finding.title; body.textContent = finding.body; card.append(heading, body); container.append(card);
@@ -194,6 +198,17 @@ function initialize(root: HTMLElement) {
       const nextHeading = document.createElement('h4'), nextList = document.createElement('ol'); nextHeading.textContent = 'Your next steps';
       for (const next of result.nextSteps) { const li = document.createElement('li'); li.textContent = next; nextList.append(li); }
       container.append(nextHeading, nextList);
+      const help = document.createElement('a'); help.textContent = 'Find an attorney or local legal-help resource';
+      help.href = READING_URLS.legal_help; help.target = '_blank'; help.rel = 'noopener noreferrer'; container.append(help);
+    }
+    const preparation = result.findings.filter(finding => PREPARATION_IDS.includes(finding.id));
+    if (preparation.length) {
+      const heading = document.createElement('h4'); heading.textContent = 'Get ready for a consultation'; container.append(heading);
+      for (const finding of preparation) {
+        const details = document.createElement('details'), summary = document.createElement('summary'), body = document.createElement('p');
+        details.className = 'lab-preparation'; details.dataset.guidanceId = finding.id;
+        summary.textContent = finding.title; body.textContent = finding.body; details.append(summary, body); container.append(details);
+      }
     }
     if (result.readingTopics.length) {
       const readingHeading = document.createElement('h4'), readingList = document.createElement('ul'); readingHeading.textContent = 'Learn more and find help';
