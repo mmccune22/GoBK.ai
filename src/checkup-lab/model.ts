@@ -1,5 +1,5 @@
 import { Annotation, StateGraph, START, END } from '@langchain/langgraph';
-import type { EngineState, EvaluationContext, Plan, PublicResult, Snapshot, StepId } from './engine/core/types.js';
+import type { Answers, EngineState, EvaluationContext, Plan, PublicResult, Snapshot, StepId } from './engine/core/types.js';
 import { createStages, initialState } from './engine/core/stages.js';
 import { assertPublicResult } from './engine/core/output.js';
 import { validateInput } from './engine/core/validation.js';
@@ -71,6 +71,8 @@ export interface LabStep {
   coreStepIds: StepId[];
   inputRevision: number | null;
   validation: null | { envelopeValid: boolean; errorFields: string[]; urgencyIds: string[] };
+  guidanceInputs: null | Pick<Answers, 'debtKinds' | 'debtSituation' | 'mainGoal' | 'incomeRegularity' | 'securedArrears' | 'priorBankruptcy'>;
+  guidance: EngineState['findings'];
   plan: Plan | null;
   snapshot: Snapshot | null;
   findingCount: number;
@@ -128,6 +130,15 @@ function project(nodeId: string, state: EngineState): LabStep {
       errorFields: state.validation.errors.map(error => error.field),
       urgencyIds: state.validation.answers.urgentEvents,
     } : null,
+    guidanceInputs: state.validation ? {
+      debtKinds: state.validation.answers.debtKinds,
+      debtSituation: state.validation.answers.debtSituation,
+      mainGoal: state.validation.answers.mainGoal,
+      incomeRegularity: state.validation.answers.incomeRegularity,
+      securedArrears: state.validation.answers.securedArrears,
+      priorBankruptcy: state.validation.answers.priorBankruptcy,
+    } : null,
+    guidance: state.findings.filter(finding => ['attorney_guidance', 'chapter_guidance', 'bankruptcy_discussion', 'compare_alternatives', 'special_debt_questions', 'secured_property_questions'].includes(finding.id)),
     plan: state.plan,
     snapshot: state.snapshot,
     findingCount: state.findings.length,

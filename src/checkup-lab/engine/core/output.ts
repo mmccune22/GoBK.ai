@@ -41,7 +41,7 @@ const publicShape: Check = shape({
   readingTopics: arrayOf(shape({ id: text, title: text, reason: text, url: oneOf(...Object.values(READING_URLS)) }), 5),
   limitations: arrayOf(shape({ id: text, topic: oneOf('snapshot', 'chapter_eligibility', 'asset_protection', 'debt_treatment', 'technical'), status: oneOf('insufficient_information', 'not_supported', 'unavailable'), body: text })),
   nextSteps: arrayOf(text, 12),
-  fieldErrors: arrayOf(shape({ field: oneOf(...MONEY_FIELDS, 'additionalPaymentsSeparate', 'urgentEvents', 'debtKinds', 'debtSituation', 'mainGoal', '_request'), code: text, message: text }), 12),
+  fieldErrors: arrayOf(shape({ field: oneOf(...MONEY_FIELDS, 'additionalPaymentsSeparate', 'urgentEvents', 'debtKinds', 'debtSituation', 'mainGoal', 'incomeRegularity', 'securedArrears', 'priorBankruptcy', '_request'), code: text, message: text }), 12),
   workflow: shape({ engine: oneOf('langgraph', 'core-preview'), steps: arrayOf(oneOf(...allSteps), 12) }),
   scopeNotice: oneOf(SCOPE_NOTICE),
 });

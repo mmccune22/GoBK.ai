@@ -34,7 +34,7 @@ export function emptyAnswers(): Answers {
     monthlyTakeHome: { kind: 'not_provided' }, monthlyExpenses: { kind: 'not_provided' },
     additionalDebtPayments: { kind: 'not_provided' }, additionalPaymentsSeparate: 'not_provided',
     urgentEvents: [], urgencyResponse: 'not_answered', debtKinds: [],
-    debtSituation: 'unknown', mainGoal: 'unsure',
+    debtSituation: 'unknown', mainGoal: 'unsure', incomeRegularity: 'unknown', securedArrears: 'unknown', priorBankruptcy: 'unknown',
   };
 }
 const moneyError = (field: FieldName): FieldError => ({
@@ -57,7 +57,7 @@ export function validateInput(raw: unknown): Validation {
   else invalidEnvelope();
   if (!isObject(raw.answers)) { invalidEnvelope(); return result; }
   const source = raw.answers;
-  if (!hasOnlyKeys(source, [...MONEY_FIELDS, 'additionalPaymentsSeparate', 'urgentEvents', 'debtKinds', 'debtSituation', 'mainGoal'])) invalidEnvelope();
+  if (!hasOnlyKeys(source, [...MONEY_FIELDS, 'additionalPaymentsSeparate', 'urgentEvents', 'debtKinds', 'debtSituation', 'mainGoal', 'incomeRegularity', 'securedArrears', 'priorBankruptcy'])) invalidEnvelope();
   for (const field of MONEY_FIELDS) {
     const parsed = parseMoney(source[field]);
     if (parsed === null) result.errors.push(moneyError(field));
@@ -95,6 +95,18 @@ export function validateInput(raw: unknown): Validation {
   if (source.mainGoal !== undefined && source.mainGoal !== 'unsure') {
     if (goals.includes(source.mainGoal as typeof goals[number])) result.answers.mainGoal = source.mainGoal as typeof goals[number];
     else result.errors.push({ field: 'mainGoal', code: 'INVALID_SELECTION', message: 'Choose a goal from the list, or still exploring.' });
+  }
+  for (const [field, choices] of [
+    ['incomeRegularity', ['regular', 'irregular', 'no_current_income', 'unknown']],
+    ['securedArrears', ['none', 'mortgage', 'vehicle', 'both', 'unknown']],
+    ['priorBankruptcy', ['yes', 'no', 'unknown']],
+  ] as const) {
+    const value = source[field];
+    if (value === undefined) continue;
+    if (typeof value === 'string' && (choices as readonly string[]).includes(value)) {
+      // The field's allowlisted enum was checked above; unknown stays unknown.
+      Object.assign(result.answers, { [field]: value });
+    } else result.errors.push({ field, code: 'INVALID_SELECTION', message: 'Choose a listed discussion answer, or not sure.' });
   }
   return result;
 }

@@ -1,5 +1,5 @@
 {
-  "source": "GoBK snapshot v0.1.0 with source-backed consultation roadmap v0.2.0, September 13, 2026",
+  "source": "GoBK snapshot v0.1.0 with deterministic chapter/attorney discussion roadmap v0.3.0, September 13, 2026",
   "unchangedSourceFiles": {
     "core/metrics.ts": "ec696d3f96d156cb96752f74e91428e0d69744c3855d88156349ca05ae968a12",
     "core/preview.ts": "2c2587ff430afc82c41ea66c00ec113105d26b813c7542bf40b388e50cba9038",
@@ -31,11 +31,14 @@
     "langgraph/graph.ts": "5333111c9b27609b47b574bf63a5f6cef69056c3e138f5e428f1c9803ab32e05"
   },
   "updatedSourceFiles": {
-    "core/content.ts": "9ce9331e4b018639cc14369127c987a945be9d068c515120eaaadbb4520b780b",
-    "core/types.ts": "8f45574cb380cafc5c2803df93d1bb583d827db22cfaffd9779ceef2665dceb8",
-    "core/validation.ts": "a735758e01436f8a035d8a7fa8c71e45ccf2e83efdb9b3b1d85c69ed59b8b2b4",
-    "core/output.ts": "3162f177111111d7ef6485792253d7f21988bb694319174ccac7b7c4733590a8"
+    "core/content.ts": "923a1528eb8f430ff29b93bae8ccc0783277d9c84c7e3b8c008c14f1a2441de4",
+    "core/types.ts": "2098cc5070a3f1e49eea18c8235e01ab3f540a63d5b905445a438b27e1ac5146",
+    "core/validation.ts": "c04dd60bdee86af12fe7f40bd359f4e1c23fe35eccb6d1a81c69fc71ea272ff1",
+    "core/output.ts": "50238c6336ed6245dbe0fee312b83e3c7959a1b98bc19a71a627082a8521a55d"
   },
-  "educationExtension": "Optional debtSituation/mainGoal self-reports; contextual findings and official resources. No substantive legal assessment rules enabled. Core financial arithmetic and graph routing remain unchanged.",
-  "updatedHashConvention": "SHA-256 of UTF-8 source with CRLF normalized to LF; independent of Windows Git checkout line endings."
+  "educationExtension": "Optional payment situation, goal, income regularity, secured arrears and earlier-case self-reports. Ordered deterministic educational chapter starting points and attorney-help reasons run inside assemble_findings. No substantive eligibility rule packs enabled. Financial arithmetic and graph routing remain unchanged.",
+  "updatedHashConvention": "SHA-256 of UTF-8 source with CRLF normalized to LF; independent of Windows Git checkout line endings.",
+  "addedSourceFiles": {
+    "core/guidance.ts": "421ebd3c93030d9bda59f6193ba0a42f90c70334d166f5dffbb347f24fab802e"
+  }
 }

@@ -1,6 +1,7 @@
 import type { EvaluationContext, Finding, Limitation, Plan, ReadingTopic, Snapshot, UrgencyWarning, UrgentEvent, Validation } from './types.js';
 import { dollars, formatInterval } from './metrics.js';
 import { validDate } from './rules.js';
+import { buildDecisionGuidance } from './guidance.js';
 
 export const SCOPE_NOTICE = 'Synthetic-data beta. Educational budget and bankruptcy consultation roadmap. No filing recommendation, Chapter 7 or Chapter 13 eligibility, means test, repayment plan, property protection, or debt discharge determination has been performed. All consumer wording is a draft for review, not attorney-approved guidance.';
 export const URGENCY_COPY: Record<UrgentEvent, UrgencyWarning> = {
@@ -12,7 +13,7 @@ export const URGENCY_COPY: Record<UrgentEvent, UrgencyWarning> = {
 };
 export function contextForDate(asOfDate: string): EvaluationContext {
   if (!validDate(asOfDate)) throw new Error('A valid assessment date is required.');
-  return { asOfDate, implementationVersion: '0.2.0', capabilityManifestVersion: 'snapshot-only-1', templateVersion: 'consultation-roadmap-draft-2', contentMapVersion: 'official-reading-2026-09-13', locale: 'en-US', rounding: 'integer-cents' };
+  return { asOfDate, implementationVersion: '0.3.0', capabilityManifestVersion: 'snapshot-only-1', templateVersion: 'chapter-attorney-roadmap-draft-3', contentMapVersion: 'official-reading-2026-09-13', locale: 'en-US', rounding: 'integer-cents' };
 }
 export function legalLimitations(): Limitation[] {
   return [
@@ -79,7 +80,7 @@ export function buildFindings(snapshot: Snapshot, validation: Validation): Findi
     values.push({ id: 'before_additional_payments', title: 'Before separately listed additional payments', body: `Take-home income minus recurring expenses is ${formatInterval(snapshot.beforeAdditionalPayments)} per month. This comparison does not assume that any payment can be stopped.`, evidenceFields: ['monthlyTakeHome', 'monthlyExpenses'], inputRevision: validation.inputRevision });
   }
   values.push({ id: 'compare_alternatives', title: 'Compare options by the problem they solve', body: 'Ask creditors about hardship arrangements and compare a reputable nonprofit counselor’s debt management plan with bankruptcy. A payment plan must fit the budget; counseling does not erase debts. Settlement or consolidation can involve fees, interest, collection risk, or a longer repayment period. Compare total cost and written terms before choosing.', evidenceFields: [], inputRevision: validation.inputRevision });
-  values.push({ id: 'chapter_questions', title: 'Chapter 7 and Chapter 13: questions to discuss', body: 'Chapter 7 can discharge certain debts and involves review of nonexempt property that may be sold. Chapter 13 is a court-supervised payment plan for people with regular income and may offer a way to address arrears. Neither chapter is selected here. Ask about eligibility, debts that would remain, property, ongoing payments, fees, and the consequences of each option.', evidenceFields: [], inputRevision: validation.inputRevision });
+  values.push(...buildDecisionGuidance(validation));
   if (answers.debtKinds.some(kind => ['student', 'tax', 'support'].includes(kind))) values.push({ id: 'special_debt_questions', title: 'Some selected debts need separate review', body: 'You selected student loans, taxes, or support. Their treatment can differ and may require separate procedures or continued payment. Do not assume they will all disappear, or that every student loan is impossible to discharge. Ask a lawyer what would remain in your specific case and whether a nonbankruptcy program could help.', evidenceFields: [], inputRevision: validation.inputRevision });
   if (answers.debtKinds.some(kind => ['mortgage', 'auto'].includes(kind)) || ['keep_home', 'keep_vehicle'].includes(answers.mainGoal)) values.push({ id: 'secured_property_questions', title: 'Bring your home or vehicle goal to the discussion', body: 'If keeping a home or vehicle matters, gather loan balances, past-due amounts, payment notices, and approximate property values for a private consultation. Ask about liens, applicable exemptions, arrears, and affordable ongoing payments. Discharging a personal debt does not by itself remove a lien. This tool does not promise that you can keep property.', evidenceFields: [], inputRevision: validation.inputRevision });
   if (answers.mainGoal === 'stop_collection' && !urgent) values.push({ id: 'collection_goal', title: 'Ask what would address the collection pressure', body: 'You want help with collection. Ask a qualified local lawyer about your rights, any notices or response deadlines, and whether bankruptcy or another step would help. No urgent event was selected, but that is not proof that none exists. This Checkup does not stop collection.', evidenceFields: [], inputRevision: validation.inputRevision });

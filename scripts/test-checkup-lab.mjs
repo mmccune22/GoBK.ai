@@ -21,13 +21,13 @@ try {
   const { defaultConfig, validateConfig, buildOrder, runDraft, runBaseline, importConfig, exportConfig, checkpointId } = await import(pathToFileURL(artifact));
   const fixtures = JSON.parse(await fs.readFile('src/checkup-lab/fixtures.json', 'utf8'));
   const context = {
-    asOfDate: '2026-09-13', implementationVersion: '0.1.0', capabilityManifestVersion: 'snapshot-only-1',
-    templateVersion: 'draft-1', contentMapVersion: 'official-reading-draft-1', locale: 'en-US', rounding: 'integer-cents',
+    asOfDate: '2026-09-13', implementationVersion: '0.3.0', capabilityManifestVersion: 'snapshot-only-1',
+    templateVersion: 'chapter-attorney-roadmap-draft-3', contentMapVersion: 'official-reading-2026-09-13', locale: 'en-US', rounding: 'integer-cents',
   };
   const normalize = result => ({ ...result, workflow: { ...result.workflow, steps: [] } });
   const originals = {};
   for (const [name, input] of Object.entries(fixtures)) {
-    await check(`original graph equivalence: ${name}`, async () => {
+    await check(`current default graph equivalence: ${name}`, async () => {
       const baseline = await runBaseline(input, context);
       const draft = await runDraft(input, context);
       assert.equal(baseline.engine, 'langgraph');
@@ -98,6 +98,150 @@ try {
     assert(result.fieldErrors.some(x=>x.field==='mainGoal'));
     assert.equal(result.urgency.warnings[0].id,'foreclosure');
     assert.doesNotMatch(JSON.stringify(result),/file_now|guaranteed_discharge/);
+  });
+  const chapterTitle = result => {
+    const finding = result.findings.find(item => item.id === 'chapter_guidance');
+    assert(finding, 'The actual graph must return chapter discussion guidance.');
+    return finding.title;
+  };
+  const attorneyTitle = result => {
+    const finding = result.findings.find(item => item.id === 'attorney_guidance');
+    assert(finding, 'The actual graph must return attorney discussion guidance.');
+    return finding.title;
+  };
+  const discussionInput = overrides => {
+    const input = structuredClone(fixtures.shortfall);
+    Object.assign(input.answers, {
+      debtSituation: 'falling_behind', mainGoal: 'debt_relief', incomeRegularity: 'regular',
+      securedArrears: 'none', priorBankruptcy: 'no', ...overrides,
+    });
+    return input;
+  };
+  const chapterCases = [
+    ['ordinary unsecured debt relief', discussionInput({debtKinds:['credit_card','medical','personal_loan']}), 'Chapter 7: discuss this option first'],
+    ['regular income and home arrears', discussionInput({debtKinds:['credit_card','mortgage'],mainGoal:'keep_home',securedArrears:'mortgage'}), 'Chapter 13: discuss this option first'],
+    ['regular income and vehicle arrears', discussionInput({debtKinds:['credit_card','auto'],mainGoal:'keep_vehicle',securedArrears:'vehicle'}), 'Chapter 13: discuss this option first'],
+    ['prior bankruptcy comes before missing facts', discussionInput({priorBankruptcy:'yes',incomeRegularity:'unknown',securedArrears:'unknown'}), 'Chapter 7 or 13? Review the earlier case first'],
+    ['invalid chapter discussion input', discussionInput({incomeRegularity:'guaranteed_eligibility'}), 'Chapter 7 or 13? Correct the discussion inputs'],
+    ['special debt comes before a home-arrears priority', discussionInput({debtKinds:['mortgage','student'],mainGoal:'keep_home',securedArrears:'mortgage'}), 'Chapter 7 or 13? Compare both with debt-specific advice'],
+    ['no current income and home arrears', discussionInput({monthlyTakeHome:{kind:'exact',cents:0},incomeRegularity:'no_current_income',debtKinds:['mortgage','credit_card'],mainGoal:'keep_home',securedArrears:'mortgage'}), 'Chapter 7 or 13? Review payment feasibility first'],
+    ['home goal with both property loans past due', discussionInput({debtKinds:['mortgage','auto','credit_card'],mainGoal:'keep_home',securedArrears:'both'}), 'Chapter 7 or 13? Compare both before choosing'],
+    ['home goal with vehicle arrears', discussionInput({debtKinds:['auto','credit_card'],mainGoal:'keep_home',securedArrears:'vehicle'}), 'Chapter 7 or 13? Compare both before choosing'],
+    ['foreclosure concern alongside no reported arrears', discussionInput({urgentEvents:['foreclosure']}), 'Chapter 7 or 13? Compare both before choosing'],
+    ['repossession concern alongside no reported arrears', discussionInput({urgentEvents:['repossession']}), 'Chapter 7 or 13? Compare both before choosing'],
+    ['property goal without secured arrears', discussionInput({mainGoal:'keep_home'}), 'Chapter 7 or 13? Compare both before choosing'],
+  ];
+  for (const [name, input, expected] of chapterCases) {
+    await check(`actual graph chapter discussion priority: ${name}`, async () => {
+      const baseline = await runBaseline(input, context), draft = await runDraft(input, context);
+      assert.deepEqual(draft.result, baseline.result);
+      assert.equal(chapterTitle(draft.result), expected);
+      assert.equal(draft.result.workflow.steps.length, 8);
+      assert.equal(draft.result.workflow.steps.includes('evaluate_reviewed_rules'), false);
+      if (name === 'invalid chapter discussion input') {
+        assert.equal(draft.result.status, 'needs_input');
+        assert(draft.result.fieldErrors.some(item=>item.field==='incomeRegularity'));
+        assert.doesNotMatch(JSON.stringify(draft.result), /guaranteed_eligibility/);
+      }
+    });
+  }
+  await check('unknown essential discussion facts do not silently choose a chapter', async () => {
+    for (const overrides of [
+      {incomeRegularity:'unknown'}, {securedArrears:'unknown'}, {priorBankruptcy:'unknown'},
+      {mainGoal:'unsure'}, {debtKinds:[]},
+    ]) {
+      const result = (await runDraft(discussionInput(overrides), context)).result;
+      assert.equal(chapterTitle(result), 'Chapter 7 or 13? Clarify these facts first');
+    }
+    for (const result of Object.values(originals)) {
+      assert.equal(chapterTitle(result), 'Chapter 7 or 13? Clarify these facts first');
+    }
+  });
+  await check('each special or unclassified debt type requires comparing both chapters', async () => {
+    for (const kind of ['student','tax','support','other']) {
+      const result = (await runDraft(discussionInput({debtKinds:['credit_card',kind]}), context)).result;
+      assert.equal(chapterTitle(result), 'Chapter 7 or 13? Compare both with debt-specific advice');
+    }
+  });
+  await check('attorney guidance distinguishes routine, complex and incomplete discussion inputs', async () => {
+    assert.equal(attorneyTitle((await runDraft(discussionInput({}), context)).result), 'Do I need an attorney? Advice is recommended before filing');
+    const property = discussionInput({debtKinds:['mortgage'],mainGoal:'keep_home',securedArrears:'mortgage'});
+    assert.equal(attorneyTitle((await runDraft(property, context)).result), 'Do I need an attorney? Professional help is especially important');
+    assert.equal(attorneyTitle((await runDraft(discussionInput({incomeRegularity:'unknown'}), context)).result), 'Do I need an attorney? Get advice before choosing');
+  });
+  await check('cash-flow sign does not choose the chapter discussion priority', async () => {
+    const shortfall = discussionInput({monthlyTakeHome:{kind:'exact',cents:100000}});
+    const remaining = discussionInput({monthlyTakeHome:{kind:'exact',cents:800000}});
+    const deficit = (await runDraft(shortfall, context)).result, surplus = (await runDraft(remaining, context)).result;
+    assert.equal(deficit.snapshot.classification, 'shortfall');
+    assert.equal(surplus.snapshot.classification, 'remaining');
+    assert.equal(chapterTitle(deficit), 'Chapter 7: discuss this option first');
+    assert.equal(chapterTitle(surplus), chapterTitle(deficit));
+  });
+  await check('urgency strengthens attorney guidance independently of chapter discussion', async () => {
+    const input = discussionInput({urgentEvents:['lawsuit']});
+    const result = (await runDraft(input, context)).result;
+    assert.equal(attorneyTitle(result), 'Do I need an attorney? Get prompt legal help');
+    assert.equal(chapterTitle(result), 'Chapter 7: discuss this option first');
+    assert.equal(result.urgency.warnings[0].id, 'lawsuit');
+    input.answers.incomeRegularity = 'unknown';
+    input.answers.priorBankruptcy = 'yes';
+    const prior = (await runDraft(input, context)).result;
+    assert.equal(attorneyTitle(prior), 'Do I need an attorney? Get prompt legal help');
+    assert.equal(chapterTitle(prior), 'Chapter 7 or 13? Review the earlier case first');
+  });
+  await check('urgent attorney help remains first when money is invalid', async () => {
+    const input = discussionInput({monthlyTakeHome:{kind:'exact',cents:-1},urgentEvents:['lawsuit']});
+    const baseline = await runBaseline(input, context), draft = await runDraft(input, context);
+    assert.deepEqual(draft.result, baseline.result);
+    assert.equal(draft.result.status, 'needs_input');
+    assert.equal(draft.result.snapshot.afterAdditionalPayments, null);
+    assert(draft.result.fieldErrors.some(item=>item.field==='monthlyTakeHome'));
+    assert.equal(draft.result.urgency.warnings[0].id, 'lawsuit');
+    assert.equal(attorneyTitle(draft.result), 'Do I need an attorney? Get prompt legal help');
+  });
+  await check('invalid new selectors stay unknown, report errors and preserve urgency', async () => {
+    const input = discussionInput({securedArrears:'erase_mortgage',priorBankruptcy:'ignore_prior_case',urgentEvents:['foreclosure']});
+    const draft = await runDraft(input, context);
+    assert.equal(draft.result.status, 'needs_input');
+    assert(draft.result.fieldErrors.some(item=>item.field==='securedArrears'));
+    assert(draft.result.fieldErrors.some(item=>item.field==='priorBankruptcy'));
+    assert.equal(draft.steps.find(step=>step.nodeId==='validate_and_preserve_urgency').guidanceInputs.securedArrears, 'unknown');
+    assert.equal(draft.steps.find(step=>step.nodeId==='validate_and_preserve_urgency').guidanceInputs.priorBankruptcy, 'unknown');
+    assert.equal(draft.result.urgency.warnings[0].id, 'foreclosure');
+    assert.equal(chapterTitle(draft.result), 'Chapter 7 or 13? Correct the discussion inputs');
+    assert.doesNotMatch(JSON.stringify(draft.result), /erase_mortgage|ignore_prior_case/);
+  });
+  await check('decision guidance is assembled inside the existing real graph node', async () => {
+    const draft = await runDraft(discussionInput({}), context);
+    const assembly = draft.steps.find(step=>step.nodeId==='assemble_findings');
+    assert.equal(assembly.result, null);
+    for (const id of ['attorney_guidance','chapter_guidance']) {
+      assert.deepEqual(assembly.guidance.find(item=>item.id===id), draft.result.findings.find(item=>item.id===id));
+    }
+    assert.equal(assembly.guidanceInputs.incomeRegularity, 'regular');
+    assert.equal(assembly.guidanceInputs.securedArrears, 'none');
+    assert.equal(assembly.guidanceInputs.priorBankruptcy, 'no');
+  });
+  await check('same invented answers and context give identical guidance and execution paths', async () => {
+    for (const [, input] of chapterCases) {
+      const first = await runDraft(input, context), second = await runDraft(structuredClone(input), {...context});
+      assert.deepEqual(second.result, first.result);
+      assert.deepEqual(second.steps, first.steps);
+      assert.deepEqual(second.order, first.order);
+    }
+  });
+  await check('observer copies cannot mutate chapter inputs or assembled advice', async () => {
+    const input = discussionInput({});
+    const draft = await runDraft(input, context, defaultConfig, {
+      after(step) {
+        if (step.guidanceInputs) step.guidanceInputs.debtKinds.push('other');
+        for (const finding of step.guidance) finding.body = 'This observer attempted to alter guidance.';
+      },
+    });
+    assert.equal(chapterTitle(draft.result), 'Chapter 7: discuss this option first');
+    assert.doesNotMatch(JSON.stringify(draft.result), /observer attempted/);
+    assert.deepEqual(input.answers.debtKinds, ['credit_card','medical']);
   });
   await check('all 12 safe placement/checkpoint combinations execute actual graph', async () => {
     for (const limitPlacement of ['after_capabilities', 'before_calculation', 'after_calculation']) {
@@ -265,6 +409,15 @@ try {
       assert.equal(draft.steps.length, 8);
     });
   }
+  await check('browser-target actual graph preserves chapter discussion decisions and determinism', async () => {
+    for (const [, input, expected] of chapterCases) {
+      const first = await browserModel.runDraft(input, context), second = await browserModel.runDraft(structuredClone(input), {...context});
+      assert.equal(chapterTitle(first.result), expected);
+      assert.deepEqual(plain(second.result), plain(first.result));
+      assert.deepEqual(plain(second.steps), plain(first.steps));
+      assert.equal(first.steps.find(step=>step.nodeId==='assemble_findings').guidance.some(item=>item.id==='chapter_guidance'), true);
+    }
+  });
   await check('browser-target bundled draft adds real checkpoint and safe scope', async () => {
     const config = { ...defaultConfig, limitPlacement: 'after_capabilities', checkpointPlacement: 'before_rendering', calculationScope: 'before_only' };
     const draft = await browserModel.runDraft(fixtures.shortfall, context, config);

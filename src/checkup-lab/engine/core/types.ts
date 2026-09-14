@@ -8,7 +8,10 @@ export type UrgentEvent = 'foreclosure' | 'garnishment' | 'repossession' | 'laws
 export type DebtKind = 'credit_card' | 'medical' | 'personal_loan' | 'mortgage' | 'auto' | 'student' | 'tax' | 'support' | 'other';
 export type DebtSituation = 'keeping_up' | 'falling_behind' | 'borrowing_for_basics' | 'balances_not_shrinking' | 'unknown';
 export type MainGoal = 'debt_relief' | 'keep_home' | 'keep_vehicle' | 'stop_collection' | 'unsure';
-export type FieldName = MoneyField | 'additionalPaymentsSeparate' | 'urgentEvents' | 'debtKinds' | 'debtSituation' | 'mainGoal' | '_request';
+export type IncomeRegularity = 'regular' | 'irregular' | 'no_current_income' | 'unknown';
+export type SecuredArrears = 'none' | 'mortgage' | 'vehicle' | 'both' | 'unknown';
+export type PriorBankruptcy = 'yes' | 'no' | 'unknown';
+export type FieldName = MoneyField | 'additionalPaymentsSeparate' | 'urgentEvents' | 'debtKinds' | 'debtSituation' | 'mainGoal' | 'incomeRegularity' | 'securedArrears' | 'priorBankruptcy' | '_request';
 export interface FieldError { field: FieldName; code: string; message: string }
 export interface Answers {
   monthlyTakeHome: MoneyAnswer;
@@ -20,6 +23,9 @@ export interface Answers {
   debtKinds: DebtKind[];
   debtSituation: DebtSituation;
   mainGoal: MainGoal;
+  incomeRegularity: IncomeRegularity;
+  securedArrears: SecuredArrears;
+  priorBankruptcy: PriorBankruptcy;
 }
 export interface Validation {
   inputRevision: number | null;

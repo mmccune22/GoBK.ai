@@ -19,7 +19,7 @@ function initialize(root: HTMLElement) {
     calculate_snapshot: ['Calculate the snapshot', 'Use the existing integer-cent functions. Income minus expenses produces the first comparison; confirmed separate payments produce the second. Ranges keep their lower and upper bounds.'],
     record_legal_limits: ['State the legal limits', 'Record that chapter eligibility, property protection and debt treatment are outside this version. You can move this node without changing those limits.'],
     draft_review_checkpoint: ['Review checkpoint', 'An extra real graph node for your draft review note. In Step through mode execution waits here until you press Next step. The note does not change the calculation.'],
-    assemble_findings: ['Build the options roadmap', 'Explain whether bankruptcy is worth discussing, which alternatives to compare, and what questions the selected debt types raise. These source-backed draft explanations use the supported snapshot and reported concerns; they do not decide whether to file.'],
+    assemble_findings: ['Build the options roadmap', 'Ordinary TypeScript checks reported concerns, debt types, income regularity, arrears, goals and prior bankruptcy to choose attorney and chapter discussion topics. The same validated answers and supported snapshot take the same decision path. This decision runs inside the assembly node, without a language model or an eligibility verdict.'],
     render_result: ['Assemble the result', 'Prepare the structured result, including urgent concerns, supported amounts, errors and next steps.'],
     validate_public_result: ['Check the public result', 'The existing strict output validator checks the result contract, amounts, classification and answer revision.'],
   };
@@ -68,6 +68,9 @@ function initialize(root: HTMLElement) {
     el<HTMLSelectElement>('urgency').value = example.answers.urgentEvents[0] ?? 'none';
     el<HTMLSelectElement>('debt-situation').value = example.answers.debtSituation ?? 'unknown';
     el<HTMLSelectElement>('main-goal').value = example.answers.mainGoal ?? 'unsure';
+    el<HTMLSelectElement>('income-regularity').value = example.answers.incomeRegularity ?? 'unknown';
+    el<HTMLSelectElement>('secured-arrears').value = example.answers.securedArrears ?? 'unknown';
+    el<HTMLSelectElement>('prior-bankruptcy').value = example.answers.priorBankruptcy ?? 'unknown';
     for (const choice of debtChoices) choice.checked = (example.answers.debtKinds ?? []).includes(choice.value);
   }
   function readInput() {
@@ -84,6 +87,9 @@ function initialize(root: HTMLElement) {
     answers.debtKinds = debtChoices.filter(choice => choice.checked).map(choice => choice.value);
     answers.debtSituation = el<HTMLSelectElement>('debt-situation').value;
     answers.mainGoal = el<HTMLSelectElement>('main-goal').value;
+    answers.incomeRegularity = el<HTMLSelectElement>('income-regularity').value;
+    answers.securedArrears = el<HTMLSelectElement>('secured-arrears').value;
+    answers.priorBankruptcy = el<HTMLSelectElement>('prior-bankruptcy').value;
     return { schemaVersion: '1', synthetic: true, inputRevision: revision, answers };
   }
   function stop() {
@@ -133,9 +139,10 @@ function initialize(root: HTMLElement) {
     if (step) {
       const pre = document.createElement('pre'); pre.textContent = JSON.stringify({
         inputRevision: step.inputRevision, validation: step.validation, calculationPlan: step.plan,
+        guidanceInputs: step.guidanceInputs,
         snapshot: step.snapshot, findingCount: step.findingCount,
         completedCoreSteps: step.coreStepIds, publicResultStatus: step.result?.status ?? null,
-        optionsRoadmap: step.result?.findings.filter(finding => ['bankruptcy_discussion', 'compare_alternatives', 'special_debt_questions', 'secured_property_questions'].includes(finding.id)) ?? null,
+        optionsRoadmap: step.guidance,
         nextSteps: step.result?.nextSteps ?? null,
       }, null, 2); container.append(pre);
     }
@@ -152,6 +159,13 @@ function initialize(root: HTMLElement) {
       for (const error of result.fieldErrors) { const li = document.createElement('li'); li.textContent = error.message; errors.append(li); }
       container.append(errors);
     }
+    for (const id of ['attorney_guidance', 'chapter_guidance']) {
+      const finding = result.findings.find(value => value.id === id); if (!finding) continue;
+      const card = document.createElement('section'), label = document.createElement('p'), heading = document.createElement('h4'), body = document.createElement('p');
+      card.className = `lab-decision-card ${id === 'attorney_guidance' ? 'lab-attorney-guidance' : 'lab-chapter-guidance'}`; card.dataset.guidanceId = id;
+      label.className = 'lab-guidance-label'; label.textContent = id === 'attorney_guidance' ? 'GETTING ADVICE' : 'WHAT TO DISCUSS FIRST';
+      heading.textContent = finding.title; body.textContent = finding.body; card.append(label, heading, body); container.append(card);
+    }
     const discussion = result.findings.find(finding => finding.id === 'bankruptcy_discussion');
     if (discussion) {
       const roadmap = document.createElement('section'), heading = document.createElement('h4'), body = document.createElement('p');
@@ -161,7 +175,7 @@ function initialize(root: HTMLElement) {
       else roadmap.append(heading);
       body.textContent = discussion.body; roadmap.append(body); container.append(roadmap);
     }
-    for (const finding of result.findings.filter(finding => finding.id !== 'bankruptcy_discussion')) {
+    for (const finding of result.findings.filter(finding => !['bankruptcy_discussion', 'attorney_guidance', 'chapter_guidance'].includes(finding.id))) {
       const card = document.createElement('section'), heading = document.createElement('h4'), body = document.createElement('p');
       card.className = 'lab-result-finding'; card.dataset.guidanceId = finding.id;
       heading.textContent = finding.title; body.textContent = finding.body; card.append(heading, body); container.append(card);
@@ -230,8 +244,9 @@ function initialize(root: HTMLElement) {
   }
   for (const field of fields) for (const control of field.querySelectorAll<HTMLInputElement | HTMLSelectElement>('input,select')) control.addEventListener('input', () => { syncMoney(field); invalidate(); });
   for (const choice of debtChoices) choice.addEventListener('change', invalidate);
-  for (const id of ['title', 'review-note', 'limit-placement', 'checkpoint-placement', 'calculation-scope', 'separate', 'urgency', 'debt-situation', 'main-goal']) el(id).addEventListener('input', invalidate);
+  for (const id of ['title', 'review-note', 'limit-placement', 'checkpoint-placement', 'calculation-scope', 'separate', 'urgency', 'debt-situation', 'main-goal', 'income-regularity', 'secured-arrears', 'prior-bankruptcy']) el(id).addEventListener('input', invalidate);
   el('example').addEventListener('change', () => { loadExample(el<HTMLSelectElement>('example').value); invalidate(); });
+  button('reset-answers').addEventListener('click', () => { loadExample(el<HTMLSelectElement>('example').value); invalidate(); setStatus('Test answers reset to the selected invented example. Run again to compare.'); });
   button('run').addEventListener('click', () => { void run(false); });
   button('step').addEventListener('click', () => { void run(true); });
   button('next').addEventListener('click', () => { releaseStep?.(); });

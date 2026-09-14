@@ -19,13 +19,14 @@ assert headers.count('>Bankruptcy Checkup (Beta)</a>')==97
 assert headers.count('>Bankruptcy Checkup Beta Workflow</a>')==97
 assert 'https://gobk-checkup-beta.jimmydanol.chatgpt.site' in new['bankruptcy-checkup-beta']
 assert not any('\\' in pid for pid in new)
-previous=sections(subprocess.check_output(['git','show','4006d095bff3113a969a7635bcf17a5dcb3ef524:docs/index.html']).decode('utf-8').replace('\r\n','\n'))
+previous=sections(subprocess.check_output(['git','show','abd91f7ffa4ba8b9d9f9429f4a5d3f728a08f6d8:docs/index.html']).decode('utf-8').replace('\r\n','\n'))
 authorized={'bankruptcy-checkup-beta','bankruptcy-checkup-beta-workflow','bankruptcy-checkup-beta-workflow-interactive'}
 assert len(previous)==97
 for pid,body in previous.items():
     if pid not in authorized:
         assert body==new[pid],f'Unrelated previous page/header/footer changed: {pid}'
-assert 'payment pressure' in new['bankruptcy-checkup-beta']
+assert 'which chapter should you ask about first' in new['bankruptcy-checkup-beta']
+assert 'not an eligibility finding or an instruction to file' in new['bankruptcy-checkup-beta']
 assert headers.count('>Bankruptcy Checkup Beta Workflow (Interactive)</a>')==97
 lab=new['bankruptcy-checkup-beta-workflow-interactive']
 assert 'id="checkup-workflow-lab"' in lab
@@ -34,6 +35,9 @@ assert 'id="lab-share"' in lab
 assert 'id="lab-next"' in lab
 assert 'id="lab-debt-situation"' in lab
 assert 'id="lab-main-goal"' in lab
+assert 'id="lab-income-regularity"' in lab
+assert 'id="lab-secured-arrears"' in lab
+assert 'id="lab-prior-bankruptcy"' in lab
 assert len(re.findall(r'data-debt-kind',lab))==9
 assert Path('public/checkup-workflow-lab.js').read_text(encoding='utf-8').replace('</script', '<\\/script') in current
 workflow=new['bankruptcy-checkup-beta-workflow']
