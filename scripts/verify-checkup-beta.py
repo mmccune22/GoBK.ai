@@ -6,6 +6,7 @@ from pathlib import Path
 
 ORIGINAL_COMMIT = '7deb7bc3bf0d87496fc123297663eecfc15eafaa'
 V1_BASELINE_COMMIT = '27a6f118774b305d13364f2073d6ae5fc3cc54c1'
+V2_RELEASE_COMMIT = '05a9c3bb3ada0f5530b7af6d5527fe7f028dc622'
 
 
 def git_file(commit, path):
@@ -25,13 +26,16 @@ def without_header(body):
 
 original_html = git_file(ORIGINAL_COMMIT, 'docs/index.html')
 baseline_html = git_file(V1_BASELINE_COMMIT, 'docs/index.html')
+v2_release_html = git_file(V2_RELEASE_COMMIT, 'docs/index.html')
 current = Path('docs/index.html').read_text(encoding='utf-8').replace('\r\n', '\n')
 original = sections(original_html)
 baseline = sections(baseline_html)
+v2_release = sections(v2_release_html)
 new = sections(current)
 
 assert len(original) == 94, len(original)
 assert len(baseline) == 97, len(baseline)
+assert len(v2_release) == 98, len(v2_release)
 assert len(new) == 98, len(new)
 assert set(new) - set(baseline) == {'bankruptcy-checkup-beta-v2'}
 assert set(baseline) - set(original) == {
@@ -44,6 +48,9 @@ for page_id, body in baseline.items():
     assert without_header(body) == without_header(new[page_id]), f'Unexpected existing page-body change: {page_id}'
 for page_id, body in original.items():
     assert without_header(body) == without_header(new[page_id]), f'Unexpected original page-body change: {page_id}'
+for page_id, body in v2_release.items():
+    if page_id != 'bankruptcy-checkup-beta-v2':
+        assert body == new[page_id], f'Unexpected prior-release page change: {page_id}'
 
 assert '<meta name="robots" content="noindex, nofollow">' in current
 assert 'Signups are not connected in this preview.' in current
@@ -71,7 +78,10 @@ assert 'Bankruptcy Checkup (Beta V2) synthetic-data questionnaire' in v2
 assert 'up to three relevant videos when the older guide has a match' in v2
 assert 'Otherwise, start with its general introduction.' in v2
 assert 'The videos do not change the graph result.' in v2
-assert 'legal content under review' in v2
+assert 'class="beta-notice"' not in v2
+assert 'class="video-notice"' not in v2
+assert 'Invented data only. Draft, not attorney-approved.' not in v2
+assert 'Older videos; legal content under review.' not in v2
 assert 'dated or incomplete information' in v2
 assert 'currently require a Google account with access' in v2
 assert 'Google receives a request only when you play or open a video' in v2
