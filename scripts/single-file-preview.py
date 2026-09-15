@@ -36,6 +36,7 @@ if switcher:
 else: bar_css=''
 fav=base64.b64encode(open('public/favicon.svg','rb').read().replace(b'\r\n',b'\n')).decode()
 frame_script=open('public/checkup-beta-frame.js',encoding='utf-8').read()
+frame_v2_script=open('public/checkup-beta-v2-frame.js',encoding='utf-8').read()
 lab_script=open('public/checkup-workflow-lab.js',encoding='utf-8').read().replace('</script', '<\\/script')
 doc=f'''<!doctype html><html lang="en"><head><meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GoBK preview</title><link rel="icon" href="data:image/svg+xml;base64,{fav}"><style>{css}</style><style>.pg[hidden]{{display:none}}{bar_css}</style></head><body>
@@ -52,6 +53,7 @@ document.querySelectorAll('.pg').forEach(function(p){{p.hidden=p.id!=='pg-'+id}}
 addEventListener('hashchange',show);show();
 document.addEventListener('submit',function(e){{e.preventDefault();var n=e.target.parentElement&&e.target.parentElement.querySelector('.note');if(n)n.textContent='Signups are not connected in this preview.';}});
 {frame_script}
+{frame_v2_script}
 </script>
 <script>{lab_script}</script></body></html>'''
 open(out,'w').write(doc); print(out, len(doc)//1024,'KB', len(pages),'pages')

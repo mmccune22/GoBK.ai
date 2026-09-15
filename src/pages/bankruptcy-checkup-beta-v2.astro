@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+const beta = 'https://gobk-checkup-beta.jimmydanol.chatgpt.site/v2';
+const frameScript = `${import.meta.env.BASE_URL}checkup-beta-v2-frame.js`;
+---
+<Base title="Bankruptcy Checkup (Beta V2)" description="Seven simple bankruptcy checkup questions followed by relevant educational videos.">
+  <section class="section beta-section">
+    <div class="wrap">
+      <div class="beta-heading"><h1>Bankruptcy Checkup (Beta V2)</h1><a href={beta} target="_blank" rel="noopener noreferrer">Open full screen ↗</a></div>
+      <p class="lede">Answer seven simple questions. Get a starting point and up to three videos matched to the topics you selected.</p>
+      <p class="beta-notice"><strong>Invented data only. Draft, not attorney-approved.</strong> Do not enter real consumer data. No filing or eligibility verdict.</p>
+      <p class="video-notice"><strong>Older videos; legal content under review.</strong> They may contain dated or incomplete information. Confirm details with a qualified local attorney. Google Drive access is currently required to play them.</p>
+      <iframe data-gobk-checkup-beta-v2 src={beta} height="2400" title="Bankruptcy Checkup (Beta V2) synthetic-data questionnaire" loading="eager" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+      <nav class="beta-links" aria-label="Checkup versions and workflow"><a href="/bankruptcy-checkup-beta">Open the original beta</a><a href="/bankruptcy-checkup-beta-workflow">See the workflow</a><a href="/bankruptcy-checkup-beta-workflow-interactive">Explore the interactive workflow</a></nav>
+      <details class="beta-about"><summary>About this beta</summary>
+        <p>Your seven answers go through the same fixed LangGraph checkup. The graph returns a discussion starting point and questions to bring to a lawyer. It does not decide eligibility or tell you to file.</p>
+        <p>After the result, V2 chooses up to three older guide videos from the topics you selected. The videos do not change the graph result. Because they may contain dated or incomplete information, confirm their details with a qualified local attorney.</p>
+        <p>Videos are hosted by Google Drive and currently require a Google account with access. Google receives a request only when you play or open a video.</p>
+        <p>No signup, email, saved assessment or uploads. Eligibility, property protection and debt discharge are not determined.</p>
+        <p>Individuals may represent themselves; the <a href="https://www.uscourts.gov/court-programs/bankruptcy/filing-without-attorney" target="_blank" rel="noopener noreferrer">U.S. Courts recommends qualified legal help</a>. <a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-find-an-attorney-in-my-state-en-1549/" target="_blank" rel="noopener noreferrer">Find legal help</a>.</p>
+      </details>
+    </div>
+  </section>
+</Base>
+<script is:inline src={frameScript}></script>
+<style>
+  .beta-section { padding-top: var(--space-4); }
+  .beta-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1rem; }
+  h1 { margin-bottom: .5rem; }
+  .beta-heading a, .beta-links, .beta-about { font-size: .9rem; }
+  .lede { margin-bottom: .5rem; }
+  .beta-notice, .video-notice { border-left: 3px solid var(--sage); padding: .55rem .8rem; background: var(--paper, #f7f5ef); margin-block: .5rem 1rem; font-size: .85rem; }
+  .video-notice { border-left-color: #8c6d31; }
+  iframe { display: block; width: 100%; border: 0; background: transparent; }
+  .beta-links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-block: 1rem; }
+  .beta-about { border-top: 1px solid var(--rule); padding-top: .75rem; }
+  .beta-about summary { cursor: pointer; }
+  .beta-about p { margin-block: .75rem; }
+</style>
