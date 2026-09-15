@@ -68,7 +68,8 @@ v2 = new['bankruptcy-checkup-beta-v2']
 assert 'https://gobk-checkup-beta.jimmydanol.chatgpt.site/v2' in v2
 assert 'data-gobk-checkup-beta-v2' in v2
 assert 'Bankruptcy Checkup (Beta V2) synthetic-data questionnaire' in v2
-assert 'up to three videos matched to the topics you selected' in v2
+assert 'up to three relevant videos when the older guide has a match' in v2
+assert 'Otherwise, start with its general introduction.' in v2
 assert 'The videos do not change the graph result.' in v2
 assert 'legal content under review' in v2
 assert 'dated or incomplete information' in v2
