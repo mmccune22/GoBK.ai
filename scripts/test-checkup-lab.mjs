@@ -25,6 +25,39 @@ try {
     templateVersion: 'guide-informed-roadmap-draft-4', contentMapVersion: 'official-reading-2026-09-14', locale: 'en-US', rounding: 'integer-cents',
   };
   const normalize = result => ({ ...result, workflow: { ...result.workflow, steps: [] } });
+  const guideQuestions = [
+    'Are you married?',
+    'Have you ever filed for bankruptcy before?',
+    'How many people live in your household?',
+    'What is the total gross household income per month?',
+    'Do you own a home?',
+    'Do you have a vehicle?',
+    'Do you have any other significant assets?',
+    'Do you owe any taxes?',
+    'Do you owe any child support or alimony?',
+    'Do you owe any student loans?',
+    'Do you owe credit cards, personal loans, lines of credit, medical bills or other unsecured debt?',
+  ];
+  await check('three beta tabs mirror the attached eleven-question order', async () => {
+    const [v2, workflow, lab] = await Promise.all([
+      fs.readFile('src/pages/bankruptcy-checkup-beta-v2.astro', 'utf8'),
+      fs.readFile('src/pages/bankruptcy-checkup-beta-workflow.astro', 'utf8'),
+      fs.readFile('src/pages/bankruptcy-checkup-beta-workflow-interactive.astro', 'utf8'),
+    ]);
+    assert.match(v2, /eleven guide questions begin with marriage and prior bankruptcy/i);
+    for (const source of [workflow, lab]) {
+      const positions = guideQuestions.map(question => source.indexOf(question));
+      assert(positions.every(position => position >= 0));
+      assert.deepEqual(positions, [...positions].sort((a, b) => a - b));
+    }
+    for (let number = 1; number <= 11; number++) assert.equal(lab.match(new RegExp(`data-guide-question="${number}"`, 'g'))?.length, 1);
+    const graphContext = lab.indexOf('data-graph-context');
+    assert(graphContext > lab.indexOf('data-guide-question="11"'));
+    for (const id of ['lab-urgency', 'lab-main-goal', 'lab-debt-situation']) assert(lab.indexOf(`id="${id}"`) > graphContext);
+    assert(lab.indexOf('id="lab-income-regularity"') > lab.indexOf('data-guide-question="4"'));
+    assert(lab.indexOf('id="lab-income-regularity"') < lab.indexOf('data-guide-question="5"'));
+    assert.equal(lab.match(/data-debt-kind/g)?.length, 9);
+  });
   const originals = {};
   for (const [name, input] of Object.entries(fixtures)) {
     await check(`current default graph equivalence: ${name}`, async () => {
@@ -50,7 +83,7 @@ try {
       assert.deepEqual(assembly.guidance.filter(x=>x.id.startsWith('prepare_')), draft.result.findings.filter(x=>x.id.startsWith('prepare_')));
     });
   }
-  await check('ten-step structured answers reach the actual graph and derive mortgage arrears', async () => {
+  await check('eleven-question guide answers reach the actual graph and derive mortgage arrears', async () => {
     const input = structuredClone(roadmapFixtures.keep_home_roadmap);
     delete input.answers.securedArrears;
     const draft = await runDraft(input, context);

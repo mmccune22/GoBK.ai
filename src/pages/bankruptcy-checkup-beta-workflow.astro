@@ -2,16 +2,17 @@
 import Base from '../layouts/Base.astro';
 
 const questions = [
-  { title: 'Urgent issues', asks: 'Foreclosure, garnishment, repossession, a creditor lawsuit or another legal deadline.', use: 'Moves prompt legal help to the front. It never calculates or changes a deadline.' },
-  { title: 'Main goal', asks: 'Debt relief, keeping a home, keeping a vehicle, dealing with creditors or still unsure.', use: 'Helps frame the chapter discussion and consultation questions.' },
-  { title: 'Marriage', asks: 'Whether the person is married and, if so, whether the spouse may file too.', use: 'Adds household and joint-debt preparation. It does not decide who should file.' },
-  { title: 'Household and income', asks: 'Household size, a broad gross monthly income range and whether income is regular.', use: 'Income regularity can affect the discussion path. The range and household size are preparation facts, not a means test.' },
-  { title: 'Home', asks: 'Ownership, mortgage status and whether there may be equity.', use: 'Past-due mortgage payments can affect the discussion path. Equity only adds a property-review question.' },
-  { title: 'Vehicle', asks: 'Ownership, loan status and whether there may be equity.', use: 'Past-due vehicle payments can affect the discussion path. Equity does not establish an exemption.' },
-  { title: 'Other significant property', asks: 'Whether other valuable property may need review.', use: 'Raises the priority of a complete property review without deciding what is protected.' },
-  { title: 'Debt types', asks: 'Common unsecured debts, mortgage, vehicle loan, student loans, taxes, support or another debt.', use: 'Selects debt-specific questions. Some debt types require separate advice before ranking chapters.' },
-  { title: 'Payment pressure', asks: 'Keeping up, falling behind, borrowing for basics or paying without reducing balances.', use: 'Explains why bankruptcy and other options may be worth comparing.' },
-  { title: 'Earlier bankruptcy', asks: 'Whether there was an earlier case and a broad timing range.', use: 'An earlier case moves individual review first. The timing range does not calculate a waiting period.' },
+  { title: 'Are you married?', asks: 'Yes or no. If yes: will your spouse be filing bankruptcy with you — yes, no or unsure?', use: 'Adds household and joint-debt preparation. It does not decide who should file.' },
+  { title: 'Have you ever filed for bankruptcy before?', asks: 'Yes or no. If yes: more than 8 years ago, less than 8 years ago or unsure.', use: 'Moves individual review first. The timing range does not calculate a waiting period.' },
+  { title: 'How many people live in your household?', asks: 'One (just me), two, three, four or five or more.', use: 'Organizes household facts for a consultation. It is not a legal household-size determination.' },
+  { title: 'What is the total gross household income per month?', asks: 'The guide\'s eight ranges from less than $4,000 through $16,000 or more.', use: 'Organizes an income fact for review. It is not a means test and is not multiplied by twelve or compared with a median-income table.' },
+  { title: 'Do you own a home?', asks: 'Yes or no. If yes: whether mortgage payments are current and how much equity may be in the home.', use: 'Past-due mortgage payments can affect the discussion path. Equity only adds a property-review question.' },
+  { title: 'Do you have a vehicle?', asks: 'Yes or no. If yes: whether car payments are current and how much equity may be in it.', use: 'Past-due vehicle payments can affect the discussion path. Equity does not establish an exemption.' },
+  { title: 'Do you have any other significant assets?', asks: 'Yes or no.', use: 'Raises the priority of a complete property review without deciding what is protected.' },
+  { title: 'Do you owe any taxes?', asks: 'Yes or no.', use: 'Adds tax-specific preparation and keeps debt treatment unresolved.' },
+  { title: 'Do you owe any child support or alimony?', asks: 'Yes or no.', use: 'Adds support-specific preparation and keeps debt treatment unresolved.' },
+  { title: 'Do you owe any student loans?', asks: 'Yes or no.', use: 'Adds student-loan preparation and keeps debt treatment unresolved.' },
+  { title: 'Do you owe credit cards, personal loans, lines of credit, medical bills or other unsecured debt?', asks: 'Yes or no; the lab preserves the existing supported unsecured-debt categories.', use: 'Adds ordinary-unsecured-debt preparation. The category alone does not establish discharge or chapter eligibility.' },
 ];
 
 const graphSteps = [
@@ -37,19 +38,19 @@ const decisionBranches = [
 ];
 ---
 
-<Base title="Bankruptcy Checkup Beta Workflow" description="How ten structured Checkup questions move through eight deterministic LangGraph steps to produce a bounded issue list and discussion starting point.">
+<Base title="Bankruptcy Checkup Beta Workflow" description="How eleven guide-ordered Checkup questions move through eight deterministic LangGraph steps to produce a bounded issue list and discussion starting point.">
   <section class="section workflow-page">
     <div class="wrap">
       <header class="intro">
         <p class="k">HOW THE BETA WORKS</p>
-        <h1>From ten questions to a starting point</h1>
+        <h1>From eleven questions to a starting point</h1>
         <p class="lede">The Checkup sends structured answers to the hosted LangGraph. The graph validates them, runs fixed calculations and branches, and returns an issue list and questions to discuss with a qualified attorney.</p>
         <p class="boundary"><strong>General information only.</strong> It does not decide whether someone should file, whether a chapter is available, what property is protected or which debts will be discharged.</p>
         <div class="actions"><a class="btn btn-primary" href="/bankruptcy-checkup-beta-v2">Try Beta V2</a><a class="btn btn-secondary" href="/bankruptcy-checkup-beta-workflow-interactive">Change invented answers in the workflow lab</a></div>
       </header>
 
-      <figure class="flow-overview" aria-label="Ten answers go through eight fixed LangGraph steps and return a checked educational result">
-        <div><span>INPUT</span><strong>Ten short steps</strong><small>Urgency, goals, household, property, debts, payments and an earlier case</small></div>
+      <figure class="flow-overview" aria-label="Eleven guide answers go through eight fixed LangGraph steps and return a checked educational result">
+        <div><span>INPUT</span><strong>Eleven guide questions</strong><small>Marriage, prior bankruptcy, household, gross income, property and five debt categories</small></div>
         <span class="flow-arrow" aria-hidden="true">→</span>
         <div><span>PROCESS</span><strong>Eight graph nodes</strong><small>Validate → plan → calculate → explain → check</small></div>
         <span class="flow-arrow" aria-hidden="true">→</span>
@@ -58,12 +59,13 @@ const decisionBranches = [
       </figure>
 
       <section class="workflow-block" aria-labelledby="questions-heading">
-        <h2 id="questions-heading">What each question changes</h2>
+        <h2 id="questions-heading">The attached guide's question order</h2>
         <ol class="question-list">
           {questions.map((question, index) => (
             <li><span class="question-number" aria-hidden="true">{index + 1}</span><div><h3>{question.title}</h3><p><strong>Asks:</strong> {question.asks}</p><p><strong>Used for:</strong> {question.use}</p></div></li>
           ))}
         </ol>
+        <p class="soft"><strong>Added follow-ups do not change the numbering.</strong> The hosted questionnaire asks income regularity after Question 4 and goal follow-ups with Questions 5, 6 and 11 when relevant. The interactive lab separately exposes urgency and payment pressure as unnumbered graph context. None of those additions replaces or renumbers the attached guide's eleven questions.</p>
       </section>
 
       <section class="workflow-block decision-block" aria-labelledby="decision-heading">
