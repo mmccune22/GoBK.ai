@@ -11,7 +11,21 @@ export type MainGoal = 'debt_relief' | 'keep_home' | 'keep_vehicle' | 'stop_coll
 export type IncomeRegularity = 'regular' | 'irregular' | 'no_current_income' | 'unknown';
 export type SecuredArrears = 'none' | 'mortgage' | 'vehicle' | 'both' | 'unknown';
 export type PriorBankruptcy = 'yes' | 'no' | 'unknown';
-export type FieldName = MoneyField | 'additionalPaymentsSeparate' | 'urgentEvents' | 'debtKinds' | 'debtSituation' | 'mainGoal' | 'incomeRegularity' | 'securedArrears' | 'priorBankruptcy' | '_request';
+export type MaritalStatus = 'married' | 'not_married' | 'unknown' | 'not_provided';
+export type SpouseFiling = 'yes' | 'no' | 'unsure' | 'not_applicable' | 'not_provided';
+export type HouseholdSize = 'one' | 'two' | 'three' | 'four' | 'five_plus' | 'unknown' | 'not_provided';
+export type GrossMonthlyIncomeBand =
+  | 'under_4000' | '4000_5999' | '6000_7999' | '8000_9999'
+  | '10000_11999' | '12000_13999' | '14000_15999' | '16000_plus'
+  | 'unknown' | 'not_provided';
+export type OwnershipAnswer = 'yes' | 'no' | 'unknown' | 'not_provided';
+export type LoanStatus = 'current' | 'behind' | 'no_loan' | 'unknown' | 'not_applicable' | 'not_provided';
+export type EquityAnswer = 'none_or_negative' | 'some' | 'unknown' | 'not_applicable' | 'not_provided';
+export type PriorBankruptcyRecency = 'more_than_8_years' | 'less_than_8_years' | 'unknown' | 'not_applicable' | 'not_provided';
+export type FieldName = MoneyField | 'additionalPaymentsSeparate' | 'urgentEvents' | 'debtKinds' | 'debtSituation' | 'mainGoal' | 'incomeRegularity' | 'securedArrears' | 'priorBankruptcy'
+  | 'maritalStatus' | 'spouseFiling' | 'householdSize' | 'grossMonthlyIncomeBand'
+  | 'homeOwnership' | 'mortgageStatus' | 'homeEquity' | 'vehicleOwnership'
+  | 'vehicleLoanStatus' | 'vehicleEquity' | 'significantAssets' | 'priorBankruptcyRecency' | '_request';
 export interface FieldError { field: FieldName; code: string; message: string }
 export interface Answers {
   monthlyTakeHome: MoneyAnswer;
@@ -26,6 +40,18 @@ export interface Answers {
   incomeRegularity: IncomeRegularity;
   securedArrears: SecuredArrears;
   priorBankruptcy: PriorBankruptcy;
+  maritalStatus: MaritalStatus;
+  spouseFiling: SpouseFiling;
+  householdSize: HouseholdSize;
+  grossMonthlyIncomeBand: GrossMonthlyIncomeBand;
+  homeOwnership: OwnershipAnswer;
+  mortgageStatus: LoanStatus;
+  homeEquity: EquityAnswer;
+  vehicleOwnership: OwnershipAnswer;
+  vehicleLoanStatus: LoanStatus;
+  vehicleEquity: EquityAnswer;
+  significantAssets: OwnershipAnswer;
+  priorBankruptcyRecency: PriorBankruptcyRecency;
 }
 export interface Validation {
   inputRevision: number | null;

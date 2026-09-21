@@ -72,7 +72,11 @@ export interface LabStep {
   coreStepIds: StepId[];
   inputRevision: number | null;
   validation: null | { envelopeValid: boolean; errorFields: string[]; urgencyIds: string[] };
-  guidanceInputs: null | Pick<Answers, 'debtKinds' | 'debtSituation' | 'mainGoal' | 'incomeRegularity' | 'securedArrears' | 'priorBankruptcy'>;
+  guidanceInputs: null | Pick<Answers,
+    'debtKinds' | 'debtSituation' | 'mainGoal' | 'incomeRegularity' | 'securedArrears' | 'priorBankruptcy'
+    | 'maritalStatus' | 'spouseFiling' | 'householdSize' | 'grossMonthlyIncomeBand'
+    | 'homeOwnership' | 'mortgageStatus' | 'homeEquity' | 'vehicleOwnership'
+    | 'vehicleLoanStatus' | 'vehicleEquity' | 'significantAssets' | 'priorBankruptcyRecency'>;
   guidance: EngineState['findings'];
   plan: Plan | null;
   snapshot: Snapshot | null;
@@ -138,8 +142,20 @@ function project(nodeId: string, state: EngineState): LabStep {
       incomeRegularity: state.validation.answers.incomeRegularity,
       securedArrears: state.validation.answers.securedArrears,
       priorBankruptcy: state.validation.answers.priorBankruptcy,
+      maritalStatus: state.validation.answers.maritalStatus,
+      spouseFiling: state.validation.answers.spouseFiling,
+      householdSize: state.validation.answers.householdSize,
+      grossMonthlyIncomeBand: state.validation.answers.grossMonthlyIncomeBand,
+      homeOwnership: state.validation.answers.homeOwnership,
+      mortgageStatus: state.validation.answers.mortgageStatus,
+      homeEquity: state.validation.answers.homeEquity,
+      vehicleOwnership: state.validation.answers.vehicleOwnership,
+      vehicleLoanStatus: state.validation.answers.vehicleLoanStatus,
+      vehicleEquity: state.validation.answers.vehicleEquity,
+      significantAssets: state.validation.answers.significantAssets,
+      priorBankruptcyRecency: state.validation.answers.priorBankruptcyRecency,
     } : null,
-    guidance: state.findings.filter(finding => ['attorney_guidance', 'chapter_guidance', 'bankruptcy_discussion', 'compare_alternatives', 'special_debt_questions', 'secured_property_questions', ...PREPARATION_IDS].includes(finding.id)),
+    guidance: state.findings.filter(finding => ['attorney_guidance', 'chapter_guidance', 'bankruptcy_discussion', 'compare_alternatives', 'special_debt_questions', 'secured_property_questions', 'guide_household_review', 'guide_property_review', 'guide_prior_timing_review', ...PREPARATION_IDS].includes(finding.id)),
     plan: state.plan,
     snapshot: state.snapshot,
     findingCount: state.findings.length,

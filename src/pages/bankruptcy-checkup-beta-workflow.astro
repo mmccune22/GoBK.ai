@@ -1,276 +1,155 @@
 ---
 import Base from '../layouts/Base.astro';
 
-const steps = [
-  { id: 'validate_and_preserve_urgency', title: 'Check the answers. Keep urgent concerns.', body: 'Check amounts and selections. Missing or invalid income does not erase a recognized foreclosure, garnishment, repossession, lawsuit or deadline concern.', result: 'Usable answers, specific errors and reported urgent concerns.' },
-  { id: 'load_capabilities', title: 'Check what this version supports.', body: 'Load only capabilities enabled in trusted code. This version supports the monthly snapshot and draft educational guidance. Legal assessment rules remain disabled.', result: 'A clear boundary around calculations and discussion guidance.' },
-  { id: 'plan_supported_work', title: 'Decide what can be calculated.', body: 'Identify missing amounts and check whether additional debt payments are already included in recurring expenses. Calculate only the comparisons the answers support.', result: 'A calculation plan, with unanswered questions kept visible.' },
-  { id: 'calculate_snapshot', title: 'Calculate the monthly snapshot.', body: 'Subtract recurring expenses from monthly take-home income. Then subtract additional debt payments only when confirmed as separate, or explicitly zero. Keep estimates and ranges as reported.', result: 'The monthly difference before and after separate payments.' },
-  { id: 'record_legal_limits', title: 'State the legal limits.', body: 'Explain that chapter eligibility, the bankruptcy means test, property protection and debt discharge have not been assessed.', result: 'Explicit limits alongside the numbers.' },
-  { id: 'assemble_findings', title: 'Build the educational roadmap.', body: 'Explain the budget pressure, then use fixed decision branches to choose the legal-help priority and chapter discussion order from debts, income regularity, secured arrears, earlier cases and the main goal. Add matching consultation questions for the selected debts and any earlier case, plus income, household and property preparation. Unknown facts stay unknown; no branch determines eligibility or instructs someone to file.', result: 'A reasoned discussion path, alternatives and questions for professional review.' },
-  { id: 'render_result', title: 'Assemble the result.', body: 'Show urgent concerns first, then the educational roadmap, supported snapshot, specific questions, limitations and reading. Ask for missing or corrected answers while preserving urgency and usable calculations.', result: 'A practical next-step roadmap, with the limits of this Checkup stated clearly.' },
-  { id: 'validate_public_result', title: 'Check the result before showing it.', body: 'Verify the response has the expected fields and valid amounts. A technical failure returns an unavailable result instead of pretending the calculation succeeded.', result: 'A checked response, without stale or guessed figures.' },
+const questions = [
+  { title: 'Urgent issues', asks: 'Foreclosure, garnishment, repossession, a creditor lawsuit or another legal deadline.', use: 'Moves prompt legal help to the front. It never calculates or changes a deadline.' },
+  { title: 'Main goal', asks: 'Debt relief, keeping a home, keeping a vehicle, dealing with creditors or still unsure.', use: 'Helps frame the chapter discussion and consultation questions.' },
+  { title: 'Marriage', asks: 'Whether the person is married and, if so, whether the spouse may file too.', use: 'Adds household and joint-debt preparation. It does not decide who should file.' },
+  { title: 'Household and income', asks: 'Household size, a broad gross monthly income range and whether income is regular.', use: 'Income regularity can affect the discussion path. The range and household size are preparation facts, not a means test.' },
+  { title: 'Home', asks: 'Ownership, mortgage status and whether there may be equity.', use: 'Past-due mortgage payments can affect the discussion path. Equity only adds a property-review question.' },
+  { title: 'Vehicle', asks: 'Ownership, loan status and whether there may be equity.', use: 'Past-due vehicle payments can affect the discussion path. Equity does not establish an exemption.' },
+  { title: 'Other significant property', asks: 'Whether other valuable property may need review.', use: 'Raises the priority of a complete property review without deciding what is protected.' },
+  { title: 'Debt types', asks: 'Common unsecured debts, mortgage, vehicle loan, student loans, taxes, support or another debt.', use: 'Selects debt-specific questions. Some debt types require separate advice before ranking chapters.' },
+  { title: 'Payment pressure', asks: 'Keeping up, falling behind, borrowing for basics or paying without reducing balances.', use: 'Explains why bankruptcy and other options may be worth comparing.' },
+  { title: 'Earlier bankruptcy', asks: 'Whether there was an earlier case and a broad timing range.', use: 'An earlier case moves individual review first. The timing range does not calculate a waiting period.' },
 ];
 
-const examples = [
-  { title: 'Monthly shortfall', outcome: '$550 before separate payments; −$300 after.', token: 'a5e8f45d-3a7b-49be-8b7e-8c568f3e0657' },
-  { title: 'Money remaining', outcome: '$2,500 before; $2,000 after.', token: '1f9101f5-0b1a-4dd2-a0c8-b78357c415f2' },
-  { title: 'Uncertain range', outcome: '$0 to $700 before; −$350 to $350 after. No forced positive or negative conclusion.', token: 'd374cb55-fed4-4385-9ada-73b047297a55' },
-  { title: 'Unknown income + urgency', outcome: 'Requests the missing amount and preserves the reported foreclosure concern.', token: '7565bfdd-f326-4502-a861-0b855e04c69c' },
-  { title: 'Invalid income + urgency', outcome: 'Requests a corrected amount and preserves the reported foreclosure concern.', token: 'f088b478-4308-4c23-9d72-60e70e0c81ca' },
-  { title: 'Possible double-counting', outcome: 'Keeps $550 before payments; withholds the after amount until the overlap is clarified.', token: '2c9fffd6-f52d-45d2-a96a-0ebbb3dcaabe' },
-  { title: 'Zero income', outcome: 'Calculates −$1,500 before and after. Zero is a known amount.', token: '884b8827-3327-4b4e-a4b8-251b72c8cf3f' },
+const graphSteps = [
+  { id: 'validate_and_preserve_urgency', title: 'Check the answers and keep urgent concerns', body: 'Accept only supported structured values. Unknown stays unknown, and a valid urgent concern survives another invalid answer.' },
+  { id: 'load_capabilities', title: 'Load enabled capabilities', body: 'The trusted runtime enables a budget snapshot and educational guidance. No eligibility, exemption or discharge rule pack is enabled.' },
+  { id: 'plan_supported_work', title: 'Plan supported calculations', body: 'Decide which optional budget comparisons have enough information and prevent a payment from being counted twice.' },
+  { id: 'calculate_snapshot', title: 'Calculate the optional snapshot', body: 'Use integer-cent arithmetic for take-home income, expenses and separately reported payments. This calculation does not choose a chapter.' },
+  { id: 'record_legal_limits', title: 'Record the legal limits', body: 'Keep means-test eligibility, property protection, debt treatment and filing advice explicitly unresolved.' },
+  { id: 'assemble_findings', title: 'Build the issue list and discussion path', body: 'Apply fixed TypeScript branches to the validated goals, debts, income pattern, arrears, earlier case and other reported concerns. Add matching consultation questions.' },
+  { id: 'render_result', title: 'Assemble the public result', body: 'Return urgent warnings, the discussion starting point, issue list, next steps, reliable reading and limitations.' },
+  { id: 'validate_public_result', title: 'Check the result contract', body: 'Reject malformed output instead of displaying stale, raw or guessed information.' },
+];
+
+const decisionBranches = [
+  ['Earlier bankruptcy reported', 'Review the earlier case before ranking chapters. The chapter, filing date, disposition and discharge history still need individual review.'],
+  ['Required discussion fact missing or invalid', 'Clarify the fact first. Missing is never changed to no, zero or a reassuring assumption.'],
+  ['Student loans, taxes, support or another special debt selected', 'Compare both chapters with debt-specific advice because the debt label alone does not show what will remain.'],
+  ['Property answers conflict or both secured loans are behind', 'Compare both chapters and resolve the property facts before placing one chapter first.'],
+  ['Regular income, one matching secured loan behind and a goal to keep that property', 'Start by discussing Chapter 13 and whether ongoing and plan payments could be sustained.'],
+  ['Only ordinary unsecured debts, a debt-relief goal, no secured arrears and no earlier case', 'Start by discussing Chapter 7, while preserving separate eligibility and property review.'],
+  ['No current income and a goal to keep property that is behind', 'Review payment feasibility before treating a Chapter 13 plan as workable.'],
+  ['Any other supported combination', 'Compare Chapter 7, Chapter 13 and nonbankruptcy options without forcing a chapter label.'],
 ];
 ---
 
-<Base title="Bankruptcy Checkup Beta Workflow" description="The Checkup Beta's plain-English decision tree for legal-help priority, Chapter 7 or Chapter 13 discussion order, budget pressure, alternatives and questions still needing review.">
+<Base title="Bankruptcy Checkup Beta Workflow" description="How ten structured Checkup questions move through eight deterministic LangGraph steps to produce a bounded issue list and discussion starting point.">
   <section class="section workflow-page">
     <div class="wrap">
-      <div class="intro">
+      <header class="intro">
         <p class="k">HOW THE BETA WORKS</p>
-        <h1>Bankruptcy Checkup Beta Workflow</h1>
-        <p class="lede">See which answers change the roadmap, why legal help may come first, and when the Beta suggests starting a conversation with Chapter 7, Chapter 13 or a comparison of both.</p>
-        <p class="review-note"><strong>Draft, not attorney reviewed. Use invented figures only.</strong> This is a demonstration of educational guidance. It explains budget pressure and possible discussion topics; it does not determine whether someone should file bankruptcy or qualify for a chapter.</p>
-        <a class="btn btn-primary" href="/bankruptcy-checkup-beta">Try Bankruptcy Checkup (Beta)</a>
-      </div>
+        <h1>From ten questions to a starting point</h1>
+        <p class="lede">The Checkup sends structured answers to the hosted LangGraph. The graph validates them, runs fixed calculations and branches, and returns an issue list and questions to discuss with a qualified attorney.</p>
+        <p class="boundary"><strong>General information only.</strong> It does not decide whether someone should file, whether a chapter is available, what property is protected or which debts will be discharged.</p>
+        <div class="actions"><a class="btn btn-primary" href="/bankruptcy-checkup-beta-v2">Try Beta V2</a><a class="btn btn-secondary" href="/bankruptcy-checkup-beta-workflow-interactive">Change invented answers in the workflow lab</a></div>
+      </header>
 
-      <figure class="flow-overview" aria-label="Answers go to the Checkup server, then through eight named steps, then return as a checked result">
-        <div><span>INPUT</span><strong>Seven short questions</strong><small>Urgency, goals, debts, payments, steady income, past-due loans and earlier bankruptcy. Monthly budget optional.</small></div>
+      <figure class="flow-overview" aria-label="Ten answers go through eight fixed LangGraph steps and return a checked educational result">
+        <div><span>INPUT</span><strong>Ten short steps</strong><small>Urgency, goals, household, property, debts, payments and an earlier case</small></div>
         <span class="flow-arrow" aria-hidden="true">→</span>
-        <div><span>PROCESS</span><strong>Eight controlled steps</strong><small>Check → plan → calculate → explain options → validate</small></div>
+        <div><span>PROCESS</span><strong>Eight graph nodes</strong><small>Validate → plan → calculate → explain → check</small></div>
         <span class="flow-arrow" aria-hidden="true">→</span>
-        <div><span>OUTPUT</span><strong>An educational roadmap</strong><small>Legal-help priority, chapter discussion order, alternatives and preparation questions</small></div>
-        <figcaption>The Checkup asks seven short questions and sends invented answers to the server. Adding a monthly budget is optional. LangGraph runs the fixed steps and returns a discussion starting point; missing budget amounts stay missing.</figcaption>
+        <div><span>OUTPUT</span><strong>A bounded starting point</strong><small>Urgency, issue list, chapter discussion and next questions</small></div>
+        <figcaption>The same supported answers follow the same route. There is no language model, random choice, tracing or saved assessment session in the consumer flow.</figcaption>
       </figure>
 
-      <section class="workflow-block" aria-labelledby="workflow-roadmap-heading">
-        <h2 id="workflow-roadmap-heading">What does this tell someone considering bankruptcy?</h2>
-        <p>The first answer is where to start the discussion and why. The Beta uses the reported facts to explain legal-help priority and chapter discussion order. Whether filing actually helps still requires checking eligibility, debt treatment, property, income history, earlier cases and costs. One month's remainder cannot settle those questions.</p>
-        <h3>Payment pressure and your main goal add context.</h3>
-        <p>The Beta asks whether you are keeping up with falling balances, falling behind, borrowing for basic living costs, or paying without reducing balances. Reported pressure makes a bankruptcy discussion relevant even when the budget shows money remaining. Your main goal can surface questions about keeping a home or vehicle, debt relief, or collection. These are your reported concerns, not an eligibility score or a finding that property is protected.</p>
-        <div class="review-note urgency-note">
-          <h3>Urgent concerns come first.</h3>
-          <p>A reported foreclosure, repossession, garnishment, lawsuit or approaching deadline moves prompt legal help to the front of the roadmap. Keep the deadline in the actual notice or court papers. Completing this Checkup or arranging a consultation does not stop collection or extend a deadline. <a href="https://www.consumerfinance.gov/ask-cfpb/what-should-i-do-if-im-sued-by-a-debt-collector-or-creditor-en-334/" target="_blank" rel="noopener noreferrer">CFPB: what to do if sued over a debt</a>.</p>
-        </div>
-        <div class="answer-grid roadmap-grid">
-          <article><h3>Expenses already exceed income.</h3><p>The budget has a gap before separate debt payments. Compare bankruptcy and other debt help, while also reviewing income, essential costs and available assistance. Reducing debt payments may leave a basic budget gap that still needs a plan.</p></article>
-          <article><h3>Separate debt payments create the shortfall.</h3><p>The entered income covers recurring expenses, but the additional payments push it below zero. That is a reason to compare bankruptcy with sustainable repayment or hardship options. Which debts can be addressed and what property is at risk still require review.</p></article>
-          <article><h3>Money remains after the listed payments.</h3><p>Check irregular expenses, emergencies, interest and whether balances are actually falling. A remainder does not mean bankruptcy is unnecessary, and it is not a legal repayment-plan amount.</p></article>
-          <article><h3>The entered month balances exactly.</h3><p>There is no cushion in this limited snapshot. Review omitted costs and debt trends, then compare your options. A balanced month does not determine eligibility or whether filing would help.</p></article>
-          <article><h3>The result is incomplete or crosses zero.</h3><p>Clarify the missing amount, range or payment overlap before relying on the total. Bankruptcy and alternative education remain available. Correcting the budget should not delay responding to a reported legal deadline.</p></article>
-        </div>
-        <p>Ordinary TypeScript chooses fixed draft explanations inside LangGraph's <code>assemble_findings</code> step. The branches organize a discussion; they do not calculate legal eligibility, exemptions, discharge or filing dates. <a href="https://www.uscourts.gov/court-programs/bankruptcy/filing-without-attorney" target="_blank" rel="noopener noreferrer">U.S. Courts explains the issues an attorney can review</a>.</p>
+      <section class="workflow-block" aria-labelledby="questions-heading">
+        <h2 id="questions-heading">What each question changes</h2>
+        <ol class="question-list">
+          {questions.map((question, index) => (
+            <li><span class="question-number" aria-hidden="true">{index + 1}</span><div><h3>{question.title}</h3><p><strong>Asks:</strong> {question.asks}</p><p><strong>Used for:</strong> {question.use}</p></div></li>
+          ))}
+        </ol>
       </section>
 
-      <section class="workflow-block decision-block" aria-labelledby="workflow-decision-heading">
-        <h2 id="workflow-decision-heading">The chapter discussion tree</h2>
-        <p>Alongside debt types and the main goal, three questions add context: is income regular, irregular, absent or unknown; are mortgage or vehicle payments behind; and was there an earlier bankruptcy? “Not sure” is kept as uncertainty. The first matching branch below sets the discussion path.</p>
+      <section class="workflow-block decision-block" aria-labelledby="decision-heading">
+        <h2 id="decision-heading">The deterministic chapter discussion tree</h2>
+        <p>The first matching branch sets what to discuss first. A discussion starting point is not eligibility or a filing recommendation.</p>
         <ol class="decision-list">
-          <li><strong>Earlier bankruptcy reported → lawyer review first.</strong> A prior case can affect timing and available relief. The Beta asks for professional review before suggesting a chapter discussion order.</li>
-          <li><strong>Essential discussion facts missing or invalid → clarify first.</strong> Ask for the missing information and keep legal-help guidance visible. A missing answer is never treated as “no.” Reported urgency remains at the top.</li>
-          <li><strong>Student loans, taxes, support or another special debt → compare both with separate debt review.</strong> These obligations need specific attention. The discussion does not label them dischargeable or assume one chapter fixes them.</li>
-          <li><strong>Mixed or conflicting property answers → compare both and review the context.</strong> This applies when both mortgage and vehicle payments are behind, the goal is keeping a home but only vehicle arrears are reported, the goal is keeping a vehicle but only mortgage arrears are reported, or foreclosure or repossession is selected alongside no secured arrears. Clarify the reported property concerns before placing a chapter discussion first. Any urgent legal-help recommendation remains visible separately.</li>
-          <li><strong>Regular income, one matching property behind, and a goal to keep it → Chapter 13 discussion first.</strong> This branch requires an explicit “no” to earlier bankruptcy and arrears on the mortgage only for a keep-home goal, or on the vehicle only for a keep-vehicle goal. Ask whether a court plan could address the arrears and whether required payments would be workable.</li>
-          <li><strong>Only credit-card, medical or personal-loan debt, no secured arrears, and a debt-relief goal → Chapter 7 discussion first.</strong> This branch requires a known income answer and an explicit “no” to earlier bankruptcy. Ask about eligibility, what debt could be discharged, costs and any property risk.</li>
-          <li><strong>No current income, property arrears, and a goal to keep that property → payment-feasibility review.</strong> A plan that needs payments raises an immediate question about funding. The Beta does not assume the property can be saved or that a plan is feasible.</li>
-          <li><strong>Otherwise → compare Chapter 7 and Chapter 13.</strong> Irregular income, mixed concerns, arrears on both properties or another combination can need broader review. The result gives questions to compare rather than forcing a chapter label.</li>
+          {decisionBranches.map(([condition, result]) => <li><strong>{condition}:</strong> {result}</li>)}
         </ol>
-        <p><strong>“Discussion first” means which subject to ask about first.</strong> It does not mean that the person qualifies, that this chapter is the best final choice, or that they should file. Both chapters and alternatives remain available to compare.</p>
-        <p><a href="https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-7-bankruptcy-basics" target="_blank" rel="noopener noreferrer">U.S. Courts: Chapter 7</a> · <a href="https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-13-bankruptcy-basics" target="_blank" rel="noopener noreferrer">U.S. Courts: Chapter 13</a>. These sources explain the chapters; the Beta's discussion order is draft guidance awaiting attorney review.</p>
+        <p class="soft">Household size, the gross-income band, equity and the eight-year timing range never produce a legal verdict. They organize facts for review. A real means test, applicable exemptions and prior-case timing require more information and current law.</p>
       </section>
 
-      <section class="workflow-block" aria-labelledby="workflow-attorney-heading">
-        <h2 id="workflow-attorney-heading">How the legal-help priority is chosen</h2>
-        <ol class="decision-list attorney-list">
-          <li><strong>Urgency first.</strong> A reported deadline or creditor action calls for prompt qualified help, even if another answer is missing or invalid.</li>
-          <li><strong>Complexity next.</strong> Earlier cases, property concerns and special debts make a lawyer's individual review especially useful.</li>
-          <li><strong>Uncertainty next.</strong> When essential facts are unknown, consult before choosing a filing path. The tool does not fill gaps with reassuring assumptions.</li>
-          <li><strong>Otherwise, legal review is still recommended before filing.</strong> A simpler discussion path does not settle eligibility, the complete costs or the consequences.</li>
-        </ol>
-        <p>Individuals can represent themselves in bankruptcy. The <a href="https://www.uscourts.gov/court-programs/bankruptcy/filing-without-attorney" target="_blank" rel="noopener noreferrer">U.S. Courts strongly recommends qualified legal help</a>; the Beta's recommendation is not a legal requirement to hire an attorney. Ask about fees, possible initial consultations and legal aid. A free consultation is not guaranteed.</p>
-      </section>
-
-      <section class="workflow-block" aria-labelledby="workflow-steps-heading">
-        <h2 id="workflow-steps-heading">The eight steps, in order</h2>
-        <p>Each step receives the answers and work so far, adds its part, and passes that information to the next step.</p>
-        <ol class="workflow-list">
-          {steps.map((step, index) => (
-            <li data-workflow-step={step.id}>
-              <span class="step-number" aria-hidden="true">{index + 1}</span>
-              <div>
-                <h3>{step.title}</h3>
-                <p>{step.body}</p>
-                <p class="step-result"><strong>Passes forward:</strong> {step.result}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section class="workflow-block worked-example" aria-labelledby="workflow-example-heading">
-        <p class="k">ONE INVENTED EXAMPLE</p>
-        <h2 id="workflow-example-heading">How $550 becomes a $300 shortfall</h2>
-        <dl class="example-inputs">
-          <div><dt>Monthly take-home income</dt><dd>$4,200</dd></div>
-          <div><dt>Recurring monthly expenses</dt><dd>$3,650</dd></div>
-          <div><dt>Additional debt payments, not already counted</dt><dd>$850</dd></div>
-        </dl>
-        <div class="equations">
-          <p><span>Before separate payments</span><strong>$4,200 − $3,650 = $550</strong></p>
-          <p><span>After separate payments</span><strong>$550 − $850 = −$300</strong></p>
-        </div>
-        <p>The recurring expenses fit within the entered income, but the separate debt payments create a $300 gap. The roadmap therefore suggests comparing bankruptcy and other debt-relief options, and checking which debts, property risks and repayment costs matter. It does not direct anyone to stop payments or promise that a debt will disappear.</p>
-      </section>
-
-      <section class="workflow-block" aria-labelledby="workflow-options-heading">
-        <h2 id="workflow-options-heading">The options the roadmap helps compare</h2>
-        <p>The decision tree can place a chapter discussion first and explain why. These cards help compare the subjects that still need review. A proposed solution needs to address the actual debt problem and leave a workable budget.</p>
-        <div class="answer-grid options-grid">
-          <article><h3>Chapter 7 discussion</h3><p>Ask which debts could be discharged and what property could be at risk. Nonexempt property can be sold, some debts remain, and eligibility needs a separate legal review.</p><a href="https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-7-bankruptcy-basics" target="_blank" rel="noopener noreferrer">U.S. Courts: Chapter 7 basics</a></article>
-          <article><h3>Chapter 13 discussion</h3><p>Ask whether a court payment plan could address arrears and whether required payments are sustainable. Plans usually last three to five years; ongoing mortgage payments still matter when trying to keep a home.</p><a href="https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-13-bankruptcy-basics" target="_blank" rel="noopener noreferrer">U.S. Courts: Chapter 13 basics</a></article>
-          <article><h3>Creditor hardship arrangements</h3><p>Ask the creditor what assistance is available and get the terms in writing. Compare the total cost, duration and affordability. A voluntary arrangement should not be assumed to stop a lawsuit or change a court deadline.</p><a href="https://consumer.ftc.gov/articles/how-get-out-debt" target="_blank" rel="noopener noreferrer">FTC: getting out of debt</a></article>
-          <article><h3>Nonprofit credit counseling</h3><p>A counselor can review a budget and possible debt management plan. Ask about fees, participating creditors and the full repayment terms. A nonprofit label does not mean every service is free or suitable.</p><a href="https://www.consumerfinance.gov/ask-cfpb/what-is-credit-counseling-en-1451/" target="_blank" rel="noopener noreferrer">CFPB: credit counseling</a></article>
-        </div>
-        <div class="review-note settlement-note"><h3>Compare settlement risks before signing.</h3><p>Creditors can refuse offers. Fees, added interest, lawsuits, credit effects and possible taxes on forgiven debt can change the outcome. The Checkup does not direct anyone to stop paying while saving for a settlement. <a href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-debt-relief-program-and-how-do-i-know-if-i-should-use-one-en-1457/" target="_blank" rel="noopener noreferrer">CFPB: debt settlement risks</a>.</p></div>
-      </section>
-
-      <section class="workflow-block preparation-block" aria-labelledby="workflow-preparation-heading">
-        <h2 id="workflow-preparation-heading">Questions to take to a bankruptcy consultation</h2>
-        <p>A consultation can help compare filing, waiting and other approaches. Organize the information privately; the Beta asks for invented test figures and does not collect documents or identity details.</p>
-        <ol class="preparation-list">
-          <li><strong>What problem am I trying to solve?</strong> List priorities such as protecting housing or transportation, responding to a creditor action, or ending payments that do not reduce balances.</li>
-          <li><strong>Which debts would each option address?</strong> Prepare debt types, approximate balances, interest and payments. Taxes, support, student loans, secured debts and business obligations need specific attention.</li>
-          <li><strong>What would happen to my property?</strong> Prepare loan balances, arrears, rough values, liens and any recent move. This Checkup does not determine equity, exemptions or property protection.</li>
-          <li><strong>How does legal income analysis differ from this budget?</strong> Prepare household income history and expected changes. A monthly take-home snapshot is not the bankruptcy means test.</li>
-          <li><strong>Could earlier events change the timing?</strong> Disclose prior cases, payments to relatives, transfers, unusual spending, expected refunds, inheritances and new debts. Ask before moving assets or changing payments.</li>
-          <li><strong>What are the costs and tradeoffs?</strong> Ask about fees, property and credit effects, debts that may remain, what happens if a plan fails, and whether the proposed payments leave room for essentials and surprises.</li>
-        </ol>
-        <p><a href="https://www.uscourts.gov/court-programs/bankruptcy/filing-without-attorney" target="_blank" rel="noopener noreferrer">U.S. Courts: what an attorney can help you decide</a> · <a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-find-an-attorney-in-my-state-en-1549/" target="_blank" rel="noopener noreferrer">CFPB: finding legal help in your state</a>.</p>
-      </section>
-
-      <section class="workflow-block" aria-labelledby="workflow-uncertainty-heading">
-        <h2 id="workflow-uncertainty-heading">What happens when an answer is uncertain?</h2>
+      <section class="workflow-block" aria-labelledby="attorney-heading">
+        <h2 id="attorney-heading">How attorney-help priority is chosen</h2>
         <div class="answer-grid">
-          <article><h3>Unknown is not zero.</h3><p>An unknown, missing or invalid amount asks for clarification. An entered $0 is a real amount that can be calculated.</p></article>
-          <article><h3>Ranges stay ranges.</h3><p>For the low end, subtract the largest expense from the smallest income. For the high end, subtract the smallest expense from the largest income. A range crossing zero stays uncertain.</p></article>
-          <article><h3>Count each payment once.</h3><p>If additional payments overlap recurring expenses, keep the supported before amount and withhold the after amount until clarified. Do not subtract the same payment twice.</p></article>
-          <article><h3>Keep urgent concerns visible.</h3><p>Incomplete numbers do not erase a recognized urgent concern. The Beta flags what was reported; it does not calculate deadlines or stop collection activity.</p></article>
+          <article><h3>Prompt help</h3><p>A reported deadline, lawsuit, garnishment, foreclosure or repossession puts prompt qualified help first.</p></article>
+          <article><h3>Individual review is especially useful</h3><p>An earlier case, property concern, special debt or significant property raises issues this short form cannot resolve.</p></article>
+          <article><h3>Clarify before choosing</h3><p>Unknown or invalid facts remain visible. The graph does not fill gaps with assumptions.</p></article>
+          <article><h3>Advice remains recommended</h3><p>Even the narrower Chapter 7 discussion path does not certify a case as simple or safe to handle without advice.</p></article>
         </div>
-        <p class="change-note">Changing answers starts a fresh evaluation. Earlier figures are not reused as the result for new answers.</p>
       </section>
 
-      <section class="workflow-block" aria-labelledby="workflow-tools-heading">
-        <h2 id="workflow-tools-heading">Where LangChain fits</h2>
-        <p><strong>LangGraph is the workflow organizer.</strong> It runs the named steps in order and carries the answers and results between them. Ordinary TypeScript inside <code>assemble_findings</code> calculates the discussion path from fixed branches and records why it was chosen. The monthly arithmetic stays in <code>calculate_snapshot</code>. There is no AI language model choosing a chapter or deciding whether a person should file.</p>
-        <p><strong>LangSmith is the review window.</strong> It records selected invented example runs so reviewers can inspect what each step received and returned. These review recordings are separate from ordinary questionnaire use; consumer tracing remains disabled.</p>
-        <p>Both are part of the LangChain toolkit. A <strong>node</strong> is one step, <strong>state</strong> is the information carried through the run, and an <strong>edge</strong> points to the next step.</p>
-        <details class="technical-map">
-          <summary>Show the names you will see in a recorded run</summary>
-          <ol>{steps.map(step => <li><strong>{step.title}</strong><code>{step.id}</code></li>)}</ol>
-          <p>The source also defines an alternative legal-rule step, but it is skipped in the current version because no legal assessment rules are enabled.</p>
-        </details>
-      </section>
-
-      <section class="workflow-block" aria-labelledby="workflow-reviews-heading">
-        <h2 id="workflow-reviews-heading">Review the original snapshot recordings</h2>
-        <p>These seven invented examples recorded the original real graph and its eight snapshot steps. They are historical calculation examples. They do not contain the new educational roadmap or establish that its wording is attorney approved.</p>
-        <div class="review-grid">
-          {examples.map(example => (
-            <article>
-              <h3>{example.title}</h3>
-              <p>{example.outcome}</p>
-              <a href={`https://smith.langchain.com/public/${example.token}/r`} target="_blank" rel="noopener noreferrer">Review {example.title.toLowerCase()} run <span aria-hidden="true">↗</span></a>
-            </article>
+      <section class="workflow-block" aria-labelledby="nodes-heading">
+        <h2 id="nodes-heading">The eight LangGraph nodes</h2>
+        <p>A node is one controlled step. State is the validated information carried between steps, and an edge points to the next step.</p>
+        <ol class="workflow-list">
+          {graphSteps.map((step, index) => (
+            <li data-workflow-step={step.id}><span class="step-number" aria-hidden="true">{index + 1}</span><div><h3>{step.title}</h3><p>{step.body}</p><code>{step.id}</code></div></li>
           ))}
-        </div>
-        <p class="soft review-footnote">LangSmith links are view-only recordings of invented data and open in another tab. The workflow explanation here remains useful even if a recording expires.</p>
-        <p>The original offline HTML preview uses calculation functions alone and does not establish that LangGraph works. These recordings show the original graph behavior; current roadmap behavior must be checked with fresh runs and tests.</p>
-      </section>
-
-      <section class="workflow-block editing-block" aria-labelledby="workflow-editing-heading">
-        <h2 id="workflow-editing-heading">How Matt and Jimmy can change the process</h2>
-        <ol>
-          <li>Review a step or example and describe the specific behavior or wording that should change.</li>
-          <li>Use the interactive workflow tab to compare invented scenarios and draft process changes, then edit the source that controls the final behavior.</li>
-          <li>Rerun the invented examples and relevant tests, then publish a new review after checking the results.</li>
         </ol>
-        <p>Public recordings grant viewing access. The <a href="/bankruptcy-checkup-beta-workflow-interactive">interactive workflow tab</a> is a separate draft sandbox. Applying a reviewed change to the public questionnaire requires its own publication. Studio's browser connection remains unresolved.</p>
-        <p><strong>Still outside this version:</strong> Chapter 7 or Chapter 13 eligibility, the means test, exemptions, property protection, debt discharge, repayment-plan amounts and filing recommendations. Consumer wording remains draft pending attorney review.</p>
-        <a class="btn btn-secondary" href="/bankruptcy-checkup-beta">Return to the Beta</a>
       </section>
 
-      <section class="workflow-block" aria-labelledby="workflow-guide-preparation-heading">
-        <h2 id="workflow-guide-preparation-heading">From a short answer to a useful consultation question</h2>
-        <p>Matt’s older free-guide videos explain why each question matters. This draft adapts those explanations into optional question help and a preparation checklist. The graph selects the checklist inside <code>assemble_findings</code>, using the validated answers. It adds no eligibility, waiting-period, exemption or discharge calculation.</p>
+      <section class="workflow-block limits-block" aria-labelledby="limits-heading">
+        <h2 id="limits-heading">What this version deliberately does not do</h2>
         <ul>
-          <li><strong>Income, marriage and household:</strong> gather income history, household contributions, dependents and joint-debt information. Current take-home pay is a budget figure; the means test has not been performed.</li>
-          <li><strong>Home, vehicle and other assets:</strong> prepare values, ownership, liens, loan balances and past-due amounts. Include paid-off assets, retirement accounts and expected refunds. This does not establish that property is protected.</li>
-          <li><strong>Earlier bankruptcy:</strong> gather chapter, dates and outcome for review. Filing again and receiving another discharge are separate questions; no waiting period is calculated.</li>
-          <li><strong>Credit cards, medical bills and loans:</strong> keep balances separate from monthly payments and identify collateral, co-borrowers and recent borrowing. A debt label does not guarantee discharge.</li>
-          <li><strong>Student loans, taxes and support:</strong> show a separate preparation topic for each selected type. Ask about the applicable student-loan procedure, tax history and liens, or ongoing support and arrears.</li>
+          <li>It does not collect a name, email, phone number, Social Security number, account number or documents.</li>
+          <li>It does not multiply the income band by twelve or compare it with a median-income table.</li>
+          <li>It does not apply state or federal exemption amounts to the reported equity.</li>
+          <li>It does not turn “more or less than eight years” into a filing or discharge waiting-period answer.</li>
+          <li>It does not determine discharge, calculate a Chapter 13 payment or promise that property can be kept.</li>
         </ul>
-        <p>In <a href="/bankruptcy-checkup-beta-workflow-interactive">the interactive workflow</a>, load one of the new options examples. Change the debt types, run the draft and open the consultation questions. They should match the new answers; an earlier result is not reused.</p>
+        <p>The result instead explains what remains unresolved and what records or questions could make a professional consultation more useful.</p>
       </section>
-      <section class="workflow-block source-block" aria-labelledby="workflow-sources-heading">
-        <h2 id="workflow-sources-heading">Sources behind the discussion guide</h2>
-        <p>The linked U.S. Courts, CFPB and FTC pages explain bankruptcy, responding to collections, finding help and comparing debt-relief services. They were checked September 13, 2026. They support the education; they do not approve this software or any individual's result.</p>
-        <p>The guide also draws on a comparison of eight bankruptcy law-firm sites. Their useful preparation questions were checked against official guidance. Firm advertisements, local dollar thresholds, guaranteed outcomes and credit-score predictions are not executable rules here.</p>
-        <p>The guide-informed preparation copy was checked September 14, 2026 against <a href="https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-7-bankruptcy-basics" target="_blank" rel="noopener noreferrer">Chapter 7 Basics</a>, <a href="https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/discharge-bankruptcy-bankruptcy-basics" target="_blank" rel="noopener noreferrer">Discharge Basics</a> and <a href="https://www.justice.gov/ust/student-loan-guidance" target="_blank" rel="noopener noreferrer">DOJ student-loan guidance</a>. Old guide shortcuts and outcome promises are not enabled as rules. <a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-find-an-attorney-in-my-state-en-1549/" target="_blank" rel="noopener noreferrer">CFPB explains how to find an attorney and local help</a>.</p>
+
+      <section class="workflow-block tools-block" aria-labelledby="tools-heading">
+        <h2 id="tools-heading">Where LangChain fits</h2>
+        <p><strong>LangGraph organizes the process.</strong> It runs the eight named nodes and carries fresh state from one node to the next. Ordinary TypeScript performs every calculation and branch.</p>
+        <p><strong>The interactive workflow lab is a review tool.</strong> It bundles the same LangGraph library and engine source so Matt and Jimmy can change invented answers, inspect the projected state and compare a draft graph with the current baseline. It does not call the public Checkup server or save consumer answers.</p>
+        <p><a href="/bankruptcy-checkup-beta-workflow-interactive">Open the interactive workflow lab</a> or return to <a href="/bankruptcy-checkup-beta-v2">Bankruptcy Checkup Beta V2</a>.</p>
       </section>
     </div>
   </section>
 </Base>
 
 <style>
-  .intro { max-width: 58rem; }
+  .intro { max-width: 64rem; }
   h1 { margin-bottom: var(--space-3); }
   h2 { margin-bottom: var(--space-3); }
-  h3 { margin-bottom: 0.65rem; }
-  .review-note, .change-note { padding: 1rem 1.25rem; background: var(--off); border-left: 4px solid var(--sage); }
+  h3 { margin-bottom: .55rem; }
+  .lede { font-size: clamp(1.15rem, 2.3vw, 1.4rem); max-width: 62ch; }
+  .boundary { padding: 1rem 1.2rem; border-left: 4px solid var(--sage); background: var(--off); max-width: 72ch; }
+  .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
   .flow-overview { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 1rem; margin: 3rem 0; padding: 1.5rem; background: var(--grey); border-radius: var(--radius); }
   .flow-overview div { min-width: 0; }
-  .flow-overview div > span { display: block; font-size: 0.8rem; letter-spacing: 0.06em; font-weight: 700; color: var(--sage-deep); }
-  .flow-overview strong { display: block; margin-block: 0.45rem; font-size: 1.2rem; }
-  .flow-overview small { display: block; line-height: 1.5; }
+  .flow-overview div > span { display: block; font-size: .78rem; letter-spacing: .07em; font-weight: 700; color: var(--sage-deep); }
+  .flow-overview strong, .flow-overview small { display: block; }
+  .flow-overview strong { margin-block: .4rem; font-size: 1.15rem; }
+  .flow-overview small { line-height: 1.5; }
   .flow-arrow { font-size: 1.8rem; color: var(--sage-deep); }
-  figcaption { grid-column: 1 / -1; border-top: 1px solid var(--rule); padding-top: 1rem; font-size: 0.95rem; }
+  figcaption { grid-column: 1 / -1; border-top: 1px solid var(--rule); padding-top: 1rem; font-size: .92rem; }
   .workflow-block { margin-top: var(--space-6); }
-  .workflow-list { list-style: none; padding: 0; margin: 2rem 0 0; }
-  .workflow-list li { display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); gap: 1.2rem; padding-bottom: 1.75rem; position: relative; }
-  .workflow-list li:not(:last-child)::before { content: ''; position: absolute; top: 2.75rem; bottom: 0; left: 1.35rem; border-left: 2px solid var(--rule); }
-  .step-number { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: var(--sage-deep); color: #fff; font-weight: 700; }
-  .workflow-list li > div { padding: 1.25rem 1.5rem; background: var(--off); border: 1px solid var(--rule); border-radius: var(--radius); }
-  .workflow-list p { max-width: 76ch; }
-  .step-result { font-size: 0.95rem; color: var(--fg-soft); margin-bottom: 0; }
-  .worked-example, .editing-block { padding: clamp(1.25rem, 4vw, 2.25rem); border: 1px solid var(--rule); border-radius: var(--radius); background: var(--off); }
-  .example-inputs { margin: 1.5rem 0; max-width: 42rem; }
-  .example-inputs div { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.75rem; border-bottom: 1px solid var(--rule); }
-  .example-inputs dd { margin: 0; font-weight: 700; white-space: nowrap; }
-  .equations { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-block: 1.5rem; }
-  .equations p { padding: 1rem; background: var(--white); border-radius: var(--radius-sm); margin: 0; }
-  .equations span { display: block; font-size: 0.95rem; margin-bottom: 0.5rem; }
-  .equations strong { font-size: clamp(1.1rem, 2.4vw, 1.6rem); }
-  .answer-grid, .review-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-block: 1.5rem; }
-  .answer-grid article, .review-grid article { padding: 1.5rem; border: 1px solid var(--rule); border-radius: var(--radius); }
+  .question-list, .workflow-list { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+  .question-list li, .workflow-list li { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: 1rem; padding-bottom: 1.25rem; }
+  .question-list li > div, .workflow-list li > div { padding: 1.1rem 1.25rem; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--white); }
+  .question-list p, .workflow-list p { margin-block: .35rem; max-width: 76ch; }
+  .question-number, .step-number { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--sage-deep); color: #fff; font-weight: 700; }
+  .workflow-list code { display: block; margin-top: .75rem; font-size: .8rem; overflow-wrap: anywhere; color: var(--sage-deep); }
+  .decision-block, .limits-block, .tools-block { padding: clamp(1.25rem, 4vw, 2.2rem); border: 1px solid var(--rule); border-radius: var(--radius); background: var(--off); }
+  .decision-list li, .limits-block li { padding-bottom: .7rem; max-width: 78ch; }
+  .soft { color: var(--fg-soft); }
+  .answer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .answer-grid article { padding: 1.25rem; border: 1px solid var(--rule); border-radius: var(--radius); }
   .answer-grid article p { margin-bottom: 0; }
-  .options-grid article p { margin-bottom: 1rem; }
-  .urgency-note p, .settlement-note p { margin-bottom: 0; }
-  .preparation-list li { padding-bottom: 0.85rem; max-width: 78ch; }
-  .source-block { border-top: 1px solid var(--rule); padding-top: 1.75rem; }
-  .technical-map { padding: 1.25rem; border: 1px solid var(--rule); border-radius: var(--radius); margin-top: 1.5rem; }
-  summary { cursor: pointer; font-weight: 600; }
-  .technical-map li { padding-block: 0.6rem; }
-  .technical-map code { display: block; font-size: 0.9rem; margin-top: 0.4rem; overflow-wrap: anywhere; }
-  .technical-map p { margin-bottom: 0; }
-  .review-footnote { font-size: 0.95rem; }
-  .editing-block li { padding-bottom: 0.8rem; max-width: 70ch; }
   @media (max-width: 45rem) {
-    .flow-overview { grid-template-columns: 1fr; padding: 1.25rem; }
+    .flow-overview, .answer-grid { grid-template-columns: 1fr; }
     .flow-arrow { transform: rotate(90deg); justify-self: start; }
-    .answer-grid, .review-grid, .equations { grid-template-columns: 1fr; }
-    .workflow-list li { grid-template-columns: 2.25rem minmax(0, 1fr); gap: 0.75rem; }
-    .step-number { width: 2.25rem; height: 2.25rem; }
-    .workflow-list li:not(:last-child)::before { left: 1.1rem; top: 2.25rem; }
-    .workflow-list li > div { padding: 1rem; }
+    .question-list li, .workflow-list li { grid-template-columns: 2.2rem minmax(0, 1fr); gap: .65rem; }
+    .question-number, .step-number { width: 2.2rem; height: 2.2rem; }
   }
 </style>

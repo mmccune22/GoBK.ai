@@ -3,18 +3,18 @@ import Base from '../layouts/Base.astro';
 const beta = 'https://gobk-checkup-beta.jimmydanol.chatgpt.site/v2';
 const frameScript = `${import.meta.env.BASE_URL}checkup-beta-v2-frame.js`;
 ---
-<Base title="Bankruptcy Checkup (Beta V2)" description="Seven simple bankruptcy checkup questions followed by relevant educational videos.">
+<Base title="Bankruptcy Checkup (Beta V2)" description="A concise ten-step bankruptcy checkup covering urgent issues, goals, household, property, debts, payments and earlier bankruptcy.">
   <section class="section beta-section">
     <div class="wrap">
       <div class="beta-heading"><h1>Bankruptcy Checkup (Beta V2)</h1><a href={beta} target="_blank" rel="noopener noreferrer">Open full screen ↗</a></div>
-      <p class="lede">Answer seven simple questions. Get a starting point and up to three relevant videos when the older guide has a match. Otherwise, start with its general introduction.</p>
-      <iframe data-gobk-checkup-beta-v2 src={beta} height="2400" title="Bankruptcy Checkup (Beta V2) synthetic-data questionnaire" loading="eager" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+      <p class="lede">Start with urgent issues, then cover your goal, household, property, debts, payments and any earlier bankruptcy. The result gives an issue list, a chapter discussion starting point and helpful videos.</p>
+      <iframe data-gobk-checkup-beta-v2 src={beta} height="2400" title="Bankruptcy Checkup (Beta V2) structured questionnaire" loading="eager" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
       <nav class="beta-links" aria-label="Checkup versions and workflow"><a href="/bankruptcy-checkup-beta">Open the original beta</a><a href="/bankruptcy-checkup-beta-workflow">See the workflow</a><a href="/bankruptcy-checkup-beta-workflow-interactive">Explore the interactive workflow</a></nav>
       <details class="beta-about"><summary>About this beta</summary>
-        <p>Your seven answers go through the same fixed LangGraph checkup. The graph returns a discussion starting point and questions to bring to a lawyer. It does not decide eligibility or tell you to file.</p>
-        <p>After the result, V2 chooses up to three older guide videos from the topics you selected. The videos do not change the graph result. Because they may contain dated or incomplete information, confirm their details with a qualified local attorney.</p>
-        <p>Videos are hosted by Google Drive and currently require a Google account with access. Google receives a request only when you play or open a video.</p>
-        <p>No signup, email, saved assessment or uploads. Eligibility, property protection and debt discharge are not determined.</p>
+        <p>Your structured answers go to the hosted Checkup and through the same fixed LangGraph steps. Ordinary TypeScript applies the same branches to the same answers. No language model chooses the result.</p>
+        <p>The gross-income range is context, not a means test. Home or vehicle equity answers do not calculate exemptions or decide what property is protected. An earlier filing answer does not calculate a waiting period.</p>
+        <p>After the result, V2 selects up to three videos from the topics you chose. The videos do not change the graph result. Google receives a request only when you play or open one.</p>
+        <p>No name, email, phone number, account number, document upload or saved assessment is needed. The Checkup does not decide whether to file, chapter eligibility, property protection or debt discharge.</p>
         <p>Individuals may represent themselves; the <a href="https://www.uscourts.gov/court-programs/bankruptcy/filing-without-attorney" target="_blank" rel="noopener noreferrer">U.S. Courts recommends qualified legal help</a>. <a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-find-an-attorney-in-my-state-en-1549/" target="_blank" rel="noopener noreferrer">Find legal help</a>.</p>
       </details>
     </div>

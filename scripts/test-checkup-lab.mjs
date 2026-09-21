@@ -50,6 +50,50 @@ try {
       assert.deepEqual(assembly.guidance.filter(x=>x.id.startsWith('prepare_')), draft.result.findings.filter(x=>x.id.startsWith('prepare_')));
     });
   }
+  await check('ten-step structured answers reach the actual graph and derive mortgage arrears', async () => {
+    const input = structuredClone(roadmapFixtures.keep_home_roadmap);
+    delete input.answers.securedArrears;
+    const draft = await runDraft(input, context);
+    assert.equal(draft.result.findings.find(x=>x.id==='chapter_guidance').title, 'Chapter 13: discuss this option first');
+    assert(draft.result.findings.some(x=>x.id==='guide_household_review'));
+    assert(draft.result.findings.some(x=>x.id==='guide_property_review'));
+    const assembly = draft.steps.find(step=>step.nodeId==='assemble_findings');
+    assert.equal(assembly.guidanceInputs.maritalStatus, 'married');
+    assert.equal(assembly.guidanceInputs.householdSize, 'four');
+    assert.equal(assembly.guidanceInputs.grossMonthlyIncomeBand, '6000_7999');
+    assert.equal(assembly.guidanceInputs.homeOwnership, 'yes');
+    assert.equal(assembly.guidanceInputs.mortgageStatus, 'behind');
+    assert.equal(assembly.guidanceInputs.securedArrears, 'mortgage');
+  });
+  await check('gross-income band and equity organize review without choosing a different chapter', async () => {
+    const first = structuredClone(roadmapFixtures.ordinary_debt_relief);
+    const second = structuredClone(first);
+    second.answers.grossMonthlyIncomeBand = '16000_plus';
+    second.answers.vehicleEquity = 'none_or_negative';
+    const a = await runDraft(first, context), b = await runDraft(second, context);
+    assert.equal(a.result.findings.find(x=>x.id==='chapter_guidance').title, 'Chapter 7: discuss this option first');
+    assert.equal(b.result.findings.find(x=>x.id==='chapter_guidance').title, 'Chapter 7: discuss this option first');
+    assert.equal(a.result.workflow.steps.includes('evaluate_reviewed_rules'), false);
+    assert.equal(b.result.workflow.steps.includes('evaluate_reviewed_rules'), false);
+  });
+  await check('earlier-case recency never becomes a waiting-period calculation', async () => {
+    for (const recency of ['less_than_8_years', 'more_than_8_years', 'unknown']) {
+      const input = structuredClone(roadmapFixtures.earlier_case_review);
+      input.answers.priorBankruptcyRecency = recency;
+      const result = (await runDraft(input, context)).result;
+      assert.equal(result.findings.find(x=>x.id==='chapter_guidance').title, 'Chapter 7 or 13? Review the earlier case first');
+      assert(result.findings.some(x=>x.id==='guide_prior_timing_review'));
+      assert.match(JSON.stringify(result), /does not calculate|no waiting period|individual review/i);
+    }
+  });
+  await check('contradictory conditional answers fail closed inside the public result', async () => {
+    const input = structuredClone(roadmapFixtures.ordinary_debt_relief);
+    input.answers.maritalStatus = 'not_married';
+    input.answers.spouseFiling = 'yes';
+    const result = (await runDraft(input, context)).result;
+    assert.equal(result.status, 'needs_input');
+    assert(result.fieldErrors.some(x=>x.field==='spouseFiling' && x.code==='INCONSISTENT_SELECTION'));
+  });
   await check('debt-specific consultation questions are fresh and independent of checkbox order', async () => {
     const input = structuredClone(roadmapFixtures.debt_specific_review);
     const first = (await runDraft(input, context)).result;

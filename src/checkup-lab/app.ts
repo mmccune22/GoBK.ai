@@ -23,7 +23,7 @@ function initialize(root: HTMLElement) {
     calculate_snapshot: ['Calculate the snapshot', 'Use the existing integer-cent functions. Income minus expenses produces the first comparison; confirmed separate payments produce the second. Ranges keep their lower and upper bounds.'],
     record_legal_limits: ['State the legal limits', 'Record that chapter eligibility, property protection and debt treatment are outside this version. You can move this node without changing those limits.'],
     draft_review_checkpoint: ['Review checkpoint', 'An extra real graph node for your draft review note. In Step through mode execution waits here until you press Next step. The note does not change the calculation.'],
-    assemble_findings: ['Build the options roadmap', 'Ordinary TypeScript checks reported concerns, debt types, income regularity, arrears, goals and prior bankruptcy to choose attorney and chapter discussion topics. It adds matching consultation questions for selected debts and earlier cases, plus household, income and property preparation. The same validated answers take the same decision path, without a language model or an eligibility verdict.'],
+    assemble_findings: ['Build the issue list and discussion path', 'Ordinary TypeScript checks reported concerns, debt types, income regularity, arrears, goals and prior bankruptcy to choose attorney and chapter discussion topics. Marriage, household, broad income, equity and other-property answers add preparation questions without becoming means-test, exemption or waiting-period rules.'],
     render_result: ['Assemble the result', 'Prepare the structured result, including urgent concerns, supported amounts, errors and next steps.'],
     validate_public_result: ['Check the public result', 'The existing strict output validator checks the result contract, amounts, classification and answer revision.'],
   };
@@ -35,6 +35,12 @@ function initialize(root: HTMLElement) {
   let steps: LabStep[] = [], baseline: PublicResult | null = null, draft: PublicResult | null = null;
   const fields = Array.from(root.querySelectorAll<HTMLElement>('[data-money-field]'));
   const debtChoices = Array.from(root.querySelectorAll<HTMLInputElement>('[data-debt-kind]'));
+  const answerControlIds = [
+    'separate', 'urgency', 'main-goal', 'marital-status', 'spouse-filing', 'household-size',
+    'gross-monthly-income-band', 'income-regularity', 'home-ownership', 'mortgage-status',
+    'home-equity', 'vehicle-ownership', 'vehicle-loan-status', 'vehicle-equity',
+    'significant-assets', 'debt-situation', 'prior-bankruptcy', 'prior-bankruptcy-recency',
+  ];
   const setStatus = (text: string) => { el('status').textContent = text; };
   const setFileStatus = (text: string) => { el('file-status').textContent = text; };
   const button = (id: string) => el<HTMLButtonElement>(id);
@@ -61,6 +67,7 @@ function initialize(root: HTMLElement) {
   }
   function loadExample(name: string) {
     const example = (examples as Record<string, any>)[name];
+    const a = example.answers;
     for (const field of fields) {
       const value = example.answers[field.dataset.moneyField!];
       field.querySelector<HTMLSelectElement>('[data-money-kind]')!.value = value.kind;
@@ -68,14 +75,28 @@ function initialize(root: HTMLElement) {
       field.querySelector<HTMLInputElement>('[data-money-maximum]')!.value = String((value.maxCents ?? value.cents ?? 0) / 100);
       syncMoney(field);
     }
-    el<HTMLSelectElement>('separate').value = example.answers.additionalPaymentsSeparate;
-    el<HTMLSelectElement>('urgency').value = example.answers.urgentEvents[0] ?? 'none';
-    el<HTMLSelectElement>('debt-situation').value = example.answers.debtSituation ?? 'unknown';
-    el<HTMLSelectElement>('main-goal').value = example.answers.mainGoal ?? 'unsure';
-    el<HTMLSelectElement>('income-regularity').value = example.answers.incomeRegularity ?? 'unknown';
-    el<HTMLSelectElement>('secured-arrears').value = example.answers.securedArrears ?? 'unknown';
-    el<HTMLSelectElement>('prior-bankruptcy').value = example.answers.priorBankruptcy ?? 'unknown';
-    for (const choice of debtChoices) choice.checked = (example.answers.debtKinds ?? []).includes(choice.value);
+    const set = (id: string, value: string) => { el<HTMLSelectElement>(id).value = value; };
+    const home = a.homeOwnership ?? (a.debtKinds?.includes('mortgage') || ['mortgage', 'both'].includes(a.securedArrears) || a.mainGoal === 'keep_home' ? 'yes' : 'no');
+    const vehicle = a.vehicleOwnership ?? (a.debtKinds?.includes('auto') || ['vehicle', 'both'].includes(a.securedArrears) || a.mainGoal === 'keep_vehicle' ? 'yes' : 'no');
+    set('separate', a.additionalPaymentsSeparate ?? 'not_provided');
+    set('urgency', a.urgentEvents?.[0] ?? 'none');
+    set('main-goal', a.mainGoal ?? 'unsure');
+    set('marital-status', a.maritalStatus ?? 'unknown');
+    set('spouse-filing', a.spouseFiling ?? (a.maritalStatus === 'married' ? 'unsure' : 'not_applicable'));
+    set('household-size', a.householdSize ?? 'unknown');
+    set('gross-monthly-income-band', a.grossMonthlyIncomeBand ?? 'unknown');
+    set('income-regularity', a.incomeRegularity ?? 'unknown');
+    set('home-ownership', home);
+    set('mortgage-status', a.mortgageStatus ?? (['mortgage', 'both'].includes(a.securedArrears) ? 'behind' : home === 'yes' ? 'current' : 'not_applicable'));
+    set('home-equity', a.homeEquity ?? (home === 'yes' ? 'unknown' : 'not_applicable'));
+    set('vehicle-ownership', vehicle);
+    set('vehicle-loan-status', a.vehicleLoanStatus ?? (['vehicle', 'both'].includes(a.securedArrears) ? 'behind' : vehicle === 'yes' ? 'current' : 'not_applicable'));
+    set('vehicle-equity', a.vehicleEquity ?? (vehicle === 'yes' ? 'unknown' : 'not_applicable'));
+    set('significant-assets', a.significantAssets ?? 'unknown');
+    set('debt-situation', a.debtSituation ?? 'unknown');
+    set('prior-bankruptcy', a.priorBankruptcy ?? 'unknown');
+    set('prior-bankruptcy-recency', a.priorBankruptcyRecency ?? (a.priorBankruptcy === 'yes' ? 'unknown' : 'not_applicable'));
+    for (const choice of debtChoices) choice.checked = (a.debtKinds ?? []).includes(choice.value);
   }
   function readInput() {
     const answers: Record<string, unknown> = {};
@@ -88,12 +109,26 @@ function initialize(root: HTMLElement) {
     const separate = el<HTMLSelectElement>('separate').value;
     if (separate !== 'not_provided') answers.additionalPaymentsSeparate = separate;
     answers.urgentEvents = [el<HTMLSelectElement>('urgency').value];
-    answers.debtKinds = debtChoices.filter(choice => choice.checked).map(choice => choice.value);
+    const selectedDebts = debtChoices.filter(choice => choice.checked).map(choice => choice.value);
+    if (['current', 'behind'].includes(el<HTMLSelectElement>('mortgage-status').value)) selectedDebts.push('mortgage');
+    if (['current', 'behind'].includes(el<HTMLSelectElement>('vehicle-loan-status').value)) selectedDebts.push('auto');
+    answers.debtKinds = [...new Set(selectedDebts)];
     answers.debtSituation = el<HTMLSelectElement>('debt-situation').value;
     answers.mainGoal = el<HTMLSelectElement>('main-goal').value;
+    answers.maritalStatus = el<HTMLSelectElement>('marital-status').value;
+    answers.spouseFiling = el<HTMLSelectElement>('spouse-filing').value;
+    answers.householdSize = el<HTMLSelectElement>('household-size').value;
+    answers.grossMonthlyIncomeBand = el<HTMLSelectElement>('gross-monthly-income-band').value;
     answers.incomeRegularity = el<HTMLSelectElement>('income-regularity').value;
-    answers.securedArrears = el<HTMLSelectElement>('secured-arrears').value;
+    answers.homeOwnership = el<HTMLSelectElement>('home-ownership').value;
+    answers.mortgageStatus = el<HTMLSelectElement>('mortgage-status').value;
+    answers.homeEquity = el<HTMLSelectElement>('home-equity').value;
+    answers.vehicleOwnership = el<HTMLSelectElement>('vehicle-ownership').value;
+    answers.vehicleLoanStatus = el<HTMLSelectElement>('vehicle-loan-status').value;
+    answers.vehicleEquity = el<HTMLSelectElement>('vehicle-equity').value;
+    answers.significantAssets = el<HTMLSelectElement>('significant-assets').value;
     answers.priorBankruptcy = el<HTMLSelectElement>('prior-bankruptcy').value;
+    answers.priorBankruptcyRecency = el<HTMLSelectElement>('prior-bankruptcy-recency').value;
     return { schemaVersion: '1', synthetic: true, inputRevision: revision, answers };
   }
   function stop() {
@@ -259,7 +294,7 @@ function initialize(root: HTMLElement) {
   }
   for (const field of fields) for (const control of field.querySelectorAll<HTMLInputElement | HTMLSelectElement>('input,select')) control.addEventListener('input', () => { syncMoney(field); invalidate(); });
   for (const choice of debtChoices) choice.addEventListener('change', invalidate);
-  for (const id of ['title', 'review-note', 'limit-placement', 'checkpoint-placement', 'calculation-scope', 'separate', 'urgency', 'debt-situation', 'main-goal', 'income-regularity', 'secured-arrears', 'prior-bankruptcy']) el(id).addEventListener('input', invalidate);
+  for (const id of ['title', 'review-note', 'limit-placement', 'checkpoint-placement', 'calculation-scope', ...answerControlIds]) el(id).addEventListener('input', invalidate);
   el('example').addEventListener('change', () => { loadExample(el<HTMLSelectElement>('example').value); invalidate(); });
   button('reset-answers').addEventListener('click', () => { loadExample(el<HTMLSelectElement>('example').value); invalidate(); setStatus('Test answers reset to the selected invented example. Run again to compare.'); });
   button('run').addEventListener('click', () => { void run(false); });

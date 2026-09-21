@@ -1,6 +1,54 @@
 {
-  "ordinary_debt_relief": {"schemaVersion":"1","synthetic":true,"inputRevision":1,"answers":{"monthlyTakeHome":{"kind":"estimate","cents":420000},"monthlyExpenses":{"kind":"estimate","cents":365000},"additionalDebtPayments":{"kind":"estimate","cents":85000},"additionalPaymentsSeparate":"yes","urgentEvents":["none"],"debtKinds":["credit_card","medical"],"debtSituation":"balances_not_shrinking","mainGoal":"debt_relief","incomeRegularity":"regular","securedArrears":"none","priorBankruptcy":"no"}},
-  "keep_home_roadmap": {"schemaVersion":"1","synthetic":true,"inputRevision":1,"answers":{"monthlyTakeHome":{"kind":"estimate","cents":420000},"monthlyExpenses":{"kind":"estimate","cents":365000},"additionalDebtPayments":{"kind":"estimate","cents":85000},"additionalPaymentsSeparate":"yes","urgentEvents":["none"],"debtKinds":["mortgage","credit_card"],"debtSituation":"falling_behind","mainGoal":"keep_home","incomeRegularity":"regular","securedArrears":"mortgage","priorBankruptcy":"no"}},
-  "debt_specific_review": {"schemaVersion":"1","synthetic":true,"inputRevision":1,"answers":{"monthlyTakeHome":{"kind":"estimate","cents":600000},"monthlyExpenses":{"kind":"estimate","cents":350000},"additionalDebtPayments":{"kind":"estimate","cents":50000},"additionalPaymentsSeparate":"yes","urgentEvents":["none"],"debtKinds":["student","tax","support"],"debtSituation":"keeping_up","mainGoal":"debt_relief","incomeRegularity":"regular","securedArrears":"none","priorBankruptcy":"no"}},
-  "earlier_case_review": {"schemaVersion":"1","synthetic":true,"inputRevision":1,"answers":{"monthlyTakeHome":{"kind":"estimate","cents":420000},"monthlyExpenses":{"kind":"estimate","cents":365000},"additionalDebtPayments":{"kind":"estimate","cents":85000},"additionalPaymentsSeparate":"yes","urgentEvents":["none"],"debtKinds":["mortgage","credit_card"],"debtSituation":"falling_behind","mainGoal":"keep_home","incomeRegularity":"regular","securedArrears":"mortgage","priorBankruptcy":"yes"}}
+  "ordinary_debt_relief": {
+    "schemaVersion": "1", "synthetic": true, "inputRevision": 1,
+    "answers": {
+      "monthlyTakeHome": {"kind": "estimate", "cents": 420000}, "monthlyExpenses": {"kind": "estimate", "cents": 365000},
+      "additionalDebtPayments": {"kind": "estimate", "cents": 85000}, "additionalPaymentsSeparate": "yes",
+      "urgentEvents": ["none"], "debtKinds": ["credit_card", "medical"], "debtSituation": "balances_not_shrinking",
+      "mainGoal": "debt_relief", "incomeRegularity": "regular", "securedArrears": "none", "priorBankruptcy": "no",
+      "maritalStatus": "not_married", "spouseFiling": "not_applicable", "householdSize": "one", "grossMonthlyIncomeBand": "4000_5999",
+      "homeOwnership": "no", "mortgageStatus": "not_applicable", "homeEquity": "not_applicable",
+      "vehicleOwnership": "yes", "vehicleLoanStatus": "current", "vehicleEquity": "some", "significantAssets": "no",
+      "priorBankruptcyRecency": "not_applicable"
+    }
+  },
+  "keep_home_roadmap": {
+    "schemaVersion": "1", "synthetic": true, "inputRevision": 1,
+    "answers": {
+      "monthlyTakeHome": {"kind": "estimate", "cents": 420000}, "monthlyExpenses": {"kind": "estimate", "cents": 365000},
+      "additionalDebtPayments": {"kind": "estimate", "cents": 85000}, "additionalPaymentsSeparate": "yes",
+      "urgentEvents": ["none"], "debtKinds": ["mortgage", "credit_card"], "debtSituation": "falling_behind",
+      "mainGoal": "keep_home", "incomeRegularity": "regular", "securedArrears": "mortgage", "priorBankruptcy": "no",
+      "maritalStatus": "married", "spouseFiling": "no", "householdSize": "four", "grossMonthlyIncomeBand": "6000_7999",
+      "homeOwnership": "yes", "mortgageStatus": "behind", "homeEquity": "some",
+      "vehicleOwnership": "yes", "vehicleLoanStatus": "current", "vehicleEquity": "none_or_negative", "significantAssets": "no",
+      "priorBankruptcyRecency": "not_applicable"
+    }
+  },
+  "debt_specific_review": {
+    "schemaVersion": "1", "synthetic": true, "inputRevision": 1,
+    "answers": {
+      "monthlyTakeHome": {"kind": "estimate", "cents": 600000}, "monthlyExpenses": {"kind": "estimate", "cents": 350000},
+      "additionalDebtPayments": {"kind": "estimate", "cents": 50000}, "additionalPaymentsSeparate": "yes",
+      "urgentEvents": ["none"], "debtKinds": ["student", "tax", "support"], "debtSituation": "keeping_up",
+      "mainGoal": "debt_relief", "incomeRegularity": "regular", "securedArrears": "none", "priorBankruptcy": "no",
+      "maritalStatus": "married", "spouseFiling": "yes", "householdSize": "three", "grossMonthlyIncomeBand": "6000_7999",
+      "homeOwnership": "no", "mortgageStatus": "not_applicable", "homeEquity": "not_applicable",
+      "vehicleOwnership": "yes", "vehicleLoanStatus": "current", "vehicleEquity": "some", "significantAssets": "no",
+      "priorBankruptcyRecency": "not_applicable"
+    }
+  },
+  "earlier_case_review": {
+    "schemaVersion": "1", "synthetic": true, "inputRevision": 1,
+    "answers": {
+      "monthlyTakeHome": {"kind": "estimate", "cents": 420000}, "monthlyExpenses": {"kind": "estimate", "cents": 365000},
+      "additionalDebtPayments": {"kind": "estimate", "cents": 85000}, "additionalPaymentsSeparate": "yes",
+      "urgentEvents": ["none"], "debtKinds": ["mortgage", "credit_card"], "debtSituation": "falling_behind",
+      "mainGoal": "keep_home", "incomeRegularity": "regular", "securedArrears": "mortgage", "priorBankruptcy": "yes",
+      "maritalStatus": "married", "spouseFiling": "unsure", "householdSize": "two", "grossMonthlyIncomeBand": "4000_5999",
+      "homeOwnership": "yes", "mortgageStatus": "behind", "homeEquity": "unknown",
+      "vehicleOwnership": "yes", "vehicleLoanStatus": "current", "vehicleEquity": "some", "significantAssets": "yes",
+      "priorBankruptcyRecency": "less_than_8_years"
+    }
+  }
 }

@@ -1,12 +1,16 @@
-"""Verify the four Checkup tabs while preserving every earlier site page body."""
+"""Verify the three reworked Checkup pages and preserve every other page."""
 import json
 import re
 import subprocess
 from pathlib import Path
 
-ORIGINAL_COMMIT = '7deb7bc3bf0d87496fc123297663eecfc15eafaa'
-V1_BASELINE_COMMIT = '27a6f118774b305d13364f2073d6ae5fc3cc54c1'
-V2_RELEASE_COMMIT = '05a9c3bb3ada0f5530b7af6d5527fe7f028dc622'
+
+TARGETS = {
+    'bankruptcy-checkup-beta-v2',
+    'bankruptcy-checkup-beta-workflow',
+    'bankruptcy-checkup-beta-workflow-interactive',
+}
+BASELINE_COMMIT = '7f49908c64aa0109b0b0f6fdfeb0182fd0121310'
 
 
 def git_file(commit, path):
@@ -20,117 +24,77 @@ def sections(html):
     ))
 
 
-def without_header(body):
-    return re.sub(r'<header class="site-header"[\s\S]*?</header>', '', body).strip()
-
-
-original_html = git_file(ORIGINAL_COMMIT, 'docs/index.html')
-baseline_html = git_file(V1_BASELINE_COMMIT, 'docs/index.html')
-v2_release_html = git_file(V2_RELEASE_COMMIT, 'docs/index.html')
+baseline_html = git_file(BASELINE_COMMIT, 'docs/index.html')
 current = Path('docs/index.html').read_text(encoding='utf-8').replace('\r\n', '\n')
-original = sections(original_html)
 baseline = sections(baseline_html)
-v2_release = sections(v2_release_html)
 new = sections(current)
 
-assert len(original) == 94, len(original)
-assert len(baseline) == 97, len(baseline)
-assert len(v2_release) == 98, len(v2_release)
-assert len(new) == 98, len(new)
-assert set(new) - set(baseline) == {'bankruptcy-checkup-beta-v2'}
-assert set(baseline) - set(original) == {
-    'bankruptcy-checkup-beta',
-    'bankruptcy-checkup-beta-workflow',
-    'bankruptcy-checkup-beta-workflow-interactive',
-}
-
+assert len(baseline) == 98, len(baseline)
+assert len(new) == len(baseline), (len(new), len(baseline))
+assert set(new) == set(baseline)
 for page_id, body in baseline.items():
-    assert without_header(body) == without_header(new[page_id]), f'Unexpected existing page-body change: {page_id}'
-for page_id, body in original.items():
-    assert without_header(body) == without_header(new[page_id]), f'Unexpected original page-body change: {page_id}'
-for page_id, body in v2_release.items():
-    if page_id != 'bankruptcy-checkup-beta-v2':
-        assert body == new[page_id], f'Unexpected prior-release page change: {page_id}'
+    if page_id not in TARGETS:
+        assert body == new[page_id], f'Unexpected page change: {page_id}'
 
 assert '<meta name="robots" content="noindex, nofollow">' in current
 assert 'Signups are not connected in this preview.' in current
 assert not any('\\' in page_id for page_id in new)
 
-headers = ''.join(re.findall(r'<header class="site-header"[\s\S]*?</header>', current))
-assert len(re.findall(r'<header class="site-header"', headers)) == 98
-for label in (
-    'Bankruptcy Checkup (Beta)',
-    'Bankruptcy Checkup (Beta V2)',
-    'Bankruptcy Checkup Beta Workflow',
-    'Bankruptcy Checkup Beta Workflow (Interactive)',
-):
-    assert headers.count(f'>{label}</a>') == 98, label
-
-v1 = new['bankruptcy-checkup-beta']
-assert 'https://gobk-checkup-beta.jimmydanol.chatgpt.site' in v1
-assert 'which chapter should you ask about first' in v1
-assert 'not an eligibility finding or an instruction to file' in v1
-
 v2 = new['bankruptcy-checkup-beta-v2']
 assert 'https://gobk-checkup-beta.jimmydanol.chatgpt.site/v2' in v2
 assert 'data-gobk-checkup-beta-v2' in v2
-assert 'Bankruptcy Checkup (Beta V2) synthetic-data questionnaire' in v2
-assert 'up to three relevant videos when the older guide has a match' in v2
-assert 'Otherwise, start with its general introduction.' in v2
-assert 'The videos do not change the graph result.' in v2
-assert 'class="beta-notice"' not in v2
-assert 'class="video-notice"' not in v2
-assert 'Invented data only. Draft, not attorney-approved.' not in v2
-assert 'Older videos; legal content under review.' not in v2
-assert 'dated or incomplete information' in v2
-assert 'currently require a Google account with access' in v2
-assert 'Google receives a request only when you play or open a video' in v2
-assert 'does not decide eligibility or tell you to file' in v2
+assert 'Bankruptcy Checkup (Beta V2) structured questionnaire' in v2
+assert 'Start with urgent issues' in v2
+assert 'No name, email, phone number' in v2
+assert 'does not decide whether to file' in v2
+assert 'not a means test' in v2
+assert 'does not calculate a waiting period' in v2
 assert 'drive.google.com/file/' not in v2
 assert 'href="#bankruptcy-checkup-beta"' in v2
 assert 'href="#bankruptcy-checkup-beta-workflow"' in v2
 assert 'href="#bankruptcy-checkup-beta-workflow-interactive"' in v2
 
-frame_source = Path('public/checkup-beta-frame.js').read_text(encoding='utf-8')
-frame_v2_source = Path('public/checkup-beta-v2-frame.js').read_text(encoding='utf-8')
+frame_source = Path('public/checkup-beta-v2-frame.js').read_text(encoding='utf-8')
 assert frame_source in current
-assert frame_v2_source in current
-assert "getElementById('pg-bankruptcy-checkup-beta-v2')" in frame_v2_source
-assert "iframe[data-gobk-checkup-beta-v2]" in frame_v2_source
+assert "getElementById('pg-bankruptcy-checkup-beta-v2')" in frame_source
+assert 'iframe[data-gobk-checkup-beta-v2]' in frame_source
+assert "const origin = 'https://gobk-checkup-beta.jimmydanol.chatgpt.site'" in frame_source
+
+workflow = new['bankruptcy-checkup-beta-workflow']
+assert 'From ten questions to a starting point' in workflow
+assert len(re.findall(r'class="question-number"', workflow)) == 10
+assert len(re.findall(r'data-workflow-step="[^"]+"', workflow)) == 8
+for boundary in (
+    'not a means test',
+    'does not establish an exemption',
+    'does not calculate a waiting period',
+    'There is no language model',
+):
+    assert boundary in workflow, boundary
 
 lab = new['bankruptcy-checkup-beta-workflow-interactive']
 for element_id in (
-    'checkup-workflow-lab',
-    'lab-checkpoint-placement',
-    'lab-share',
-    'lab-next',
-    'lab-debt-situation',
-    'lab-main-goal',
-    'lab-income-regularity',
-    'lab-secured-arrears',
-    'lab-prior-bankruptcy',
+    'checkup-workflow-lab', 'lab-checkpoint-placement', 'lab-share', 'lab-next',
+    'lab-main-goal', 'lab-marital-status', 'lab-spouse-filing', 'lab-household-size',
+    'lab-gross-monthly-income-band', 'lab-income-regularity', 'lab-home-ownership',
+    'lab-mortgage-status', 'lab-home-equity', 'lab-vehicle-ownership',
+    'lab-vehicle-loan-status', 'lab-vehicle-equity', 'lab-significant-assets',
+    'lab-debt-situation', 'lab-prior-bankruptcy', 'lab-prior-bankruptcy-recency',
 ):
-    assert f'id="{element_id}"' in lab
+    assert f'id="{element_id}"' in lab, element_id
 assert len(re.findall(r'data-debt-kind', lab)) == 9
 assert Path('public/checkup-workflow-lab.js').read_text(encoding='utf-8').replace('</script', '<\\/script') in current
-
-workflow = new['bankruptcy-checkup-beta-workflow']
-assert len(re.findall(r'data-workflow-step="[^"]+"', workflow)) == 8
-assert len(re.findall(r'href="https://smith.langchain.com/public/[^"]+"', workflow)) == 7
-assert 'href="#bankruptcy-checkup-beta"' in workflow
+assert 'No state exemption rule is enabled.' in lab
+assert 'never calculates a filing or discharge waiting period' in lab
 
 print(json.dumps({
     'passed': True,
-    'originalPagesPreserved': 94,
-    'existingBetaPageBodiesPreserved': 3,
-    'newTab': 'bankruptcy-checkup-beta-v2',
-    'sharedHeaderNavigationUpdated': 98,
-    'interactiveBundleIncluded': True,
-    'v2FrameBridgeIncluded': True,
-    'totalPages': 98,
-    'workflowSteps': 8,
-    'publicReviewLinks': 7,
-    'aboutArticleFooterBodiesUnchanged': True,
+    'totalPages': len(new),
+    'unchangedPagesPreserved': len(new) - len(TARGETS),
+    'reworkedPages': sorted(TARGETS),
+    'questionStepsDocumented': 10,
+    'workflowNodesDocumented': 8,
+    'interactiveStructuredControls': 14,
+    'actualRuntimeOriginPreserved': True,
     'noindexPreserved': True,
-    'legacyFormsDisconnected': True,
 }))

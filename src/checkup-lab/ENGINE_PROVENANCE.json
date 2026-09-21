@@ -1,5 +1,5 @@
 {
-  "source": "GoBK snapshot v0.1.0 with deterministic chapter/attorney discussion roadmap v0.3.1 and guide-informed preparation questions, September 14, 2026",
+  "source": "GoBK snapshot v0.1.0 with deterministic chapter/attorney discussion roadmap v0.3.1 and BKFP-guide structured profile questions, September 21, 2026",
   "unchangedSourceFiles": {
     "core/metrics.ts": "ec696d3f96d156cb96752f74e91428e0d69744c3855d88156349ca05ae968a12",
     "core/preview.ts": "2c2587ff430afc82c41ea66c00ec113105d26b813c7542bf40b388e50cba9038",
@@ -31,15 +31,15 @@
     "langgraph/graph.ts": "5333111c9b27609b47b574bf63a5f6cef69056c3e138f5e428f1c9803ab32e05"
   },
   "updatedSourceFiles": {
-    "core/content.ts": "9f6e5472ef0b4a551a147afbd8c86e419f4f5011d7714ef4fb1ec06a15768548",
-    "core/types.ts": "2098cc5070a3f1e49eea18c8235e01ab3f540a63d5b905445a438b27e1ac5146",
-    "core/validation.ts": "c04dd60bdee86af12fe7f40bd359f4e1c23fe35eccb6d1a81c69fc71ea272ff1",
-    "core/output.ts": "50238c6336ed6245dbe0fee312b83e3c7959a1b98bc19a71a627082a8521a55d"
+    "core/content.ts": "28928e40f1e68f4d5b1a490412c1a934a950a45d4da6385dab0c41ec601d73b1",
+    "core/types.ts": "dc4a22a858d98e25a224a2a16d3d25d4ca6aecd90ebc6ec1b8954ebb8b2c92de",
+    "core/validation.ts": "f92bca5e70ee64229e6c74d5805fb6de3b571f03375839371cf456302b43375f",
+    "core/output.ts": "223a8b9fe74efa6ea5af0d25ade77e7c5dd8aeabc717d9918b0f7267a1bfd542"
   },
-  "educationExtension": "Optional payment situation, goal, income regularity, secured arrears and earlier-case self-reports. Ordered deterministic educational chapter starting points, attorney-help reasons and guide-informed consultation questions run inside assemble_findings. No substantive eligibility rule packs enabled. Financial arithmetic and graph routing remain unchanged.",
+  "educationExtension": "The ten-step Checkup accepts bounded self-reports about urgency, goal, marriage and spouse filing, household and gross-income band, income regularity, home and vehicle ownership/loan/equity, significant property, debts, payment pressure, and earlier-bankruptcy recency. Ordered deterministic educational chapter starting points, attorney-help reasons and guide-informed consultation questions run inside assemble_findings. No means-test table, exemption rule, waiting-period calculation, discharge verdict, filing direction, or other substantive eligibility rule pack is enabled.",
   "updatedHashConvention": "SHA-256 of UTF-8 source with CRLF normalized to LF; independent of Windows Git checkout line endings.",
   "addedSourceFiles": {
-    "core/guidance.ts": "9ea910f987c21bab760d832bd0e3b7bf85b1b7b6fb58326a44e2f262cde0fe7b",
-    "core/preparation.ts": "b0bfe449108593f7cf6c1e726d2bcf6183057ab11e049594336e1f3d55b73407"
+    "core/guidance.ts": "f89a97b99e51b34a14efd0d37abd63ff0e55c15fdab26d4d6802cbed8c2caa9d",
+    "core/preparation.ts": "2ff6a19f0ce748337437e95bb08827bc83571c1c30e8952343a84184b7ff8bb9"
   }
 }

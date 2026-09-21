@@ -35,6 +35,10 @@ export function emptyAnswers(): Answers {
     additionalDebtPayments: { kind: 'not_provided' }, additionalPaymentsSeparate: 'not_provided',
     urgentEvents: [], urgencyResponse: 'not_answered', debtKinds: [],
     debtSituation: 'unknown', mainGoal: 'unsure', incomeRegularity: 'unknown', securedArrears: 'unknown', priorBankruptcy: 'unknown',
+    maritalStatus: 'not_provided', spouseFiling: 'not_provided', householdSize: 'not_provided', grossMonthlyIncomeBand: 'not_provided',
+    homeOwnership: 'not_provided', mortgageStatus: 'not_provided', homeEquity: 'not_provided',
+    vehicleOwnership: 'not_provided', vehicleLoanStatus: 'not_provided', vehicleEquity: 'not_provided',
+    significantAssets: 'not_provided', priorBankruptcyRecency: 'not_provided',
   };
 }
 const moneyError = (field: FieldName): FieldError => ({
@@ -57,14 +61,16 @@ export function validateInput(raw: unknown): Validation {
   else invalidEnvelope();
   if (!isObject(raw.answers)) { invalidEnvelope(); return result; }
   const source = raw.answers;
-  if (!hasOnlyKeys(source, [...MONEY_FIELDS, 'additionalPaymentsSeparate', 'urgentEvents', 'debtKinds', 'debtSituation', 'mainGoal', 'incomeRegularity', 'securedArrears', 'priorBankruptcy'])) invalidEnvelope();
+  if (!hasOnlyKeys(source, [...MONEY_FIELDS, 'additionalPaymentsSeparate', 'urgentEvents', 'debtKinds', 'debtSituation', 'mainGoal', 'incomeRegularity', 'securedArrears', 'priorBankruptcy',
+    'maritalStatus', 'spouseFiling', 'householdSize', 'grossMonthlyIncomeBand', 'homeOwnership', 'mortgageStatus', 'homeEquity',
+    'vehicleOwnership', 'vehicleLoanStatus', 'vehicleEquity', 'significantAssets', 'priorBankruptcyRecency'])) invalidEnvelope();
   for (const field of MONEY_FIELDS) {
     const parsed = parseMoney(source[field]);
     if (parsed === null) result.errors.push(moneyError(field));
     else result.answers[field] = parsed;
   }
   const separate = source.additionalPaymentsSeparate;
-  if (separate === 'yes' || separate === 'no' || separate === 'unknown') result.answers.additionalPaymentsSeparate = separate;
+  if (separate === 'yes' || separate === 'no' || separate === 'unknown' || separate === 'not_provided') result.answers.additionalPaymentsSeparate = separate;
   else if (separate !== undefined) result.errors.push({ field: 'additionalPaymentsSeparate', code: 'INVALID_SELECTION', message: 'Confirm whether the additional payments are excluded from the expense total.' });
   const urgent = source.urgentEvents;
   if (urgent !== undefined) {
@@ -107,6 +113,40 @@ export function validateInput(raw: unknown): Validation {
       // The field's allowlisted enum was checked above; unknown stays unknown.
       Object.assign(result.answers, { [field]: value });
     } else result.errors.push({ field, code: 'INVALID_SELECTION', message: 'Choose a listed discussion answer, or not sure.' });
+  }
+  for (const [field, choices] of [
+    ['maritalStatus', ['married', 'not_married', 'unknown', 'not_provided']],
+    ['spouseFiling', ['yes', 'no', 'unsure', 'not_applicable', 'not_provided']],
+    ['householdSize', ['one', 'two', 'three', 'four', 'five_plus', 'unknown', 'not_provided']],
+    ['grossMonthlyIncomeBand', ['under_4000', '4000_5999', '6000_7999', '8000_9999', '10000_11999', '12000_13999', '14000_15999', '16000_plus', 'unknown', 'not_provided']],
+    ['homeOwnership', ['yes', 'no', 'unknown', 'not_provided']],
+    ['mortgageStatus', ['current', 'behind', 'no_loan', 'unknown', 'not_applicable', 'not_provided']],
+    ['homeEquity', ['none_or_negative', 'some', 'unknown', 'not_applicable', 'not_provided']],
+    ['vehicleOwnership', ['yes', 'no', 'unknown', 'not_provided']],
+    ['vehicleLoanStatus', ['current', 'behind', 'no_loan', 'unknown', 'not_applicable', 'not_provided']],
+    ['vehicleEquity', ['none_or_negative', 'some', 'unknown', 'not_applicable', 'not_provided']],
+    ['significantAssets', ['yes', 'no', 'unknown', 'not_provided']],
+    ['priorBankruptcyRecency', ['more_than_8_years', 'less_than_8_years', 'unknown', 'not_applicable', 'not_provided']],
+  ] as const) {
+    const value = source[field];
+    if (value === undefined) continue;
+    if (typeof value === 'string' && (choices as readonly string[]).includes(value)) Object.assign(result.answers, { [field]: value });
+    else result.errors.push({ field, code: 'INVALID_SELECTION', message: 'Choose a listed answer, or not sure.' });
+  }
+  const a = result.answers;
+  const inconsistent = (field: FieldName, message: string) => result.errors.push({ field, code: 'INCONSISTENT_SELECTION', message });
+  if (a.maritalStatus !== 'married' && !['not_applicable', 'not_provided'].includes(a.spouseFiling)) inconsistent('spouseFiling', 'Answer the spouse question only when married.');
+  if (a.homeOwnership === 'no' && !['not_applicable', 'not_provided'].includes(a.mortgageStatus)) inconsistent('mortgageStatus', 'Choose not applicable when no home is owned.');
+  if (a.homeOwnership === 'no' && !['not_applicable', 'not_provided'].includes(a.homeEquity)) inconsistent('homeEquity', 'Choose not applicable when no home is owned.');
+  if (a.vehicleOwnership === 'no' && !['not_applicable', 'not_provided'].includes(a.vehicleLoanStatus)) inconsistent('vehicleLoanStatus', 'Choose not applicable when no vehicle is owned.');
+  if (a.vehicleOwnership === 'no' && !['not_applicable', 'not_provided'].includes(a.vehicleEquity)) inconsistent('vehicleEquity', 'Choose not applicable when no vehicle is owned.');
+  if (a.priorBankruptcy !== 'yes' && !['not_applicable', 'not_provided'].includes(a.priorBankruptcyRecency)) inconsistent('priorBankruptcyRecency', 'Answer the timing question only when an earlier bankruptcy was reported.');
+  if (source.securedArrears === undefined) {
+    const homeKnown = a.homeOwnership === 'no' || (a.homeOwnership === 'yes' && ['current', 'behind', 'no_loan'].includes(a.mortgageStatus));
+    const vehicleKnown = a.vehicleOwnership === 'no' || (a.vehicleOwnership === 'yes' && ['current', 'behind', 'no_loan'].includes(a.vehicleLoanStatus));
+    const homeBehind = a.homeOwnership === 'yes' && a.mortgageStatus === 'behind';
+    const vehicleBehind = a.vehicleOwnership === 'yes' && a.vehicleLoanStatus === 'behind';
+    a.securedArrears = homeBehind && vehicleBehind ? 'both' : homeBehind ? 'mortgage' : vehicleBehind ? 'vehicle' : homeKnown && vehicleKnown ? 'none' : 'unknown';
   }
   return result;
 }

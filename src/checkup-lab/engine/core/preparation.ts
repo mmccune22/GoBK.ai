@@ -8,7 +8,7 @@ import type { DebtKind, Finding, Validation } from './types.js';
 export const QUESTION_GUIDES = Object.freeze({
   income: {
     title: 'Income, marriage and household: why these facts matter',
-    body: 'This month’s take-home amount shows budget pressure. Bankruptcy uses a different income calculation and income history. For a private consultation, gather income records, note changes, and list who contributes to household expenses and who you support. A spouse’s income and expenses can matter even if only one spouse files. Ask how your household and joint debts should be treated; this form does not calculate household size or the means test.',
+    body: 'The broad income and household answers organize questions; they are not the legal income or household calculation. For a private consultation, gather income records, note changes, and list who contributes to household expenses and who you support. A spouse’s income and expenses can matter even if only one spouse files. Ask how your household and joint debts should be treated; this form does not calculate the means test.',
   },
   property: {
     title: 'Home, vehicle and other property: what to check',
@@ -48,6 +48,37 @@ export const PREPARATION_IDS = Object.freeze([
   'prepare_income', 'prepare_property', 'prepare_prior', 'prepare_unsecured',
   'prepare_student', 'prepare_tax', 'prepare_support', 'prepare_other',
 ]);
+
+/** The attached BKFP workflow adds household and property questions. These
+ * fixed findings explain what those answers are useful for without applying a
+ * means-test table, exemption amount, or waiting-period rule. */
+export function buildGuideProfileFindings(validation: Validation): Finding[] {
+  const a = validation.answers;
+  const findings: Finding[] = [];
+  const householdAnswered = [a.maritalStatus, a.householdSize, a.grossMonthlyIncomeBand]
+    .some(value => !['not_provided', 'unknown'].includes(value));
+  if (householdAnswered) findings.push({
+    id: 'guide_household_review',
+    title: 'Household and income details need a full review',
+    body: 'These answers help organize a consultation, but the income band is not a means test. A proper review uses the applicable official forms, the required income period, all included income sources, household facts, and the filing date. A spouse’s income and expenses can matter even when only one spouse may file.',
+    evidenceFields: [], inputRevision: validation.inputRevision,
+  });
+  const propertyAnswered = [a.homeOwnership, a.vehicleOwnership, a.significantAssets]
+    .some(value => value === 'yes');
+  if (propertyAnswered) findings.push({
+    id: 'guide_property_review',
+    title: 'Property values and exemptions need individual review',
+    body: 'You reported a home, vehicle, or other significant property. Ownership and a rough equity answer help identify what to gather, but they do not show that property is protected. A lawyer needs values, loan balances, liens, ownership, domicile history, and the exemptions that actually apply.',
+    evidenceFields: [], inputRevision: validation.inputRevision,
+  });
+  if (a.priorBankruptcy === 'yes') findings.push({
+    id: 'guide_prior_timing_review',
+    title: 'The earlier case needs its exact dates and outcome',
+    body: 'The broad more-than-or-less-than-eight-years answer does not determine whether another case can be filed or whether another discharge is available. Gather the earlier chapter, filing date, discharge or dismissal date, and outcome for review.',
+    evidenceFields: [], inputRevision: validation.inputRevision,
+  });
+  return findings;
+}
 
 /** Called inside the actual assemble_findings node, with fresh validated state. */
 export function buildPreparationFindings(validation: Validation): Finding[] {

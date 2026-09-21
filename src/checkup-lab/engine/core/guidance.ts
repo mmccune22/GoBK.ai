@@ -20,9 +20,12 @@ export function buildDecisionGuidance(validation: Validation): Finding[] {
   const special = a.debtKinds.some(kind => ['student', 'tax', 'support', 'other'].includes(kind));
   const missing = missingDiscussionFacts(validation);
   const invalid = !validation.envelopeValid || validation.errors.some(error =>
-    ['incomeRegularity', 'securedArrears', 'priorBankruptcy', 'mainGoal', 'debtKinds', 'urgentEvents'].includes(error.field));
+    ['incomeRegularity', 'securedArrears', 'priorBankruptcy', 'mainGoal', 'debtKinds', 'urgentEvents',
+      'maritalStatus', 'spouseFiling', 'householdSize', 'grossMonthlyIncomeBand', 'homeOwnership', 'mortgageStatus', 'homeEquity',
+      'vehicleOwnership', 'vehicleLoanStatus', 'vehicleEquity', 'significantAssets', 'priorBankruptcyRecency'].includes(error.field));
   const property = ['keep_home', 'keep_vehicle'].includes(a.mainGoal) ||
-    a.debtKinds.some(kind => ['mortgage', 'auto'].includes(kind)) || ['mortgage', 'vehicle', 'both'].includes(a.securedArrears);
+    a.debtKinds.some(kind => ['mortgage', 'auto'].includes(kind)) || ['mortgage', 'vehicle', 'both'].includes(a.securedArrears) ||
+    a.homeOwnership === 'yes' || a.vehicleOwnership === 'yes' || a.significantAssets === 'yes';
   const matching = (a.mainGoal === 'keep_home' && a.securedArrears === 'mortgage') ||
     (a.mainGoal === 'keep_vehicle' && a.securedArrears === 'vehicle');
   const conflict = (a.urgentEvents.includes('foreclosure') && a.securedArrears === 'none') ||
@@ -49,10 +52,10 @@ export function buildDecisionGuidance(validation: Validation): Finding[] {
   } else if (a.incomeRegularity === 'regular' && matching) {
     chapterTitle = 'Chapter 13: discuss this option first';
     chapterBody = `You reported regular income, past-due ${a.securedArrears === 'mortgage' ? 'mortgage' : 'vehicle'} payments and a goal of keeping that property, with no earlier bankruptcy reported. Chapter 13 is worth discussing first because a court-supervised plan may offer a way to address arrears. Check eligibility, affordable plan payments and continuing loan payments; regular income alone does not prove a plan will work or that property can be kept.`;
-  } else if (a.mainGoal === 'debt_relief' && a.securedArrears === 'none' &&
+  } else if (a.significantAssets !== 'yes' && a.mainGoal === 'debt_relief' && a.securedArrears === 'none' &&
     a.debtKinds.every(kind => ['credit_card', 'medical', 'personal_loan'].includes(kind))) {
     chapterTitle = 'Chapter 7: discuss this option first';
-    chapterBody = 'You reported a debt-relief goal, only credit-card, medical or personal-loan debts, no home or vehicle arrears and no earlier bankruptcy, with income regularity answered. Chapter 7 is worth discussing first because it can discharge certain unsecured debts. This does not establish means-test eligibility or that every debt disappears; property not asked about here may still be at risk. Compare Chapter 13 and nonbankruptcy options if Chapter 7 does not fit.';
+    chapterBody = 'You reported a debt-relief goal, only credit-card, medical or personal-loan debts, no home or vehicle arrears and no earlier bankruptcy, with income regularity answered. Chapter 7 is worth discussing first because it can discharge certain unsecured debts. This does not establish means-test eligibility or that every debt disappears. Property values and applicable exemptions still need individual review. Compare Chapter 13 and nonbankruptcy options if Chapter 7 does not fit.';
   } else if (a.incomeRegularity === 'no_current_income' && matching) {
     chapterTitle = 'Chapter 7 or 13? Review payment feasibility first';
     chapterBody = 'You want to keep property with past-due payments but reported no current income. Chapter 13 is designed for people with regular income, so first discuss how ongoing payments and any plan could be funded. Also compare Chapter 7 property risks and help for the income gap. No current income does not prove Chapter 7 eligibility or protect property.';
@@ -63,7 +66,7 @@ export function buildDecisionGuidance(validation: Validation): Finding[] {
   const reasons = [
     ...(a.urgentEvents.length ? ['a reported collection, property or court deadline concern'] : []),
     ...(a.priorBankruptcy === 'yes' ? ['an earlier bankruptcy'] : []),
-    ...(property ? ['a home, vehicle or past-due secured-payment concern'] : []),
+    ...(property ? ['a home, vehicle, other property or past-due secured-payment concern'] : []),
     ...(special ? ['debts needing separate treatment review'] : []),
   ];
   let attorneyTitle: string; let attorneyBody: string;
