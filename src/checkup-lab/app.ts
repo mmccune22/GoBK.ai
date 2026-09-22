@@ -35,11 +35,13 @@ function initialize(root: HTMLElement) {
   let steps: LabStep[] = [], baseline: PublicResult | null = null, draft: PublicResult | null = null;
   const fields = Array.from(root.querySelectorAll<HTMLElement>('[data-money-field]'));
   const debtChoices = Array.from(root.querySelectorAll<HTMLInputElement>('[data-debt-kind]'));
+  const ordinaryDebtKinds = new Set(['credit_card', 'medical', 'personal_loan']);
   const answerControlIds = [
     'separate', 'urgency', 'main-goal', 'marital-status', 'spouse-filing', 'household-size',
     'gross-monthly-income-band', 'income-regularity', 'home-ownership', 'mortgage-status',
     'home-equity', 'vehicle-ownership', 'vehicle-loan-status', 'vehicle-equity',
-    'significant-assets', 'debt-situation', 'prior-bankruptcy', 'prior-bankruptcy-recency',
+    'significant-assets', 'tax-debt', 'support-debt', 'student-debt', 'unsecured-debt',
+    'debt-situation', 'prior-bankruptcy', 'prior-bankruptcy-recency',
   ];
   const setStatus = (text: string) => { el('status').textContent = text; };
   const setFileStatus = (text: string) => { el('file-status').textContent = text; };
@@ -65,6 +67,14 @@ function initialize(root: HTMLElement) {
     field.querySelector<HTMLElement>('[data-amount-label]')!.textContent = kind === 'range' ? 'Minimum ($)' : 'Amount ($)';
     field.querySelector<HTMLInputElement>('[data-money-amount]')!.disabled = ['unknown', 'not_provided'].includes(kind);
   }
+  function syncUnsecuredDetail() {
+    const applies = el<HTMLSelectElement>('unsecured-debt').value === 'yes';
+    el('unsecured-details').hidden = !applies;
+    for (const choice of debtChoices.filter(value => ordinaryDebtKinds.has(value.value))) {
+      choice.disabled = !applies;
+      if (!applies) choice.checked = false;
+    }
+  }
   function loadExample(name: string) {
     const example = (examples as Record<string, any>)[name];
     const a = example.answers;
@@ -76,8 +86,9 @@ function initialize(root: HTMLElement) {
       syncMoney(field);
     }
     const set = (id: string, value: string) => { el<HTMLSelectElement>(id).value = value; };
-    const home = a.homeOwnership ?? (a.debtKinds?.includes('mortgage') || ['mortgage', 'both'].includes(a.securedArrears) || a.mainGoal === 'keep_home' ? 'yes' : 'no');
-    const vehicle = a.vehicleOwnership ?? (a.debtKinds?.includes('auto') || ['vehicle', 'both'].includes(a.securedArrears) || a.mainGoal === 'keep_vehicle' ? 'yes' : 'no');
+    const kinds = new Set<string>(a.debtKinds ?? []);
+    const home = a.homeOwnership ?? (kinds.has('mortgage') || ['mortgage', 'both'].includes(a.securedArrears) || a.mainGoal === 'keep_home' ? 'yes' : 'no');
+    const vehicle = a.vehicleOwnership ?? (kinds.has('auto') || ['vehicle', 'both'].includes(a.securedArrears) || a.mainGoal === 'keep_vehicle' ? 'yes' : 'no');
     set('separate', a.additionalPaymentsSeparate ?? 'not_provided');
     set('urgency', a.urgentEvents?.[0] ?? 'none');
     set('main-goal', a.mainGoal ?? 'unsure');
@@ -93,10 +104,15 @@ function initialize(root: HTMLElement) {
     set('vehicle-loan-status', a.vehicleLoanStatus ?? (['vehicle', 'both'].includes(a.securedArrears) ? 'behind' : vehicle === 'yes' ? 'current' : 'not_applicable'));
     set('vehicle-equity', a.vehicleEquity ?? (vehicle === 'yes' ? 'unknown' : 'not_applicable'));
     set('significant-assets', a.significantAssets ?? 'unknown');
+    set('tax-debt', a.taxDebt ?? (kinds.has('tax') ? 'yes' : 'no'));
+    set('support-debt', a.supportDebt ?? (kinds.has('support') ? 'yes' : 'no'));
+    set('student-debt', a.studentDebt ?? (kinds.has('student') ? 'yes' : 'no'));
+    set('unsecured-debt', a.unsecuredDebt ?? ([...kinds].some(kind => ordinaryDebtKinds.has(kind)) ? 'yes' : 'no'));
     set('debt-situation', a.debtSituation ?? 'unknown');
     set('prior-bankruptcy', a.priorBankruptcy ?? 'unknown');
     set('prior-bankruptcy-recency', a.priorBankruptcyRecency ?? (a.priorBankruptcy === 'yes' ? 'unknown' : 'not_applicable'));
-    for (const choice of debtChoices) choice.checked = (a.debtKinds ?? []).includes(choice.value);
+    for (const choice of debtChoices) choice.checked = kinds.has(choice.value);
+    syncUnsecuredDetail();
   }
   function readInput() {
     const answers: Record<string, unknown> = {};
@@ -109,7 +125,21 @@ function initialize(root: HTMLElement) {
     const separate = el<HTMLSelectElement>('separate').value;
     if (separate !== 'not_provided') answers.additionalPaymentsSeparate = separate;
     answers.urgentEvents = [el<HTMLSelectElement>('urgency').value];
-    const selectedDebts = debtChoices.filter(choice => choice.checked).map(choice => choice.value);
+    const taxDebt = el<HTMLSelectElement>('tax-debt').value;
+    const supportDebt = el<HTMLSelectElement>('support-debt').value;
+    const studentDebt = el<HTMLSelectElement>('student-debt').value;
+    const unsecuredDebt = el<HTMLSelectElement>('unsecured-debt').value;
+    answers.taxDebt = taxDebt;
+    answers.supportDebt = supportDebt;
+    answers.studentDebt = studentDebt;
+    answers.unsecuredDebt = unsecuredDebt;
+    const selectedDebts = debtChoices
+      .filter(choice => choice.checked && (!ordinaryDebtKinds.has(choice.value) || unsecuredDebt === 'yes'))
+      .map(choice => choice.value);
+    if (taxDebt === 'yes') selectedDebts.push('tax');
+    if (supportDebt === 'yes') selectedDebts.push('support');
+    if (studentDebt === 'yes') selectedDebts.push('student');
+    if (unsecuredDebt === 'yes' && !selectedDebts.some(kind => ordinaryDebtKinds.has(kind))) selectedDebts.push('credit_card');
     if (['current', 'behind'].includes(el<HTMLSelectElement>('mortgage-status').value)) selectedDebts.push('mortgage');
     if (['current', 'behind'].includes(el<HTMLSelectElement>('vehicle-loan-status').value)) selectedDebts.push('auto');
     answers.debtKinds = [...new Set(selectedDebts)];
@@ -294,7 +324,9 @@ function initialize(root: HTMLElement) {
   }
   for (const field of fields) for (const control of field.querySelectorAll<HTMLInputElement | HTMLSelectElement>('input,select')) control.addEventListener('input', () => { syncMoney(field); invalidate(); });
   for (const choice of debtChoices) choice.addEventListener('change', invalidate);
-  for (const id of ['title', 'review-note', 'limit-placement', 'checkpoint-placement', 'calculation-scope', ...answerControlIds]) el(id).addEventListener('input', invalidate);
+  for (const id of ['title', 'review-note', 'limit-placement', 'checkpoint-placement', 'calculation-scope', ...answerControlIds]) {
+    el(id).addEventListener('input', () => { if (id === 'unsecured-debt') syncUnsecuredDetail(); invalidate(); });
+  }
   el('example').addEventListener('change', () => { loadExample(el<HTMLSelectElement>('example').value); invalidate(); });
   button('reset-answers').addEventListener('click', () => { loadExample(el<HTMLSelectElement>('example').value); invalidate(); setStatus('Test answers reset to the selected invented example. Run again to compare.'); });
   button('run').addEventListener('click', () => { void run(false); });

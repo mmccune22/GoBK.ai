@@ -35,6 +35,7 @@ export function emptyAnswers(): Answers {
     additionalDebtPayments: { kind: 'not_provided' }, additionalPaymentsSeparate: 'not_provided',
     urgentEvents: [], urgencyResponse: 'not_answered', debtKinds: [],
     debtSituation: 'unknown', mainGoal: 'unsure', incomeRegularity: 'unknown', securedArrears: 'unknown', priorBankruptcy: 'unknown',
+    taxDebt: 'not_provided', supportDebt: 'not_provided', studentDebt: 'not_provided', unsecuredDebt: 'not_provided',
     maritalStatus: 'not_provided', spouseFiling: 'not_provided', householdSize: 'not_provided', grossMonthlyIncomeBand: 'not_provided',
     homeOwnership: 'not_provided', mortgageStatus: 'not_provided', homeEquity: 'not_provided',
     vehicleOwnership: 'not_provided', vehicleLoanStatus: 'not_provided', vehicleEquity: 'not_provided',
@@ -62,6 +63,7 @@ export function validateInput(raw: unknown): Validation {
   if (!isObject(raw.answers)) { invalidEnvelope(); return result; }
   const source = raw.answers;
   if (!hasOnlyKeys(source, [...MONEY_FIELDS, 'additionalPaymentsSeparate', 'urgentEvents', 'debtKinds', 'debtSituation', 'mainGoal', 'incomeRegularity', 'securedArrears', 'priorBankruptcy',
+    'taxDebt', 'supportDebt', 'studentDebt', 'unsecuredDebt',
     'maritalStatus', 'spouseFiling', 'householdSize', 'grossMonthlyIncomeBand', 'homeOwnership', 'mortgageStatus', 'homeEquity',
     'vehicleOwnership', 'vehicleLoanStatus', 'vehicleEquity', 'significantAssets', 'priorBankruptcyRecency'])) invalidEnvelope();
   for (const field of MONEY_FIELDS) {
@@ -106,6 +108,10 @@ export function validateInput(raw: unknown): Validation {
     ['incomeRegularity', ['regular', 'irregular', 'no_current_income', 'unknown']],
     ['securedArrears', ['none', 'mortgage', 'vehicle', 'both', 'unknown']],
     ['priorBankruptcy', ['yes', 'no', 'unknown']],
+    ['taxDebt', ['yes', 'no', 'unknown', 'not_provided']],
+    ['supportDebt', ['yes', 'no', 'unknown', 'not_provided']],
+    ['studentDebt', ['yes', 'no', 'unknown', 'not_provided']],
+    ['unsecuredDebt', ['yes', 'no', 'unknown', 'not_provided']],
   ] as const) {
     const value = source[field];
     if (value === undefined) continue;

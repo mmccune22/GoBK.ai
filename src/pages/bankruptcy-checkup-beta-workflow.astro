@@ -2,17 +2,24 @@
 import Base from '../layouts/Base.astro';
 
 const questions = [
-  { title: 'Are you married?', asks: 'Yes or no. If yes: will your spouse be filing bankruptcy with you — yes, no or unsure?', use: 'Adds household and joint-debt preparation. It does not decide who should file.' },
-  { title: 'Have you ever filed for bankruptcy before?', asks: 'Yes or no. If yes: more than 8 years ago, less than 8 years ago or unsure.', use: 'Moves individual review first. The timing range does not calculate a waiting period.' },
-  { title: 'How many people live in your household?', asks: 'One (just me), two, three, four or five or more.', use: 'Organizes household facts for a consultation. It is not a legal household-size determination.' },
-  { title: 'What is the total gross household income per month?', asks: 'The guide\'s eight ranges from less than $4,000 through $16,000 or more.', use: 'Organizes an income fact for review. It is not a means test and is not multiplied by twelve or compared with a median-income table.' },
-  { title: 'Do you own a home?', asks: 'Yes or no. If yes: whether mortgage payments are current and how much equity may be in the home.', use: 'Past-due mortgage payments can affect the discussion path. Equity only adds a property-review question.' },
-  { title: 'Do you have a vehicle?', asks: 'Yes or no. If yes: whether car payments are current and how much equity may be in it.', use: 'Past-due vehicle payments can affect the discussion path. Equity does not establish an exemption.' },
-  { title: 'Do you have any other significant assets?', asks: 'Yes or no.', use: 'Raises the priority of a complete property review without deciding what is protected.' },
-  { title: 'Do you owe any taxes?', asks: 'Yes or no.', use: 'Adds tax-specific preparation and keeps debt treatment unresolved.' },
-  { title: 'Do you owe any child support or alimony?', asks: 'Yes or no.', use: 'Adds support-specific preparation and keeps debt treatment unresolved.' },
-  { title: 'Do you owe any student loans?', asks: 'Yes or no.', use: 'Adds student-loan preparation and keeps debt treatment unresolved.' },
-  { title: 'Do you owe credit cards, personal loans, lines of credit, medical bills or other unsecured debt?', asks: 'Yes or no; the lab preserves the existing supported unsecured-debt categories.', use: 'Adds ordinary-unsecured-debt preparation. The category alone does not establish discharge or chapter eligibility.' },
+  { title: 'Are you married?', asks: 'Yes or no.', branch: 'No goes to Question 2. Yes opens “Would your spouse file with you?” with yes, no and not sure choices.', video: ['Marriage and spouse filing', 'https://vimeo.com/1118890037/f9c387612f?ts=16000&share=copy'], use: 'Adds household and joint-debt preparation. It does not decide who should file.' },
+  { title: 'Have you ever filed for bankruptcy before?', asks: 'Yes or no.', branch: 'No goes to Question 3. Yes opens “How long ago did you file?” with more than 8 years, less than 8 years and not sure choices.', video: ['Prior bankruptcy', 'https://vimeo.com/1118894211?share=copy'], use: 'Moves individual review first. The timing range does not calculate a waiting period.' },
+  { title: 'How many people live in your household?', asks: 'One (just me), two, three, four or five or more.', branch: 'Every choice continues to Question 4.', video: ['Household size', 'https://vimeo.com/1119139723?share=copy'], use: 'Organizes household facts for a consultation. It is not a legal household-size determination.' },
+  { title: 'What is the total gross household income per month?', asks: 'Less than $4,000; $4,000–$6,000; $6,000–$8,000; $8,000–$10,000; $10,000–$12,000; $12,000–$14,000; $14,000–$16,000; or $16,000 or more.', branch: 'Every choice continues to Question 5. The PDF then proposes an annualized median-income check.', video: ['Gross household income', 'https://vimeo.com/1119141960?share=copy'], use: 'The beta preserves the income band as context. It does not multiply it by twelve, perform a means test or use a dated median table.' },
+  { title: 'Do you own a home?', asks: 'Yes or no.', branch: 'No goes to Question 6. Yes asks whether mortgage payments are current, then asks how much equity may be in the home.', video: ['Home, mortgage and equity', 'https://vimeo.com/1119148834/ad43f572d9?share=copy'], use: 'Past-due payments can affect the discussion path. Equity adds a property-review question but does not establish an exemption.' },
+  { title: 'Do you have a vehicle?', asks: 'Yes or no.', branch: 'No goes to Question 7. Yes asks whether car payments are current, then asks how much equity may be in the vehicle.', video: ['Vehicle, loan and equity', 'https://vimeo.com/1119152283?share=copy'], use: 'Past-due payments can affect the discussion path. Equity adds a property-review question but does not establish an exemption.' },
+  { title: 'Do you have any other significant assets?', asks: 'Yes or no.', branch: 'No goes to Question 8. The PDF associates Yes with an assets video.', video: ['Other significant assets', 'https://vimeo.com/1119155302?share=copy'], use: 'Raises the priority of a complete property review without deciding what is protected.' },
+  { title: 'Do you owe any taxes?', asks: 'Yes or no.', branch: 'No goes to Question 9. The PDF associates Yes with a tax-complications video.', video: ['Taxes', 'https://vimeo.com/1119157707?share=copy'], use: 'Adds tax-specific preparation and keeps debt treatment unresolved.' },
+  { title: 'Do you owe any child support or alimony?', asks: 'Yes or no.', branch: 'No goes to Question 10. The PDF associates Yes with a domestic-support-obligation video.', video: ['Child support or alimony', 'https://vimeo.com/1119159473?share=copy'], use: 'Adds support-specific preparation and keeps debt treatment unresolved.' },
+  { title: 'Do you owe any student loans?', asks: 'Yes or no.', branch: 'No goes to Question 11. The PDF associates Yes with a student-loan video.', video: ['Student loans', 'https://vimeo.com/1119164662?share=copy'], use: 'Adds student-loan preparation and keeps debt treatment unresolved.' },
+  { title: 'Do you owe credit cards, personal loans, lines of credit, medical bills or other unsecured debt?', asks: 'Yes or no.', branch: 'Either answer completes the numbered questions. The PDF associates Yes with an unsecured-debt video and then moves to the report.', video: ['Unsecured debt', 'https://vimeo.com/1119167300?share=copy'], use: 'Adds ordinary-unsecured-debt preparation. The category alone does not establish discharge or chapter eligibility.' },
+];
+
+const guidePlan = [
+  { title: 'Landing and trust notice', source: 'The PDF proposes a “Four Minutes to a Free Bankruptcy Case Analysis” hero, a Start button, an intro video, contact and location fields, a trust notice, a three-step explanation and draft social proof.', beta: 'The beta puts the Checkup first, keeps the legal-information boundaries and intro context, and omits contact collection, location collection and unverified social-proof or confidentiality claims.' },
+  { title: 'Eleven numbered questions', source: 'The PDF starts with marriage, then prior bankruptcy, household, gross income, property and five debt topics. Marriage, prior filing, home and vehicle answers open conditional follow-ups.', beta: 'The beta keeps that order and those conditional follow-ups. A skipped follow-up remains not applicable; it is not silently changed into a substantive answer.' },
+  { title: 'Topic videos', source: 'The PDF links one intro video and one video for each numbered topic. It places several videos on a Yes branch but does not define an exact player interaction.', beta: 'The questionnaire does not interrupt each answer with a video. After the report it offers up to three relevant videos. Videos are optional and never change the graph result.' },
+  { title: 'Issue report and legal help', source: 'After Question 11 the PDF says only “ISSUE REPORT?”, points to a ZIP-based attorney search and supplies reminder and disclaimer language. It does not define report calculations or a report layout.', beta: 'The deterministic graph returns a bounded issue list, a chapter discussion starting point, next questions and explicit limitations. It does not match attorneys, collect a ZIP Code or turn the short form into legal advice.' },
 ];
 
 const graphSteps = [
@@ -38,23 +45,34 @@ const decisionBranches = [
 ];
 ---
 
-<Base title="Bankruptcy Checkup Beta Workflow" description="How eleven guide-ordered Checkup questions move through eight deterministic LangGraph steps to produce a bounded issue list and discussion starting point.">
+<Base title="Bankruptcy Checkup Beta Workflow" description="How the attached guide's landing plan, eleven questions, conditional branches, videos and issue report map to the deterministic Bankruptcy Checkup beta.">
   <section class="section workflow-page">
     <div class="wrap">
       <header class="intro">
         <p class="k">HOW THE BETA WORKS</p>
-        <h1>From eleven questions to a starting point</h1>
-        <p class="lede">The Checkup sends structured answers to the hosted LangGraph. The graph validates them, runs fixed calculations and branches, and returns an issue list and questions to discuss with a qualified attorney.</p>
+        <h1>From the attached guide to the working beta</h1>
+        <p class="lede">The PDF is a written workflow, not a finished app mockup. It defines a landing-page plan, eleven numbered questions, six conditional follow-ups, topic videos and an unfinished issue-report step. This page shows what the beta reproduces and what it safely substitutes.</p>
         <p class="boundary"><strong>General information only.</strong> It does not decide whether someone should file, whether a chapter is available, what property is protected or which debts will be discharged.</p>
         <div class="actions"><a class="btn btn-primary" href="/bankruptcy-checkup-beta-v2">Try Beta V2</a><a class="btn btn-secondary" href="/bankruptcy-checkup-beta-workflow-interactive">Change invented answers in the workflow lab</a></div>
       </header>
 
+      <section class="workflow-block" aria-labelledby="guide-plan-heading">
+        <h2 id="guide-plan-heading">The PDF-defined experience and this beta</h2>
+        <div class="experience-grid">
+          {guidePlan.map((part) => (
+            <article><h3>{part.title}</h3><p><strong>PDF plan:</strong> {part.source}</p><p><strong>Beta implementation:</strong> {part.beta}</p></article>
+          ))}
+        </div>
+        <p class="soft">The PDF's separate <a href="https://vimeo.com/1118874879?share=copy" target="_blank" rel="noopener noreferrer">intro video ↗</a> is a source reference. It does not alter the questionnaire or graph.</p>
+        <p class="soft">The source document's branch arrows, all-caps implementation notes, bracketed buttons and placeholder media claims are specifications, not consumer-facing copy. The beta keeps the useful flow without publishing those drafting notes as if they were completed features.</p>
+      </section>
+
       <figure class="flow-overview" aria-label="Eleven guide answers go through eight fixed LangGraph steps and return a checked educational result">
-        <div><span>INPUT</span><strong>Eleven guide questions</strong><small>Marriage, prior bankruptcy, household, gross income, property and five debt categories</small></div>
+        <div><span>INPUT</span><strong>Eleven guide questions</strong><small>Plus the spouse, prior-case, mortgage, home-equity, car-payment and vehicle-equity follow-ups when applicable</small></div>
         <span class="flow-arrow" aria-hidden="true">→</span>
         <div><span>PROCESS</span><strong>Eight graph nodes</strong><small>Validate → plan → calculate → explain → check</small></div>
         <span class="flow-arrow" aria-hidden="true">→</span>
-        <div><span>OUTPUT</span><strong>A bounded starting point</strong><small>Urgency, issue list, chapter discussion and next questions</small></div>
+        <div><span>OUTPUT</span><strong>A bounded issue report</strong><small>Issue list, chapter discussion, next questions, reading and unresolved limits</small></div>
         <figcaption>The same supported answers follow the same route. There is no language model, random choice, tracing or saved assessment session in the consumer flow.</figcaption>
       </figure>
 
@@ -62,15 +80,15 @@ const decisionBranches = [
         <h2 id="questions-heading">The attached guide's question order</h2>
         <ol class="question-list">
           {questions.map((question, index) => (
-            <li><span class="question-number" aria-hidden="true">{index + 1}</span><div><h3>{question.title}</h3><p><strong>Asks:</strong> {question.asks}</p><p><strong>Used for:</strong> {question.use}</p></div></li>
+            <li><span class="question-number" aria-hidden="true">{index + 1}</span><div><h3>{question.title}</h3><p><strong>Answers:</strong> {question.asks}</p><p><strong>PDF branch:</strong> {question.branch}</p><p><strong>PDF video:</strong> <a href={question.video[1]} target="_blank" rel="noopener noreferrer">{question.video[0]} ↗</a></p><p><strong>Beta handling:</strong> {question.use}</p></div></li>
           ))}
         </ol>
-        <p class="soft"><strong>Added follow-ups do not change the numbering.</strong> The hosted questionnaire asks income regularity after Question 4 and goal follow-ups with Questions 5, 6 and 11 when relevant. The interactive lab separately exposes urgency and payment pressure as unnumbered graph context. None of those additions replaces or renumbers the attached guide's eleven questions.</p>
+        <p class="soft"><strong>The six conditional follow-ups belong to Questions 1, 2, 5 and 6.</strong> No separate goal or income-regularity question is part of the PDF-derived V2 questionnaire. The interactive lab exposes additional invented graph context separately so the decision engine can be reviewed without presenting those fields as source questions.</p>
       </section>
 
       <section class="workflow-block decision-block" aria-labelledby="decision-heading">
         <h2 id="decision-heading">The deterministic chapter discussion tree</h2>
-        <p>The first matching branch sets what to discuss first. A discussion starting point is not eligibility or a filing recommendation.</p>
+        <p>The first matching branch sets what to discuss first. A discussion starting point is not eligibility or a filing recommendation. Beta V2 sends the answers it actually displays and leaves unasked goal, urgency and income-pattern context unknown; the workflow lab exposes those extra engine fields for testing.</p>
         <ol class="decision-list">
           {decisionBranches.map(([condition, result]) => <li><strong>{condition}:</strong> {result}</li>)}
         </ol>
@@ -78,13 +96,14 @@ const decisionBranches = [
       </section>
 
       <section class="workflow-block" aria-labelledby="attorney-heading">
-        <h2 id="attorney-heading">How attorney-help priority is chosen</h2>
+        <h2 id="attorney-heading">What the issue report can say</h2>
         <div class="answer-grid">
-          <article><h3>Prompt help</h3><p>A reported deadline, lawsuit, garnishment, foreclosure or repossession puts prompt qualified help first.</p></article>
-          <article><h3>Individual review is especially useful</h3><p>An earlier case, property concern, special debt or significant property raises issues this short form cannot resolve.</p></article>
-          <article><h3>Clarify before choosing</h3><p>Unknown or invalid facts remain visible. The graph does not fill gaps with assumptions.</p></article>
-          <article><h3>Advice remains recommended</h3><p>Even the narrower Chapter 7 discussion path does not certify a case as simple or safe to handle without advice.</p></article>
+          <article><h3>Show the reported issues</h3><p>The report can flag an earlier case, property or payment concerns, other assets, taxes, support, student loans and unsecured debt.</p></article>
+          <article><h3>Keep legal conclusions open</h3><p>The PDF's short answers cannot establish eligibility, exemptions, waiting periods, discharge or whether someone should file.</p></article>
+          <article><h3>Clarify before choosing</h3><p>Unknown or invalid facts remain visible. The graph does not fill gaps with assumptions or hidden consumer answers.</p></article>
+          <article><h3>Point toward qualified help</h3><p>The report provides questions and records for a consultation. It does not collect a ZIP Code, match an attorney or certify a case as simple.</p></article>
         </div>
+        <p class="soft"><strong>The attachment leaves the report unfinished.</strong> Its only report heading is “ISSUE REPORT?” followed by an attorney-search note and disclaimer text. The structured result shown in the beta is therefore a bounded implementation choice, not a report design copied from the PDF.</p>
       </section>
 
       <section class="workflow-block" aria-labelledby="nodes-heading">
@@ -136,6 +155,9 @@ const decisionBranches = [
   .flow-arrow { font-size: 1.8rem; color: var(--sage-deep); }
   figcaption { grid-column: 1 / -1; border-top: 1px solid var(--rule); padding-top: 1rem; font-size: .92rem; }
   .workflow-block { margin-top: var(--space-6); }
+  .experience-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .experience-grid article { padding: 1.25rem; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--white); }
+  .experience-grid article p:last-child { margin-bottom: 0; }
   .question-list, .workflow-list { list-style: none; padding: 0; margin: 1.5rem 0 0; }
   .question-list li, .workflow-list li { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: 1rem; padding-bottom: 1.25rem; }
   .question-list li > div, .workflow-list li > div { padding: 1.1rem 1.25rem; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--white); }
@@ -149,7 +171,7 @@ const decisionBranches = [
   .answer-grid article { padding: 1.25rem; border: 1px solid var(--rule); border-radius: var(--radius); }
   .answer-grid article p { margin-bottom: 0; }
   @media (max-width: 45rem) {
-    .flow-overview, .answer-grid { grid-template-columns: 1fr; }
+    .flow-overview, .experience-grid, .answer-grid { grid-template-columns: 1fr; }
     .flow-arrow { transform: rotate(90deg); justify-self: start; }
     .question-list li, .workflow-list li { grid-template-columns: 2.2rem minmax(0, 1fr); gap: .65rem; }
     .question-number, .step-number { width: 2.2rem; height: 2.2rem; }

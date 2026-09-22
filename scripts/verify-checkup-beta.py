@@ -67,7 +67,7 @@ v2 = built_page('bankruptcy-checkup-beta-v2')
 assert 'https://gobk-checkup-beta.jimmydanol.chatgpt.site/v2' in v2
 assert 'data-gobk-checkup-beta-v2' in v2
 assert 'Bankruptcy Checkup (Beta V2) eleven-question structured questionnaire' in v2
-assert 'The eleven guide questions begin with marriage and prior bankruptcy' in v2
+assert 'No separate goal or income-regularity question is part of this PDF-derived questionnaire.' in v2
 assert 'No name, email, phone number' in v2
 assert 'does not decide whether to file' in v2
 assert 'not a means test' in v2
@@ -86,14 +86,18 @@ assert 'iframe[data-gobk-checkup-beta-v2]' in frame_source
 assert "const origin = 'https://gobk-checkup-beta.jimmydanol.chatgpt.site'" in frame_source
 
 workflow = built_page('bankruptcy-checkup-beta-workflow')
-assert 'From eleven questions to a starting point' in workflow
+assert 'From the attached guide to the working beta' in workflow
+assert 'The PDF-defined experience and this beta' in workflow
 assert len(re.findall(r'class="question-number"', workflow)) == 11
+assert workflow.count('PDF branch:') == 11
+assert workflow.count('PDF video:') == 11
 assert len(re.findall(r'data-workflow-step="[^"]+"', workflow)) == 8
 assert_in_order(workflow, QUESTION_TEXTS)
-assert 'Added follow-ups do not change the numbering.' in workflow
-assert 'goal follow-ups with Questions 5, 6 and 11' in workflow
+assert 'The six conditional follow-ups belong to Questions 1, 2, 5 and 6.' in workflow
+assert 'No separate goal or income-regularity question is part of the PDF-derived V2 questionnaire.' in workflow
+assert 'Its only report heading is “ISSUE REPORT?”' in workflow
 for boundary in (
-    'not a means test',
+    'does not multiply it by twelve, perform a means test',
     'does not establish an exemption',
     'does not calculate a waiting period',
     'There is no language model',
@@ -106,6 +110,7 @@ structured_control_ids = (
     'lab-gross-monthly-income-band', 'lab-income-regularity', 'lab-home-ownership',
     'lab-mortgage-status', 'lab-home-equity', 'lab-vehicle-ownership',
     'lab-vehicle-loan-status', 'lab-vehicle-equity', 'lab-significant-assets',
+    'lab-tax-debt', 'lab-support-debt', 'lab-student-debt', 'lab-unsecured-debt',
     'lab-debt-situation', 'lab-prior-bankruptcy', 'lab-prior-bankruptcy-recency',
     'lab-urgency', 'lab-separate',
 )
@@ -121,9 +126,8 @@ assert len(re.findall(r'data-guide-question="(?:[1-9]|1[01])"', lab)) == 11
 assert lab.index('data-graph-context') > lab.index('data-guide-question="11"')
 for advanced_id in ('lab-urgency', 'lab-main-goal', 'lab-debt-situation'):
     assert lab.index(f'id="{advanced_id}"') > lab.index('data-graph-context')
-assert lab.index('lab-income-regularity') > lab.index('data-guide-question="4"')
-assert lab.index('lab-income-regularity') < lab.index('data-guide-question="5"')
-assert len(re.findall(r'data-debt-kind', lab)) == 9
+assert lab.index('lab-income-regularity') > lab.index('data-graph-context')
+assert len(re.findall(r'data-debt-kind', lab)) == 6
 assert 'No state exemption rule is enabled.' in lab
 assert 'never calculates a filing or discharge waiting period' in lab
 assert 'justice.gov/ust/eo/bapcpa' not in v2 + workflow + lab
@@ -131,7 +135,7 @@ assert 'nolo.com/legal-encyclopedia/bankruptcy-exemptions-state' not in v2 + wor
 
 for page_id in TARGETS:
     assert published[page_id], f'Missing published target: {page_id}'
-assert 'The eleven guide questions begin with marriage and prior bankruptcy' in published['bankruptcy-checkup-beta-v2']
+assert 'No separate goal or income-regularity question is part of this PDF-derived questionnaire.' in published['bankruptcy-checkup-beta-v2']
 assert_in_order(published['bankruptcy-checkup-beta-workflow'], QUESTION_TEXTS)
 assert_in_order(published['bankruptcy-checkup-beta-workflow-interactive'], QUESTION_TEXTS)
 
@@ -147,7 +151,7 @@ print(json.dumps({
     'questionStepsDocumented': len(QUESTION_TEXTS),
     'workflowNodesDocumented': 8,
     'interactiveStructuredControlsPreserved': len(structured_control_ids),
-    'interactiveDebtCheckboxesPreserved': 9,
+    'interactiveDebtCheckboxesPreserved': 6,
     'actualRuntimeOriginPreserved': True,
     'trackedDocsIndexVerified': True,
     'noindexPreserved': True,

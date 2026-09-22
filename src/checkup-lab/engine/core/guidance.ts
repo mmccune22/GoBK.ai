@@ -21,6 +21,7 @@ export function buildDecisionGuidance(validation: Validation): Finding[] {
   const missing = missingDiscussionFacts(validation);
   const invalid = !validation.envelopeValid || validation.errors.some(error =>
     ['incomeRegularity', 'securedArrears', 'priorBankruptcy', 'mainGoal', 'debtKinds', 'urgentEvents',
+      'taxDebt', 'supportDebt', 'studentDebt', 'unsecuredDebt',
       'maritalStatus', 'spouseFiling', 'householdSize', 'grossMonthlyIncomeBand', 'homeOwnership', 'mortgageStatus', 'homeEquity',
       'vehicleOwnership', 'vehicleLoanStatus', 'vehicleEquity', 'significantAssets', 'priorBankruptcyRecency'].includes(error.field));
   const property = ['keep_home', 'keep_vehicle'].includes(a.mainGoal) ||

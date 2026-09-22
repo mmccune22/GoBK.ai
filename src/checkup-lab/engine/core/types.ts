@@ -11,6 +11,7 @@ export type MainGoal = 'debt_relief' | 'keep_home' | 'keep_vehicle' | 'stop_coll
 export type IncomeRegularity = 'regular' | 'irregular' | 'no_current_income' | 'unknown';
 export type SecuredArrears = 'none' | 'mortgage' | 'vehicle' | 'both' | 'unknown';
 export type PriorBankruptcy = 'yes' | 'no' | 'unknown';
+export type GuideDebtAnswer = 'yes' | 'no' | 'unknown' | 'not_provided';
 export type MaritalStatus = 'married' | 'not_married' | 'unknown' | 'not_provided';
 export type SpouseFiling = 'yes' | 'no' | 'unsure' | 'not_applicable' | 'not_provided';
 export type HouseholdSize = 'one' | 'two' | 'three' | 'four' | 'five_plus' | 'unknown' | 'not_provided';
@@ -23,6 +24,7 @@ export type LoanStatus = 'current' | 'behind' | 'no_loan' | 'unknown' | 'not_app
 export type EquityAnswer = 'none_or_negative' | 'some' | 'unknown' | 'not_applicable' | 'not_provided';
 export type PriorBankruptcyRecency = 'more_than_8_years' | 'less_than_8_years' | 'unknown' | 'not_applicable' | 'not_provided';
 export type FieldName = MoneyField | 'additionalPaymentsSeparate' | 'urgentEvents' | 'debtKinds' | 'debtSituation' | 'mainGoal' | 'incomeRegularity' | 'securedArrears' | 'priorBankruptcy'
+  | 'taxDebt' | 'supportDebt' | 'studentDebt' | 'unsecuredDebt'
   | 'maritalStatus' | 'spouseFiling' | 'householdSize' | 'grossMonthlyIncomeBand'
   | 'homeOwnership' | 'mortgageStatus' | 'homeEquity' | 'vehicleOwnership'
   | 'vehicleLoanStatus' | 'vehicleEquity' | 'significantAssets' | 'priorBankruptcyRecency' | '_request';
@@ -40,6 +42,10 @@ export interface Answers {
   incomeRegularity: IncomeRegularity;
   securedArrears: SecuredArrears;
   priorBankruptcy: PriorBankruptcy;
+  taxDebt: GuideDebtAnswer;
+  supportDebt: GuideDebtAnswer;
+  studentDebt: GuideDebtAnswer;
+  unsecuredDebt: GuideDebtAnswer;
   maritalStatus: MaritalStatus;
   spouseFiling: SpouseFiling;
   householdSize: HouseholdSize;

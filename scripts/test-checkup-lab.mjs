@@ -39,12 +39,13 @@ try {
     'Do you owe credit cards, personal loans, lines of credit, medical bills or other unsecured debt?',
   ];
   await check('three beta tabs mirror the attached eleven-question order', async () => {
-    const [v2, workflow, lab] = await Promise.all([
+    const [v2, workflow, lab, app] = await Promise.all([
       fs.readFile('src/pages/bankruptcy-checkup-beta-v2.astro', 'utf8'),
       fs.readFile('src/pages/bankruptcy-checkup-beta-workflow.astro', 'utf8'),
       fs.readFile('src/pages/bankruptcy-checkup-beta-workflow-interactive.astro', 'utf8'),
+      fs.readFile('src/checkup-lab/app.ts', 'utf8'),
     ]);
-    assert.match(v2, /eleven guide questions begin with marriage and prior bankruptcy/i);
+    assert.match(v2, /eleven|11/i);
     for (const source of [workflow, lab]) {
       const positions = guideQuestions.map(question => source.indexOf(question));
       assert(positions.every(position => position >= 0));
@@ -54,9 +55,13 @@ try {
     const graphContext = lab.indexOf('data-graph-context');
     assert(graphContext > lab.indexOf('data-guide-question="11"'));
     for (const id of ['lab-urgency', 'lab-main-goal', 'lab-debt-situation']) assert(lab.indexOf(`id="${id}"`) > graphContext);
-    assert(lab.indexOf('id="lab-income-regularity"') > lab.indexOf('data-guide-question="4"'));
-    assert(lab.indexOf('id="lab-income-regularity"') < lab.indexOf('data-guide-question="5"'));
-    assert.equal(lab.match(/data-debt-kind/g)?.length, 9);
+    assert(lab.indexOf('id="lab-income-regularity"') > graphContext);
+    for (const id of ['tax-debt', 'support-debt', 'student-debt', 'unsecured-debt']) {
+      const control = lab.match(new RegExp(`<select id="lab-${id}">([\\s\\S]*?)<\\/select>`))?.[1] ?? '';
+      for (const value of ['unknown', 'no', 'yes']) assert.match(control, new RegExp(`value="${value}"`));
+    }
+    for (const field of ['taxDebt', 'supportDebt', 'studentDebt', 'unsecuredDebt']) assert.match(app, new RegExp(`answers\\.${field} =`));
+    assert.equal(lab.match(/data-debt-kind/g)?.length, 6);
   });
   const originals = {};
   for (const [name, input] of Object.entries(fixtures)) {
@@ -97,6 +102,21 @@ try {
     assert.equal(assembly.guidanceInputs.homeOwnership, 'yes');
     assert.equal(assembly.guidanceInputs.mortgageStatus, 'behind');
     assert.equal(assembly.guidanceInputs.securedArrears, 'mortgage');
+  });
+  await check('explicit debt answers reach the actual graph and preserve not-sure answers', async () => {
+    const input = structuredClone(roadmapFixtures.ordinary_debt_relief);
+    Object.assign(input.answers, {
+      taxDebt: 'unknown', supportDebt: 'no', studentDebt: 'yes', unsecuredDebt: 'yes',
+      debtKinds: ['student', 'credit_card'],
+    });
+    const draft = await runDraft(input, context);
+    const assembly = draft.steps.find(step=>step.nodeId==='assemble_findings');
+    assert.equal(assembly.guidanceInputs.taxDebt, 'unknown');
+    assert.equal(assembly.guidanceInputs.supportDebt, 'no');
+    assert.equal(assembly.guidanceInputs.studentDebt, 'yes');
+    assert.equal(assembly.guidanceInputs.unsecuredDebt, 'yes');
+    assert(assembly.guidance.some(x=>x.id==='guide_debt_answers_review'));
+    assert(draft.result.findings.some(x=>x.id==='guide_debt_answers_review' && /tax debt/.test(x.body)));
   });
   await check('gross-income band and equity organize review without choosing a different chapter', async () => {
     const first = structuredClone(roadmapFixtures.ordinary_debt_relief);

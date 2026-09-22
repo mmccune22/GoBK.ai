@@ -57,10 +57,16 @@ export function buildGuideProfileFindings(validation: Validation): Finding[] {
   const findings: Finding[] = [];
   const householdAnswered = [a.maritalStatus, a.householdSize, a.grossMonthlyIncomeBand]
     .some(value => !['not_provided', 'unknown'].includes(value));
+  const spouseContext = a.maritalStatus === 'married'
+    ? a.spouseFiling === 'yes' ? ' You reported that your spouse may file with you; confirm the filing plan and gather both spouses’ relevant household and debt records.'
+      : a.spouseFiling === 'no' ? ' You reported that your spouse may not file with you; a private review should still cover household income, expenses, joint debts and ownership.'
+        : a.spouseFiling === 'unsure' ? ' You are not sure whether your spouse would file with you; ask how each option would affect household income, expenses, joint debts and ownership.'
+          : ''
+    : '';
   if (householdAnswered) findings.push({
     id: 'guide_household_review',
     title: 'Household and income details need a full review',
-    body: 'These answers help organize a consultation, but the income band is not a means test. A proper review uses the applicable official forms, the required income period, all included income sources, household facts, and the filing date. A spouse’s income and expenses can matter even when only one spouse may file.',
+    body: 'These answers help organize a consultation, but the income band is not a means test. A proper review uses the applicable official forms, the required income period, all included income sources, household facts, and the filing date. A spouse’s income and expenses can matter even when only one spouse may file.' + spouseContext,
     evidenceFields: [], inputRevision: validation.inputRevision,
   });
   const propertyAnswered = [a.homeOwnership, a.vehicleOwnership, a.significantAssets]
@@ -75,6 +81,18 @@ export function buildGuideProfileFindings(validation: Validation): Finding[] {
     id: 'guide_prior_timing_review',
     title: 'The earlier case needs its exact dates and outcome',
     body: 'The broad more-than-or-less-than-eight-years answer does not determine whether another case can be filed or whether another discharge is available. Gather the earlier chapter, filing date, discharge or dismissal date, and outcome for review.',
+    evidenceFields: [], inputRevision: validation.inputRevision,
+  });
+  const unknownDebtLabels = ([
+    ['taxDebt', 'tax debt'],
+    ['supportDebt', 'child support or alimony'],
+    ['studentDebt', 'student loans'],
+    ['unsecuredDebt', 'ordinary unsecured debt'],
+  ] as const).filter(([field]) => a[field] === 'unknown').map(([, label]) => label);
+  if (unknownDebtLabels.length) findings.push({
+    id: 'guide_debt_answers_review',
+    title: 'Confirm the debt categories marked not sure',
+    body: `You marked ${unknownDebtLabels.join(', ')} as not sure. Confirm those categories before relying on this issue list. This reminder does not classify a debt, decide discharge, or change your stated property goal.`,
     evidenceFields: [], inputRevision: validation.inputRevision,
   });
   return findings;

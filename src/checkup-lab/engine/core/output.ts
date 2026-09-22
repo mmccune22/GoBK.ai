@@ -42,8 +42,9 @@ const publicShape: Check = shape({
   limitations: arrayOf(shape({ id: text, topic: oneOf('snapshot', 'chapter_eligibility', 'asset_protection', 'debt_treatment', 'technical'), status: oneOf('insufficient_information', 'not_supported', 'unavailable'), body: text })),
   nextSteps: arrayOf(text, 12),
   fieldErrors: arrayOf(shape({ field: oneOf(...MONEY_FIELDS, 'additionalPaymentsSeparate', 'urgentEvents', 'debtKinds', 'debtSituation', 'mainGoal', 'incomeRegularity', 'securedArrears', 'priorBankruptcy',
+    'taxDebt', 'supportDebt', 'studentDebt', 'unsecuredDebt',
     'maritalStatus', 'spouseFiling', 'householdSize', 'grossMonthlyIncomeBand', 'homeOwnership', 'mortgageStatus', 'homeEquity',
-    'vehicleOwnership', 'vehicleLoanStatus', 'vehicleEquity', 'significantAssets', 'priorBankruptcyRecency', '_request'), code: text, message: text }), 24),
+    'vehicleOwnership', 'vehicleLoanStatus', 'vehicleEquity', 'significantAssets', 'priorBankruptcyRecency', '_request'), code: text, message: text }), 32),
   workflow: shape({ engine: oneOf('langgraph', 'core-preview'), steps: arrayOf(oneOf(...allSteps), 12) }),
   scopeNotice: oneOf(SCOPE_NOTICE),
 });

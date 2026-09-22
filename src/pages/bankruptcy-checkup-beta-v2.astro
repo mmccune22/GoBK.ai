@@ -1,19 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
-const beta = 'https://gobk-checkup-beta.jimmydanol.chatgpt.site/v2?v=35ae797';
+const beta = 'https://gobk-checkup-beta.jimmydanol.chatgpt.site/v2?v=51ecc34-final';
 const frameScript = `${import.meta.env.BASE_URL}checkup-beta-v2-frame.js`;
 ---
-<Base title="Bankruptcy Checkup (Beta V2)" description="An eleven-question bankruptcy checkup that follows the attached guide from marriage and prior bankruptcy through household, property and debt questions.">
+<Base title="Bankruptcy Checkup (Beta V2)" description="The attached guide's eleven-question bankruptcy checkup, with its conditional household, prior-case, property and debt follow-ups.">
   <section class="section beta-section">
     <div class="wrap">
       <div class="beta-heading"><h1>Bankruptcy Checkup (Beta V2)</h1><a href={beta} target="_blank" rel="noopener noreferrer">Open full screen ↗</a></div>
-      <p class="lede">The eleven guide questions begin with marriage and prior bankruptcy, then cover household size, gross household income, a home, a vehicle, other significant assets, taxes, child support or alimony, student loans and unsecured debt. Income regularity and goal prompts are clearly labeled added follow-ups. The interactive lab separately exposes urgency and payment pressure as unnumbered graph context.</p>
       <iframe data-gobk-checkup-beta-v2 src={beta} height="2400" title="Bankruptcy Checkup (Beta V2) eleven-question structured questionnaire" loading="eager" referrerpolicy="no-referrer" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
       <nav class="beta-links" aria-label="Checkup versions and workflow"><a href="/bankruptcy-checkup-beta">Open the original beta</a><a href="/bankruptcy-checkup-beta-workflow">See the workflow</a><a href="/bankruptcy-checkup-beta-workflow-interactive">Explore the interactive workflow</a></nav>
       <details class="beta-about"><summary>About this beta</summary>
-        <p>Your eleven guide answers and the clearly labeled added follow-ups go to the hosted Checkup and through the same fixed LangGraph steps. Income regularity follows the gross-income question; goal prompts appear with the home, vehicle or unsecured-debt question. Ordinary TypeScript applies the same branches to the same answers. No language model chooses the result.</p>
+        <p>Beta V2 follows the attached guide's eleven numbered questions and its conditional spouse, prior-case, mortgage, home-equity, car-payment and vehicle-equity follow-ups. No separate goal or income-regularity question is part of this PDF-derived questionnaire.</p>
+        <p>The displayed answers go through the same fixed LangGraph steps. Ordinary TypeScript validates the answers and applies the same branches to the same facts. Unasked graph context remains unknown, and no language model chooses the result.</p>
         <p>The gross-income range is context, not a means test. Home or vehicle equity answers do not calculate exemptions or decide what property is protected. An earlier filing answer does not calculate a waiting period.</p>
-        <p>After the result, V2 selects up to three videos from the topics you chose. The videos do not change the graph result. Google receives a request only when you play or open one.</p>
+        <p>The PDF links an intro video and a video for each numbered topic but does not define how they should interrupt the questionnaire. This beta offers up to three relevant videos after the report. They do not change the graph result. Google receives a request only when you play or open one.</p>
         <p>No name, email, phone number, account number, document upload or saved assessment is needed. The Checkup does not decide whether to file, chapter eligibility, property protection or debt discharge.</p>
         <p>Individuals may represent themselves; the <a href="https://www.uscourts.gov/court-programs/bankruptcy/filing-without-attorney" target="_blank" rel="noopener noreferrer">U.S. Courts recommends qualified legal help</a>. <a href="https://www.consumerfinance.gov/ask-cfpb/how-do-i-find-an-attorney-in-my-state-en-1549/" target="_blank" rel="noopener noreferrer">Find legal help</a>.</p>
       </details>
@@ -26,7 +26,6 @@ const frameScript = `${import.meta.env.BASE_URL}checkup-beta-v2-frame.js`;
   .beta-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1rem; }
   h1 { margin-bottom: .5rem; }
   .beta-heading a, .beta-links, .beta-about { font-size: .9rem; }
-  .lede { margin-bottom: .5rem; }
   iframe { display: block; width: 100%; border: 0; background: transparent; }
   .beta-links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-block: 1rem; }
   .beta-about { border-top: 1px solid var(--rule); padding-top: .75rem; }
