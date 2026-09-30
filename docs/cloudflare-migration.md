@@ -27,7 +27,9 @@ ports only the two response headers currently defined in `netlify.toml`.
    approval.
 2. Reviewed maintenance and preflight changes may merge before the production
    release gates below are complete. Accepting source into `main` and approving
-   a public production release are separate decisions.
+   a public production release are separate decisions. A merge can still
+   redeploy the existing GitHub Pages preview from `main:/docs`; the manual
+   Cloudflare controls below do not disable that separate host.
 3. The company Cloudflare account owner must manually create and connect the
    Pages project, authorize only this repository, and approve the initial setup
    deployment. Immediately afterward, disable both automatic production
