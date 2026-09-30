@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Isolated review copy only; original source remains unchanged. -->
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'none'; form-action 'none'; object-src 'none'; base-uri 'self'">
+<script src="../test-safety.js"></script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Client Portal — McCune Legal</title>
+<style>
+:root{
+  --firm-name:"McCune Legal";
+  --brand-primary:#7A9C80; --brand-primary-d:#5A7C60; --brand-accent:#5A7C60;
+  --brand-soft:#E7EAE5; --brand-step-done:#5A7C60;
+  --ink:#434343; --muted:#667279; --faint:#9aa4a9; --line:#E7EAE5;
+  --page:#FBFAF7; --card:#fff;
+  --warn:#b9772a; --warn-bg:#fbf3e8; --ok:#2e7d5b; --ok-bg:#e7f3ec;
+  --radius:12px; --radius-sm:8px;
+  --font:"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--page);color:var(--ink);font-family:var(--font);line-height:1.5;-webkit-font-smoothing:antialiased;}
+
+/* dev chrome */
+.mock-note{max-width:760px;margin:22px auto 10px;padding:0 22px;color:var(--muted);font-size:13px;}
+.mock-note strong{color:var(--ink);}
+.mock-note code{background:#eef1f2;border-radius:4px;padding:1px 5px;font-size:12px;}
+
+.app{max-width:760px;margin:0 auto 40px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 1px 3px rgba(31,42,46,.05);}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--line);}
+.firm .nm{font-weight:800;letter-spacing:.13em;color:#224e5f;font-size:16px;}
+.firm .tg{display:block;font-size:10px;letter-spacing:.05em;color:var(--muted);text-transform:uppercase;}
+.hdr-right{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:12.5px;}
+.lockchip{display:inline-flex;align-items:center;gap:6px;background:var(--brand-soft);color:var(--brand-primary);border-radius:20px;padding:4px 12px;font-size:11.5px;font-weight:700;}
+
+.content{padding:28px 34px 10px;}
+h1{font-size:22px;margin:0 0 6px;}
+.sub{color:var(--muted);font-size:15px;margin:0 0 20px;max-width:56ch;}
+
+/* ---- identity gate ---- */
+.gatewrap{max-width:430px;margin:26px auto 34px;padding:0 20px;}
+.gatecard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;}
+.gatecard h1{text-align:center;font-size:20px;}
+.gatecard .sub{text-align:center;font-size:13.5px;margin-bottom:18px;}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+label{font-size:14px;font-weight:600;}
+.inp{height:44px;border:1px solid var(--line);border-radius:var(--radius-sm);padding:0 12px;font-size:15px;font-family:var(--font);background:#fff;color:var(--ink);width:100%;}
+.inp:focus{outline:none;border-color:var(--brand-accent);box-shadow:0 0 0 3px var(--brand-soft);}
+.gate-error{display:none;background:var(--warn-bg);border-radius:var(--radius-sm);color:#7a521f;font-size:13px;padding:10px 13px;margin-bottom:14px;}
+.gate-error.on{display:block;}
+.btn-primary{width:100%;height:44px;background:var(--brand-primary);border:0;border-radius:var(--radius-sm);color:#fff;font-size:14.5px;font-weight:700;cursor:pointer;font-family:var(--font);}
+.btn-primary:hover{background:var(--brand-primary-d);}
+.swap{display:block;text-align:center;margin-top:12px;font-size:12.5px;color:var(--brand-accent);cursor:pointer;text-decoration:underline;}
+.reassure{text-align:center;font-size:12px;color:var(--muted);margin-top:14px;}
+.reassure b{color:var(--brand-primary);}
+
+/* ---- upload portal ---- */
+.progressline{display:flex;align-items:center;gap:12px;margin:0 0 18px;}
+.progressline .txt{font-size:13.5px;font-weight:700;color:var(--brand-primary);white-space:nowrap;}
+.pbar{flex:1;height:9px;border-radius:6px;background:var(--line);overflow:hidden;}
+.pbar i{display:block;height:100%;width:0%;background:var(--brand-step-done);border-radius:6px;transition:width .3s;}
+
+.uc-item{border:1px solid var(--line);border-radius:var(--radius);background:#fcfdfd;padding:16px 18px;margin-bottom:14px;}
+.uc-top{display:flex;align-items:flex-start;gap:12px;}
+.uc-ic{flex:0 0 auto;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.uc-ic svg{width:16px;height:16px;}
+.uc-item.waiting .uc-ic{background:var(--warn-bg);color:var(--warn);}
+.uc-item.uploaded .uc-ic{background:var(--ok-bg);color:var(--ok);}
+.uc-item.reason .uc-ic{background:#eef1f2;color:var(--muted);}
+.uc-name{font-size:15.5px;font-weight:700;}
+.uc-note{font-size:13.5px;color:var(--muted);margin-top:2px;line-height:1.5;}
+.uc-note a{color:var(--brand-accent);font-weight:700;}
+.uc-state{margin-left:auto;flex:0 0 auto;font-size:12px;font-weight:700;padding:4px 11px;border-radius:20px;white-space:nowrap;}
+.uc-item.waiting .uc-state{background:var(--warn-bg);color:var(--warn);}
+.uc-item.uploaded .uc-state{background:var(--ok-bg);color:var(--ok);}
+.uc-item.reason .uc-state{background:#eef1f2;color:var(--muted);}
+.uc-files{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 0 42px;}
+.filechip{display:inline-flex;align-items:center;gap:6px;border:1px solid #cfe7d8;background:#f6fbf8;border-radius:20px;padding:5px 12px;font-size:12.5px;color:var(--ink);}
+.filechip svg{width:12px;height:12px;color:var(--ok);}
+.uc-actions{display:flex;gap:10px;align-items:center;margin:14px 0 2px 42px;flex-wrap:wrap;}
+.btn-up{border:1px solid var(--brand-primary);background:var(--brand-primary);color:#fff;border-radius:20px;padding:8px 20px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:var(--font);display:inline-flex;align-items:center;gap:7px;}
+.btn-up:hover{background:var(--brand-primary-d);}
+.btn-up svg{width:14px;height:14px;}
+.btn-cant{border:0;background:none;color:var(--muted);font-size:12.5px;font-weight:600;cursor:pointer;font-family:var(--font);text-decoration:underline;}
+.btn-cant:hover{color:var(--brand-primary);}
+.btn-more{border:1px dashed var(--brand-accent);background:#fff;color:var(--brand-primary);border-radius:20px;padding:7px 16px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:var(--font);}
+.uc-reasondone{margin:12px 0 2px 42px;font-size:13px;color:var(--muted);}
+.uc-reasondone .change{color:var(--brand-accent);text-decoration:underline;cursor:pointer;font-weight:600;margin-left:6px;}
+
+/* reason picker */
+.reasons{display:none;flex-wrap:wrap;gap:8px;margin:12px 0 2px 42px;}
+.uc-item.picking .reasons{display:flex;}
+.reasons .q{flex-basis:100%;font-size:12.5px;color:var(--muted);}
+.rchip{padding:8px 14px;border:1px solid var(--line);border-radius:20px;font-size:12.5px;cursor:pointer;background:#fff;color:var(--ink);font-family:var(--font);}
+.rchip:hover{background:var(--brand-soft);border-color:var(--brand-accent);color:var(--brand-primary);}
+.rchip.cancel{border-style:dashed;color:var(--faint);}
+
+.uc-foot{font-size:12.5px;color:var(--muted);text-align:center;margin:22px 0 24px;line-height:1.6;}
+
+/* ---- confirmation ---- */
+.done-hero{text-align:center;padding:44px 30px 40px;}
+.done-hero .ck{margin:0 auto 14px;}
+.done-hero h1{font-size:24px;}
+.done-hero p{color:var(--muted);font-size:15px;max-width:48ch;margin:6px auto 0;}
+.done-hero .again{display:inline-block;margin-top:22px;font-size:13px;color:var(--brand-accent);text-decoration:underline;cursor:pointer;}
+
+.legalfoot{max-width:760px;margin:0 auto 50px;padding:0 22px;font-size:11px;color:var(--faint);text-align:center;line-height:1.6;}
+@media(max-width:560px){ .content{padding:20px 16px 8px;} .uc-actions,.uc-files,.reasons,.uc-reasondone{margin-left:0;} .uc-state{display:none;} }
+</style>
+</head>
+<body>
+
+<p class="mock-note"><strong>Mockup — Client Portal (post-submission)</strong> (token-gated route <code>/portal/{token}</code>, opened from the ONE secure link in each follow-up email — every outstanding item in one place). Three states in one file: identity gate → upload list → confirmation. Demo identity: DOB <code>03/14/1985</code> or SSN last-4 <code>4321</code> (Linda Tran seed). Items array mirrors <code>GET /upload-session/{token}</code> → <code>{ firstName, firmName, items:[{id,name,note,status}] }</code>; uploads → <code>POST /upload/{token}/{itemId}</code>, reasons → <code>POST /reason/{token}/{itemId}</code>. State persists in this browser tab, so the same link resumes where Linda left off.</p>
+
+<!-- ============ STATE 1: IDENTITY GATE ============ -->
+<div class="gatewrap" id="gateView">
+  <div class="gatecard">
+    <div style="text-align:center;margin-bottom:10px;">
+      <span class="firm"><span class="nm" style="font-weight:800;letter-spacing:.13em;color:#224e5f;font-size:16px;">MCCUNE LEGAL</span><span class="tg">We help people struggling with debt</span></span>
+    </div>
+    <h1>One quick check</h1>
+    <p class="sub">To protect your information, confirm your date of birth.</p>
+    <div class="gate-error" id="gateError">That doesn&rsquo;t match what we have on file. Please double-check and try again &mdash; or use the other option below.</div>
+    <div class="field" id="dobField">
+      <label for="dobInp">Date of birth</label>
+      <input class="inp" id="dobInp" placeholder="MM/DD/YYYY" inputmode="numeric" autocomplete="off"/><span style="font-size:12px;color:var(--faint);">Just type the numbers — we&rsquo;ll add the slashes for you.</span>
+    </div>
+    <div class="field" id="ssnField" style="display:none">
+      <label for="ssnInp">Last 4 digits of your Social Security number</label>
+      <input class="inp" id="ssnInp" placeholder="••••" maxlength="4" inputmode="numeric" autocomplete="off"/>
+    </div>
+    <button class="btn-primary" id="gateGo">Continue</button>
+    <span class="swap" id="gateSwap">Use the last 4 of your Social Security number instead</span>
+    <p class="reassure">&#128274; <b>This is a secure, private link that only works for you.</b></p>
+  </div>
+</div>
+
+<!-- ============ STATE 2: UPLOAD PORTAL (outstanding items) ============ -->
+<div class="app" id="centerView" style="display:none">
+  <div class="hdr">
+    <div class="firm"><span class="nm">MCCUNE LEGAL</span><span class="tg">We help people struggling with debt</span></div>
+    <div class="hdr-right"><span class="lockchip">&#128274; Secure upload</span></div>
+  </div>
+  <div class="content">
+    <h1 id="greeting">Hi Linda — here&rsquo;s what we still need to keep your case moving.</h1>
+    <p class="sub">Upload what you have &mdash; a photo from your phone works fine. If you can&rsquo;t provide something, just tell us why.</p>
+    <div class="progressline"><span class="txt" id="progressTxt">0 of 3 done</span><div class="pbar"><i id="progressFill"></i></div></div>
+    <div id="itemList"></div>
+    <p class="uc-foot">Take your time &mdash; this link stays open and saves as you go.<br/>Come back anytime from the same email.</p>
+  </div>
+</div>
+
+<!-- ============ STATE 3: CONFIRMATION ============ -->
+<div class="app" id="doneView" style="display:none">
+  <div class="hdr">
+    <div class="firm"><span class="nm">MCCUNE LEGAL</span><span class="tg">We help people struggling with debt</span></div>
+    <div class="hdr-right"><span class="lockchip">&#128274; Secure upload</span></div>
+  </div>
+  <div class="done-hero">
+    <svg class="ck" viewBox="0 0 64 64" width="64" height="64"><circle cx="32" cy="32" r="30" fill="#E7EAE5"/><path d="M20 33 l8 8 l16 -18" fill="none" stroke="#5A7C60" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h1>Got them.</h1>
+    <p>Your law firm will review everything and follow up if anything else is needed. You&rsquo;re doing everything right &mdash; one step closer to your fresh start.</p>
+    <span class="again" id="reopenList">Need to add something else? Open your list again</span>
+  </div>
+</div>
+
+<div class="legalfoot">This private upload link was created just for you and is not for sharing. It stays open while we complete your file and closes automatically once everything is ready. Your information is encrypted and kept confidential. McCune Legal is a debt relief agency. We help people file for bankruptcy relief under the Bankruptcy Code.</div>
+
+<script>
+(function(){
+  /* ---- demo session (shape mirrors GET /upload-session/{token}) ---- */
+  var SESSION = {
+    firstName: 'Linda',
+    firmName: 'McCune Legal',
+    items: [
+      { id:'pay_stubs', name:'Pay stubs — last 6 months', note:'You told us you’d send these later.', status:'waiting' },
+      { id:'bank_statements', name:'Bank statements — 6 months', note:'Only 3 of 6 months received — we need all six.', status:'waiting' },
+      { id:'counseling_certificate', name:'Credit counseling certificate', note:'Not taken yet — here’s how to complete it.', link:{href:'https://www.cricketdebt.com/signup/449858', label:'Take the class →'}, status:'waiting' }
+    ]
+  };
+  var DEMO_DOB_DIGITS = '03141985';
+  var DEMO_SSN4 = '4321';
+  function digitsOnly(v){ return String(v||'').replace(/\D/g,''); }
+  /* DOB mask: type digits, slashes appear automatically (MM/DD/YYYY) */
+  var dobEl = document.getElementById('dobInp');
+  dobEl.addEventListener('input', function(){
+    var d = digitsOnly(this.value).slice(0,8);
+    var out = d;
+    if(d.length > 4) out = d.slice(0,2) + '/' + d.slice(2,4) + '/' + d.slice(4);
+    else if(d.length > 2) out = d.slice(0,2) + '/' + d.slice(2);
+    this.value = out;
+  });
+  /* SSN last-4: digits only */
+  document.getElementById('ssnInp').addEventListener('input', function(){
+    this.value = digitsOnly(this.value).slice(0,4);
+  });
+  var KEY = 'mcl_uc_demo';
+
+  var state = { gate:false, items:{} };
+  try{ var saved = JSON.parse(sessionStorage.getItem(KEY)||'null'); if(saved) state = saved; }catch(e){}
+  SESSION.items.forEach(function(it){ if(!state.items[it.id]) state.items[it.id] = { status: it.status, files: [], reason: '' }; });
+  function persist(){ try{ sessionStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+
+  var UP='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg>';
+  var CK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>';
+  var DASH='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>';
+  var FCK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-11"/></svg>';
+  var REASONS = [
+    ['will_send_later', 'I’ll send it later'],
+    ['dont_have_copy', 'I don’t have a copy'],
+    ['doesnt_apply', 'This doesn’t apply to me'],
+    ['didnt_file', 'I didn’t file'],
+    ['not_taken_yet', 'I haven’t taken it yet']
+  ];
+  var REASON_LABEL = {}; REASONS.forEach(function(r){ REASON_LABEL[r[0]] = r[1]; });
+
+  /* ---- views ---- */
+  var gateView = document.getElementById('gateView');
+  var centerView = document.getElementById('centerView');
+  var doneView = document.getElementById('doneView');
+  function show(view){
+    gateView.style.display = view==='gate' ? '' : 'none';
+    centerView.style.display = view==='center' ? '' : 'none';
+    doneView.style.display = view==='done' ? '' : 'none';
+  }
+
+  /* ---- identity gate ---- */
+  var usingSSN = false;
+  document.getElementById('gateSwap').addEventListener('click', function(){
+    usingSSN = !usingSSN;
+    document.getElementById('dobField').style.display = usingSSN ? 'none' : '';
+    document.getElementById('ssnField').style.display = usingSSN ? '' : 'none';
+    this.textContent = usingSSN ? 'Use your date of birth instead' : 'Use the last 4 of your Social Security number instead';
+    document.getElementById('gateError').classList.remove('on');
+  });
+  document.getElementById('gateGo').addEventListener('click', function(){
+    var ok;
+    if(usingSSN){ ok = digitsOnly(document.getElementById('ssnInp').value) === DEMO_SSN4; }
+    else { ok = digitsOnly(document.getElementById('dobInp').value) === DEMO_DOB_DIGITS; }
+    if(ok){ state.gate = true; persist(); show('center'); render(); }
+    else { document.getElementById('gateError').classList.add('on'); }
+  });
+
+  /* ---- upload portal ---- */
+  function resolvedCount(){
+    return SESSION.items.filter(function(it){ var s=state.items[it.id]; return s.status==='uploaded'||s.status==='reason'; }).length;
+  }
+  function render(){
+    var list = document.getElementById('itemList');
+    list.innerHTML = '';
+    SESSION.items.forEach(function(it){
+      var s = state.items[it.id];
+      var el = document.createElement('div');
+      el.className = 'uc-item ' + s.status;
+      el.dataset.item = it.id;
+      var ic = s.status==='uploaded' ? CK : (s.status==='reason' ? DASH : UP);
+      var stateTxt = s.status==='uploaded' ? 'Got it — your law firm will review'
+                   : (s.status==='reason' ? 'Answered' : 'Waiting on you');
+      var noteHtml = it.note + (it.link ? ' <a href="'+it.link.href+'" target="_blank" rel="noopener">'+it.link.label+'</a>' : '');
+      var h = '<div class="uc-top"><span class="uc-ic">'+ic+'</span>'
+        + '<div style="flex:1;min-width:0;"><div class="uc-name">'+it.name+'</div>'
+        + '<div class="uc-note">'+noteHtml+'</div></div>'
+        + '<span class="uc-state">'+stateTxt+'</span></div>';
+      if(s.files.length){
+        h += '<div class="uc-files">' + s.files.map(function(f){ return '<span class="filechip">'+FCK+' '+f+'</span>'; }).join('') + '</div>';
+      }
+      if(s.status==='reason'){
+        h += '<div class="uc-reasondone">Noted: '+ REASON_LABEL[s.reason] +'.<span class="change" data-act="change">change</span></div>';
+      } else if(s.status==='uploaded'){
+        h += '<div class="uc-actions"><button class="btn-more" data-act="upload">＋ Add another file</button></div>';
+      } else {
+        h += '<div class="uc-actions"><button class="btn-up" data-act="upload">'+UP+' Upload</button>'
+          + '<button class="btn-cant" data-act="cant">I can’t provide this</button></div>';
+      }
+      h += '<div class="reasons"><span class="q">That’s okay — which one fits?</span>'
+        + REASONS.map(function(r){ return '<button class="rchip" data-reason="'+r[0]+'">'+r[1]+'</button>'; }).join('')
+        + '<button class="rchip cancel" data-act="cancel">Cancel</button></div>';
+      el.innerHTML = h;
+      list.appendChild(el);
+    });
+    var n = resolvedCount(), total = SESSION.items.length;
+    document.getElementById('progressTxt').textContent = n + ' of ' + total + ' done';
+    document.getElementById('progressFill').style.width = Math.round(100*n/total) + '%';
+  }
+
+  document.addEventListener('click', function(e){
+    var itemEl = e.target.closest('.uc-item'); if(!itemEl) return;
+    var id = itemEl.dataset.item, s = state.items[id];
+    var act = e.target.closest('[data-act]') ? e.target.closest('[data-act]').dataset.act : null;
+    var reasonBtn = e.target.closest('[data-reason]');
+    if(act==='upload'){
+      /* mirrors POST /upload/{token}/{itemId} */
+      s.files.push('photo_' + id + '_' + (s.files.length+1) + '.jpg');
+      s.status = 'uploaded'; s.reason = '';
+      persist(); render(); maybeDone();
+    } else if(act==='cant'){
+      itemEl.classList.add('picking');
+    } else if(act==='cancel'){
+      itemEl.classList.remove('picking');
+    } else if(act==='change'){
+      s.status = 'waiting'; s.reason = '';
+      persist(); render();
+    } else if(reasonBtn){
+      /* mirrors POST /reason/{token}/{itemId} */
+      s.status = 'reason'; s.reason = reasonBtn.dataset.reason;
+      persist(); render(); maybeDone();
+    }
+  });
+
+  function maybeDone(){
+    if(resolvedCount() === SESSION.items.length){
+      setTimeout(function(){ show('done'); }, 650);
+    }
+  }
+  document.getElementById('reopenList').addEventListener('click', function(){ show('center'); render(); });
+
+  /* ---- resume ---- */
+  if(state.gate){ show('center'); render(); } else { show('gate'); }
+})();
+</script>
+</body></html>

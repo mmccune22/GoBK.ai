@@ -1,0 +1,318 @@
+{
+  "generatedAt": "2026-09-30T21:36:25.987Z",
+  "status": "local-only-not-deployed",
+  "sourcePolicy": "Pinned GitHub blobs; original repositories unchanged",
+  "limitations": [
+    "Public unauthenticated fake-data demos only",
+    "Browser rendering and live Cloudflare header checks remain required",
+    "External scripts/fonts/videos and outbound navigation remain external dependencies",
+    "No real backend, login, storage, messages, uploads or address-service behavior is tested"
+  ],
+  "projects": [
+    {
+      "slug": "crm-lite",
+      "repo": "mmccune22/bkfl-crm-lite",
+      "branch": "main",
+      "commit": "6cd084e9a67e60fcc3c2cd526e9fd7fbdfdacce1",
+      "sourcePrefix": "",
+      "framework": "None",
+      "buildCommand": "exit 0",
+      "publishDirectory": "public/crm-lite",
+      "sourceFiles": [
+        {
+          "sourcePath": "index.html",
+          "publishedPath": "index.html",
+          "sourceGitBlob": "bee47b8dfe42dd5ba21254ae8cad60edfc9c0769",
+          "sourceBytes": 399733,
+          "sourceSha256": "7d7f032b370b2e94b614e1d297279d22fb1d5e63b39ed9b9c124edf72ad86b1f",
+          "publishedBytes": 400021,
+          "publishedSha256": "31df052d366703d5d98037d91bd29cd4a7ff67f35424293afe4fbf9420cd2545",
+          "modifiedForIsolation": true
+        }
+      ],
+      "addedFiles": [
+        {
+          "path": "test-safety.js",
+          "sha256": "112090579d0dce99414ed4dc81d82de7e8d59edd4e6f66012a95bc531b07ca6e"
+        },
+        {
+          "path": "_headers",
+          "sha256": "c31e491f3eb1a14246824cf32102b350b2a5654b1b8fdab01f3780ed09709e76"
+        }
+      ]
+    },
+    {
+      "slug": "dashboard",
+      "repo": "mmccune22/bkfl-dashboard",
+      "branch": "gh-pages",
+      "commit": "0ac6c94167525bcfed7e936012a5948d1b5b8e63",
+      "sourcePrefix": "docs/",
+      "framework": "None",
+      "buildCommand": "exit 0",
+      "publishDirectory": "public/dashboard",
+      "sourceFiles": [
+        {
+          "sourcePath": "docs/app.jsx",
+          "publishedPath": "app.jsx",
+          "sourceGitBlob": "814cb59c776f6bc245dbd23c109a11aa7965783b",
+          "sourceBytes": 124307,
+          "sourceSha256": "eb5e7945a615cf425b61a0a03901e799d00ce0d1b540562bc108c0b34deb4345",
+          "publishedBytes": 124307,
+          "publishedSha256": "eb5e7945a615cf425b61a0a03901e799d00ce0d1b540562bc108c0b34deb4345",
+          "modifiedForIsolation": false
+        },
+        {
+          "sourcePath": "docs/bk_logo.png",
+          "publishedPath": "bk_logo.png",
+          "sourceGitBlob": "b28b25a6d68ade097fa5c5c94af191f3ccbd93af",
+          "sourceBytes": 15487,
+          "sourceSha256": "f40071b17f21b5109f687a6e96bf342b647696b641859fdce97f71a726eda46a",
+          "publishedBytes": 15487,
+          "publishedSha256": "f40071b17f21b5109f687a6e96bf342b647696b641859fdce97f71a726eda46a",
+          "modifiedForIsolation": false
+        },
+        {
+          "sourcePath": "docs/dashboard.html",
+          "publishedPath": "dashboard.html",
+          "sourceGitBlob": "82e5af2c601b6e99d1e60411e6535de210099916",
+          "sourceBytes": 28661,
+          "sourceSha256": "0fe729bb198ace80a2253c6f879270786ddf12f8790df486786d46935eaa750f",
+          "publishedBytes": 28949,
+          "publishedSha256": "e36f78c6a46a6d0bb40d5ec221264f6353f5f31d75bc94363b8ec36da194813f",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "docs/index.html",
+          "publishedPath": "index.html",
+          "sourceGitBlob": "5c5e28619aa1265b97dc94cec6483f3077fed9bd",
+          "sourceBytes": 721741,
+          "sourceSha256": "b75bd878730aaa18f6104e201265baa36a28c7c4b54ecb17d96503383280b37a",
+          "publishedBytes": 722029,
+          "publishedSha256": "37065d0f4bf39fb57d30a09a3364c71fa201a1d56ce0fe7ffa7476e955c9053c",
+          "modifiedForIsolation": true
+        }
+      ],
+      "addedFiles": [
+        {
+          "path": "test-safety.js",
+          "sha256": "112090579d0dce99414ed4dc81d82de7e8d59edd4e6f66012a95bc531b07ca6e"
+        },
+        {
+          "path": "_headers",
+          "sha256": "c31e491f3eb1a14246824cf32102b350b2a5654b1b8fdab01f3780ed09709e76"
+        }
+      ]
+    },
+    {
+      "slug": "intake-mockup",
+      "repo": "mmccune22/mccune-legal-intake-mockups",
+      "branch": "main",
+      "commit": "ca05966c4504f6b757a09ec493546a4a0603562c",
+      "sourcePrefix": "",
+      "framework": "None",
+      "buildCommand": "exit 0",
+      "publishDirectory": "public/intake-mockup",
+      "sourceFiles": [
+        {
+          "sourcePath": "index.html",
+          "publishedPath": "index.html",
+          "sourceGitBlob": "32c752d39e199ac042263418aa550ffa916e9494",
+          "sourceBytes": 786,
+          "sourceSha256": "23a8a22437cf6b0ad6cb86d17ec014e69cb45d8a5552c11df866b25c83d31cab",
+          "publishedBytes": 1074,
+          "publishedSha256": "c8a4f4713c2eb006e8889215430984e6919f69e8ff5dabda31495a2c4c701055",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/assets.html",
+          "publishedPath": "Intake Pages/assets.html",
+          "sourceGitBlob": "0798200fca3eaf1ae93ec965fc8c455c2731b3dc",
+          "sourceBytes": 131457,
+          "sourceSha256": "24450dd4bb6dcc6794d53ade1f59fd824be34f424f87a74b6f502eb7c551a650",
+          "publishedBytes": 131901,
+          "publishedSha256": "6cb7752ae138eeed28f1fdf77491a471db84b3cd5ccc0757f4c5948e468b165d",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/client-portal.html",
+          "publishedPath": "Intake Pages/client-portal.html",
+          "sourceGitBlob": "d8dc35590bcef9b2af2d998916b221091b21405b",
+          "sourceBytes": 19871,
+          "sourceSha256": "b91f03348729ac7ea7d6086466dc53082e7c7acd3f47f9ed260e010abff6a511",
+          "publishedBytes": 20162,
+          "publishedSha256": "0ad264a073136972c272f1b3b5799ba799c7b4287fe3fc87ad9f80d05b82978f",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/confirmation.html",
+          "publishedPath": "Intake Pages/confirmation.html",
+          "sourceGitBlob": "4f50c3a9faa815be69cbe0d1e53e2a42c5a14360",
+          "sourceBytes": 49364,
+          "sourceSha256": "0399b60c7b449947f23a9fb98cbf06360661082977f1ba51f4e2c0f964d0572c",
+          "publishedBytes": 49655,
+          "publishedSha256": "944861d440a28af367551ce14155db70e024c7e66226fe0fc4726f8bdf437c2f",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/counseling.html",
+          "publishedPath": "Intake Pages/counseling.html",
+          "sourceGitBlob": "d5a39c50bd78ca2c6c73f52a194b16d931156c8b",
+          "sourceBytes": 63533,
+          "sourceSha256": "c42babf06f93ab762b59c2a900ba505687483115a86e6a1ba4882929b2b59335",
+          "publishedBytes": 63824,
+          "publishedSha256": "b5b6163c5bde9eaae68888dec747c1c2b6d5615f4046e3c987c65210b84a251e",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/data-intake-best-practices.js",
+          "publishedPath": "Intake Pages/data-intake-best-practices.js",
+          "sourceGitBlob": "7288daeea092695470b21745c69b614fca10ee46",
+          "sourceBytes": 8079,
+          "sourceSha256": "6384b70eb699aa3de720605030f1f721ae15ff778ab1c7bd7f9590ca72136082",
+          "publishedBytes": 8079,
+          "publishedSha256": "6384b70eb699aa3de720605030f1f721ae15ff778ab1c7bd7f9590ca72136082",
+          "modifiedForIsolation": false
+        },
+        {
+          "sourcePath": "Intake Pages/debts.html",
+          "publishedPath": "Intake Pages/debts.html",
+          "sourceGitBlob": "94de53c0a4e3f76700a3fb7e25589c5037f17939",
+          "sourceBytes": 98697,
+          "sourceSha256": "cddaa9422cd9dc6e8e21ac1cffa3a33edc268762dbf550076b6b5207fc28d851",
+          "publishedBytes": 98988,
+          "publishedSha256": "4cbf1afd1e2fb6e4109c7c91fe335a2804febbb4968be8a8aff63b04ecd4e9ba",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/documents.html",
+          "publishedPath": "Intake Pages/documents.html",
+          "sourceGitBlob": "bcb0d976bc0d982ccfab338fb6edf72e22e203b4",
+          "sourceBytes": 78526,
+          "sourceSha256": "b420aa528a897552bd08652eb91404c14d5e87bec0631f27b886222a1f529678",
+          "publishedBytes": 78817,
+          "publishedSha256": "f6e49886791a86fe4e559660cf4d7de0040b4b09b8f356f39aacf0ce726d4972",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/expenses.html",
+          "publishedPath": "Intake Pages/expenses.html",
+          "sourceGitBlob": "387844d93dc560cc3de8ea76d50672798490f216",
+          "sourceBytes": 69816,
+          "sourceSha256": "10af0b9292d7f86b5ee11acaa96efc1cb8ddcf520218decc08571675211263f8",
+          "publishedBytes": 70107,
+          "publishedSha256": "d189be653fbda75b7dfb5ddfccee315291ceb64124afae99cffc65a2c50a10b8",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/financial-affairs.html",
+          "publishedPath": "Intake Pages/financial-affairs.html",
+          "sourceGitBlob": "551caa692ae95f1765990f60cd6110409062947b",
+          "sourceBytes": 108816,
+          "sourceSha256": "dadff844a7f2b1538a8d14fde87760bd3f26ee4c9d37f0dd50c52030a558cf43",
+          "publishedBytes": 109107,
+          "publishedSha256": "b5a8d6b7e66ac0294bfff9a3b647815422058d0ec4a65b09ce67aa1a7064bb55",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/income.html",
+          "publishedPath": "Intake Pages/income.html",
+          "sourceGitBlob": "d3c4cfd43b844f89a2136068a802316c44554edb",
+          "sourceBytes": 78877,
+          "sourceSha256": "1e9eff1985c6ab038a3af18d59d93b826463b3fd639aa9f8fc6418be56ea2ef1",
+          "publishedBytes": 79168,
+          "publishedSha256": "93b631a79ad80f6a7ea53b32132ed02bd5444bc5a6bb19a63b544e74c442ffdf",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/jimmy-changes-app.js",
+          "publishedPath": "Intake Pages/jimmy-changes-app.js",
+          "sourceGitBlob": "68bc13f067252ef03012f15ce58ff25bfc515aa1",
+          "sourceBytes": 21695,
+          "sourceSha256": "9cc136f1431df822ed2144933fc86f1f505f91a4b4d7bf538d0da6adecb35478",
+          "publishedBytes": 21827,
+          "publishedSha256": "cd5d744081331dc750f6128cc1699e1a4109886b13a0977fdbdeb04a0b593fc6",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/jimmy-changes.html",
+          "publishedPath": "Intake Pages/jimmy-changes.html",
+          "sourceGitBlob": "ac4cc17f0ab07417d16b018531158b943b4a00a2",
+          "sourceBytes": 18953,
+          "sourceSha256": "54bd224db0ef435dab86147962bbe50575f2cb75ed5ca2d70c80251e924f643e",
+          "publishedBytes": 19244,
+          "publishedSha256": "441ab44a51b210ebe24eceb0fe78a9f22213a7a5db7dd8f6862267aee5b9a335",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/jimmy-changes.js",
+          "publishedPath": "Intake Pages/jimmy-changes.js",
+          "sourceGitBlob": "e020e53df8ef785a3d07d9fbeb52d3b3e8e9fcc8",
+          "sourceBytes": 9185,
+          "sourceSha256": "8d18ce2b70cfc05724bddae4ac942c311221f58fc4065b8f5901c8ceaae7c817",
+          "publishedBytes": 9098,
+          "publishedSha256": "d8ea24f143d6bcfd5a517fe1c7e87d8820a7e79f187ba3a8b0a5178d801b0469",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/jimmy-comments-app.js",
+          "publishedPath": "Intake Pages/jimmy-comments-app.js",
+          "sourceGitBlob": "b1d44e36f937e3b312630dc7e6664034e56488ce",
+          "sourceBytes": 10888,
+          "sourceSha256": "427ff0d04eb3dfa63a6e9527b402b52c84d40d2387fd9a1e6810871edb2a37d1",
+          "publishedBytes": 11020,
+          "publishedSha256": "0a6e558ee19c008dfadb8abc3bf87324a9caa2dd90ede60d73bf2aaa1059c542",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/jimmy-feature-requests-app.js",
+          "publishedPath": "Intake Pages/jimmy-feature-requests-app.js",
+          "sourceGitBlob": "9392cc2f57c995223b74ae612da1a0e0308366eb",
+          "sourceBytes": 10254,
+          "sourceSha256": "15a389c0cf8f2813c30bd0b178a1926bcc814e186831a466f64e64e7692cd670",
+          "publishedBytes": 10386,
+          "publishedSha256": "ef221f9623559bd16dfd048ca46e50ffbe68387e7ab2756ea0973af1d04fbc26",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/login.html",
+          "publishedPath": "Intake Pages/login.html",
+          "sourceGitBlob": "9b22cb45e327cfa7fec0d276379d4ea667d8b60c",
+          "sourceBytes": 140140,
+          "sourceSha256": "c76a94d07cb0caf7c18f5289da96a8d9d7e373a19560b1c432b2e6ba8d93511f",
+          "publishedBytes": 140431,
+          "publishedSha256": "ddbc55a2d977655ae8df685d602f35318103b930b458deb2af9b89a7bae8cc37",
+          "modifiedForIsolation": true
+        },
+        {
+          "sourcePath": "Intake Pages/personal.html",
+          "publishedPath": "Intake Pages/personal.html",
+          "sourceGitBlob": "529259a7df6f1ebb47e461ab793bd027f926234e",
+          "sourceBytes": 109941,
+          "sourceSha256": "441544ec12817ea0132a613b0ff1da143608527a0b803379c79ff4efc28f237c",
+          "publishedBytes": 110385,
+          "publishedSha256": "31d29e2680feca0fe93f2a34a6e96922909d9fecbbb68528b43730f4374c8626",
+          "modifiedForIsolation": true
+        }
+      ],
+      "addedFiles": [
+        {
+          "path": "test-safety.js",
+          "sha256": "112090579d0dce99414ed4dc81d82de7e8d59edd4e6f66012a95bc531b07ca6e"
+        },
+        {
+          "path": "_headers",
+          "sha256": "c31e491f3eb1a14246824cf32102b350b2a5654b1b8fdab01f3780ed09709e76"
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "matchedGitBlobs": 23,
+    "htmlPages": 16,
+    "parsedPlainJavaScriptBlocks": 51,
+    "reviewModulesGuarded": 3,
+    "addressGuardCasesPassed": 4,
+    "networkAttempts": 0,
+    "missingStaticReferences": []
+  }
+}

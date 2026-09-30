@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Isolated review copy only; original source remains unchanged. -->
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="connect-src 'none'; form-action 'none'; object-src 'none'; base-uri 'self'">
+<script src="../test-safety.js"></script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>McCune Legal Intake - Colab</title>
+<style>
+:root{--bg:#f5f6f7;--panel:#fff;--line:#d9dde3;--ink:#1f2933;--muted:#677384;--nav:#143d52;--navText:#fff;--accent:#2f7d8c;--accentDark:#255e69;--ok:#1f7a55;--warn:#9a5b12;--danger:#a23c3c;--soft:#eef6f7;--soft2:#f7f9fa;--shadow:0 2px 8px rgba(15,23,42,.08);--radius:8px;--font:Arial,Helvetica,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:var(--font);color:var(--ink);font-size:16px;line-height:1.4}
+.app{max-width:1180px;margin:20px auto;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow)}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.logo{width:44px;height:44px;border-radius:50%;background:#11364a;color:white;display:grid;place-items:center;font-weight:bold;letter-spacing:0}
+.brand h1{margin:0;font-size:20px;line-height:1.2}
+.brand small{display:block;color:var(--muted);margin-top:2px}
+.branch-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid #b8dce2;background:#e9f8fa;color:#155565;border-radius:999px;padding:7px 10px;font-size:13px;font-weight:700;white-space:nowrap}
+.branch-dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.topnav{display:flex;overflow-x:auto;background:var(--nav);padding:0 12px}
+.topnav a{display:flex;align-items:center;gap:8px;color:var(--navText);text-decoration:none;padding:13px 12px;border-bottom:4px solid transparent;white-space:nowrap;font-size:14px;opacity:.86}
+.topnav a.active{opacity:1;border-bottom-color:#8bd4df;background:rgba(255,255,255,.08)}
+.topnav a.done .n{background:#d9eef2;color:#143d52}
+.topnav .n{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.16);font-size:12px;font-weight:700}
+.content{padding:28px}
+.page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;border-bottom:1px solid var(--line);padding-bottom:20px}
+.eyebrow{margin:0 0 6px;color:var(--accentDark);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0}
+h2{margin:0;font-size:28px;line-height:1.15;letter-spacing:0}
+.head-copy{max-width:720px;color:var(--muted);margin:8px 0 0}
+.meta-panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--soft2);padding:12px 14px;min-width:260px;font-size:13px;color:var(--muted)}
+.meta-panel strong{display:block;color:var(--ink);font-size:14px;margin-bottom:3px}
+.reviewer-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid var(--line);background:#fff;padding:12px 14px;margin-top:20px}
+.reviewer-picker{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.reviewer-label{font-size:14px;font-weight:700;color:var(--ink)}
+.reviewer-options{display:inline-grid;grid-template-columns:repeat(2,88px);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.reviewer-options button{border:0;border-radius:0;min-height:36px;background:#fff;color:var(--muted);padding:7px 12px}
+.reviewer-options button+button{border-left:1px solid var(--line)}
+.reviewer-options button.active{background:var(--nav);color:#fff}
+.sync-wrap{text-align:right;min-width:220px}
+.sync-status{display:block;font-size:14px;font-weight:700;color:var(--ok)}
+.sync-status.warning{color:var(--warn)}
+.sync-status.error{color:var(--danger)}
+.sync-detail{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.conversation{border:1px solid var(--line);border-radius:var(--radius);background:#fff;margin-top:14px;overflow:hidden}
+.conversation-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 14px;border-bottom:1px solid var(--line);background:var(--soft2)}
+.conversation-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.conversation-clear{background:#fff;color:var(--danger);border-color:#d9aaaa}
+.conversation-title{margin:0;font-size:17px;line-height:1.2;letter-spacing:0}
+.conversation-status{display:block;margin-top:3px;color:var(--muted);font-size:12px}
+.conversation-status.error{color:var(--danger)}
+.message-feed{height:280px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:#fff;scrollbar-gutter:stable}
+.message{max-width:min(76%,680px);align-self:flex-start}
+.message.jimmy{align-self:flex-end}
+.message-meta{display:flex;align-items:center;gap:7px;margin:0 4px 4px;color:var(--muted);font-size:12px}
+.message.jimmy .message-meta{justify-content:flex-end}
+.message-author{font-weight:800;color:var(--ink)}
+.message-body{margin:0;border:1px solid var(--line);border-radius:8px;background:#f5f7f9;padding:9px 11px;color:var(--ink);white-space:pre-wrap;overflow-wrap:anywhere}
+.message.jimmy .message-body{border-color:#acd7dd;background:#eaf7f8}
+.message-pending{color:var(--warn);font-weight:700}
+.message-empty{margin:auto;color:var(--muted);text-align:center}
+.message-form{border-top:1px solid var(--line);padding:12px 14px;background:var(--soft2)}
+.message-form label{display:block;margin-bottom:6px;color:var(--ink);font-size:13px;font-weight:800}
+.message-compose{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:end}
+.message-input{display:block;width:100%;min-height:74px;max-height:160px;resize:vertical;border:1px solid #b8c1cc;border-radius:6px;background:#fff;color:var(--ink);padding:10px 11px;font:inherit;line-height:1.35}
+.message-input:focus{outline:0;border-color:var(--accent);box-shadow:0 0 0 3px rgba(47,125,140,.14)}
+.message-send{min-width:88px}
+.message-form-foot{display:flex;justify-content:flex-end;margin-top:5px;color:var(--muted);font-size:12px}
+.feature-requests{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.feature-request-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:12px}
+.feature-request-title{margin:0;font-size:19px;line-height:1.2;letter-spacing:0}
+.feature-request-kicker{display:block;margin-top:3px;color:var(--muted);font-size:13px}
+.request-status{color:var(--muted);font-size:13px;text-align:right}
+.request-status.error{color:var(--danger)}
+.request-form{display:grid;grid-template-columns:minmax(180px,.8fr) minmax(260px,1.6fr) auto;gap:10px;align-items:end;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.request-field{display:grid;gap:5px;min-width:0}
+.request-field label{font-size:13px;font-weight:800;color:var(--ink)}
+.request-field input,.request-field textarea{width:100%;border:1px solid #b8c1cc;border-radius:6px;background:#fff;color:var(--ink);padding:9px 10px;font:inherit;line-height:1.35}
+.request-field textarea{height:42px;min-height:42px;max-height:120px;resize:vertical}
+.request-field input:focus,.request-field textarea:focus{outline:0;border-color:var(--accent);box-shadow:0 0 0 3px rgba(47,125,140,.14)}
+.request-submit{min-width:128px}
+.request-list{display:grid;gap:10px;margin-top:12px}
+.request-item{border:1px solid var(--line);border-radius:var(--radius);padding:14px;display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:16px;align-items:start;background:#fff}
+.request-item.implemented{border-color:#83c4a6;background:#f4fbf7}
+.request-item.pending{border-color:#d6b16d}
+.request-item h4{margin:0 0 5px;font-size:17px;line-height:1.25;letter-spacing:0}
+.request-details{margin:0;color:#39485a;white-space:pre-wrap;overflow-wrap:anywhere}
+.request-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px;color:var(--muted);font-size:12px}
+.request-action{display:grid;gap:7px}
+.request-action button{width:100%;background:#fff;color:var(--ok);border-color:var(--ok)}
+.request-action button.active{background:var(--ok);color:#fff}
+.request-action span{font-size:12px;color:var(--muted);text-align:center}
+.request-empty{padding:16px 0;color:var(--muted)}
+button,.link-button{border:1px solid var(--accentDark);background:var(--accent);color:#fff;border-radius:6px;padding:9px 12px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:38px}
+button.secondary,.link-button.secondary{background:#fff;color:var(--accentDark)}
+button.ghost{background:#fff;color:var(--muted);border-color:var(--line)}
+button:disabled{opacity:.55;cursor:not-allowed}
+.change-list{display:grid;gap:12px;margin-top:16px}
+.change-toolbar{display:flex;justify-content:flex-end}
+.change-item{border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:16px;display:grid;grid-template-columns:1fr 220px;gap:18px;align-items:start}
+.change-item.needs-approval{border-color:#d6b16d;background:#fffaf0}
+.change-item.approved{border-color:#83c4a6;background:#f4fbf7}
+.change-item.implemented{border-color:#83c4a6;background:#f4fbf7}
+.change-item.dismissed{border-style:dashed;background:var(--soft2);opacity:.76}
+.change-item.undo-requested{border-color:#d9aaaa;background:#fff8f8}
+.change-main{min-width:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.tag{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:var(--soft2);padding:4px 8px;font-size:12px;color:var(--muted);font-weight:700}
+.tag.status{border-color:#bcdacf;background:#edf8f2;color:var(--ok)}
+.tag.commit{font-family:Consolas,Monaco,monospace;color:#39485a}
+.tag.pending{border-color:#e1c79e;background:#fff8eb;color:var(--warn)}
+.change-title{margin:0 0 7px;font-size:20px;line-height:1.2;letter-spacing:0}
+.change-summary{margin:0;color:#39485a}
+.decision{margin:10px 0 0;color:var(--muted);font-size:14px}
+.editable-copy{border-radius:6px;outline:1px solid transparent;transition:background .15s ease,outline-color .15s ease,box-shadow .15s ease}
+.editable-copy:hover{background:#f7fbfc;outline-color:#d5e6e9}
+.editable-copy:focus{background:#fff;outline-color:#72b9c4;box-shadow:0 0 0 3px rgba(47,125,140,.14)}
+.editable-copy[contenteditable="true"]:empty::before{content:"Click to add text";color:#9aa6b2}
+.page-list{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0;padding:0;list-style:none}
+.page-list li{border:1px solid #d5e6e9;background:#f3fafb;color:#245a64;border-radius:999px;padding:4px 8px;font-size:12px;font-weight:700}
+.card-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.card-links a{color:var(--accentDark);font-weight:700;text-decoration:none;border-bottom:1px solid currentColor}
+.pick-control{display:grid;grid-template-columns:1fr 1fr;gap:8px;min-width:0}
+.pick-control button{width:100%;min-height:42px;padding:8px}
+.pick-control .implemented{grid-column:1/-1;border-color:var(--ok);background:#fff;color:var(--ok)}
+.pick-control .implemented.active{background:var(--ok);color:#fff}
+.pick-control .undo-requested{grid-column:1/-1;border-color:var(--danger);background:#fff;color:var(--danger)}
+.pick-control .undo-requested.active{background:var(--danger);color:#fff}
+.pick-control .approval-needed{border-color:var(--warn);background:#fff;color:var(--warn)}
+.pick-control .approval-needed.active{background:var(--warn);color:#fff}
+.pick-control .approved{border-color:var(--ok);background:#fff;color:var(--ok)}
+.pick-control .approved.active{background:var(--ok);color:#fff}
+.state-details{grid-column:1/-1;display:grid;gap:4px;border-top:1px solid var(--line);padding-top:9px;margin-top:2px;min-height:42px}
+.state-line{font-size:12px;color:var(--muted)}
+.state-line strong{color:var(--ink)}
+.state-line.complete strong{color:var(--ok)}
+.state-line.pending-approval{color:var(--warn);font-weight:700}
+.state-line.undo,.state-line.undo strong{color:var(--danger);font-weight:700}
+.pick-control .reset-copy{grid-column:1/-1}
+.pick-control .dismissed-toggle{grid-column:1/-1;color:var(--danger);border-color:#d9aaaa}
+.change-item.dismissed .pick-control .dismissed-toggle{color:var(--accentDark);border-color:var(--accentDark)}
+.empty{border:1px dashed var(--line);border-radius:var(--radius);padding:18px;color:var(--muted);background:var(--soft2)}
+.toast{position:fixed;right:18px;bottom:18px;background:#143d52;color:#fff;border-radius:8px;padding:11px 14px;box-shadow:var(--shadow);opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .18s ease,transform .18s ease;z-index:10}
+.toast.show{opacity:1;transform:translateY(0)}
+@media(max-width:900px){.change-item{grid-template-columns:1fr}.request-form{grid-template-columns:1fr 1fr}.request-submit{grid-column:1/-1}.request-item{grid-template-columns:1fr 140px}}
+@media(max-width:760px){
+  .app{margin:0;border-left:0;border-right:0}
+  .hdr,.page-head,.reviewer-bar{align-items:flex-start;flex-direction:column}
+  .content{padding:20px 16px}
+  .change-item{grid-template-columns:1fr}
+  .sync-wrap{text-align:left;min-width:0}
+  .branch-badge{white-space:normal}
+  .message{max-width:88%}
+  .feature-request-head{flex-direction:column}
+  .request-status{text-align:left}
+  .request-form,.request-item{grid-template-columns:1fr}
+  .request-submit{grid-column:1;width:100%}
+}
+@media(max-width:420px){.pick-control{grid-template-columns:1fr}.state-details,.pick-control .reset-copy{grid-column:1}.message-feed{height:320px}.message-compose{grid-template-columns:1fr}.message-send{width:100%}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">ML</div>
+      <div><h1>McCune Legal Intake</h1><small>Chapter 7 bankruptcy intake mockup</small></div>
+    </div>
+    <div class="branch-badge"><span class="branch-dot" aria-hidden="true"></span><span>Matt + Jimmy Shared</span></div>
+  </header>
+  <nav class="topnav" aria-label="Intake pages">
+    <a class="done" href="personal.html"><span class="n">1</span><span class="lbl">Personal Info</span></a>
+    <a class="done" href="income.html"><span class="n">2</span><span class="lbl">Income</span></a>
+    <a class="done" href="assets.html"><span class="n">3</span><span class="lbl">Assets</span></a>
+    <a class="done" href="debts.html"><span class="n">4</span><span class="lbl">Debts</span></a>
+    <a class="done" href="expenses.html"><span class="n">5</span><span class="lbl">Expenses</span></a>
+    <a class="done" href="financial-affairs.html"><span class="n">6</span><span class="lbl">Financial affairs</span></a>
+    <a class="done" href="counseling.html"><span class="n">7</span><span class="lbl">Counseling class</span></a>
+    <a class="done" href="documents.html"><span class="n">8</span><span class="lbl">Documents</span></a>
+    <a class="active" href="jimmy-changes.html"><span class="n">9</span><span class="lbl">Colab</span></a>
+  </nav>
+  <main class="content">
+    <section class="page-head" aria-labelledby="pageTitle">
+      <div>
+        <p class="eyebrow">Page 9</p>
+        <h2 id="pageTitle">Colab</h2>
+        <p class="head-copy">Significant feature and design changes across the shared intake.</p>
+      </div>
+      <aside class="meta-panel"><strong id="branchName">Shared main</strong><span id="updatedOn">Updated from changelog data</span></aside>
+    </section>
+
+    <section class="reviewer-bar" aria-label="Reviewer and shared-save status">
+      <div class="reviewer-picker">
+        <span class="reviewer-label">Reviewing as</span>
+        <div class="reviewer-options" role="group" aria-label="Choose reviewer">
+          <button type="button" class="ghost" data-reviewer="Matt" aria-pressed="false">Matt</button>
+          <button type="button" class="ghost" data-reviewer="Jimmy" aria-pressed="false">Jimmy</button>
+        </div>
+      </div>
+      <div class="sync-wrap" aria-live="polite">
+        <span class="sync-status warning" id="syncStatus">Choose Matt or Jimmy</span>
+        <span class="sync-detail" id="syncDetail">Approval status is shared after a reviewer is chosen.</span>
+      </div>
+    </section>
+
+    <section class="conversation" aria-labelledby="conversationTitle">
+      <div class="conversation-head">
+        <div>
+          <h3 class="conversation-title" id="conversationTitle">Page 9 conversation</h3>
+          <span class="conversation-status" id="conversationStatus" aria-live="polite">Loading messages</span>
+        </div>
+        <div class="conversation-actions">
+          <button type="button" class="secondary" id="refreshConversation">Refresh</button>
+          <button type="button" class="conversation-clear" id="clearConversation" disabled>Clear chat</button>
+        </div>
+      </div>
+      <div class="message-feed" id="messageFeed" role="log" aria-live="polite" aria-label="Messages between Matt and Jimmy">
+        <p class="message-empty">Loading conversation.</p>
+      </div>
+      <form class="message-form" id="messageForm">
+        <label for="messageInput" id="messageActorLabel">Message as Jimmy</label>
+        <div class="message-compose">
+          <textarea class="message-input" id="messageInput" maxlength="1200" placeholder="Write a message" required></textarea>
+          <button class="message-send" id="sendMessage" type="submit" disabled>Send</button>
+        </div>
+        <div class="message-form-foot"><span id="messageCount">0 / 1200</span></div>
+      </form>
+    </section>
+
+    <section class="feature-requests" aria-labelledby="featureRequestTitle">
+      <div class="feature-request-head">
+        <div>
+          <h3 class="feature-request-title" id="featureRequestTitle">Feature requests</h3>
+          <span class="feature-request-kicker">Matt to Jimmy</span>
+        </div>
+        <span class="request-status" id="requestStatus" aria-live="polite">Loading requests</span>
+      </div>
+      <form class="request-form" id="requestForm">
+        <div class="request-field">
+          <label for="requestTitle">Request title</label>
+          <input id="requestTitle" maxlength="180" autocomplete="off" required/>
+        </div>
+        <div class="request-field">
+          <label for="requestDetails">Details</label>
+          <textarea id="requestDetails" maxlength="1200"></textarea>
+        </div>
+        <button class="request-submit" id="submitRequest" type="submit" disabled>Submit request</button>
+      </form>
+      <div class="request-list" id="requestList" aria-live="polite">
+        <p class="request-empty">Loading feature requests.</p>
+      </div>
+    </section>
+
+    <section class="change-list" id="changeList" aria-label="Shared intake Colab"></section>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="jimmy-changes.js?v=colab-clear-chat-v1"></script>
+<script src="jimmy-changes-app.js?v=colab-undo-v1"></script>
+<script src="jimmy-feature-requests-app.js?v=requests-v2"></script>
+<script src="jimmy-comments-app.js?v=chat-clear-v1"></script>
+<script src="data-intake-best-practices.js"></script>
+</body>
+</html>
