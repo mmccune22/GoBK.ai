@@ -21,18 +21,24 @@ ports only the two response headers currently defined in `netlify.toml`.
 
 ## Source and publishing workflow
 
-1. Start work from the latest `main` on a feature branch.
-2. Open a pull request and require a successful UTC build plus human review.
-   A branch or Cloudflare preview is a review artifact, not publication
+1. Matt starts each task from the latest `main` on a branch named
+   `matt/<short-task>`. He opens a pull request; Jimmy reviews it before merge.
+   A successful build or preview is evidence for review, not publication
    approval.
-3. Merge only after the release gates below are recorded as approved. If Git
-   auto-deploy is later enabled, merging to `main` becomes a production
-   publishing action.
-4. The company Cloudflare account owner must manually create and connect the
-   Pages project, authorize only this repository, approve the first production
-   deployment, and separately approve any custom-domain or DNS cutover. This
-   repository intentionally contains no deployment workflow.
-5. Keep the existing host and its DNS values available for rollback until the
+2. Reviewed maintenance and preflight changes may merge before the production
+   release gates below are complete. Accepting source into `main` and approving
+   a public production release are separate decisions.
+3. The company Cloudflare account owner must manually create and connect the
+   Pages project, authorize only this repository, and approve the initial setup
+   deployment. Immediately afterward, disable both automatic production
+   deployments and automatic preview deployments. Keep publishing manual.
+4. Jimmy separately reviews and approves each public production deployment and
+   any custom-domain or DNS cutover after the applicable release gates pass.
+   This repository intentionally contains no deployment workflow.
+5. Never force-push or delete branches. Do not upload ZIP archives,
+   `node_modules`, `.env` files, secrets, client data, or generated output
+   without its source changes.
+6. Keep the existing host and its DNS values available for rollback until the
    Pages build and custom domain have been verified.
 
 ## Release gates
@@ -42,10 +48,12 @@ ports only the two response headers currently defined in `netlify.toml`.
   assumed to inherit the `noindex` tag added by the separate single-file
   preview generator. Matt must approve the draft-content and indexing posture
   before a public Pages deployment or domain cutover.
-- **Newsletter:** The current form is a client-side placeholder and does not
-  store subscriptions. Do not represent it as working or connect
-  `/api/subscribe` without a separately reviewed provider, consent/privacy,
-  unsubscribe, failure-handling, and end-to-end test plan.
+- **Newsletter:** The form markup declares `POST /api/subscribe`, but the
+  current client script prevents that request and displays a not-connected
+  message. This repository implements no subscription backend and stores no
+  signup. Do not represent the form as working or enable the endpoint without
+  a separately reviewed provider, consent/privacy, unsubscribe,
+  failure-handling, and end-to-end test plan.
 - **Bankruptcy Checkup:** A successful site build is not approval to release a
   Checkup. Preserve the current synthetic-data, educational-only boundaries and
   require separate review of its routes, embedded runtime, privacy, security,
