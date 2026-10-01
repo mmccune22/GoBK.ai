@@ -31,7 +31,9 @@ npm run build    # production build → dist/
   bylines flip to "Reviewed by" as Matt clears them
 - The **Bankruptcy Checkup** is designed but unbuilt (nav button is a placeholder)
 - Newsletter form posts to a placeholder; no email provider connected yet
-- Deploys via Netlify from this repo (see the deploy guide); nothing is live yet
+- Private Cloudflare design review uses `development`; Jimmy's experiments use
+  `codex/jimmy-experiments`. Neither publishes public gobk.ai or merges `main`.
+  See [the Matt/Jimmy review workflow](docs/private-review-workflow.md).
 
 ## House rules
 Every article shows who wrote/reviewed it and when. Pending review is labeled.
