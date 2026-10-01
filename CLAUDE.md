@@ -8,8 +8,10 @@ GoBK — a free, ungated consumer bankruptcy library. 74 articles across 11
 chapters, built with Astro. Written in the voice of Matt McCune, a consumer
 bankruptcy attorney of 25 years. Not a law firm, not lead-gen.
 
-Live at https://mmccune22.github.io/GoBK.ai/ — served by GitHub Pages
-directly from `docs/index.html` on `main`.
+Private design review is hosted by Cloudflare Pages at
+https://gobk-ai.pages.dev/ from the `development` branch. This is NOT a public
+gobk.ai launch. GitHub Pages and `docs/index.html` are legacy outputs, not the
+target for this workflow. See [the short workflow](docs/private-review-workflow.md).
 
 ## House rules (non-negotiable)
 
@@ -26,36 +28,47 @@ directly from `docs/index.html` on `main`.
 
 ## The build loop
 
-Source of truth is this folder. Node modules live outside it to keep the
-project clean.
+Source of truth is the tracked source in this repository (`src/`, `public/`,
+and build configuration). Before starting, check `git status --short`; if there
+are uncommitted changes, stop and preserve them. Do not reset or overwrite them.
+On a clean checkout, fetch and fast-forward Matt's branch:
+
+```sh
+git fetch origin
+git switch development
+git pull --ff-only origin development
+```
+
+If `development` is not local yet, use `git switch --track origin/development`
+after fetching. If Git reports a conflict or divergent history, stop and ask.
 
 ```
-npm install                                  # once
+npm ci                                       # clean install from lockfile
+npm run dev                                  # local design preview
 npm run build                                # astro build + pagefind → dist/
-python3 scripts/single-file-preview.py docs/index.html
 ```
 
-`docs/index.html` IS the live site — a single self-contained file bundling all
-94 pages with hash navigation. Regenerate it after every content change.
+Commit small changes using explicitly selected source files; inspect
+`git diff --cached` before committing. Do not blindly stage the whole folder.
+Only when Matt says a version is ready for Jimmy to review, push
+`git push origin development`. Cloudflare builds and publishes `dist/` privately.
+Do not regenerate or commit `docs/index.html` just to deploy this review site.
 
-Then: `git add -A`, commit, `git push origin main`. Pages redeploys in about
-two minutes.
+Never push directly to `main`, force-push, delete branches, or merge a release
+without Jimmy's approval. Never upload a ZIP, `node_modules`, `.env` files,
+passwords, API keys, client information, or generated files by themselves.
+The GitHub repository is public: private Cloudflare hosting does not make
+repository contents or any old GitHub Pages copies private.
 
 ## Deploy verification
 
-`github.io` is blocked from the sandbox, so don't try to curl the live site.
-Check the deploy through the API instead:
-
-```
-curl -sS -H "Authorization: Bearer $TOKEN" \
-  "https://api.github.com/repos/mmccune22/GoBK.ai/actions/runs?per_page=3"
-```
-
-Look for the "pages build and deployment" run whose `head_sha` matches the
-commit, with `conclusion: success`. Do **not** use `/pages/builds/latest` —
-it lags and can report an older commit long after the newer one deployed,
-which looks exactly like a failed deploy. Hand Matt a
-cache-busted link (`?v=<sha>`) so his browser can't show him a stale copy.
+Record `git rev-parse HEAD`, then check the Cloudflare `gobk-ai` deployment:
+correct branch, matching commit SHA, and successful deployment. A push alone
+does not prove deployment; a failed build can leave the previous site online.
+Share the stable review URL plus the commit SHA. For a pinned review, copy the
+successful deployment's immutable URL from Cloudflare instead of guessing it.
+Visitors must sign in through Cloudflare Access with an allowed work email.
+Check the homepage, navigation, an article, mobile layout, and search after login.
 
 ## Traps discovered the hard way
 
@@ -69,16 +82,19 @@ cache-busted link (`?v=<sha>`) so his browser can't show him a stale copy.
   the three articles that carry no explicit weight.
 - **Frontmatter uses straight apostrophes**, not curly. Markdown bodies get
   curly ones via smartypants; frontmatter does not.
-- **A correct rebuild is byte-identical** to the committed `docs/index.html`
-  when no source changed. If a rebuild produces a large diff you didn't cause,
-  something is wrong — investigate rather than committing it.
-- **The noindex tag** (`<meta name="robots" content="noindex, nofollow">`) is
-  emitted by `single-file-preview.py`. It must survive every regeneration.
-  Removing it would let the site be indexed before Matt has reviewed it.
+- **Legacy single-file preview:** if deliberately regenerating
+  `docs/index.html`, investigate unexpected large differences and preserve its
+  noindex tag. That file is not needed to publish the Cloudflare review site.
+- **Private review stays private:** preserve Cloudflare Access and the hosting
+  build's `X-Robots-Tag: noindex, nofollow`. A robots tag alone is not security.
+- **Jimmy's experiments are separate:** `codex/jimmy-experiments` is based on
+  Matt's design but does not auto-merge future Matt changes. Preserve existing
+  `jimmy-experimental` and `jimmy/checkup-beta` work; never overwrite them.
 
 ## Working rhythm with Matt
 
 Matt gives edits; Claude applies them, rebuilds, and commits each change
 separately — granular commits are the undo history. **Push only when Matt says
-so**, then confirm the deploy and hand him a cache-busted link. Remind him when
+so**, then confirm the matching Cloudflare deploy and hand him the private link
+and commit SHA. Remind him when
 commits are sitting unpushed.
