@@ -44,8 +44,13 @@ and domain authentication remain launch work.
 The controlled test submitted only Jimmy's existing Gmail inbox. Brevo recorded
 the confirmation as Sent at 14:47 Denver time on October 1. The confirmation link
 was exercised from Brevo's email-log preview and returned successful subscription.
-This proves the confirmation action, not inbox receipt. Inbox delivery and the
-automatic first issue are being checked separately; do not equate Sent with Delivered.
+This proves the confirmation action, not inbox receipt. Confirmation automatically
+triggered template 5, recorded as Sent at 14:50. Its generated email preview has a
+real Brevo unsubscribe link and the complete first-issue content. No extra manual
+test, bulk campaign, or duplicate welcome automation was sent in this activation pass.
+Brevo showed no paused emails and available sending credits. Both subjects were
+absent from a search of all Gmail folders at the latest check, and there was no
+Delivered event yet. Inbox delivery is still unconfirmed; do not equate Sent with Delivered.
 
 1. Continue the saved dedicated consumer list and full-page signup-form draft.
 2. Ask only for email and optional first name. Explain the twice-monthly cadence,
@@ -95,6 +100,13 @@ Sites source remote and `.openai/hosting.json`. It began from this branch at
 `6a7d22d8a22748ee567d250e749cfa3eaf32ae1f`; its first deployed source is
 `f862b59bdae89ba538d182ba85fa4ff61f1d9162`, Sites version 1. Preserve the separate
 remote when rebuilding it. This does not refresh the dashboard or publish Matt's main.
+
+Version 2 was successfully published October 1 at 20:52 UTC from
+`bad9acc4fb7a3967f39a9c05c8f7cd5bfdd4e482`, which incorporates the newsletter
+configuration commit `ef4cd9e` from `jimmy-experimental`. The live signup link uses
+the saved hosted form, the privacy copy reflects Brevo, and noindex remains in place.
+Both the ordinary closed build and enabled test build passed all three newsletter
+checks; the enabled publication also passed its own build and checks.
 
 `npm run build`, then `npm run test:newsletter` and `npm run newsletter:export`.
 Review desktop/phone layout, all five reading previews, the signup entry point,
