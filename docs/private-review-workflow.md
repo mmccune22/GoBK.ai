@@ -44,6 +44,10 @@ Use `codex/jimmy-experiments`, build locally, commit selected files, then push
 that branch. Its private branch link updates after a successful build.
 It starts from Matt's design plus workflow documentation, not old Checkup work.
 
+The GoBK Guide newsletter and its Brevo email signup are now maintained in this
+lane. Open `/newsletter/` on Jimmy's branch URL. See
+[newsletter setup](../NEWSLETTER-SETUP.md) for the provider and build configuration.
+
 When Jimmy wants newer Matt work, first commit or otherwise safely preserve
 his own changes. On a clean checkout:
 

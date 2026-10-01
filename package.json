@@ -5,7 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && pagefind --site dist",
+    "build": "node scripts/build-site.mjs && pagefind --site dist",
+    "build:newsletter-test": "node scripts/build-site.mjs --newsletter-test && pagefind --site dist",
+    "test:newsletter": "node --test scripts/test-newsletter.mjs",
+    "test:newsletter-test": "node scripts/run-newsletter-test.mjs",
+    "newsletter:export": "node scripts/export-newsletter.mjs",
     "preview": "astro preview"
   },
   "dependencies": {
