@@ -7,21 +7,14 @@ const issues = newsletterEmails.filter((email) => email.number);
 <Base title={NEWSLETTER.name} description="Debt questions. Clear answers. A free, twice-monthly guide to understanding debt and bankruptcy and preparing for an attorney conversation.">
   <section class="hero">
     <div class="wrap hero-grid">
-      <div>
+      <div class="hero-intro">
         <p class="k">THE GOBK GUIDE</p>
         <h1>Debt questions.<br /><span>Clear answers.</span></h1>
         <p class="lede">A calmer place to start. Twice a month, we explain one topic in plain English and help you prepare for the next conversation.</p>
-        <div class="actions"><a class="btn btn-primary" href="#signup">Get the guide <span aria-hidden="true">→</span></a><a href="/newsletter/where-to-start">Read the first issue</a></div>
+        <div class="actions"><a href="/newsletter/where-to-start">Read the first issue</a></div>
         <p class="small soft">Free. Written for people exploring their options. No pressure to file.</p>
       </div>
-      <aside class="issue-preview" aria-label="First issue preview">
-        <div class="preview-top"><strong>The GoBK Guide</strong><span>ISSUE 01 · DRAFT</span></div>
-        <p class="k">A QUESTION YOU MIGHT BE ASKING</p>
-        <h2>Debt feels overwhelming. Where do you start?</h2>
-        <p>You don’t have to understand everything today. Start with your questions.</p>
-        <ul><li>What do I most want to understand?</li><li>What should I bring to a conversation?</li><li>What could my next step look like?</li></ul>
-        <a href="/newsletter/where-to-start">Take a look inside <span aria-hidden="true">→</span></a>
-      </aside>
+      <div id="signup" class="signup-section"><Newsletter signup compact /></div>
     </div>
   </section>
   <section class="section"><div class="wrap">
@@ -35,10 +28,17 @@ const issues = newsletterEmails.filter((email) => email.number);
   <section class="section issues"><div class="wrap">
     <p class="k">EXPLORE THE FIRST FOUR ISSUES</p><h2>Start wherever you are.</h2>
     <p class="soft">These sample issues are editorial drafts awaiting Matt’s review.</p>
+    <aside class="issue-preview" aria-label="First issue preview">
+      <div class="preview-top"><strong>The GoBK Guide</strong><span>ISSUE 01 · DRAFT</span></div>
+      <p class="k">A QUESTION YOU MIGHT BE ASKING</p>
+      <h2>Debt feels overwhelming. Where do you start?</h2>
+      <p>You don’t have to understand everything today. Start with your questions.</p>
+      <ul><li>What do I most want to understand?</li><li>What should I bring to a conversation?</li><li>What could my next step look like?</li></ul>
+      <a href="/newsletter/where-to-start">Take a look inside <span aria-hidden="true">→</span></a>
+    </aside>
     <ol class="issue-list">{issues.map((issue) => <li><a href={`/newsletter/${issue.slug}`}><span class="issue-number">{String(issue.number).padStart(2, '0')}</span><div><h3>{issue.subject}</h3><p>{issue.preheader}</p></div><span aria-hidden="true">↗</span></a></li>)}</ol>
     <a class="welcome-link" href="/newsletter/welcome">Preview the welcome email</a>
   </div></section>
-  <div id="signup" class="signup-section"><Newsletter signup /></div>
   <section class="section"><div class="wrap faq">
     <h2>A few things to know.</h2>
     <details><summary>Who is this for?</summary><p>People dealing with debt, considering bankruptcy, or preparing to talk with an attorney. No legal background needed.</p></details>
@@ -49,14 +49,14 @@ const issues = newsletterEmails.filter((email) => email.number);
   </div></section>
 </Base>
 <style>
-  .hero { padding-block: var(--space-6); background: var(--off); }
-  .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-6); align-items: center; }
+  .hero { padding-block: var(--space-4); background: var(--off); }
+  .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--space-5); align-items: center; }
   h1 { font-size: clamp(2.5rem, 5vw, 4.25rem); }
   h1 span { color: var(--sage-deep); }
   .lede { margin: 1.5rem 0; }
   .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; }
   .small { font-size: 0.9rem; margin-top: 1rem; }
-  .issue-preview { padding: var(--space-4); border: 1px solid var(--rule); border-top: 5px solid var(--sage); border-radius: var(--radius); background: #fff; box-shadow: 0 16px 40px #4343430c; }
+  .issue-preview { padding: var(--space-4); margin-top: var(--space-4); max-width: 40rem; border: 1px solid var(--rule); border-top: 5px solid var(--sage); border-radius: var(--radius); background: #fff; box-shadow: 0 16px 40px #4343430c; }
   .preview-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; padding-bottom: 1.25rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--rule); }
   .preview-top span { font-size: 0.75rem; color: var(--fg-soft); align-self: center; }
   .issue-preview h2 { font-size: 1.7rem; margin-bottom: 1rem; }
@@ -83,5 +83,12 @@ const issues = newsletterEmails.filter((email) => email.number);
   summary { cursor: pointer; font-weight: 600; }
   details p { margin: 1rem 0 0; }
   .legal { border-top: 1px solid var(--rule); padding-top: 1.5rem; }
-  @media (max-width: 48rem) { .hero-grid { grid-template-columns: 1fr; gap: var(--space-4); } .benefits { grid-template-columns: 1fr; gap: var(--space-3); } }
+  @media (max-width: 48rem) {
+    .hero-grid { grid-template-columns: 1fr; gap: var(--space-2); }
+    .hero-intro { display: contents; }
+    .hero-intro .k { margin: 0; }
+    .signup-section { order: 1; }
+    .hero-intro .lede, .hero-intro .actions, .hero-intro .small { order: 2; margin: 0; }
+    .benefits { grid-template-columns: 1fr; gap: var(--space-3); }
+  }
 </style>

@@ -1,17 +1,17 @@
 ---
 import brevoFormHtml from '../lib/brevo-form.html?raw';
 import { NEWSLETTER, newsletterConfig } from '../lib/newsletter.mjs';
-interface Props { signup?: boolean }
-const { signup = false } = Astro.props;
+interface Props { signup?: boolean; compact?: boolean }
+const { signup = false, compact = false } = Astro.props;
 const { enabled, formUrl } = newsletterConfig(import.meta.env);
 ---
-<section class="newsletter on-green" aria-label={NEWSLETTER.name} data-pagefind-ignore>
-  <div class="wrap newsletter-grid">
-    <div>
+<section class:list={['newsletter on-green', { compact }]} aria-label={NEWSLETTER.name} data-pagefind-ignore>
+  <div class:list={['newsletter-grid', { wrap: !compact }]}>
+    {!compact && <div>
       <p class="eyebrow">{NEWSLETTER.name} · {NEWSLETTER.cadence}</p>
       <h2>{NEWSLETTER.promise}</h2>
       <p class="promise">Plain-English explanations, practical checklists, and questions to help you explore your options. One useful topic at a time.</p>
-    </div>
+    </div>}
     <div class="signup">
       <p class="reassurance">Free to read. No pressure. Unsubscribe anytime.</p>
       {enabled ? (
@@ -28,6 +28,8 @@ const { enabled, formUrl } = newsletterConfig(import.meta.env);
 <style>
   .newsletter { background: var(--sage-deeper); color: #fff; padding-block: var(--space-5); border-radius: var(--radius); }
   .newsletter-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: var(--space-5); align-items: center; }
+  .compact { padding: var(--space-3); }
+  .compact .newsletter-grid { display: block; }
   .eyebrow { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 0.8rem; }
   h2 { color: #fff; font-size: clamp(1.8rem, 3vw, 2.6rem); }
   .promise { color: #fff; margin: 1rem 0 0; max-width: 48ch; }
@@ -36,6 +38,10 @@ const { enabled, formUrl } = newsletterConfig(import.meta.env);
   .signup :global(.sib-form) { padding: 0; background: transparent !important; text-align: left !important; }
   .signup :global(#sib-container) { max-width: none !important; border: 0 !important; border-radius: var(--radius) !important; padding: 1rem; }
   .signup :global(.sib-form p) { color: var(--fg); }
+  .signup :global(#sib-form input[type="email"]) { color: var(--fg); -webkit-text-fill-color: var(--fg); caret-color: var(--fg); background-color: var(--white); }
+  .signup :global(#sib-form input[type="email"]::placeholder) { color: var(--fg-soft); opacity: 1; }
+  .signup :global(#sib-form input[type="email"]:focus-visible) { outline: var(--focus); outline-offset: 2px; }
+  .signup :global(#sib-form input[type="email"]:-webkit-autofill), .signup :global(#sib-form input[type="email"]:-webkit-autofill:focus) { -webkit-text-fill-color: var(--fg); caret-color: var(--fg); box-shadow: 0 0 0 1000px var(--white) inset; }
   .signup :global(.sib-form-message-panel--active) { display: block; margin-bottom: 1rem; }
   .signup :global(.sib-form-block__button) { background: var(--sage-deeper) !important; padding: 0.8rem 1.25rem; }
   .signup :global(.input--hidden) { display: none; }
