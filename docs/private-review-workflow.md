@@ -10,7 +10,7 @@ branch or the public domain.
 | Person | GitHub branch | Purpose |
 | --- | --- | --- |
 | Matt | `development` | Ready-to-review design at https://gobk-ai.pages.dev/ |
-| Jimmy | `codex/jimmy-experiments` | Independent experiments; use its branch URL from Cloudflare |
+| Jimmy | `codex/jimmy-experiments` | Independent experiments at https://codex-jimmy-experiments.gobk-ai.pages.dev/ |
 
 Cloudflare calls the stable review branch “Production.” Here that only means
 the private `pages.dev` review site. Public gobk.ai is a separate release.

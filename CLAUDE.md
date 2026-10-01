@@ -13,6 +13,11 @@ https://gobk-ai.pages.dev/ from the `development` branch. This is NOT a public
 gobk.ai launch. GitHub Pages and `docs/index.html` are legacy outputs, not the
 target for this workflow. See [the short workflow](docs/private-review-workflow.md).
 
+Choose the lane from the human's request before editing. The start/push commands
+below are for Matt's `development` lane. In a Jimmy experiment session, stay on
+`codex/jimmy-experiments` and use that branch's pull/push commands instead; do
+not switch to or modify Matt's lane. Ask if the intended lane is unclear.
+
 ## House rules (non-negotiable)
 
 - **Voice:** an experienced bankruptcy attorney explaining things plainly and
