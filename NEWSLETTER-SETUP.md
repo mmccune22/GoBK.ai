@@ -64,6 +64,19 @@ Missing configuration leaves signup closed; unsafe destinations fail the build.
 
 ## Verify and review
 
+### Shareable test site
+
+https://gobk-newsletter-test.jimmydanol.chatgpt.site/newsletter/
+
+Published October 1, 2026 as a separate public, noindex test site, initially with
+signup closed. This URL is for reviewing the page until Brevo confirmation and
+first-email delivery are configured; it is not yet an email-receipt test.
+The isolated publication checkout is `../newsletter-test-site`, with its own
+Sites source remote and `.openai/hosting.json`. It began from this branch at
+`6a7d22d8a22748ee567d250e749cfa3eaf32ae1f`; its first deployed source is
+`f862b59bdae89ba538d182ba85fa4ff61f1d9162`, Sites version 1. Preserve the separate
+remote when rebuilding it. This does not refresh the dashboard or publish Matt's main.
+
 `npm run build`, then `npm run test:newsletter` and `npm run newsletter:export`.
 Review desktop/phone layout, all five reading previews, the signup entry point,
 FAQs and privacy wording. The branch retains noindex and experimental markers.
