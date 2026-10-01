@@ -20,11 +20,12 @@ for f in sorted(glob.glob(f'{dist}/**/index.html',recursive=True)):
 def rl(m):
     base=m.group(1).split('?')[0].rstrip('/') or '/'
     return f'href="#{pages[base][0]}"' if base in pages else m.group(0)
-sections=[]; titles={}
+sections=[]; titles={}; imgs={}
 for url,(pid,f) in pages.items():
     h=open(f).read(); titles[pid]=re.search(r'<title>(.*?)</title>',h).group(1)
     body=re.search(r'<body[^>]*>(.*)</body>',h,re.S).group(1)
     body=re.sub(r'<script\b.*?</script>','',body,flags=re.S)
+    body=re.sub(r'src="/([^"]+\.png)"',lambda m:(imgs.setdefault(m.group(1),'data:image/png;base64,'+base64.b64encode(open(os.path.join(dist,m.group(1)),'rb').read()).decode()),'data-img="'+m.group(1)+'"')[1],body)
     body=re.sub(r'href="(/[^"#?]*)(#[^"]*)?"',rl,body).replace('href="#main"','href="#"')
     if pid=='search': body=body.replace('<div class="idle">','<div class="idle"><p><strong>Search runs on the built site, not in this preview.</strong> The links below work.</p>')
     sections.append(f'<div class="pg" id="pg-{pid}" hidden>{body}</div>')
@@ -38,7 +39,7 @@ fav=base64.b64encode(open('public/favicon.svg','rb').read()).decode()
 doc=f'''<!doctype html><html lang="en"><head><meta name="robots" content="noindex, nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GoBK preview</title><link rel="icon" href="data:image/svg+xml;base64,{fav}"><style>{css}</style><style>.pg[hidden]{{display:none}}{bar_css}</style></head><body>
 {bar}{''.join(sections)}
-<script>var titles={json.dumps(titles)};var cur='home';
+<script>var titles={json.dumps(titles)};var imgs={json.dumps(imgs)};document.querySelectorAll('img[data-img]').forEach(function(i){{i.src=imgs[i.dataset.img]}});var cur='home';
 function show(){{var id=(location.hash||'#home').slice(1);
 if(!document.getElementById('pg-'+id)){{
 var pg=document.getElementById('pg-'+cur);
