@@ -18,10 +18,19 @@ test('reject credentials, non-Brevo hosts and unsafe form destinations', () => {
 });
 
 test('built preview has working reading paths and cannot collect emails', async () => {
+  const { enabled, formUrl } = newsletterConfig(process.env);
   for (const slug of ['', ...newsletterEmails.map((email) => email.slug + '/')]) {
     const html = await readFile(new URL(`../dist/newsletter/${slug}index.html`, import.meta.url), 'utf8');
     assert.match(html, /noindex, nofollow, noarchive/);
-    assert.doesNotMatch(html, /<form\b|data-newsletter-signup|api\/subscribe|type="email"/);
+    assert.doesNotMatch(html, /<form\b|api\/subscribe|type="email"/);
+    if (!enabled) assert.doesNotMatch(html, /data-newsletter-signup/);
+    if (enabled && !slug) {
+      assert.match(html, /data-newsletter-signup/);
+      assert.ok(html.includes(`href="${formUrl}"`), 'Signup must use the configured public Brevo form');
+      const privacy = await readFile(new URL('../dist/privacy/index.html', import.meta.url), 'utf8');
+      assert.match(privacy, /Brevo processes your email address/);
+      assert.doesNotMatch(privacy, /Newsletter subscriptions are not open/);
+    }
     if (slug) assert.match(html, /Pending editorial and attorney review/);
     for (const match of html.matchAll(/href="(\/newsletter[^"#]*)/g)) {
       const target = match[1].replace(/\/$/, '');

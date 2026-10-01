@@ -21,7 +21,7 @@ const { enabled, formUrl } = newsletterConfig(import.meta.env);
         )}
         <a class="sample" href="/newsletter/where-to-start">Read a sample</a>
       </div>
-      {signup && <p class="note">{enabled ? 'Enter your email on our Brevo signup page, then confirm your subscription in your inbox. First name is optional.' : 'Subscriptions are not open yet. Explore the sample issues while we get ready.'}</p>}
+      {signup && <p class="note">{enabled ? 'Experimental signup test: enter your email on Brevo, then confirm in your inbox to receive the first issue marked [TEST]. First name is optional. Content awaits review.' : 'Subscriptions are not open yet. Explore the sample issues while we get ready.'}</p>}
       <p class="privacy"><a href="/privacy">How we handle your information</a></p>
     </div>
   </div>

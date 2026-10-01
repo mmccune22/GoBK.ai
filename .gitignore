@@ -4,6 +4,7 @@ newsletter-output/
 .astro/
 .env*
 !.env.example
+!.env.newsletter-test
 *.pem
 *.log
 .DS_Store

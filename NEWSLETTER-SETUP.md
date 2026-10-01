@@ -21,28 +21,31 @@ this consumer newsletter. Keep the GoBK consumer list separate.
 
 ### Saved provider setup, October 1, 2026
 
-Created and saved the dedicated `GoBK Guide — Consumers` list (0 contacts), and
-the form draft `The GoBK Guide — consumer signup (experimental)`:
+Created the dedicated `GoBK Guide — Consumers` list and saved
+`The GoBK Guide — consumer signup (experimental)`:
 https://app.brevo.com/contact/forms/subscription/edit/6abe8aad0accffc5587a0af3
 The form has required email, optional first name, and required explicit newsletter
 consent. Only the new consumer list is selected; the existing list is preserved.
 
-Brevo disables double confirmation and says an active Transactional account is
-required, directing the owner to customer service for activation. Its account home
-also requires phone verification before sending. Transactional configuration has
-no delivery logs yet. The form remains unfinished at Settings; no public signup URL
-has been activated, contacts imported, automation enabled, or emails sent.
-Complete activation and phone verification in the existing account, then finish
-the steps below. Do not publish the form with its current no-confirmation default.
+Jimmy completed verification. Double confirmation is now available and saved.
+The form sends default template 4 for double opt-in. After confirmation, it sends
+template 5 as the first issue; there is no second welcome automation or campaign.
+Only the consumer list is selected. The hosted form is complete and its public
+URL is recorded in `.env.example` and `.env.newsletter-test`.
 
-The first issue is also saved as the inactive Brevo template
+The first issue is saved as the active Brevo template
 `GoBK Guide — First issue (test draft)` (template 5):
 https://app.brevo.com/templates/email/edit/5
-It uses a `[TEST]` subject and visible draft notice, the existing account sender,
-and the shareable test-site links. The address placeholder remains pending.
-One manual preview-email test was attempted only to the owner's existing test
-recipient; receipt has not been confirmed. This is separate from the unfinished
-signup → confirmation → first-issue sequence and is not evidence of its success.
+It uses a `[TEST]` subject and visible draft notice, the existing account sender
+and reply inbox, the company address already stored in Brevo, and test-site links.
+Brevo rewrites the Gmail sender to its `brevosend.com` domain. A company sender
+and domain authentication remain launch work.
+
+The controlled test submitted only Jimmy's existing Gmail inbox. Brevo recorded
+the confirmation as Sent at 14:47 Denver time on October 1. The confirmation link
+was exercised from Brevo's email-log preview and returned successful subscription.
+This proves the confirmation action, not inbox receipt. Inbox delivery and the
+automatic first issue are being checked separately; do not equate Sent with Delivered.
 
 1. Continue the saved dedicated consumer list and full-page signup-form draft.
 2. Ask only for email and optional first name. Explain the twice-monthly cadence,
@@ -64,12 +67,19 @@ signup → confirmation → first-issue sequence and is not evidence of its succ
 Copy `.env.example` to `.env.local`. Set `PUBLIC_GOBK_NEWSLETTER_FORM_URL` to the
 public Brevo `https://….sibforms.com/serve/…` URL. Keep the activation flag `false`
 until the provider checks pass. Set `PUBLIC_GOBK_NEWSLETTER_SIGNUP_ENABLED=true`
-only for the reviewed build. These values are public and baked into the static output;
+only for the intended build. These values are public and baked into the static output;
 changing them requires a rebuild. Never use an API endpoint or secret as the URL.
 
 The enabled button opens Brevo in a new tab and does not prefill or transmit an
 address from this site. Brevo handles data entry, consent, confirmation, and storage.
 Missing configuration leaves signup closed; unsafe destinations fail the build.
+
+For this specifically authorized signup/receipt trial, use
+`npm run build:newsletter-test` followed by `npm run test:newsletter-test`.
+The explicitly selected `newsletter-test` mode loads the committed public
+`.env.newsletter-test`. Its enabled UI says the first issue is a test draft.
+The ordinary `npm run build` remains closed by default. No secret is stored in
+either public configuration file.
 
 ## Verify and review
 
@@ -78,8 +88,8 @@ Missing configuration leaves signup closed; unsafe destinations fail the build.
 https://gobk-newsletter-test.jimmydanol.chatgpt.site/newsletter/
 
 Published October 1, 2026 as a separate public, noindex test site, initially with
-signup closed. This URL is for reviewing the page until Brevo confirmation and
-first-email delivery are configured; it is not yet an email-receipt test.
+signup closed. The newsletter-test build connects its signup button to the saved
+Brevo form for the requested trial. Configuration does not itself prove email receipt.
 The isolated publication checkout is `../newsletter-test-site`, with its own
 Sites source remote and `.openai/hosting.json`. It began from this branch at
 `6a7d22d8a22748ee567d250e749cfa3eaf32ae1f`; its first deployed source is
@@ -90,6 +100,10 @@ remote when rebuilding it. This does not refresh the dashboard or publish Matt's
 Review desktop/phone layout, all five reading previews, the signup entry point,
 FAQs and privacy wording. The branch retains noindex and experimental markers.
 Matt's `main:/docs` Pages publication is a separate release path.
+
+Provider references checked October 1, 2026:
+- https://help.brevo.com/hc/en-us/articles/208771869-Create-a-sign-up-form-in-Brevo
+- https://help.brevo.com/hc/en-us/articles/4402386448530--Manual-Personalize-your-messages-with-dynamic-content-Brevo-Template-Language
 
 The dashboard preview requires importing a clean committed build with its existing
 `tools/import-jimmy-site.py` workflow. Pushing this branch alone does not update it.

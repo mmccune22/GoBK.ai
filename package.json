@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && pagefind --site dist",
+    "build:newsletter-test": "astro build --mode newsletter-test && pagefind --site dist",
     "preview": "astro preview",
     "newsletter:export": "node scripts/export-newsletter.mjs",
-    "test:newsletter": "node --test scripts/test-newsletter.mjs"
+    "test:newsletter": "node --test scripts/test-newsletter.mjs",
+    "test:newsletter-test": "node --env-file=.env.newsletter-test --test scripts/test-newsletter.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.0.0",
