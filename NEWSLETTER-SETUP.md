@@ -35,6 +35,15 @@ has been activated, contacts imported, automation enabled, or emails sent.
 Complete activation and phone verification in the existing account, then finish
 the steps below. Do not publish the form with its current no-confirmation default.
 
+The first issue is also saved as the inactive Brevo template
+`GoBK Guide — First issue (test draft)` (template 5):
+https://app.brevo.com/templates/email/edit/5
+It uses a `[TEST]` subject and visible draft notice, the existing account sender,
+and the shareable test-site links. The address placeholder remains pending.
+One manual preview-email test was attempted only to the owner's existing test
+recipient; receipt has not been confirmed. This is separate from the unfinished
+signup → confirmation → first-issue sequence and is not evidence of its success.
+
 1. Continue the saved dedicated consumer list and full-page signup-form draft.
 2. Ask only for email and optional first name. Explain the twice-monthly cadence,
    link the approved privacy policy, and include explicit newsletter consent.
