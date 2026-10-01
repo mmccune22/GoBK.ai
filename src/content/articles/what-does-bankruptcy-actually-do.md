@@ -7,7 +7,7 @@ tags: [basics, automatic-stay, discharge, nondischargeable]
 doors: [understanding-bankruptcy, way-out]
 published: 2026-09-01
 updated: 2026-09-01
-status: draft
+status: reviewed
 startHere: true
 weight: 5
 showCheckup: true
