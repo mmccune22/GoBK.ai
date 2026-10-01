@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && pagefind --site dist",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "newsletter:export": "node scripts/export-newsletter.mjs",
+    "test:newsletter": "node --test scripts/test-newsletter.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.0.0",

@@ -23,6 +23,12 @@ analytics, and prevents indexing. The 74 article files remain drafts; these chan
 do not represent legal or editorial approval. The contact page and Checkup in this
 Astro source still need development. The dashboard Checkup remains a separate prototype.
 
+The October 1 newsletter implementation adds `/newsletter`, a welcome-email preview,
+four issue drafts, and a Brevo hosted-form integration behind an explicit activation
+flag. Signup remains closed while the existing account's sending activation and
+confirmation flow are unfinished. See `NEWSLETTER-SETUP.md` for saved provider work,
+review requirements, exports, and activation steps.
+
 ## Preview publication
 
 The dashboard serves the compiled `dist` output under its member-protected

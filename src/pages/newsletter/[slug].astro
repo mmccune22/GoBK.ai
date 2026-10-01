@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+import Newsletter from '../../components/Newsletter.astro';
+import { NEWSLETTER, newsletterEmails } from '../../lib/newsletter.mjs';
+export function getStaticPaths() {
+  return newsletterEmails.map((email) => ({ params: { slug: email.slug }, props: { email } }));
+}
+const { email } = Astro.props;
+---
+<Base title={`${email.subject} — ${NEWSLETTER.name}`} description={email.preheader}>
+  <section class="section paper-section"><div class="wrap narrow">
+    <a href="/newsletter">← Back to The GoBK Guide</a>
+    <div class="draft-note"><strong>{email.kind} · Pending editorial and attorney review</strong><p>This is a reading preview. No email has been sent and no subscription is created here.</p></div>
+    <article class="email-paper">
+      <header><p class="k">{NEWSLETTER.name}{email.number ? ` · ISSUE ${String(email.number).padStart(2, '0')}` : ' · WELCOME'}</p><p class="subject"><strong>Subject:</strong> {email.subject}</p><p class="soft preview-text">{email.preheader}</p></header>
+      <div class="prose">
+        <h1>{email.title}</h1>
+        {email.intro.map((paragraph) => <p>{paragraph}</p>)}
+        <h2>{email.heading}</h2>
+        {email.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        <aside class="checklist"><h2>{email.checklistTitle}</h2><ul>{email.checklist.map((item) => <li>{item}</li>)}</ul></aside>
+        <h2>Your next step</h2><p>{email.nextStep}</p>
+        {email.nextSlug && <a class="btn btn-primary" href={`/newsletter/${email.nextSlug}`}>{email.nextLabel} <span aria-hidden="true">→</span></a>}
+        {email.sources.length > 0 && <div class="sources"><h2>Further reading</h2><ul>{email.sources.map((source) => <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}<span class="visually-hidden"> (opens a new tab)</span></a></li>)}</ul></div>}
+        <p class="signoff">—The GoBK Team</p>
+      </div>
+      <footer><p>{NEWSLETTER.disclaimer}</p><p>Email editions will include unsubscribe and preference links. <a href="/privacy">Privacy</a></p></footer>
+    </article>
+  </div></section>
+  <Newsletter />
+</Base>
+<style>
+  .paper-section { background: var(--off); }
+  .narrow { max-width: 50rem; }
+  .draft-note { padding: 1rem 1.25rem; margin: 1.5rem 0; border: 1px solid var(--rule); border-radius: var(--radius); font-size: 0.9rem; }
+  .draft-note p { margin: 0.4rem 0 0; }
+  .email-paper { background: #fff; border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; }
+  .email-paper > header { padding: var(--space-4); border-top: 5px solid var(--sage); border-bottom: 1px solid var(--rule); }
+  .subject { margin-bottom: 0.5rem; }
+  .preview-text { margin: 0; font-size: 0.9rem; }
+  .prose { max-width: none; padding: var(--space-4); font-size: 1.0625rem; }
+  h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 1.5rem; }
+  .checklist { background: var(--off); border-left: 4px solid var(--sage); padding: 1.5rem; margin-block: 2rem; }
+  .checklist h2 { margin-top: 0; font-size: 1.3rem; }
+  .checklist ul { margin-bottom: 0; }
+  .sources h2 { font-size: 1.15rem; }
+  .sources ul { font-size: 0.95rem; }
+  .signoff { margin-top: 2rem !important; }
+  .email-paper > footer { padding: 1.5rem var(--space-4); background: var(--off); border-top: 1px solid var(--rule); font-size: 0.85rem; color: var(--fg-soft); }
+  .email-paper > footer p:last-child { margin-bottom: 0; }
+  @media (max-width: 40rem) { .prose, .email-paper > header, .email-paper > footer { padding: 1.25rem; } }
+</style>

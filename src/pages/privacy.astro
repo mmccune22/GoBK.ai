@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import { newsletterConfig } from '../lib/newsletter.mjs';
+const { enabled } = newsletterConfig(import.meta.env);
 ---
 <Base title="Privacy" description="How GoBK handles information about visitors.">
   <section class="section">
@@ -7,9 +9,12 @@ import Base from '../layouts/Base.astro';
       <h1>Privacy</h1>
       <p class="lede">You can use GoBK without telling us who you are. That is by design.</p>
       <h2>What we collect</h2>
-      <p>Reading the Library requires no account, email, phone number, or payment. If you choose to sign up for the newsletter, we store the email address you give us and use it only to send you GoBK email. You can unsubscribe at any time.</p>
+      <p>Reading the Library and newsletter samples requires no account, email, phone number, or payment.</p>
+      {enabled ? <p>If you choose to subscribe to The GoBK Guide, you leave this site for a Brevo-hosted signup form. Brevo processes your email address, optional first name, and subscription confirmation for GoBK. Confirm your subscription in your inbox before receiving the guide. You can unsubscribe using the link in any newsletter email.</p> : <p>Newsletter subscriptions are not open in this preview. There is no email-entry form, subscriber database, or email sending on this site.</p>}
+      <p>Do not send account numbers, financial records, court papers, or other private details through newsletter replies.</p>
       <h2>What we do not do</h2>
-      <p>We do not sell or rent visitor information. We do not share newsletter addresses with law firms, debt settlement companies, or anyone else. We do not run advertising trackers on the Library.</p>
+      <p>This experimental site does not run advertising trackers or use newsletter signup as a request for contact from a law firm or debt settlement company.</p>
+      {enabled && <p>Brevo’s role is to process subscriptions and deliver GoBK email. Review <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener noreferrer">Brevo’s privacy policy (opens a new tab)</a> for its data handling.</p>}
       <h2>A plain note about limits</h2>
       <p>No website can promise perfect confidentiality. Your browser, device, network, and search engine keep their own records of where you go. If privacy matters to you, a private browsing window and a personal device are reasonable steps.</p>
       <p class="soft">This policy will be expanded before launch to reflect the specific services GoBK uses.</p>

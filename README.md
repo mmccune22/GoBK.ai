@@ -30,7 +30,8 @@ npm run build    # production build → dist/
 - All articles are `status: draft` — **pending attorney review by Matt McCune**;
   bylines flip to "Reviewed by" as Matt clears them
 - The **Bankruptcy Checkup** is designed but unbuilt (nav button is a placeholder)
-- Newsletter form posts to a placeholder; no email provider connected yet
+- The GoBK Guide lives at `/newsletter`: four consumer issue drafts, a welcome preview,
+  and a gated Brevo hosted-form connection. See `NEWSLETTER-SETUP.md` for activation.
 - Deploys via Netlify from this repo (see the deploy guide); nothing is live yet
 
 ## House rules

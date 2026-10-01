@@ -1,35 +1,42 @@
 ---
-/** Retention signup. Posts to a placeholder endpoint until a provider is wired in. */
+import { NEWSLETTER, newsletterConfig } from '../lib/newsletter.mjs';
+interface Props { signup?: boolean }
+const { signup = false } = Astro.props;
+const { enabled, formUrl } = newsletterConfig(import.meta.env);
 ---
-<section class="newsletter on-green" aria-labelledby="nl-heading">
-  <div class="wrap">
-    <h2 id="nl-heading">The GoBK newsletter, in your inbox.</h2>
-    <p>Practical information about bankruptcy and debt options.</p>
-    <form action="#" data-newsletter>
-      <label for="nl-email" class="visually-hidden">Email address</label>
-      <input id="nl-email" name="email" type="email" disabled placeholder="Preview only" autocomplete="off" />
-      <button type="submit" class="btn btn-primary" disabled>Signup preview</button>
-    </form>
-    <p class="note" role="status" aria-live="polite">This experimental site does not collect email. Signup integration is a separate task.</p>
+<section class="newsletter on-green" aria-label={NEWSLETTER.name} data-pagefind-ignore>
+  <div class="wrap newsletter-grid">
+    <div>
+      <p class="eyebrow">{NEWSLETTER.name} · {NEWSLETTER.cadence}</p>
+      <h2>{NEWSLETTER.promise}</h2>
+      <p class="promise">Plain-English explanations, practical checklists, and questions to help you explore your options. One useful topic at a time.</p>
+    </div>
+    <div class="signup">
+      <p class="reassurance">Free to read. No pressure. Unsubscribe anytime.</p>
+      <div class="actions">
+        {signup ? enabled ? (
+          <a class="btn btn-primary" href={formUrl} target="_blank" rel="noopener noreferrer" data-newsletter-signup>Continue to signup <span class="visually-hidden">on Brevo (opens a new tab)</span><span aria-hidden="true">↗</span></a>
+        ) : <button class="btn btn-primary" type="button" disabled>Signup opens soon</button> : (
+          <a class="btn btn-primary" href="/newsletter#signup">Get the guide <span aria-hidden="true">→</span></a>
+        )}
+        <a class="sample" href="/newsletter/where-to-start">Read a sample</a>
+      </div>
+      {signup && <p class="note">{enabled ? 'Enter your email on our Brevo signup page, then confirm your subscription in your inbox. First name is optional.' : 'Subscriptions are not open yet. Explore the sample issues while we get ready.'}</p>}
+      <p class="privacy"><a href="/privacy">How we handle your information</a></p>
+    </div>
   </div>
 </section>
-<script>
-  document.querySelectorAll<HTMLFormElement>('form[data-newsletter]').forEach((form) => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const note = form.parentElement?.querySelector('.note');
-      if (note) note.textContent = 'Signups are not connected yet. When they are, this will confirm your subscription here.';
-    });
-  });
-</script>
 <style>
-  .newsletter { background: var(--sage); color: #fff; padding-block: var(--space-5) var(--space-6); }
-  h2 { font-size: 1.625rem; color: #fff; }
-  p { color: #fff; margin: 0.5rem 0 0; }
-  form { display: flex; gap: 0.5rem; margin-top: var(--space-3); max-width: 40rem; }
-  input { flex: 1; min-width: 0; padding: 0.85rem 1rem; border: 2px solid #fff; border-radius: var(--radius); background: #fff; font-size: 1.05rem; color: var(--ink); }
-  .newsletter .btn-primary { background: #fff; color: var(--sage-deeper); border-color: #fff; }
-  .newsletter .btn-primary:hover { background: var(--off); }
-  .note { font-size: 0.9rem; color: var(--on-sage-soft); margin-top: 0.6rem; min-height: 1.2em; }
-  @media (max-width: 30rem) { form { flex-direction: column; } }
+  .newsletter { background: var(--sage-deeper); color: #fff; padding-block: var(--space-5); border-radius: var(--radius); }
+  .newsletter-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: var(--space-5); align-items: center; }
+  .eyebrow { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 0.8rem; }
+  h2 { color: #fff; font-size: clamp(1.8rem, 3vw, 2.6rem); }
+  .promise { color: #fff; margin: 1rem 0 0; max-width: 48ch; }
+  .reassurance { font-size: 0.95rem; margin-bottom: 1rem; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+  .sample, .privacy a { color: #fff; text-decoration-color: #ffffff80; }
+  .sample { font-weight: 600; }
+  .note, .privacy { font-size: 0.875rem; margin: 1rem 0 0; }
+  button:disabled { opacity: 0.75; cursor: not-allowed; }
+  @media (max-width: 48rem) { .newsletter-grid { grid-template-columns: 1fr; gap: var(--space-3); } }
 </style>
