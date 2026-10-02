@@ -29,7 +29,7 @@ One more trap with its own federal statute: **"petition preparers,"** the typing
 
 ## The honest test
 
-Not "am I smart enough" (the forms aren't an IQ test) but: *does anything in my case have a failure mode?* If you can't confidently answer what happens to every asset you own, that's the answer. And use the free consultation either way; thirty minutes with an attorney who says "yours is simple, you could do this yourself" is the cheapest second opinion in law, and some will say exactly that.
+Not "am I smart enough" (the forms aren't an IQ test) but: *does anything in my case have a failure mode?* If you can't confidently answer what happens to every asset you own, that's the answer. And if a free consultation is available, use it either way; thirty minutes with an attorney who says "yours is simple, you could do this yourself" is the cheapest second opinion in law, and some will say exactly that.
 
 ## The bottom line
 

@@ -1,6 +1,6 @@
 ---
 title: "How to find a bankruptcy attorney (and what it will cost)"
-shortAnswer: "Look for someone who does consumer bankruptcy as their main work, in your district. The NACBA directory (the national consumer bankruptcy attorneys' association) is a good starting list; nearly all offer free consultations, so talk to two. Chapter 7 attorney fees are typically flat and quoted up front; most Chapter 13 fees are paid through the plan, which is why people with no cash can often still get into a 13. If you can't afford anyone, legal aid and pro bono programs exist."
+shortAnswer: "Look for someone who does consumer bankruptcy as their main work, in your district. The NACBA directory (the national consumer bankruptcy attorneys' association) is a good starting list; many offer free consultations, so talk to two. Chapter 7 attorney fees are typically flat and quoted up front; most Chapter 13 fees are paid through the plan, which is why people with no cash can often still get into a 13. If you can't afford anyone, legal aid and pro bono programs exist."
 description: "Where to look, what consultations are like, how fees really work in each chapter, the questions to ask, and the warning signs of a mill."
 category: before-hiring
 tags: [attorney, cost]
@@ -28,7 +28,7 @@ What you're screening for is simple: consumer bankruptcy as the main diet, in yo
 
 ## The consultation
 
-Nearly universal and nearly always free. Bring the honest picture: income, debts, property, deadlines. A good consultation feels like triage, not a sales pitch, and sometimes ends with "don't file" or "wait three months," which is itself the mark of the right office. Talk to two if you can; you're choosing a guide for a stressful season, and fit is real.
+Many attorneys offer a free first consultation; ask when you call. Bring the honest picture: income, debts, property, deadlines. A good consultation feels like triage, not a sales pitch, and sometimes ends with "don't file" or "wait three months," which is itself the mark of the right office. Talk to two if you can; you're choosing a guide for a stressful season, and fit is real.
 
 **Questions worth asking:** Who actually handles my case day to day? What's the flat fee and exactly what does it cover (and what's extra: reaffirmations? stay defense?)? How do you handle the means test in a case like mine? For 13s: what do your confirmed plans typically look like in this district?
 
@@ -42,4 +42,4 @@ Nearly universal and nearly always free. Bring the honest picture: income, debts
 
 ## The bottom line
 
-This is a field with genuine, affordable specialists in nearly every district, an association directory to find them, and free first conversations. If your gut says "talk to someone," the whole cost of acting on it today is an hour.
+This is a field with genuine, affordable specialists in nearly every district, an association directory to find them, and many offer a free first conversation. If your gut says "talk to someone," the whole cost of acting on it today is an hour.
