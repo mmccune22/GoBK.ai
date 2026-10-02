@@ -10,7 +10,7 @@ branch or the public domain.
 | Person | GitHub branch | Purpose |
 | --- | --- | --- |
 | Matt | `development` | Ready-to-review design at https://gobk-ai.pages.dev/ |
-| Jimmy | `codex/jimmy-experiments` | Independent experiments at https://codex-jimmy-experiments.gobk-ai.pages.dev/ |
+| Jimmy | `codex/jimmy-experiments` | Public experiments at https://codex-jimmy-experiments.gobk-ai.pages.dev/ |
 
 Cloudflare calls the stable review branch “Production.” Here that only means
 the private `pages.dev` review site. Public gobk.ai is a separate release.
@@ -33,15 +33,18 @@ succeeds, send Jimmy the stable link and the commit SHA. If a build fails,
 the link may still show the older version: do not call that a successful update.
 For a fixed review version, copy the immutable deployment URL from Cloudflare.
 
-Both private lanes require Cloudflare Access login using
-`jimmy.stein@bkfastpass.com` or `matt.mccune@bkfastpass.com`.
+Matt's private review site and immutable deployment URLs require Cloudflare Access
+login using `jimmy.stein@bkfastpass.com` or `matt.mccune@bkfastpass.com`.
+Only the exact Jimmy branch alias, `codex-jimmy-experiments.gobk-ai.pages.dev`, is
+public without Access login. The wildcard protection for all other previews remains
+in place, as do the existing noindex build headers.
 Keep all testing free of real client information. The GitHub repo is public,
 and this Access gate does not protect code or legacy GitHub Pages output.
 
 ## Jimmy's experiments
 
 Use `codex/jimmy-experiments`, build locally, commit selected files, then push
-that branch. Its private branch link updates after a successful build.
+that branch. Its public branch alias updates after a successful build.
 It starts from Matt's design plus workflow documentation, not old Checkup work.
 
 The GoBK Guide newsletter and its Brevo email signup are now maintained in this

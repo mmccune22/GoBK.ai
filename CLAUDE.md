@@ -72,8 +72,11 @@ correct branch, matching commit SHA, and successful deployment. A push alone
 does not prove deployment; a failed build can leave the previous site online.
 Share the stable review URL plus the commit SHA. For a pinned review, copy the
 successful deployment's immutable URL from Cloudflare instead of guessing it.
-Visitors must sign in through Cloudflare Access with an allowed work email.
-Check the homepage, navigation, an article, mobile layout, and search after login.
+Matt's review site and immutable deployment URLs require Cloudflare Access sign-in
+with an allowed work email. Only Jimmy's exact branch alias,
+`codex-jimmy-experiments.gobk-ai.pages.dev`, is public without Access login.
+Check the homepage, navigation, an article, mobile layout, and search in the
+appropriate Access state for that URL.
 
 ## Traps discovered the hard way
 
@@ -90,8 +93,12 @@ Check the homepage, navigation, an article, mobile layout, and search after logi
 - **Legacy single-file preview:** if deliberately regenerating
   `docs/index.html`, investigate unexpected large differences and preserve its
   noindex tag. That file is not needed to publish the Cloudflare review site.
-- **Private review stays private:** preserve Cloudflare Access and the hosting
-  build's `X-Robots-Tag: noindex, nofollow`. A robots tag alone is not security.
+- **Private review stays private:** preserve Cloudflare Access for Matt's review
+  site, immutable deployment URLs, and all other previews. The only authorized
+  public exception is the exact Jimmy alias,
+  `codex-jimmy-experiments.gobk-ai.pages.dev`; keep the wildcard preview protection
+  and the hosting build's `X-Robots-Tag: noindex, nofollow`. A robots tag alone is
+  not security.
 - **Jimmy's experiments are separate:** `codex/jimmy-experiments` is based on
   Matt's design but does not auto-merge future Matt changes. Preserve existing
   `jimmy-experimental` and `jimmy/checkup-beta` work; never overwrite them.
