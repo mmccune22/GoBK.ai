@@ -4,7 +4,7 @@ interface Props { dark?: boolean }
 const path = Astro.url.pathname;
 const nav = [
   { href: '/library', label: 'Library' },
-  { href: '/checkup', label: 'Checkup' },
+  { href: 'https://nacba.org/page/find-an-attorney', label: 'Find a lawyer', external: true },
   { href: '/about', label: 'About' },
 ];
 ---
@@ -17,7 +17,7 @@ const nav = [
     <nav aria-label="Primary">
       <ul>
         {nav.map((n) => (
-          <li><a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a></li>
+          <li><a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined} {...(n.external ? { target: '_blank', rel: 'noopener' } : {})}>{n.label}</a></li>
         ))}
         <li>
           <a href="/search" class="search-link" aria-current={path.startsWith('/search') ? 'page' : undefined}>
@@ -35,7 +35,7 @@ const nav = [
   .brand { display: flex; align-items: center; gap: 0.9rem; }
   .desc { color: var(--fg); font-size: 1.1875rem; font-weight: 500; }
   nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: clamp(1rem, 2.5vw, 1.75rem); align-items: center; }
-  nav a { color: var(--fg); text-decoration: none; font-size: 1rem; font-weight: 600; padding: 0.35rem 0; border-bottom: 2px solid transparent; }
+  nav a { white-space: nowrap; color: var(--fg); text-decoration: none; font-size: 1rem; font-weight: 600; padding: 0.35rem 0; border-bottom: 2px solid transparent; }
   nav a:hover, nav a[aria-current="page"] { border-bottom-color: var(--sage); }
   .search-link { display: inline-flex; align-items: center; gap: 0.4rem; }
   @media (max-width: 40rem) {
