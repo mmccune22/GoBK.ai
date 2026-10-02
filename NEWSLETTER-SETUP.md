@@ -3,8 +3,10 @@
 The newsletter is for people dealing with debt and exploring their options,
 including bankruptcy. Jimmy approved this consumer direction and the October 2
 content revision. That approval does not replace Matt's attorney review.
-Four issue drafts and a welcome preview are available at `/newsletter/`.
-All content remains pending Matt's editorial and attorney review.
+The `/newsletter/` page contains only two concise signup choices: The GoBK Guide
+newsletter and Bankruptcy Getting Started, a six-email consumer series.
+Earlier issue and welcome reading routes are preserved. All content remains
+pending Matt's editorial and attorney review.
 
 ## Source and deployment
 
@@ -30,13 +32,16 @@ Run `npm run test:newsletter-test` after an enabled build, or
 
 ## Signup and delivery
 
-The shared newsletter section on the homepage, Library, articles, and newsletter
-pages has an email field, required newsletter consent, and Subscribe button.
-It uses Brevo's official HTML/Ajax embed, adapted to the site's design with the
-optional first-name field omitted. The provider displays the actual submission
-result. No API key, subscriber database, or custom `/api/subscribe` endpoint is used.
-The public form destination is stored in `scripts/newsletter-preview-config.mjs`.
-The provider form markup is in `src/lib/brevo-form.html`.
+The Newsletter page has one email field for each subscription, with its own
+required, unchecked consent and submission button. Each uses Brevo's official
+HTML/Ajax form in a separate document because the provider embed has singleton
+IDs and script state. The provider displays the actual submission result. The
+optional first-name field is omitted. The existing shared newsletter widget on
+other pages retains its newsletter destination. No API key, subscriber database,
+or custom `/api/subscribe` endpoint is used. Public destinations are stored in
+`scripts/newsletter-preview-config.mjs`; `src/lib/signup-forms.mjs` applies
+independent activation and validates each URL. The base provider markup is in
+`src/lib/brevo-form.html`.
 
 The existing BK FastPass Brevo account uses the dedicated `GoBK Guide — Consumers`
 list. It is separate from the existing firm list. Double confirmation sends
@@ -74,6 +79,54 @@ Chapter descriptions were checked against the current U.S. Courts Chapter 7 and
 Chapter 13 introductions. No Library article has been marked reviewed, and no
 bulk newsletter campaign or recurring send schedule has been created.
 
+## Bankruptcy Getting Started series — October 2
+
+Jimmy requested a timed consumer series with a separate signup. The new Brevo
+form adds confirmed contacts only to `GoBK — Bankruptcy Getting Started` (list
+`#4`, provider row `6abfdb7f2a018b8e9ad59b42`). It does not add them to the
+newsletter list (`#3`). Double confirmation uses template 4; the form's optional
+final confirmation email is off, so it does not send newsletter template 5.
+
+Form: https://app.brevo.com/contact/forms/subscription/edit/6abfda89ff39c60902b35459
+
+Automation: https://app.brevo.com/automation/edit/1
+
+`GoBK Getting Started — 6-email trial` is Active. Its trigger is contact added
+to list #4 after activation; double confirmation precedes that list addition.
+Contact re-entry is off, no existing contacts were enrolled, and unsubscribing
+from emails is an active exit condition. It sends Day 1 immediately, waits two
+days, sends Day 3, waits two, sends Day 5, waits two, sends Day 7, waits three,
+sends Day 10, waits four, and sends Day 14. Email days are not court deadlines
+or a case timetable.
+
+| Day | Topic | Active template | Workflow message | Send step |
+| --- | --- | --- | --- | --- |
+| 1 | Understand your options | 6 | 8 | 3 |
+| 3 | Make a private financial snapshot | 7 | 10 | 5 |
+| 5 | Prepare for an attorney consultation | 9 | 13 | 7 |
+| 7 | Compare Chapter 7 and Chapter 13 | 11 | 15 | 9 |
+| 10 | Prepare if you decide to file | 12 | 16 | 11 |
+| 14 | Understand what follows filing | 14 | 17 | 13 |
+
+Editable source: `src/lib/bankruptcy-series.mjs`. `npm run series:export` produces
+HTML/text drafts in ignored `newsletter-output/series/`. Set
+`GOBK_EMAIL_MAILING_ADDRESS` to the approved company address before using exports.
+Provider messages retain the existing Jimmy sender, approved company mailing
+address, unsubscribe link, `[TEST]` subject, and Matt-review-pending banner.
+No firm contacts or other existing contacts were enrolled.
+
+Brevo's six-message test showed every send step Processed. All six arrived in
+Jimmy's controlled Gmail inbox on October 2 at 10:50:47–10:50:51 Denver time;
+received bodies have their correct day, review notice, company address, and
+resolved unsubscribe link. This tests message delivery without waiting for the
+real two-week delays. The saved workflow chain separately verifies delays of
+2, 2, 2, 3, and 4 days. Future timed deliveries have not yet been observed.
+
+Both enabled forms passed local desktop and 390px mobile checks: readable typed
+email, native invalid-email handling, required unchecked consent, separate
+destinations, responsive sizing, and no horizontal/vertical iframe overflow.
+Build: 100 pages and 88 indexed pages; all five newsletter tests passed.
+
 ## Verification
 
 Builds must retain all 100 pages and the 88-page Pagefind library index.
@@ -84,3 +137,5 @@ Cloudflare deployment, then check Jimmy's stable public branch URL without signi
 in. Matt's review site and immutable deployment URLs must still require Access.
 
 Provider reference: https://help.brevo.com/hc/en-us/articles/208771869-Create-a-sign-up-form-in-Brevo
+
+Automation testing: https://help.brevo.com/hc/en-us/articles/25318176966290-Test-messages-sent-from-an-automation

@@ -1,0 +1,25 @@
+---
+import brevoFormHtml from '../lib/brevo-form.html?raw';
+import { signupEmbedDocument, signupFormConfig } from '../lib/signup-forms.mjs';
+interface Props { kind: 'newsletter' | 'series'; title: string; explanation: string; timing: string }
+const { kind, title, explanation, timing } = Astro.props;
+const { enabled, formUrl } = signupFormConfig(kind, import.meta.env);
+const headingId = `signup-${kind}-heading`;
+---
+<article class="signup-card" aria-labelledby={headingId} data-pagefind-ignore>
+  <div class="card-description">
+    <p class="timing">{timing}</p>
+    <h2 id={headingId}>{title}</h2>
+    <p class="explanation">{explanation}</p>
+  </div>
+  {enabled ? <iframe data-email-signup={kind} title={`${title} signup`} srcdoc={signupEmbedDocument(brevoFormHtml, kind, formUrl)} referrerpolicy="strict-origin-when-cross-origin" /> : <div class="signup-closed"><button class="btn btn-primary" type="button" disabled>Signup opens soon</button><p>Subscriptions are not open yet.</p></div>}
+</article>
+<style>
+  .signup-card { background: #fff; border: 1px solid var(--rule); border-radius: var(--radius); padding: clamp(1.25rem, 3vw, 2rem); min-width: 0; }
+  .timing { color: var(--sage-deep); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em; margin: 0 0 0.7rem; }
+  h2 { font-size: clamp(1.5rem, 2.5vw, 1.8rem); margin-bottom: 0.8rem; }
+  .explanation { color: var(--fg-soft); font-size: 1rem; line-height: 1.55; margin: 0 0 1.25rem; }
+  iframe { display: block; width: 100%; height: 290px; border: 0; }
+  .signup-closed p { margin: 0.75rem 0 0; color: var(--fg-soft); font-size: 0.875rem; }
+  button:disabled { cursor: not-allowed; opacity: 0.7; }
+</style>

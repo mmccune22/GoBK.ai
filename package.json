@@ -10,6 +10,7 @@
     "test:newsletter": "node --test scripts/test-newsletter.mjs",
     "test:newsletter-test": "node scripts/run-newsletter-test.mjs",
     "newsletter:export": "node scripts/export-newsletter.mjs",
+    "series:export": "node scripts/export-bankruptcy-series.mjs",
     "preview": "astro preview"
   },
   "dependencies": {
