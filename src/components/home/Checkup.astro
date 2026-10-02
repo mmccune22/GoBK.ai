@@ -2,15 +2,14 @@
   <div class="wrap cols">
     <div>
       <h2>Ready to talk to a bankruptcy lawyer?</h2>
-      <p class="lede">The National Association of Consumer Bankruptcy Attorneys (NACBA) keeps a public directory of lawyers who represent people, not banks. Search by location, and consider talking with two before you choose. Most offer a free first consultation.</p>
+      <p class="lede">The National Association of Consumer Bankruptcy Attorneys (NACBA) is a national professional association dedicated to supporting consumer bankruptcy lawyers and protecting the rights of people facing bankruptcy. Its member directory is a good starting point for finding a lawyer in your area.</p>
+      <p>Use the &ldquo;Postal Code&rdquo; search at the top of the page: enter your ZIP code, choose a distance (such as 50 miles), and run the search.</p>
+      <p>When choosing a lawyer, ask about their experience, fees, and who will handle your case. Look for someone who explains your options clearly and treats you with respect.</p>
     </div>
     <div class="act">
-      <a class="btn btn-primary big" href="https://network.nacba.org/network/advanced-search" target="_blank" rel="noopener">Find a lawyer near you</a>
-      <ul class="facts">
-        <li>NACBA's directory, opens nacba.org</li>
-        <li>GoBK is not paid for referrals</li>
-        <li><a href="/library/how-to-find-a-bankruptcy-attorney">How to choose a bankruptcy lawyer</a></li>
-      </ul>
+      <a class="btn btn-primary big" href="https://network.nacba.org/network/advanced-search" target="_blank" rel="noopener">Find a lawyer near you &rarr;</a>
+      <p class="opens">Opens NACBA&rsquo;s website.</p>
+      <p class="fine">GoBK receives no payment for referrals. The directory is maintained by NACBA and may not include every bankruptcy lawyer in your area. Membership does not guarantee the quality of an attorney&rsquo;s services, and GoBK does not screen or endorse individual attorneys.</p>
     </div>
   </div>
 </section>
@@ -20,6 +19,9 @@
   .lede { margin: var(--space-2) 0 0; }
   .act { display: grid; gap: 0.75rem; justify-items: start; }
   .big { font-size: 1.125rem; padding: 1rem 1.6rem; }
+  .opens { margin: 0; font-size: 0.95rem; color: var(--fg-soft); }
+  .fine { margin: 0.5rem 0 0; font-size: 0.85rem; line-height: 1.5; color: var(--fg-soft); max-width: 34ch; }
+  .cols p + p { margin-top: var(--space-2); }
   .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.25rem; font-size: 0.95rem; color: var(--fg-soft); }
   .facts li::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--sage); margin: 0 0.6rem 2px 2px; }
   @media (max-width: 48rem) { .cols { grid-template-columns: 1fr; gap: var(--space-3); } }
