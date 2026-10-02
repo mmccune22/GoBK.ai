@@ -52,4 +52,4 @@ Three to five years is a long time, and life doesn't pause for it. Jobs are lost
 
 ## The bottom line
 
-If your problem is mainly "too much unsecured debt," Chapter 7 is usually the first thing to consider. If your problem includes saving a house, keeping a car, taxes, or protecting things you'd lose in Chapter 7, Chapter 13 is often the most powerful tool in the entire Bankruptcy Code for a normal person. The Checkup asks the questions that point one way or the other.
+If your problem is mainly "too much unsecured debt," Chapter 7 is usually the first thing to consider. If your problem includes saving a house, keeping a car, taxes, or protecting things you'd lose in Chapter 7, Chapter 13 is often the most powerful tool in the entire Bankruptcy Code for a normal person. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).

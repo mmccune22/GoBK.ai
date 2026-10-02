@@ -1,6 +1,6 @@
 ---
 title: "Homestead and vehicle exemptions by state"
-shortAnswer: "The two exemptions people ask about first, home equity and vehicle, for all fifty states and D.C., verified against current sources in September 2026. Use this as a first-look map, not a final answer: several states adjust these amounts every year, some let you choose the federal list instead, and the number that matters is your equity, not your home's value. Your state's line here is also what the BK Checkup uses for its first read."
+shortAnswer: "The two exemptions people ask about first, home equity and vehicle, for all fifty states and D.C., verified against current sources in September 2026. Use this as a first-look map, not a final answer: several states adjust these amounts every year, some let you choose the federal list instead, and the number that matters is your equity, not your home's value."
 description: "A verified fifty-state reference table of homestead and vehicle exemption amounts, with the caveats that make the numbers usable."
 category: property-and-assets
 tags: [exemptions, house, car, documents]
@@ -87,4 +87,4 @@ sources:
 
 ## What to do with your number
 
-Compare your actual equity to your state's line. Comfortably inside: your home and car are likely safe in either chapter, and the exemptions explainer tells the rest of that story. Near or over the line: that is precisely where Chapter 13's pay-the-value-and-keep-it machinery, timing, and an attorney's knowledge of local practice earn their keep, and where the house and car answers in this section are the next reads. The Checkup uses your state's figures the moment you tell it where you live, and in California and Washington it will ask your county, because there the protection tracks local home prices.
+Compare your actual equity to your state's line. Comfortably inside: your home and car are likely safe in either chapter, and the exemptions explainer tells the rest of that story. Near or over the line: that is precisely where Chapter 13's pay-the-value-and-keep-it machinery, timing, and an attorney's knowledge of local practice earn their keep, and where the house and car answers in this section are the next reads. In California and Washington, the protection also depends on your county, because there it tracks local home prices. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).

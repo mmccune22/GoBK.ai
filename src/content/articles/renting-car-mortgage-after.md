@@ -31,4 +31,4 @@ Mortgage lending runs on published "seasoning" periods counted **from discharge*
 
 ## The thread through all three
 
-Every clock above starts at filing or discharge, not at the moment you finally felt ready. Which reframes the decision people delay for years: the waiting period you're dreading may already be running on debts you'll eventually discharge anyway, just without the timer started. It's one more reason "when" deserves as much thought as "whether," and both are what the Checkup and a consultation are for.
+Every clock above starts at filing or discharge, not at the moment you finally felt ready. Which reframes the decision people delay for years: the waiting period you're dreading may already be running on debts you'll eventually discharge anyway, just without the timer started. It's one more reason "when" deserves as much thought as "whether," and both are what a consultation is for. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).

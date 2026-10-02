@@ -33,4 +33,4 @@ The rate math is half the story; the recidivism math is the other. The classic c
 
 ## The bottom line
 
-Consolidation is a rate instrument, not a debt solution. Total cost, fees in, term matched, cards dead, house never pledged: if all that pencils, fine. If it doesn't, the adjacent articles, DMPs, settlement, and the bankruptcy shelves, are the honest next reads, and the Checkup will tell you which one your numbers resemble.
+Consolidation is a rate instrument, not a debt solution. Total cost, fees in, term matched, cards dead, house never pledged: if all that pencils, fine. If it doesn't, the adjacent articles, DMPs, settlement, and the bankruptcy shelves, are the honest next reads. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).

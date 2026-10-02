@@ -35,4 +35,4 @@ Each myth below links to the full answer elsewhere in the Library.
 
 **"Filing means I failed."** The bankruptcy power is in the Constitution, the customers are overwhelmingly ordinary households hit by illness, job loss, and divorce, and the people who judge filers most harshly have generally never read a medical bill. Using a legal tool for its intended purpose is called planning.
 
-If one of these myths has been running your decisions, start with its full article, and then let the Checkup look at your actual numbers instead of the folklore.
+If one of these myths has been running your decisions, start with its full article. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).

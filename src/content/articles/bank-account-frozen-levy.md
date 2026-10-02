@@ -45,4 +45,4 @@ Until the situation is resolved, don't leave more in the levied account than you
 
 ## The bottom line
 
-A levy means a creditor has already been to court, which means the polite phase is over. Claim what's protected today; then decide whether you're solving one levy or a debt situation. If it's the situation, the Checkup and the garnishment and lawsuit answers in this section are the next fifteen minutes well spent.
+A levy means a creditor has already been to court, which means the polite phase is over. Claim what's protected today; then decide whether you're solving one levy or a debt situation. If it's the situation, the garnishment and lawsuit answers in this section are the next fifteen minutes well spent. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).

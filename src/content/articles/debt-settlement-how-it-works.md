@@ -35,4 +35,4 @@ One or two debts, real money available, income too high or assets too exposed fo
 
 ## The bottom line
 
-If you're weighing settlement, price the whole thing: fees, the tax on forgiveness, the lawsuit risk during the wait, and what a bankruptcy would have cost instead. That comparison, run honestly with your real numbers, is exactly what the Checkup starts and a consultation finishes.
+If you're weighing settlement, price the whole thing: fees, the tax on forgiveness, the lawsuit risk during the wait, and what a bankruptcy would have cost instead. That comparison, run honestly with your real numbers, is exactly what a consultation is for. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).

@@ -86,6 +86,4 @@ Bankruptcy can be an extraordinarily powerful tool. It can stop collection, elim
 
 But that doesn't mean bankruptcy is right for everyone. Your income, debts, assets, timing, and what you're trying to protect or accomplish all matter. Sometimes bankruptcy is the best option. Sometimes another solution makes more sense. And sometimes [doing nothing](/library/judgment-proof-doing-nothing) — at least for now — may be the right answer.
 
-That's what the BK Checkup is designed to help you begin figuring out. It takes what you've learned here and applies it to your situation, helping you understand whether bankruptcy may make sense, which chapter might fit, what issues you should be thinking about, and what questions you may want to ask a bankruptcy lawyer.
-
-And if talking with a lawyer is the right next step, we'll help you understand how to find one, what to look for, and how to prepare for that conversation so you can make a more informed choice. That's the [Before you hire a lawyer](/library/before-hiring) section.
+If talking with a lawyer is the right next step, we'll help you understand how to find one, what to look for, and how to prepare for that conversation so you can make a more informed choice. That's the [Before you hire a lawyer](/library/before-hiring) section.

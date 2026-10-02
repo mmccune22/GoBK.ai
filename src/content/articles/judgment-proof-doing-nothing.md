@@ -35,4 +35,4 @@ The debt doesn't die; it circles. Calls and letters continue until cut off, suit
 
 ## The bottom line
 
-This option is real, legal, and chronically undersold, because nobody profits from it. Whether it's *yours* turns on exactly three questions: what your income is, what you own, and what your state protects. Those happen to be the Checkup's first questions, and "you may not need to file" is one of the results it's built to give.
+This option is real, legal, and chronically undersold, because nobody profits from it. Whether it's *yours* turns on exactly three questions: what your income is, what you own, and what your state protects. An honest consultation answers all three, and "you may not need to file" is one of the answers a good bankruptcy lawyer will give. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).

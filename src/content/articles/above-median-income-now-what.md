@@ -35,4 +35,4 @@ Then the system routes you to **Chapter 13** with a five-year plan, and the hone
 
 ## The bottom line
 
-Above-median is the start of a calculation, not the end of an option. Gather the pay stubs, the mortgage and car statements, the insurance and support numbers, and let someone who does this daily run the real test. The Checkup can give you a first read on which side of the line your situation likely falls.
+Above-median is the start of a calculation, not the end of an option. Gather the pay stubs, the mortgage and car statements, the insurance and support numbers, and let someone who does this daily run the real test. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).

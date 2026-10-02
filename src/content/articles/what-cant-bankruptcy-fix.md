@@ -35,7 +35,7 @@ Bankruptcy takes the world as it finds it. The 401(k) already cashed out to pay 
 
 ## The life it can't build
 
-The discharge clears debt; it doesn't raise income, lower rent, or make a budget balance that never balanced. People whose core problem is chronic shortfall sometimes discharge everything and slide back within a few years, and the eight-year limit between Chapter 7 discharges makes that a costly loop. The best filings pair the fresh start with a change that makes it stick, which is exactly what the Checkup's non-bankruptcy results and the Alternatives section are for.
+The discharge clears debt; it doesn't raise income, lower rent, or make a budget balance that never balanced. People whose core problem is chronic shortfall sometimes discharge everything and slide back within a few years, and the eight-year limit between Chapter 7 discharges makes that a costly loop. The best filings pair the fresh start with a change that makes it stick, which is exactly what the Alternatives section is for.
 
 ## The bottom line
 

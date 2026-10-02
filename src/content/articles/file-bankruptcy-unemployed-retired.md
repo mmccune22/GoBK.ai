@@ -39,4 +39,4 @@ Here's the counterintuitive part. If your income is all protected benefits and y
 
 ## The bottom line
 
-If you're broke, bankruptcy is available; being broke is rather the point of it. The choice worth making carefully isn't whether you *can* file; it's whether filing, waiting, or knowledgeable inaction serves you best, and that turns on exactly the facts the Checkup asks about: your income sources, your property, and what's protected in your state.
+If you're broke, bankruptcy is available; being broke is rather the point of it. The choice worth making carefully isn't whether you *can* file; it's whether filing, waiting, or knowledgeable inaction serves you best, and that turns on your income sources, your property, and what's protected in your state. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).

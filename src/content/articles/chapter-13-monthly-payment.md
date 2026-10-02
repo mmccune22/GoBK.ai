@@ -44,4 +44,4 @@ Your proposed budget is not automatically accepted. The trustee's job includes p
 
 ## The bottom line
 
-Expect the payment to be built from: arrears and taxes you're catching up, plus fees, plus whatever your honest budget shows you can spare. The Checkup can't compute your plan, but it can tell you whether your situation looks like a Chapter 13 situation at all, and the reading list it gives you will make the eventual attorney conversation faster and cheaper.
+Expect the payment to be built from: arrears and taxes you're catching up, plus fees, plus whatever your honest budget shows you can spare. Only an attorney working from your real numbers can compute your actual plan. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).

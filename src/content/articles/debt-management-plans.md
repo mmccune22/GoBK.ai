@@ -37,4 +37,4 @@ The word "nonprofit" is doing security work here, so verify it: look for NFCC or
 
 ## The bottom line
 
-A DMP is the right tool for a specific, real situation: serviceable principal strangled by interest. Run your numbers both ways: full principal at low rate over five years, versus what a bankruptcy would actually require, and let the arithmetic, not the stigma, pick. The Checkup runs the first half of that comparison for free.
+A DMP is the right tool for a specific, real situation: serviceable principal strangled by interest. Run your numbers both ways: full principal at low rate over five years, versus what a bankruptcy would actually require, and let the arithmetic, not the stigma, pick. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).

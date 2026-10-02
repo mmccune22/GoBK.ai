@@ -38,4 +38,4 @@ The center of the target: income at or below the means test line (or passing the
 
 ## The bottom line
 
-If your situation is "too much unsecured debt, ordinary property, income that qualifies," Chapter 7 is the straight path: four months, one short meeting, fresh start. The Checkup's core job is telling you whether that's your situation or whether one of the wrinkles above points at the longer chapter.
+If your situation is "too much unsecured debt, ordinary property, income that qualifies," Chapter 7 is the straight path: four months, one short meeting, fresh start. A consultation will tell you whether that's your situation or whether one of the wrinkles above points at the longer chapter. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).

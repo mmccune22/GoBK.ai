@@ -12,14 +12,14 @@ weight: 90
 showCheckup: true
 sources:
   - title: "NACBA, Find an Attorney"
-    url: "https://nacba.org/page/find-an-attorney"
+    url: "https://network.nacba.org/network/advanced-search"
   - title: "Legal Services Corporation, find legal aid"
     url: "https://www.lsc.gov/about-lsc/what-legal-aid/get-legal-help"
 ---
 
 ## Where to look
 
-- **The NACBA directory.** The National Association of Consumer Bankruptcy Attorneys is the trade association for lawyers who represent people (not banks) in bankruptcy. Its public finder searches members by zip code. Membership isn't a vetting badge, but in this field it's a meaningful signal: these are lawyers invested in consumer work specifically.
+- **The NACBA directory.** The National Association of Consumer Bankruptcy Attorneys is the trade association for lawyers who represent people (not banks) in bankruptcy. [Its public directory](https://network.nacba.org/network/advanced-search) lets you search members by location. Membership isn't a vetting badge, but in this field it's a meaningful signal: these are lawyers invested in consumer work specifically.
 - **Your state bar's referral service**, which can also flag who's had discipline problems.
 - **Legal aid**, if money is the barrier: bankruptcy help exists at many legal aid offices and through bar pro bono programs, and the national legal-aid locator will find yours.
 - **A referral from any lawyer you trust** in another field; lawyers know who the real bankruptcy practitioners in town are.
@@ -42,4 +42,4 @@ Nearly universal and nearly always free. Bring the honest picture: income, debts
 
 ## The bottom line
 
-This is a field with genuine, affordable specialists in nearly every district, an association directory to find them, and free first conversations. If your Checkup result or your gut says "talk to someone," the whole cost of acting on it today is an hour.
+This is a field with genuine, affordable specialists in nearly every district, an association directory to find them, and free first conversations. If your gut says "talk to someone," the whole cost of acting on it today is an hour.

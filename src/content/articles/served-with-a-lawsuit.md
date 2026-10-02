@@ -38,4 +38,4 @@ You're not out of moves. Default judgments can sometimes be set aside if service
 
 ## The bottom line
 
-Respond to the suit, on time, no matter what else you decide. Then decide with the whole board in view: one debt problem is a lawsuit problem; several is a situation the Checkup was built to help you sort.
+Respond to the suit, on time, no matter what else you decide. Then decide with the whole board in view: one debt problem is a lawsuit problem; several is a situation worth sorting out with a bankruptcy lawyer. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).

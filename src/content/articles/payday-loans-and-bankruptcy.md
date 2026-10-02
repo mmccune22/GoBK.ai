@@ -39,4 +39,4 @@ Your realistic options for the car:
 
 ## The bottom line
 
-If payday or title loans are part of what brought you here, take them as a signal rather than a source of shame: they're what people use when the safer options are gone, and their presence usually means the overall situation is past the point of trimming expenses. Bankruptcy treats these debts without ceremony. The Checkup can help you see whether the rest of your situation points the same way.
+If payday or title loans are part of what brought you here, take them as a signal rather than a source of shame: they're what people use when the safer options are gone, and their presence usually means the overall situation is past the point of trimming expenses. Bankruptcy treats these debts without ceremony. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).
