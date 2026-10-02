@@ -10,9 +10,9 @@ const issues = newsletterEmails.filter((email) => email.number);
       <div class="hero-intro">
         <p class="k">THE GOBK GUIDE</p>
         <h1>Debt questions.<br /><span>Clear answers.</span></h1>
-        <p class="lede">A calmer place to start. Twice a month, we explain one topic in plain English and help you prepare for the next conversation.</p>
+        <p class="lede">Bills getting hard to manage? Wondering whether bankruptcy makes sense? Get plain-English answers, a practical checklist, and one useful next step.</p>
         <div class="actions"><a href="/newsletter/where-to-start">Read the first issue</a></div>
-        <p class="small soft">Free. Written for people exploring their options. No pressure to file.</p>
+        <p class="small soft">Free. Twice a month once we launch. For people exploring debt options. No pressure to file.</p>
       </div>
       <div id="signup" class="signup-section"><Newsletter signup compact /></div>
     </div>
@@ -21,7 +21,7 @@ const issues = newsletterEmails.filter((email) => email.number);
     <div class="section-heading"><p class="k">SMALL EMAILS. USEFUL ANSWERS.</p><h2>A little clarity, twice a month.</h2></div>
     <div class="benefits">
       <div><span class="number">01</span><h3>One clear explanation</h3><p>We take one common question and explain it in everyday language.</p></div>
-      <div><span class="number">02</span><h3>One practical checklist</h3><p>A short list to help you organize your thoughts and prepare your questions.</p></div>
+      <div><span class="number">02</span><h3>One practical checklist</h3><p>Organize the facts, prepare for a consultation, and know what to ask.</p></div>
       <div><span class="number">03</span><h3>One next step</h3><p>Something useful to read or ask about, without rushing a decision.</p></div>
     </div>
   </div></section>
@@ -31,9 +31,9 @@ const issues = newsletterEmails.filter((email) => email.number);
     <aside class="issue-preview" aria-label="First issue preview">
       <div class="preview-top"><strong>The GoBK Guide</strong><span>ISSUE 01 · DRAFT</span></div>
       <p class="k">A QUESTION YOU MIGHT BE ASKING</p>
-      <h2>Debt feels overwhelming. Where do you start?</h2>
-      <p>You don’t have to understand everything today. Start with your questions.</p>
-      <ul><li>What do I most want to understand?</li><li>What should I bring to a conversation?</li><li>What could my next step look like?</li></ul>
+      <h2>{issues[0].subject}</h2>
+      <p>Ten minutes. Five parts. A clearer picture to bring to an attorney.</p>
+      <ul><li>What you owe and what comes into your household.</li><li>Essential expenses and property you want to ask about.</li><li>Dated notices, deadlines, and the question you most need answered.</li></ul>
       <a href="/newsletter/where-to-start">Take a look inside <span aria-hidden="true">→</span></a>
     </aside>
     <ol class="issue-list">{issues.map((issue) => <li><a href={`/newsletter/${issue.slug}`}><span class="issue-number">{String(issue.number).padStart(2, '0')}</span><div><h3>{issue.subject}</h3><p>{issue.preheader}</p></div><span aria-hidden="true">↗</span></a></li>)}</ol>
@@ -41,7 +41,7 @@ const issues = newsletterEmails.filter((email) => email.number);
   </div></section>
   <section class="section"><div class="wrap faq">
     <h2>A few things to know.</h2>
-    <details><summary>Who is this for?</summary><p>People dealing with debt, considering bankruptcy, or preparing to talk with an attorney. No legal background needed.</p></details>
+    <details><summary>Who is this for?</summary><p>People dealing with debt who want to understand their options, including bankruptcy. You may be preparing to talk with an attorney or simply learning where to start. No legal background needed.</p></details>
     <details><summary>Does signing up mean I’m choosing bankruptcy?</summary><p>No. The guide helps you understand the conversation and explore your options. Signing up is simply a request for educational emails.</p></details>
     <details><summary>Do I need to share my financial situation?</summary><p>No. Signup asks only for your email address and newsletter consent. Keep account numbers, documents, and private financial details out of newsletter replies.</p></details>
     <details><summary>How often will I hear from you?</summary><p>Twice a month once the guide launches. Each issue focuses on one question. You can unsubscribe using the link in any newsletter email.</p></details>

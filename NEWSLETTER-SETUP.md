@@ -1,6 +1,8 @@
 # The GoBK Guide on Jimmy's Cloudflare branch
 
-The newsletter is for people dealing with debt and considering bankruptcy.
+The newsletter is for people dealing with debt and exploring their options,
+including bankruptcy. Jimmy approved this consumer direction and the October 2
+content revision. That approval does not replace Matt's attorney review.
 Four issue drafts and a welcome preview are available at `/newsletter/`.
 All content remains pending Matt's editorial and attorney review.
 
@@ -50,6 +52,27 @@ The October 1 test to Jimmy's controlled Gmail inbox was delivered. Gmail contai
 `[TEST] The GoBK Guide: where to start`; Brevo recorded delivery and opening.
 Company sender/domain authentication and Matt's content review remain launch work.
 Jimmy's exact branch alias is publicly accessible without Cloudflare Access login.
+
+## October 2 content revision
+
+The first issue now provides a private five-part snapshot: debts, income,
+essential expenses, property concerns, and dated notices. Later issues cover
+consultation preparation, Chapter 7 and Chapter 13, and leaving a consultation
+with a clear next action. The welcome preview and signup-page copy match this
+consumer focus. Existing slugs, signup placement, and readable email input remain.
+
+Brevo template 5 has the revised first issue, with subject
+`[TEST] GoBK Guide: your debt snapshot` and preview text
+`Five parts. One clearer next step.` The existing confirmation flow, mailing
+address, unsubscribe link, consumer list, and sender settings are preserved.
+A single-recipient Brevo test reached Jimmy's controlled Gmail inbox on October 2
+at 08:18:37 Denver time (message `1a0fcfb395e88e6c`). Its received body contains
+all five snapshot items and the pending-review notice. This verifies the updated
+template's delivery; the full signup flow was last verified on October 1.
+
+Chapter descriptions were checked against the current U.S. Courts Chapter 7 and
+Chapter 13 introductions. No Library article has been marked reviewed, and no
+bulk newsletter campaign or recurring send schedule has been created.
 
 ## Verification
 
