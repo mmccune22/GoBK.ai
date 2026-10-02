@@ -19,6 +19,7 @@ for f in sorted(glob.glob(f'{dist}/**/index.html',recursive=True)):
     pages[url]=('home' if rel=='.' else rel.replace('/','--'), f)
 def rl(m):
     base=m.group(1).split('?')[0].rstrip('/') or '/'
+    if base=='/' and m.group(2) and len(m.group(2))>1: return f'href="{m.group(2)}"'
     return f'href="#{pages[base][0]}"' if base in pages else m.group(0)
 sections=[]; titles={}; imgs={}
 for url,(pid,f) in pages.items():
@@ -45,6 +46,8 @@ if(!document.getElementById('pg-'+id)){{
 var pg=document.getElementById('pg-'+cur);
 var t=pg&&pg.querySelector('[id="'+id.replace(/"/g,'')+'"]');
 if(t){{t.scrollIntoView({{behavior:'smooth',block:'start'}});return;}}
+var h=document.querySelector('#pg-home [id="'+id.replace(/"/g,'')+'"]');
+if(h){{cur='home';document.querySelectorAll('.pg').forEach(function(p){{p.hidden=p.id!=='pg-home'}});document.title=titles['home']||'GoBK';h.scrollIntoView({{block:'start'}});return;}}
 id='home';}}
 cur=id;
 document.querySelectorAll('.pg').forEach(function(p){{p.hidden=p.id!=='pg-'+id}});document.querySelectorAll('.vbar a').forEach(function(a){{a.classList.toggle('on',a.dataset.v===id)}});document.title=titles[id]||'GoBK';window.scrollTo(0,0);}}
