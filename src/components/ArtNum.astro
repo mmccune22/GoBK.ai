@@ -1,0 +1,15 @@
+---
+/** An article's Library number, e.g. "1.2" (Part 1, article 2). The number is written into each
+ *  article's file (`num:`) and never computed, so adding an article never renumbers the others.
+ *  `long` renders "Part 1 · 1.2" for the top of an article page. */
+interface Props { num?: string; long?: boolean }
+const { num, long = false } = Astro.props;
+const part = num ? Number(num.split('.')[0]) : 0;
+---
+{num && (long
+  ? <p class="anum-long">Part {part} · {num}</p>
+  : <span class="anum">{num}</span>)}
+<style>
+  .anum { display: inline-block; min-width: 2.1rem; color: var(--fg-soft); font-size: 0.85em; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .anum-long { margin: 0 0 0.35rem; color: var(--fg-soft); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
+</style>

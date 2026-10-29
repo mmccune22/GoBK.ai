@@ -18,6 +18,7 @@ const articles = defineCollection({
     updated: z.date(),
     status: z.enum(['draft', 'reviewed']).default('draft'),
     weight: z.number().default(50),
+    num: z.string().regex(/^\d+\.\d+$/).optional(),
     showCheckup: z.boolean().default(false),
     startHere: z.boolean().default(false),
     jurisdictionNote: z.string().optional(),

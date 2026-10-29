@@ -8,6 +8,7 @@ import CheckupCta from './CheckupCta.astro';
 import ArticleList from './ArticleList.astro';
 import Newsletter from './Newsletter.astro';
 import Contents from './Contents.astro';
+import ArtNum from './ArtNum.astro';
 import { getCategory } from '../data/categories';
 
 interface Props { article: CollectionEntry<'articles'>; all: CollectionEntry<'articles'>[] }
@@ -49,6 +50,7 @@ const jsonLd = {
       <nav class="crumbs" aria-label="Breadcrumb">
         <a href="/library">Library</a> / <a href={`/library/${category.id}`}>{category.name}</a>
       </nav>
+      <ArtNum num={article.data.num} long />
       <h1>{article.data.title}</h1>
       <p class="short-answer">{article.data.shortAnswer}</p>
       <Byline

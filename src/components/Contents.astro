@@ -4,16 +4,18 @@
  *  opens automatically and the first item inside is the chapter overview. */
 import { categories } from '../data/categories';
 import { getCollection } from 'astro:content';
+import ArtNum from './ArtNum.astro';
+import ReviewMark from './ReviewMark.astro';
 interface Props { current?: string; currentSlug?: string; title?: string; expandable?: boolean; headings?: { slug: string; text: string }[] }
 const { current, currentSlug, title = 'Browse the Library', expandable = false, headings = [] } = Astro.props;
-let byCat: Record<string, { slug: string; title: string }[]> = {};
+let byCat: Record<string, { slug: string; title: string; num?: string; status: 'draft' | 'reviewed' }[]> = {};
 if (expandable) {
   const all = await getCollection('articles');
   for (const c of categories) {
     byCat[c.id] = all
       .filter((a) => a.data.category === c.id)
       .sort((a, b) => (a.data.weight ?? 999) - (b.data.weight ?? 999) || a.data.title.localeCompare(b.data.title))
-      .map((a) => ({ slug: a.id, title: a.data.title }));
+      .map((a) => ({ slug: a.id, title: a.data.title, num: a.data.num, status: a.data.status }));
   }
 }
 ---
@@ -29,7 +31,7 @@ if (expandable) {
               <li><a class="overview" href={`/library/${c.id}`}>{c.name}: overview</a></li>
               {byCat[c.id].map((a) => (
                 <li>
-                  <a href={`/library/${a.slug}`} aria-current={a.slug === currentSlug ? 'page' : undefined}>{a.title}</a>
+                  <a href={`/library/${a.slug}`} aria-current={a.slug === currentSlug ? 'page' : undefined}><ArtNum num={a.num} />{a.title}<ReviewMark status={a.status} /></a>
                   {a.slug === currentSlug && headings.length > 0 && (
                     <ol class="secs">
                       {headings.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}

@@ -1,0 +1,12 @@
+---
+/** Small "Reviewed" / "Draft" tag. Renders nothing on production; see data/review.ts. */
+import { showReviewMarks } from '../data/review';
+interface Props { status: 'draft' | 'reviewed' }
+const { status } = Astro.props;
+---
+{showReviewMarks && <span class:list={['rv', status]} data-pagefind-ignore>{status === 'reviewed' ? 'Reviewed' : 'Draft'}</span>}
+<style>
+  .rv { display: inline-block; margin-left: 0.45rem; padding: 0.05rem 0.4rem; border-radius: 999px; font-size: 0.68rem; font-weight: 600; font-style: normal; letter-spacing: 0.02em; text-transform: uppercase; vertical-align: 0.12em; line-height: 1.4; }
+  .rv.reviewed { background: #2f6b4f; color: #fff; }
+  .rv.draft { background: transparent; color: #8a6d1f; border: 1px solid #c9a94a; }
+</style>

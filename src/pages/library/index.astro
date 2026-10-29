@@ -4,6 +4,8 @@ import Base from '../../layouts/Base.astro';
 import SearchBox from '../../components/SearchBox.astro';
 import Newsletter from '../../components/Newsletter.astro';
 import { categories } from '../../data/categories';
+import ArtNum from '../../components/ArtNum.astro';
+import ReviewMark from '../../components/ReviewMark.astro';
 
 const all = await getCollection('articles');
 const byCat = categories.map((c) => ({
@@ -27,7 +29,7 @@ const byCat = categories.map((c) => ({
         <h2><a href={`/library/${c.id}`}><span class="num">{String(i + 1).padStart(2, '0')}</span>{c.name}</a></h2>
         <p class="blurb">{c.blurb}</p>
         <ul>
-          {c.articles.map((a) => <li><a href={`/library/${a.id}`}>{a.data.title}</a></li>)}
+          {c.articles.map((a) => <li><a href={`/library/${a.id}`}><ArtNum num={a.data.num} />{a.data.title}<ReviewMark status={a.data.status} /></a></li>)}
         </ul>
       </section>
     ))}
