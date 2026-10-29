@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 65
+num: "1.6"
 showCheckup: true
 sources:
   - title: "U.S. Courts, Bankruptcy Basics"

@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 35
+num: "9.3"
 showCheckup: true
 sources:
   - title: "HUD, FHA underwriting handbook (bankruptcy seasoning)"

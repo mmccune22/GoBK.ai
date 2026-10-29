@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 20
+num: "10.1"
 showCheckup: true
 sources:
   - title: "26 U.S.C. § 108, cancellation-of-debt income and the insolvency exclusion"

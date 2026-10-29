@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 40
+num: "7.3"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 523(a)(8), the student loan exception"

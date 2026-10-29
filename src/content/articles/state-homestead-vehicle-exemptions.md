@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-02
 status: draft
 weight: 18
+num: "6.2"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 522, exemptions"

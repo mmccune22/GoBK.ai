@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 58
+num: "11.7"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 541, property of the estate"

@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 50
+num: "7.4"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 523(a)(1), the tax exceptions"

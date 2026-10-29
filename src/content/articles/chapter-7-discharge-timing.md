@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 20
+num: "4.2"
 showCheckup: true
 sources:
   - title: "Fed. R. Bankr. P. 4004, time for objecting and entry of discharge"

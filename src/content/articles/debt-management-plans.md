@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 25
+num: "10.2"
 showCheckup: true
 sources:
   - title: "FTC, choosing a credit counselor"

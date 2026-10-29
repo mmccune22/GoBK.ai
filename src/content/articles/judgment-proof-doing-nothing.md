@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 35
+num: "10.4"
 showCheckup: true
 sources:
   - title: "42 U.S.C. § 407, protection of Social Security benefits"

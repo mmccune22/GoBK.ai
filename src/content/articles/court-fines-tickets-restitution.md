@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 90
+num: "7.9"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 523(a)(7), fines and penalties"

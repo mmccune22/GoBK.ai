@@ -10,6 +10,7 @@ updated: 2026-09-01
 status: draft
 startHere: true
 weight: 40
+num: "6.4"
 jurisdictionNote: "The motor vehicle exemption is set by state law, or by the federal exemption in states that allow it, and the amounts range from a couple thousand dollars to considerably more. Some states also let you apply an unused portion of another exemption to a vehicle."
 sources:
   - title: "11 U.S.C. § 722, redemption"

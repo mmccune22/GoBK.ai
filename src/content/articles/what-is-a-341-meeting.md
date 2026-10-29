@@ -8,6 +8,7 @@ doors: []
 published: 2026-08-15
 updated: 2026-09-01
 status: draft
+num: "4.5"
 startHere: false
 jurisdictionNote: "Many districts now hold 341 meetings by phone or video, though some have returned to in-person meetings. Your notice from the court will say which."
 sources:

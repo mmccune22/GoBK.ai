@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 15
+num: "9.1"
 showCheckup: true
 sources:
   - title: "CFPB, rebuilding credit"

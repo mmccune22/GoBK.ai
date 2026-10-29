@@ -9,6 +9,7 @@ published: 2026-09-04
 updated: 2026-09-04
 status: draft
 weight: 75
+num: "11.10"
 showCheckup: true
 sources:
   - title: "FTC, consumer guidance on AI chatbots"

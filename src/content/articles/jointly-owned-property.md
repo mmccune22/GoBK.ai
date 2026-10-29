@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 75
+num: "6.6"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 363(h), sale of co-owned property"

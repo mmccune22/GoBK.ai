@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 70
+num: "5.7"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 101(30), regular income; § 109(e)"

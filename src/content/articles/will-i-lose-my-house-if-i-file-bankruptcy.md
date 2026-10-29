@@ -10,6 +10,7 @@ updated: 2026-09-01
 status: draft
 startHere: true
 weight: 30
+num: "6.3"
 showCheckup: true
 jurisdictionNote: "Homestead exemptions are set by state law and vary more than almost any other part of bankruptcy. A few states protect an unlimited amount of home equity. Some protect only a small amount. Some let you choose the federal exemption instead. This one number often decides the answer for you, so find out what it is where you live."
 sources:

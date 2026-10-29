@@ -10,6 +10,7 @@ updated: 2026-09-01
 status: draft
 startHere: true
 weight: 10
+num: "1.3"
 showCheckup: true
 sources:
   - title: "U.S. Courts, Chapter 7 Bankruptcy Basics"

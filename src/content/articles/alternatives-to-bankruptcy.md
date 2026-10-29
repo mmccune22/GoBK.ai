@@ -10,6 +10,7 @@ updated: 2026-09-01
 status: draft
 startHere: true
 weight: 60
+num: "10.5"
 showCheckup: true
 sources:
   - title: "Consumer Financial Protection Bureau, What is the difference between a credit counselor and a debt settlement company?"

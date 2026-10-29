@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 20
+num: "3.2"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 109(h), the counseling requirement"

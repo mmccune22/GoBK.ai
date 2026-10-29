@@ -10,6 +10,7 @@ updated: 2026-09-01
 status: draft
 startHere: true
 weight: 50
+num: "7.5"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 523, exceptions to discharge"

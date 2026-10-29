@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 45
+num: "6.5"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 522(b)(3)(C), (d)(12), retirement exemptions"

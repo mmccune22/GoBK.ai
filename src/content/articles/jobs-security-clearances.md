@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 45
+num: "9.4"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 525, protection against discriminatory treatment"

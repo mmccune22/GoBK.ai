@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 60
+num: "1.5"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 727(a)(8)-(9), Chapter 7 discharge limits"

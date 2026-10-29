@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 30
+num: "7.2"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 727, the Chapter 7 discharge"

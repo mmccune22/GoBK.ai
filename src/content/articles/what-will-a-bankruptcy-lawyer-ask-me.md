@@ -9,6 +9,7 @@ published: 2026-09-04
 updated: 2026-09-04
 status: draft
 weight: 20
+num: "11.2"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 521, debtor's duties"

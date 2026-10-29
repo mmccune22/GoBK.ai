@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 55
+num: "9.5"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 524, the discharge injunction"

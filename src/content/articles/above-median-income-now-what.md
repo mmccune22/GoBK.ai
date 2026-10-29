@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 30
+num: "2.1"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 707(b)(2), the means test calculation"

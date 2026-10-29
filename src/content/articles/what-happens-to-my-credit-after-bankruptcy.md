@@ -10,6 +10,7 @@ updated: 2026-09-01
 status: draft
 startHere: true
 weight: 70
+num: "9.6"
 sources:
   - title: "Consumer Financial Protection Bureau, How long does negative information stay on my credit report?"
     url: "https://www.consumerfinance.gov/ask-cfpb/how-long-does-negative-information-remain-on-my-credit-report-en-323/"

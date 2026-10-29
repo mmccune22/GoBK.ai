@@ -10,6 +10,7 @@ updated: 2026-09-01
 status: draft
 startHere: true
 weight: 25
+num: "8.2"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 362, the automatic stay"

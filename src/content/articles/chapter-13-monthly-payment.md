@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 20
+num: "5.2"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 1325, confirmation of the plan"

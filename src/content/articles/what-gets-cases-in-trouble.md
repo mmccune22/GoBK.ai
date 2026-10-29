@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 70
+num: "11.9"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 727(a), grounds for denying discharge"

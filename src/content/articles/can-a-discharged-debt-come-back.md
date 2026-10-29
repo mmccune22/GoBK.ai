@@ -9,6 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 98
+num: "7.12"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 524, effect of discharge"

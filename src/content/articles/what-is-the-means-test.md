@@ -8,6 +8,7 @@ doors: [understanding-bankruptcy]
 published: 2026-08-15
 updated: 2026-09-01
 status: draft
+num: "2.4"
 startHere: false
 jurisdictionNote: "Median income figures are set by state and household size and are updated periodically by the Department of Justice. The number that applies to you depends on where you live and when you file."
 sources:
