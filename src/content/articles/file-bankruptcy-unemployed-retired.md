@@ -9,7 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 40
-num: "2.2"
+num: "2.3"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 109, who may be a debtor"

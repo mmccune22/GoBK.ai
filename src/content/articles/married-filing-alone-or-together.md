@@ -9,7 +9,7 @@ published: 2026-09-01
 updated: 2026-09-01
 status: draft
 weight: 50
-num: "2.3"
+num: "2.4"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 302, joint cases"
