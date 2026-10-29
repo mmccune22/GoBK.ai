@@ -1,13 +1,13 @@
 ---
 title: "How often can you file bankruptcy?"
-shortAnswer: "You can file anytime; the limits are on how often you can receive a discharge. The big ones: eight years between Chapter 7 discharges, two years between Chapter 13 discharges, four years from a Chapter 7 to a later Chapter 13 discharge, and six years the other direction (with exceptions). The clocks run filing date to filing date. And a case without a discharge can still be worth filing, which is the part people miss."
-description: "The discharge waiting periods between chapters, how the clocks are measured, and when a no-discharge filing still makes sense."
+shortAnswer: "You can file bankruptcy more than once. The main waiting periods govern when you can receive another discharge—the court order eliminating your legal obligation to pay qualifying debts. Separate rules can restrict refiling or limit the protection you receive, especially after a dismissed case."
+description: "The waiting periods between bankruptcy discharges, what a dismissed case changes, the repeat-filing limits on the automatic stay, and when filing without a discharge can still help."
 category: bankruptcy-basics
 tags: [timing, discharge, chapter-7, chapter-13]
 doors: []
 published: 2026-09-01
-updated: 2026-09-01
-status: draft
+updated: 2026-10-29
+status: reviewed
 weight: 60
 num: "1.5"
 showCheckup: true
@@ -16,27 +16,74 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/727"
   - title: "11 U.S.C. § 1328(f), Chapter 13 discharge limits"
     url: "https://www.law.cornell.edu/uscode/text/11/1328"
+  - title: "11 U.S.C. § 362(c)(3)-(4), the automatic stay for repeat filers"
+    url: "https://www.law.cornell.edu/uscode/text/11/362"
+  - title: "11 U.S.C. § 109(g), the 180-day bar to refiling"
+    url: "https://www.law.cornell.edu/uscode/text/11/109"
 ---
 
 ## The waiting periods
 
-All clocks run **from the filing date of the old case to the filing date of the new one**, not from discharge to discharge:
+If your earlier case resulted in a discharge, these are the general waiting periods for receiving another one:
 
-- **Chapter 7 after Chapter 7: eight years.**
-- **Chapter 13 after Chapter 13: two years**, which, since plans run three to five, effectively means a new 13 is available almost immediately after finishing one.
-- **Chapter 13 after a Chapter 7 discharge: four years** for a discharge in the new case.
-- **Chapter 7 after a Chapter 13 discharge: six years**, unless the 13 paid unsecured creditors in full, or paid 70% under a best-efforts plan.
+| Earlier case | New case | General waiting period |
+|---|---|---|
+| Chapter 7 | Chapter 7 | Eight years |
+| Chapter 7 | Chapter 13 | Four years |
+| Chapter 13 | Chapter 7 | Six years, with exceptions |
+| Chapter 13 | Chapter 13 | Two years |
 
-Cases that ended **without** a discharge (dismissed, for instance) generally don't start these clocks, though a dismissal can carry its own short refiling bars.
+These periods run from the filing date of the earlier case to the filing date of the new case—not from the date you received your discharge.
 
-## The part people miss: filing without a discharge
+For example, if you filed Chapter 7 on March 1, 2020, and received a discharge, the ordinary eight-year rule would allow another Chapter 7 case eligible for discharge to be filed on or after March 2, 2028.
 
-The waiting periods limit *discharges*, not *filings*, and a case with no discharge available can still deliver everything else Chapter 13 offers. The classic move even has a nickname, the "Chapter 20": a Chapter 7 wipes out the unsecured debt, and a follow-on Chapter 13, filed inside the four-year window with no discharge coming, is used purely as machinery: to cure mortgage arrears over five years, to pay nondischargeable taxes under the stay's protection, to manage what survived. No discharge needed, because the debts being handled wouldn't have discharged anyway. It's a legitimate, court-recognized strategy, and one more reason "can I file again" is really a question about what you need the case to *do*.
+The six-year waiting period from Chapter 13 to Chapter 7 has exceptions. It does not apply if the earlier plan paid allowed unsecured claims in full, or paid at least 70% and met the law’s good-faith and best-effort requirements.
 
-## The caution worth stating
+Because a completed Chapter 13 plan usually lasts three to five years, its two-year waiting period has generally already passed by the time you finish.
 
-The eight-year Chapter 7 clock cuts the other way too: a discharge is a valuable, rationed thing. Spending one on a debt load you could have survived, then hitting a true catastrophe in year three with no discharge available, is the bad sequence. It's part of why this site keeps saying "sometimes it isn't": the option has a cooldown, and timing it around your actual life is part of using it well.
+## What if my earlier case was dismissed?
 
-## The bottom line
+Dismissal and discharge mean different things.
 
-Prior bankruptcy rarely closes the door; it changes which door is open and what's behind it. Bring the old case's filing date (and chapter, and how it ended) to any consultation; those three facts determine the whole map.
+A discharge eliminates your legal obligation to pay qualifying debts. A dismissal ends the case, usually without that relief.
+
+A dismissed case generally does not trigger the discharge waiting periods in the table. But that does not mean you can always file again immediately.
+
+Certain dismissals can create a 180-day bar to refiling. For example, this can apply when someone voluntarily dismisses a case after a creditor has requested relief from the automatic stay. A court can also impose restrictions on future filings.
+
+How the earlier case ended, and any orders entered in it, must be reviewed before filing again.
+
+## Will filing again stop collection?
+
+Not always to the same extent as the first time.
+
+The [automatic stay](/library/what-is-the-automatic-stay) is the protection that generally stops collection when a bankruptcy is filed. Recent dismissed cases can change how that protection works:
+
+- If one earlier case was pending within the previous year and was dismissed, the stay in the new case may be limited to 30 days unless the court extends it.
+- If two or more earlier cases were pending within the previous year and were dismissed, the stay generally does not take effect unless the court orders it.
+
+Exceptions and local court interpretations matter. Requests to extend or impose the stay also involve short deadlines.
+
+If you are facing [foreclosure](/library/can-bankruptcy-stop-foreclosure), [repossession](/library/stop-repossession-get-car-back), or [garnishment](/library/can-bankruptcy-stop-wage-garnishment), do not assume that filing another case will automatically stop it. The repeat-filing rules need to be addressed as part of the filing strategy.
+
+## Can filing help if I cannot receive another discharge?
+
+Sometimes, particularly in [Chapter 13](/library/how-chapter-13-works).
+
+For example, someone may receive a Chapter 7 discharge that eliminates credit cards and medical bills but still be behind on a mortgage. A later Chapter 13 may provide a way to [catch up on those mortgage payments](/library/chapter-13-stop-foreclosure-catch-up-mortgage), even if the person is not yet eligible for another discharge.
+
+Attorneys sometimes call this sequence “Chapter 20.” It is a nickname for using Chapter 7 followed by Chapter 13, not a separate bankruptcy chapter.
+
+A case without a discharge can still serve a useful purpose, but it must meet the applicable eligibility, good-faith, and plan requirements. It also does not eliminate surviving debts simply because the plan ends.
+
+## Does that mean I should wait to file?
+
+Timing deserves attention, especially if your finances are still changing. A Chapter 7 discharge generally covers debts that arose before filing. New debts incurred afterward generally are not covered, and the waiting period may prevent another Chapter 7 discharge for years.
+
+That does not mean you should postpone needed relief because something worse might happen someday. It means your filing date should reflect your current problems, reasonably foreseeable expenses, and what bankruptcy can accomplish.
+
+## Does a prior bankruptcy rule out filing again?
+
+No. A prior bankruptcy changes the timing and may affect the protections available in a new case.
+
+An attorney can look up your earlier cases and confirm when they were filed, whether you received a discharge, and whether any dismissal orders affect your options. You do not need to track down old paperwork or figure out those rules yourself.
