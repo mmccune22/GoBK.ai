@@ -1,13 +1,13 @@
 ---
 title: "What is the difference between Chapter 7 and Chapter 13?"
-shortAnswer: "Chapter 7 wipes out most unsecured debt in a few months without a repayment plan. Chapter 13 reorganizes your debts into a three-to-five-year plan, which lets you keep property you might otherwise lose and catch up on things like a mortgage."
-description: "A plain comparison of the two consumer bankruptcy chapters: who qualifies, how long each takes, what it costs, what you keep, and which debts go away."
+shortAnswer: "Chapter 7 can eliminate most unsecured debt in a few months without a repayment plan. Chapter 13 uses a three-to-five-year repayment plan and offers ways to catch up on missed payments, protect property, and manage debts that would survive Chapter 7."
+description: "A plain comparison of the two consumer bankruptcy chapters: who qualifies, how long each takes, what it costs, what happens to your property, which debts go away, and how people usually decide."
 category: bankruptcy-basics
 tags: [chapter-7, chapter-13, means-test, eligibility, cost]
 doors: [understanding-bankruptcy, way-out]
 published: 2026-08-15
-updated: 2026-09-01
-status: draft
+updated: 2026-10-29
+status: reviewed
 startHere: true
 weight: 10
 num: "1.3"
@@ -23,40 +23,64 @@ sources:
 
 ## The short version
 
-**Chapter 7** is for people whose problem is unsecured debt they cannot pay: credit cards, medical bills, personal loans, old utility bills, deficiency balances from a repossession or foreclosure. The case takes about four months. At the end, those debts are discharged. You keep everything that is protected by an exemption, which for most people is everything they own.
+Both chapters can give you relief from debt. They work differently, and the right choice depends on your income, your property, the kinds of debt you owe, and what you want to accomplish.
 
-**Chapter 13** is for people who have something to protect or something to catch up on. You propose a plan to pay creditors some amount over three to five years, and in exchange you keep your property, cure missed mortgage or car payments, and deal with debts that Chapter 7 cannot touch, like recent taxes or past-due support. At the end of the plan, remaining dischargeable debt is wiped out.
+Chapter 7 is often the simpler option for someone who cannot afford to repay credit cards, medical bills, personal loans, and similar debts. There is no monthly bankruptcy repayment plan, and most people who file keep their belongings.
 
-## Who can file
+Chapter 13 involves regular payments through a court-approved plan. It can help you save a home from foreclosure, protect property that could be sold in Chapter 7, or pay certain debts over time. Filing Chapter 13 does not necessarily mean paying all your debts in full.
 
-Chapter 7 has an income screen called the means test. If your household income is below the median for your state and household size, you pass. If it is above, a second calculation looks at your allowed expenses, and many people above the median still qualify. Chapter 7 is also unavailable if you received a Chapter 7 discharge within the past eight years.
+## Who can file?
 
-Chapter 13 requires regular income sufficient to fund a plan, and your debts must be under limits that are adjusted periodically and are high enough that they rarely matter for consumers.
+For most people with primarily consumer debt, Chapter 7 eligibility includes an income calculation called the means test. Income below your state’s median generally clears that part of the analysis. Income above the median does not automatically disqualify you; allowable expenses and other circumstances can still leave you eligible.
 
-## How long
+Chapter 13 requires regular income and enough room in your budget to make the required payments. There are also limits on how much debt you can have.
 
-Chapter 7: about four months from filing to discharge in a routine case.
+Your income matters, but it does not decide everything. Someone who qualifies for Chapter 7 may still choose Chapter 13 because of what it can accomplish.
 
-Chapter 13: three years if your income is below the state median, five years if it is above. The plan can end early only if creditors are paid in full.
+For more on qualifying, see our articles in [Am I eligible?](/library/income-and-eligibility)
 
-## What it costs
+## How long does each take?
 
-Court filing fees are $338 for Chapter 7 and $313 for Chapter 13 as of this writing, and change from time to time. In Chapter 7, people with very low income can ask to have the fee waived. Attorney fees vary widely by region and complexity. Chapter 13 attorney fees are usually higher in total but can often be paid through the plan rather than up front, which is why Chapter 13 is sometimes the more accessible option for someone with no cash.
+In a routine Chapter 7 case, the discharge—the court order eliminating your legal obligation to pay qualifying debts—usually arrives about four months after filing. A case involving property sales or other issues can remain open longer.
 
-## What happens to your property
+Chapter 13 usually lasts three to five years. Below-median-income debtors generally start with a three-year plan, although a longer plan may be needed. Above-median-income debtors generally have a five-year plan. The discharge usually comes after you finish the required payments and meet the other requirements.
 
-In Chapter 7, a trustee can sell property that is not covered by an exemption. In most cases nothing is sold. In Chapter 13, nothing is sold, but your plan must pay unsecured creditors at least what they would have received from a Chapter 7 sale.
+## What does each cost?
 
-## Which debts go away
+Chapter 7 generally costs less overall. Attorney fees are commonly paid before filing, along with a separate court filing fee. People with very low income who cannot afford the Chapter 7 court fee may qualify for a waiver.
 
-Both chapters discharge the same core group of unsecured debts. Neither discharges child support, alimony, most student loans, recent income taxes, criminal fines, or debts from fraud or intentional injury.
+Chapter 13 generally involves higher total attorney fees, but some or much of those fees can often be paid through the repayment plan. An upfront payment may still be required. Chapter 13 also involves a court filing fee and trustee fees paid through the plan.
 
-Chapter 13 discharges a few things Chapter 7 does not, including certain property settlement obligations from a divorce and debts incurred to pay a non-dischargeable tax. It also lets you pay non-dischargeable debts like recent taxes over time, interest-free in many cases, while the automatic stay keeps the taxing authority off your back.
+Fees vary by location, attorney, and complexity. Ask what is included, what must be paid upfront, and what additional charges might arise.
 
-## How people usually decide
+## What happens to your property?
 
-If your debt is mostly unsecured, you are current on your house and car (or willing to let them go), and you pass the means test, Chapter 7 is usually simpler, faster, and cheaper.
+In Chapter 7, exemptions protect certain property or a certain amount of its value. Most individual cases involve no property being sold, but a trustee can sell property that is not protected. Knowing what is protected before you file is essential.
 
-If you are behind on a mortgage you want to keep, own property with equity above your exemptions, owe recent taxes or support arrears, or do not pass the means test, Chapter 13 is usually the tool that fits.
+Chapter 13 generally lets you keep your property while making plan payments. If you have property that would be available to creditors in Chapter 7, its value can increase what you must pay through your plan.
 
-Plenty of people are somewhere in between, which is where a conversation with an attorney earns its keep. And if you want the full picture of either chapter before that conversation, each has its own start-to-finish answer: [How Chapter 7 works](/library/how-chapter-7-works) and [How Chapter 13 works](/library/how-chapter-13-works). It is worth saying that Chapter 13 gets an unfairly bad reputation as the consolation prize; for people with a house to save, taxes to manage, or property to protect, it is often the stronger tool by far.
+In either chapter, keeping a financed house or car generally requires continuing to pay for it. Eliminating your personal obligation on a loan does not, by itself, eliminate the lender’s right to take back its collateral.
+
+For more on exemptions and keeping your belongings, see our articles in [Your property](/library/property-and-assets).
+
+## Which debts go away?
+
+Both chapters can eliminate common unsecured debts, including credit cards, medical bills, and personal loans.
+
+Some debts generally survive, including child support, alimony, certain taxes, and most student loans. Debts involving fraud and certain other misconduct may also survive.
+
+Chapter 13 offers additional tools. It can spread payments on certain tax debts and support arrears over the plan. After successful completion, it can also discharge some obligations that Chapter 7 would leave behind, including certain divorce-related property settlements.
+
+The type of debt matters as much as the amount you owe. For a closer look at particular debts and exceptions, see our articles in [Your debts](/library/debts).
+
+## How do people usually decide?
+
+Chapter 7 is often a good fit when your main problem is unsecured debt, your property is protected, and you qualify.
+
+Chapter 13 may be the better fit when you need time to catch up on a mortgage, protect property, or manage debts that Chapter 7 would not eliminate. It can also provide relief when your income prevents you from using Chapter 7.
+
+For example, someone overwhelmed by credit cards but current on an affordable mortgage may be well served by Chapter 7. Someone with the same credit card debt who is several months behind on a home they want to keep may need Chapter 13’s catch-up plan. To make that work, they must be able to afford both the ongoing mortgage payments and the required plan payments.
+
+The goal is to choose a chapter that addresses the problem you actually have—and leaves you with a financial life you can sustain.
+
+For the full process, see [How Chapter 7 works](/library/how-chapter-7-works) and [How Chapter 13 works](/library/how-chapter-13-works).
