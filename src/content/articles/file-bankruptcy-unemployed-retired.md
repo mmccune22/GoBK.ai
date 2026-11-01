@@ -1,13 +1,13 @@
 ---
 title: "Can I file bankruptcy if I'm unemployed, retired, or on Social Security?"
-shortAnswer: "Yes. There's no job requirement for Chapter 7, and low or no income usually means you pass the means test automatically. For retirees, Social Security doesn't count as means test income and retirement accounts are protected. The better question for many low-income people is whether you need to file at all: if everything you have is protected, you may be 'judgment-proof,' and that's a real option with its own article."
-description: "Bankruptcy without a paycheck: how no income affects each chapter, the retiree picture, and the judgment-proof alternative."
+shortAnswer: "Yes. You do not need a job to file Chapter 7. Being unemployed, retired, or on Social Security does not disqualify you from bankruptcy. Low income can make it easier to qualify, and Social Security benefits do not count as income for the means test. But eligibility also depends on other income, your financial circumstances, and the chapter you file. For some people with protected income and property, the more useful question is whether bankruptcy is necessary at all."
+description: "Filing bankruptcy without a job or on retirement income: how the means test treats your income, how Social Security and retirement savings are protected, and when not filing is a reasonable option."
 category: income-and-eligibility
-tags: [income, chapter-13]
+tags: [income, chapter-13, retirement]
 doors: []
 published: 2026-09-01
-updated: 2026-09-01
-status: draft
+updated: 2026-11-01
+status: reviewed
 weight: 40
 num: "2.3"
 showCheckup: true
@@ -16,28 +16,60 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/109"
   - title: "11 U.S.C. § 101(10A), income definition (Social Security excluded)"
     url: "https://www.law.cornell.edu/uscode/text/11/101"
+  - title: "11 U.S.C. § 522, exemptions"
+    url: "https://www.law.cornell.edu/uscode/text/11/522"
+  - title: "11 U.S.C. § 541, property of the estate"
+    url: "https://www.law.cornell.edu/uscode/text/11/541"
+  - title: "42 U.S.C. § 407, protection of Social Security benefits"
+    url: "https://www.law.cornell.edu/uscode/text/42/407"
+  - title: "28 U.S.C. § 1930(f), Chapter 7 filing-fee waivers"
+    url: "https://www.law.cornell.edu/uscode/text/28/1930"
 ---
 
 ## Unemployed
 
-No job is no barrier to Chapter 7; if anything it clears the path, since little or no income in the six-month lookback usually means passing the means test outright. (Recent layoffs are the nuance: high earnings from a few months ago linger in the average, and sometimes the advice is to wait a month or two while they age out. Unemployment benefits count as income in most places; even so, they rarely push anyone over median.) The practical hurdles are humbler: the filing fee, which can be paid in installments or waived for the lowest-income filers, and the attorney fee, which is a real conversation to have openly at consultations; many practices have seen every version of it and have answers.
+You can file Chapter 7 without a job. If you have little or no income, you may fall below your state’s median income and qualify without completing the longer [means-test](/library/what-is-the-means-test) calculation.
 
-**Chapter 13 is the exception**: a plan needs fuel. "Regular income" is read generously (benefits, a working spouse, even reliable family help can qualify), but a plan with no income source won't be confirmed. If the goal was saving a house, that's a hard, honest conversation about whether the house is savable until income returns.
+But being unemployed today does not automatically mean you pass. The means test generally looks at income received during the six full calendar months before filing. If you recently lost a well-paying job, those earlier wages may still affect the calculation. Severance, other income, and a spouse’s income may also matter. Sometimes waiting changes the result as earlier earnings drop out of the calculation.
+
+Unemployment benefits must be disclosed. Whether they count as means-test income can depend on how courts in your jurisdiction interpret the law.
+
+The filing costs can also be a hurdle. Court filing fees may be paid in installments, and qualifying low-income Chapter 7 filers may receive a fee waiver. Attorney fees are separate.
+
+Chapter 13 is different because it requires enough regular income to support a repayment plan. That income does not have to come from employment. Social Security, pensions, a working spouse, or dependable household contributions may help fund a plan. But the proposed payments must be affordable after necessary living expenses.
+
+If your goal is to save a house, bankruptcy may address missed payments, but you still need a way to afford the ongoing mortgage and any required catch-up payments.
 
 ## Retired or on Social Security
 
-Retirees are, structurally, among the best-protected filers in the system:
+Retirement does not prevent you from filing bankruptcy. Several protections can make bankruptcy an effective way to address credit cards, medical bills, and other dischargeable debts while preserving retirement resources.
 
-- **Social Security doesn't count** as means test income, at all.
-- **Retirement accounts are shielded**: employer plans aren't even in the estate, IRAs are exempt to a very high cap.
-- **Benefits stay protected after filing**, especially when direct-deposited into their own unmixed account.
+**Social Security benefits do not count as means-test income.** They still must be disclosed in your bankruptcy paperwork. Excluding them from the means test does not mean leaving them out of the case.
 
-The common retiree case, fixed income, protected home equity, medical and card debt that grew during a health event, is frequently a clean Chapter 7: debt discharged, nothing lost, garnishment threats ended.
+**Most qualifying retirement accounts receive substantial protection.** Many employer-sponsored plans are excluded from the bankruptcy estate, and qualifying IRAs generally receive exemption protection. The rules depend on the [type of account](/library/retirement-accounts-in-bankruptcy). Inherited retirement accounts require separate analysis and may not receive the same protection.
+
+**Protected retirement savings and retirement income are different questions.** Pension payments and withdrawals from retirement accounts generally need to be considered in the income analysis, even when the money remaining inside the account is protected.
+
+**Social Security money generally remains protected after deposit if it can be identified.** Keeping benefits in a separate account can make tracing easier. Direct deposit also provides automatic protection against certain bank garnishments, although additional steps may be needed to protect accumulated benefits. Different rules can apply to certain government debts and support obligations.
+
+Do not assume you need to cash out retirement savings to pay unsecured debt before considering bankruptcy. You could spend money that would otherwise have been protected.
 
 ## The question underneath: do you need to file at all?
 
-Here's the counterintuitive part. If your income is all protected benefits and your property is all exempt, creditors may have **no lawful way to collect from you even with a judgment**. Lawyers call it being judgment-proof. They can sue and win, and then own a piece of paper. For some people, especially older debtors with no plans to borrow again, doing nothing, calmly and with knowledge, beats filing: no case, no fee, no process. It has real costs too (the calls continue unless you cut them off in writing, suits still arrive, and the situation changes the moment you have wages or non-exempt assets again), which is why it gets a full treatment in ['Judgment-proof': when doing nothing is a real option](/library/judgment-proof-doing-nothing) rather than a slogan here.
+If your income comes entirely from protected benefits and all your property is exempt from collection, ordinary creditors may have little or nothing they can legally collect—even if they obtain a judgment. This is commonly called being “judgment-proof.”
+
+For some people, choosing not to file bankruptcy is a reasonable option. But judgment-proof does not mean debt-free, and it does not prevent creditors from filing lawsuits. You may still need to respond to court papers or assert exemptions if an account is frozen. Your position can also change if you return to work, receive an inheritance, or acquire property that is not protected.
+
+These protections also do not eliminate a mortgage lender’s or car lender’s rights in collateral. Having protected income does not prevent foreclosure or repossession when secured payments are missed.
+
+Bankruptcy may still have value even when creditors cannot currently collect. It can discharge eligible debts and provide a more lasting resolution than relying on collection protections alone.
+
+See [‘Judgment-proof’: when doing nothing is a real option](/library/judgment-proof-doing-nothing) for a fuller explanation.
 
 ## The bottom line
 
-If you're broke, bankruptcy is available; being broke is rather the point of it. The choice worth making carefully isn't whether you *can* file; it's whether filing, waiting, or knowledgeable inaction serves you best, and that turns on your income sources, your property, and what's protected in your state. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).
+You can file bankruptcy while unemployed, retired, or receiving Social Security. A job is not required for Chapter 7, and income from sources other than employment can support a Chapter 13 plan.
+
+The decision depends on what income you receive, what property you own, what debts you need to address, and whether your finances are likely to change.
+
+Timing matters, too. If you are still accumulating medical bills or borrowing to cover basic living expenses, filing may clear existing debt while leaving you with new bills afterward. A fresh start is more useful when it accounts for both the debt already owed and the expenses still ahead.
