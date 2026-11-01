@@ -1,12 +1,12 @@
 ---
 title: "When does the Chapter 7 discharge arrive, and what can delay it?"
-shortAnswer: "The routine schedule: the court can enter the discharge once the 60-day objection window after your first 341 date closes, so most arrive roughly 60 to 75 days after the meeting, about four months after filing. The common delays are self-inflicted and fixable: the missing debtor-education certificate, an incomplete 341, or an open reaffirmation. Rare and serious: an objection or a trustee motion. And note: discharge and case closing are different events; asset cases stay open longer, which is normal."
+shortAnswer: "In a straightforward case, discharge generally arrives 60 to 90 days after the first date set for the meeting of creditors—typically about three to four months after filing. Missing requirements, objections, or other proceedings can delay it. Discharge and case closure are separate events: a trustee may continue administering assets after your discharge."
 description: "The discharge timeline, the difference between discharge and closing, the routine delays, and the rare real fights."
 category: chapter-7
 tags: [discharge, credit-counseling, lawsuit]
 doors: []
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-01
 status: draft
 weight: 20
 num: "4.2"

@@ -17,7 +17,7 @@ export const categories = [
   {
     id: 'chapter-7',
     name: 'Chapter 7',
-    blurb: 'The faster form of bankruptcy: what gets discharged, what you keep, and what to expect.',
+    blurb: 'How Chapter 7 clears eligible debts, what property you may keep, and what happens to your car or small business.',
   },
   {
     id: 'chapter-13',
