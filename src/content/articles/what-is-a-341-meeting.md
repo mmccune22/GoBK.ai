@@ -1,14 +1,15 @@
 ---
 title: "What is a 341 meeting?"
-shortAnswer: "The 341 meeting, also called the meeting of creditors, is a short, recorded interview with the trustee assigned to your case, held about a month after you file. You answer questions under oath about your paperwork. It usually takes five to fifteen minutes, and creditors almost never show up."
+shortAnswer: "The 341 meeting, also called the meeting of creditors, is a short, recorded interview with the trustee assigned to your case, held about a month after you file. You answer questions under oath about your paperwork. It usually takes five to ten minutes, and creditors almost never show up."
 description: "What happens at the meeting of creditors, who is there, what the trustee asks, what to bring, and why it is less intimidating than it sounds."
-category: chapter-7
+category: filing-process
 tags: [chapter-7, chapter-13, process, trustee]
 doors: []
 published: 2026-08-15
 updated: 2026-09-01
 status: draft
-num: "4.5"
+weight: 40
+num: "3.4"
 startHere: false
 jurisdictionNote: "Many districts now hold 341 meetings by phone or video, though some have returned to in-person meetings. Your notice from the court will say which."
 sources:

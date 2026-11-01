@@ -1,12 +1,12 @@
 ---
 title: "The two required courses: credit counseling and debtor education"
-shortAnswer: "Every filer takes two short courses from approved providers: a credit counseling briefing before filing (your certificate must be no older than 180 days on filing day) and a debtor education course after filing, required before the discharge issues. Both are about an hour, online or by phone, cost roughly $10 to $50 each with fee waivers available, and neither is a test you can fail. The only way they hurt you is by being forgotten."
-description: "What the pre-filing and post-filing courses involve, deadlines and fee waivers, and the discharge-delay trap of skipping course two."
+shortAnswer: "Bankruptcy requires two separate courses from approved providers. Credit counseling must be completed within the 180 days before you file and generally takes about an hour. Debtor education comes after filing, takes at least two hours, and must be completed before you can receive a discharge. Both are usually available online or by phone, and providers must offer reduced or waived fees to people who cannot afford them. Using an unapproved provider, completing counseling too early or too late, or missing the second course can delay your case or cost you the discharge."
+description: "The two required bankruptcy courses: when each must be completed, how long they take, approved providers, fee waivers, and the problems that come from missing one."
 category: filing-process
 tags: [credit-counseling, timing, discharge]
 doors: []
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-01
 status: draft
 weight: 20
 num: "3.2"

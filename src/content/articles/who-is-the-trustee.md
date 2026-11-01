@@ -1,12 +1,12 @@
 ---
 title: "Who is the trustee, and what do they actually do?"
-shortAnswer: "The trustee is a private professional, usually a lawyer or accountant, appointed to administer your case: verify your paperwork, run the 341 meeting, and, in Chapter 7, look for non-exempt assets to distribute to creditors (in most cases there are none). In Chapter 13, the trustee collects your plan payments and pays creditors. The trustee is not your lawyer and not your enemy; they're the system's auditor, and honest paperwork is the entire relationship."
-description: "The trustee's role in Chapter 7 and Chapter 13, how they're paid, what they look for, and how filers should deal with them."
+shortAnswer: "The trustee is a private professional, often a lawyer or accountant, appointed to administer your case. The trustee reviews your paperwork, conducts the 341 meeting, and has duties to creditors and the bankruptcy system. In Chapter 7, the trustee looks for property that is not protected and could be sold for creditors; in most cases there is none. In Chapter 13, the trustee collects plan payments and distributes them to creditors. The trustee is not your lawyer. Accurate disclosure is essential, and you must also cooperate, provide requested records, and meet your other obligations in the case."
+description: "The trustee's role in Chapter 7 and Chapter 13, what the trustee reviews and investigates, and what the trustee can require of you."
 category: filing-process
 tags: [trustee, 341-meeting, chapter-7, chapter-13]
 doors: []
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-01
 status: draft
 weight: 30
 num: "3.3"

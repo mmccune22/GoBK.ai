@@ -12,7 +12,7 @@ export const categories = [
   {
     id: 'filing-process',
     name: 'Filing and the process',
-    blurb: 'What actually happens step by step: the paperwork, the trustee, and the two required courses.',
+    blurb: 'What actually happens step by step: the two required courses, the trustee, and the 341 meeting.',
   },
   {
     id: 'chapter-7',
