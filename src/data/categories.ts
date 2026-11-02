@@ -32,7 +32,7 @@ export const categories = [
   {
     id: 'debts',
     name: 'Your debts',
-    blurb: 'Which debts bankruptcy erases and which survive: credit cards, medical bills, taxes, student loans, support.',
+    blurb: 'Which debts bankruptcy can eliminate, which obligations survive, and how the answer can differ between Chapter 7 and Chapter 13.',
   },
   {
     id: 'creditor-actions',

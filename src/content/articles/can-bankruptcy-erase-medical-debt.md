@@ -1,12 +1,12 @@
 ---
 title: "Can bankruptcy get rid of medical debt?"
-shortAnswer: "Yes, completely. Medical debt is unsecured debt with no special protection, so it is discharged in full in both Chapter 7 and Chapter 13, no matter how large it is. There is no dollar cap and no requirement that you pay any portion of it first."
+shortAnswer: "Medical bills incurred before filing are generally dischargeable unsecured debts. Chapter 7 can eliminate eligible medical balances without requiring repayment first. Chapter 13 may require payment of some or all of those balances through the plan, with the remaining eligible amount discharged after successful completion. There is no special medical-debt discharge cap, but bankruptcy eligibility requirements still apply. New medical bills incurred after filing generally require separate attention."
 description: "Why medical bills are among the easiest debts to discharge, what happens to bills in collections, and what to think about if you're still being treated."
 category: debts
 tags: [medical-debt, discharge, chapter-7, collections]
 doors: []
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
 weight: 30
 num: "7.2"

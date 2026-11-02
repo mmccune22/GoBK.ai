@@ -1,12 +1,12 @@
 ---
 title: "Which debts does bankruptcy erase, and which survive?"
-shortAnswer: "Start by assuming a debt goes away, because most do: credit cards, medical bills, personal loans, payday loans, old repossession and foreclosure balances, and most collection accounts. Then check the exceptions. Recent taxes, child support and alimony, most student loans, court fines and restitution, and debts from fraud generally survive."
+shortAnswer: "Bankruptcy can eliminate personal liability for many common debts, including credit cards, medical bills, personal loans, and eligible balances left after repossession or foreclosure. Other obligations, including support, certain taxes, and most student loans, require different treatment. The chapter you file, the circumstances of the debt, and any applicable discharge exceptions determine the result. A discharge also generally does not eliminate valid liens."
 description: "The plain-English list of what a bankruptcy discharge wipes out, what it can't touch, and the debts that fall somewhere in between."
 category: debts
 tags: [discharge, chapter-7, chapter-13, taxes, student-loans, child-support]
 doors: [way-out]
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
 startHere: true
 weight: 10

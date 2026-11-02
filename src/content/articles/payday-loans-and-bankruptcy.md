@@ -1,12 +1,12 @@
 ---
 title: "Do payday loans and title loans go away in bankruptcy?"
-shortAnswer: "Payday loans: yes, they're ordinary unsecured debt and are discharged like credit cards, no matter how many times they've rolled over. Title loans are different, because the lender holds your car title as collateral; the debt discharges but the lien on the car doesn't, so keeping the car means dealing with the loan."
+shortAnswer: "Payday loans are generally unsecured debts that can be discharged, subject to exceptions such as fraud. Title loans require separate attention because the lender claims rights in your vehicle. Eliminating personal liability does not necessarily remove the lien or let you keep the car without addressing the loan. Chapter 13 may offer restructuring options, but state law, the transaction’s terms, and your ownership rights at filing can affect the outcome."
 description: "How bankruptcy treats payday loans, post-dated checks, and title loans, plus the timing trap with very recent borrowing."
 category: debts
 tags: [payday-loans, discharge, secured-debt]
 doors: []
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
 weight: 70
 num: "7.7"

@@ -1,12 +1,12 @@
 ---
 title: "Debts from a divorce: what bankruptcy can and can't touch"
-shortAnswer: "Split them into two piles. Support (child support, alimony, anything functioning as support) survives every bankruptcy, period. Property-settlement debts (equalization payments, 'I'll pay the joint card and hold you harmless') survive Chapter 7 but can be discharged in Chapter 13, one of the quietest big differences between the chapters. And your discharge never protects your ex on debts they co-signed, which is where hold-harmless clauses bite."
+shortAnswer: "Support obligations survive bankruptcy. Certain other debts owed to a spouse, former spouse, or child because of a divorce—such as qualifying property-settlement or hold-harmless obligations—survive Chapter 7 but may be discharged after completing Chapter 13. What an obligation actually does matters more than what the divorce order calls it. Your discharge also generally does not release your former spouse from liability to a joint creditor."
 description: "The support versus property-settlement distinction, the Chapter 13 advantage, hold-harmless clauses, and coordinating bankruptcy with a divorce."
 category: debts
 tags: [divorce, child-support, chapter-13]
 doors: []
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
 weight: 92
 num: "7.10"
