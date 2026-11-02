@@ -1,45 +1,115 @@
 ---
 title: "What happens to my 401(k), IRA, or pension in bankruptcy?"
-shortAnswer: "Retirement savings often receive strong bankruptcy protection. Many qualifying employer retirement plans are excluded from the bankruptcy estate, while qualifying IRAs are generally protected through exemptions. Limits and exceptions depend on the account type, its funding history, and applicable law; inherited accounts require particular care. Withdrawing protected retirement money to pay debt can create taxes and reduce those protections, so understand the consequences before moving the funds."
-description: "The near-absolute protection of retirement accounts in bankruptcy, the exceptions worth knowing, and the cash-out trap."
+shortAnswer: "Retirement savings often receive strong bankruptcy protection. Many qualifying employer plans are excluded from the bankruptcy estate, while qualifying IRAs are generally protected through exemptions. The rules depend on the account type, its funding history, and applicable law. Inherited accounts and money withdrawn from retirement accounts require particular care. Before using retirement savings to pay debt, understand what protection you may be giving up."
+description: "How bankruptcy treats retirement savings: employer plans, IRAs and the federal cap, Social Security, inherited accounts, support and tax exceptions, 401(k) loans, and why withdrawing to pay debt deserves caution."
 category: property-and-assets
 tags: [retirement, exemptions]
 doors: []
 published: 2026-09-01
 updated: 2026-11-02
-status: draft
+status: reviewed
 weight: 45
 num: "6.5"
 showCheckup: true
 sources:
-  - title: "11 U.S.C. § 522(b)(3)(C), (d)(12), retirement exemptions"
+  - title: "11 U.S.C. § 541(c)(2), exclusion of certain restricted interests"
+    url: "https://www.law.cornell.edu/uscode/text/11/541"
+  - title: "11 U.S.C. § 522(b)(3)(C), (b)(4), (d)(12), and (n), retirement exemptions, transfers, rollovers, and the IRA cap"
     url: "https://www.law.cornell.edu/uscode/text/11/522"
+  - title: "Federal Register, Adjustment of Certain Dollar Amounts Applicable to Bankruptcy Cases (effective April 1, 2025)"
+    url: "https://www.govinfo.gov/content/pkg/FR-2025-02-04/html/2025-02207.htm"
+  - title: "11 U.S.C. § 362(b)(19), retirement-loan payroll deductions"
+    url: "https://www.law.cornell.edu/uscode/text/11/362"
+  - title: "11 U.S.C. § 1322(f), retirement-plan loans in Chapter 13"
+    url: "https://www.law.cornell.edu/uscode/text/11/1322"
+  - title: "42 U.S.C. § 407, protection of Social Security benefits"
+    url: "https://www.law.cornell.edu/uscode/text/42/407"
   - title: "Patterson v. Shumate, 504 U.S. 753 (1992)"
-    url: "https://supreme.justia.com/cases/federal/us/504/753/"
-  - title: "Clark v. Rameker, 573 U.S. 122 (2014) (inherited IRAs)"
-    url: "https://supreme.justia.com/cases/federal/us/573/122/"
+    url: "https://www.law.cornell.edu/supremecourt/text/504/753"
+  - title: "Clark v. Rameker, 573 U.S. 122 (2014)"
+    url: "https://www.law.cornell.edu/supremecourt/text/13-299"
+  - title: "IRS Publication 590-B, Distributions from Individual Retirement Arrangements"
+    url: "https://www.irs.gov/publications/p590b"
 ---
 
-## The protection, tier by tier
+## How retirement savings are protected
 
-**Employer plans: 401(k), 403(b), most pensions.** These never enter the bankruptcy estate at all; the Supreme Court settled it decades ago. The trustee doesn't weigh them against exemptions, because there's nothing to exempt; the money simply isn't on the table. Loans you took from your own 401(k) are also insulated in a related way: the plan repays itself from your contributions, and that arrangement rides through.
+### Employer retirement plans
 
-**IRAs (traditional and Roth).** Protected by a dedicated exemption with a cap that currently sits north of $1.5 million and adjusts upward every three years, more than covers nearly everyone. Money **rolled over from an employer plan doesn't count against the cap at all**, so a career's worth of 401(k) savings sitting in a rollover IRA stays fully protected.
+Many employer-sponsored plans, including ERISA-qualified 401(k)s and pensions with enforceable restrictions on transfer, are excluded from the bankruptcy estate. Other qualifying retirement arrangements may be protected through exemptions.
 
-**Social Security** benefits are separately protected, with a housekeeping note: keep them in their own account, unmixed with other money, and every protection is cleaner.
+The result is often that the [trustee](/library/who-is-the-trustee) cannot use those savings to pay ordinary unsecured creditors. But “employer plan” is not a blanket guarantee: the plan’s legal status matters, particularly for owner-only plans, nonqualified deferred compensation, and unusual arrangements.
 
-## The exceptions that matter
+Protected accounts still must be disclosed in your bankruptcy paperwork. Being excluded or exempt does not mean an account can be omitted.
 
-- **Inherited IRAs are not retirement funds** in the eyes of federal bankruptcy law; the Supreme Court said so in 2014. Some states protect them anyway. If a chunk of what you have is an IRA inherited from a parent, that single fact belongs at the top of your attorney consultation.
-- **Domestic support and the IRS.** Retirement protection is against ordinary creditors and the trustee. Support obligations can reach retirement assets through family-law tools, and a federal tax lien can attach even to exempt retirement money.
-- **Money that leaves the shelter loses it.** The protection follows the account, not the dollars. A withdrawal sitting in checking is just cash, exempt only if some other exemption covers it. Timing withdrawals around a bankruptcy is a real planning issue; talk before you tap.
+### Traditional and Roth IRAs
 
-## The trap this article exists to stop
+Qualifying traditional and Roth IRAs generally receive a federal bankruptcy exemption.
 
-Every consumer bankruptcy attorney has met the client who, a year earlier, cashed out a 401(k) to pay credit cards, paid the early-withdrawal penalty and income tax for the privilege, watched the money vanish into balances that barely moved, and is now filing anyway, minus their retirement. The debt was dischargeable. The retirement was untouchable. They paid protected dollars to solve a problem bankruptcy would have solved while leaving those dollars alone.
+As of November 2026, the federal cap for these accounts is **$1,711,975 per person in the aggregate**, rather than per account. The amount generally adjusts every three years, and applicable law may provide additional protection.
 
-If you are considering a hardship withdrawal, a 401(k) loan, or draining an IRA to service unsecured debt, stop and get a bankruptcy consultation *first*. Not because filing is necessarily the answer, but because you deserve to make the decision knowing that the money you're about to spend is money no creditor could have taken.
+Qualifying rollovers from employer retirement plans, and earnings attributable to those rollovers, are excluded from that cap. SEP and SIMPLE IRAs also receive different treatment under the cap rules.
+
+Keep records showing where rollover funds came from. The account’s label alone may not establish which protection applies.
+
+### Social Security benefits
+
+[Social Security benefits](/library/file-bankruptcy-unemployed-retired) have separate federal protection. Keeping identifiable benefit payments in a separate account can make their source easier to establish.
+
+Mixing benefits with other money does not automatically erase protection, but it can complicate tracing. Exceptions apply to certain collection actions, so the protection should not be treated as absolute.
+
+## Exceptions and complications that matter
+
+### Inherited retirement accounts
+
+An IRA inherited from someone other than your spouse generally does not qualify for the federal bankruptcy exemption for “retirement funds.” Some state laws provide separate protection.
+
+A surviving spouse may have different options, including qualifying rollover treatment. Do not assume all inherited accounts receive the same protection as an IRA funded for your own retirement.
+
+### Support obligations and tax collection
+
+Protection against ordinary creditors does not necessarily prevent division of retirement benefits under a qualifying domestic relations order or collection through certain support-enforcement procedures.
+
+Federal tax collection also follows special rules. Depending on the account and circumstances, an IRS lien or levy may reach retirement assets that ordinary creditors could not.
+
+These exceptions require separate analysis; bankruptcy protection does not make retirement savings unreachable for every purpose.
+
+### Withdrawals and transfers
+
+Taking money out of a protected account can change its legal treatment. Money deposited into checking does not automatically retain the same protection as funds left in the retirement account.
+
+But the rule is not simply “every withdrawal loses protection.” Qualifying direct transfers, eligible rollover distributions, and certain timely rollovers can preserve protection. State law may also protect some retirement payments after distribution.
+
+Before moving funds, determine which rules apply and keep records tracing the money. A transfer that appears harmless can create exemption or tax problems if handled incorrectly.
+
+## What happens to a 401(k) loan?
+
+A loan from your retirement plan is different from an ordinary credit card or bank loan. Bankruptcy generally does not erase the plan’s right to recover the loan from your retirement benefits.
+
+Qualifying payroll deductions for repayment may continue despite the [automatic stay](/library/what-is-the-automatic-stay). In Chapter 13, required repayments on qualifying retirement-plan loans are excluded from [disposable income](/library/chapter-13-monthly-payment), and the plan generally cannot materially alter their terms. When the loan ends, the effect on your Chapter 13 payment may need to be addressed.
+
+Defaulting on a retirement-plan loan can also create tax consequences. Do not assume bankruptcy eliminates those consequences or that taking a new loan is a cost-free alternative to a withdrawal.
+
+## Why using retirement savings to pay debt deserves caution
+
+Consider someone who withdraws retirement savings to pay credit cards, then files bankruptcy a year later because the remaining debt is still unmanageable.
+
+The withdrawal may have created income taxes and an additional early-distribution tax. It also reduced savings that might have remained protected while the credit card debt was discharged.
+
+That does not mean every use of retirement money is a mistake. It means the decision should account for:
+
+- Whether the savings are protected.
+- Whether the debts could be discharged or reorganized.
+- The withdrawal’s taxes and any additional tax.
+- The loss of future retirement growth.
+- Whether spending the money will actually solve the financial problem.
+
+A hardship withdrawal is not automatically tax-free or exempt from the additional early-distribution tax. The consequences depend on the account, your age, and available exceptions.
 
 ## The bottom line
 
-Your retirement is the one asset the system protects almost absolutely. Whatever your situation, make every choice as if that money doesn't exist for creditors, because legally, it almost never does.
+You often can obtain bankruptcy relief without losing qualifying retirement savings. That protection can be a major part of preserving your financial future.
+
+The account type, source of funds, inherited status, and any withdrawals or transfers matter. Retirement income you receive during a case can also raise separate budget and plan-payment questions.
+
+Before using retirement savings to pay debt, understand both sides of the decision: what bankruptcy could accomplish and what withdrawing the money could cost.
