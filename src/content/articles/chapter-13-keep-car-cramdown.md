@@ -1,12 +1,12 @@
 ---
 title: "Keeping your car in Chapter 13 (and what a cramdown is)"
-shortAnswer: "Chapter 13 stops a repossession and lets you pay for the car through your plan. If you've owned the car loan for more than 910 days (about two and a half years), the plan can 'cram down' the loan: you pay the car's current value instead of the full balance, usually at a lower interest rate, and the rest of the loan becomes unsecured debt that's mostly discharged."
+shortAnswer: "Chapter 13 can generally stop a pending repossession and let you repay a car loan through your plan. In some cases, a “cramdown” reduces the secured portion of the loan to the car’s current value, with the remaining balance treated as unsecured debt. For a typical loan used to purchase a car for personal use, that option generally requires the debt to have been incurred more than 910 days before filing. Even when a cramdown is unavailable, the plan may change the interest rate and repayment schedule."
 description: "How car loans are treated in a Chapter 13 plan: the 910-day rule, cramdowns, interest rates, and surrendering without a deficiency."
 category: chapter-13
 tags: [chapter-13, car, cramdown, repossession, secured-debt]
 doors: [help-now]
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
 weight: 40
 num: "5.4"

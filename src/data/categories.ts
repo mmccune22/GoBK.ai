@@ -22,7 +22,7 @@ export const categories = [
   {
     id: 'chapter-13',
     name: 'Chapter 13',
-    blurb: 'The three-to-five-year plan: catching up a mortgage, keeping a car, and what happens when life changes mid-plan.',
+    blurb: 'The three-to-five-year repayment plan: catching up on a mortgage, keeping a car, and understanding your options when life changes along the way.',
   },
   {
     id: 'property-and-assets',

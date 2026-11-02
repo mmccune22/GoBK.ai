@@ -1,12 +1,12 @@
 ---
 title: "What happens if I can't finish my Chapter 13 plan?"
-shortAnswer: "You have options, and none of them is jail or automatic disaster. Depending on why the plan broke, you can modify the payments, convert the case to Chapter 7, ask for a hardship discharge, or dismiss and sometimes refile. The only truly bad move is going silent and letting the case fail by default. Plans bend; tell your attorney the moment life changes."
+shortAnswer: "A job loss, illness, divorce, or unexpected expense can make a once-workable plan difficult to maintain. Depending on your circumstances, you may be able to modify the plan, convert to Chapter 7, obtain a limited hardship discharge, or dismiss the case. Filing again may be possible, but restrictions can apply. These options have different consequences for your debts and property, so tell your attorney promptly when your circumstances change."
 description: "The realistic menu when a Chapter 13 plan stops working: modification, conversion, hardship discharge, and dismissal, with the traps in each."
 category: chapter-13
 tags: [chapter-13, chapter-13-plan, nondischargeable]
 doors: []
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
 weight: 50
 num: "5.5"

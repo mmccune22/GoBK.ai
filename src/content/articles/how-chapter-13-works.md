@@ -1,12 +1,12 @@
 ---
 title: "How Chapter 13 works: the three-to-five-year plan"
-shortAnswer: "Chapter 13 is a court-supervised repayment plan lasting three to five years. You keep your property, make one monthly payment to a trustee based on what you can actually afford, and when the plan ends, remaining unsecured debt is discharged. The biggest myth is that you must repay everything; most plans repay only a fraction of unsecured debt."
+shortAnswer: "Chapter 13 lets you reorganize debts through a court-supervised repayment plan, usually lasting three to five years. It can help you keep property, catch up on missed payments, and discharge remaining eligible unsecured debt after successful completion. You make a monthly payment to a trustee and may pay some obligations directly. You do not necessarily have to repay everything: the amount depends on your income, expenses, debts, and property."
 description: "What Chapter 13 actually is, who it's for, the myth about repaying everything, and why it's often the friendlier chapter."
 category: chapter-13
 tags: [chapter-13, chapter-13-plan, trustee, discharge]
 doors: []
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
 startHere: true
 weight: 10
