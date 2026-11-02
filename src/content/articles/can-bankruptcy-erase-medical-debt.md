@@ -1,41 +1,105 @@
 ---
 title: "Can bankruptcy get rid of medical debt?"
 shortAnswer: "Medical bills incurred before filing are generally dischargeable unsecured debts. Chapter 7 can eliminate eligible medical balances without requiring repayment first. Chapter 13 may require payment of some or all of those balances through the plan, with the remaining eligible amount discharged after successful completion. There is no special medical-debt discharge cap, but bankruptcy eligibility requirements still apply. New medical bills incurred after filing generally require separate attention."
-description: "Why medical bills are among the easiest debts to discharge, what happens to bills in collections, and what to think about if you're still being treated."
+description: "Whether bankruptcy can eliminate medical debt: Chapter 7 and Chapter 13 treatment, collections and judgments, shared responsibility, ongoing treatment, and the risks of paying medical bills in other ways."
 category: debts
 tags: [medical-debt, discharge, chapter-7, collections]
 doors: []
 published: 2026-09-01
 updated: 2026-11-02
-status: draft
+status: reviewed
 weight: 30
 num: "7.2"
 showCheckup: true
 sources:
-  - title: "11 U.S.C. § 727, the Chapter 7 discharge"
-    url: "https://www.law.cornell.edu/uscode/text/11/727"
+  - title: "11 U.S.C. § 362, the automatic stay"
+    url: "https://www.law.cornell.edu/uscode/text/11/362"
   - title: "11 U.S.C. § 523, exceptions to discharge"
     url: "https://www.law.cornell.edu/uscode/text/11/523"
+  - title: "11 U.S.C. § 524, effect of discharge"
+    url: "https://www.law.cornell.edu/uscode/text/11/524"
+  - title: "11 U.S.C. § 727, the Chapter 7 discharge"
+    url: "https://www.law.cornell.edu/uscode/text/11/727"
+  - title: "11 U.S.C. § 1301, the Chapter 13 co-debtor stay"
+    url: "https://www.law.cornell.edu/uscode/text/11/1301"
+  - title: "11 U.S.C. § 1305, certain postfiling claims"
+    url: "https://www.law.cornell.edu/uscode/text/11/1305"
+  - title: "11 U.S.C. § 1328, the Chapter 13 discharge"
+    url: "https://www.law.cornell.edu/uscode/text/11/1328"
+  - title: "42 U.S.C. § 1395dd, Emergency Medical Treatment and Labor Act (EMTALA)"
+    url: "https://www.law.cornell.edu/uscode/text/42/1395dd"
 ---
 
-## Why it discharges so cleanly
+## Why medical debt is generally dischargeable
 
-The law treats medical bills as ordinary unsecured debt, the same category as credit cards. Congress's list of debts that survive bankruptcy (taxes, support, student loans, fines, fraud) says nothing about medical care. So hospital bills, surgeon bills, ambulance rides, lab work, and the credit card you used to pay a deductible are all discharged in full.
+Ordinary medical bills do not receive a special exception from discharge simply because they involve healthcare.
 
-A few things follow from that:
+Hospital bills, ambulance charges, physician fees, laboratory bills, and similar obligations generally are treated as unsecured debts. That means they ordinarily can be discharged, subject to the usual bankruptcy requirements and exceptions.
 
-- **Size doesn't matter.** A $300,000 surgery bill discharges exactly the same way a $500 urgent care bill does.
-- **Collections and judgments don't change it.** A medical bill that has been sold to a collector, or even reduced to a court judgment and garnishing your wages, is still dischargeable, and filing stops the garnishment.
-- **Cosigned bills are shared.** If a spouse or parent also signed for the treatment, your discharge protects you, not them. Their responsibility for the bill continues unless they file too.
+The size of the bill does not create a separate discharge restriction. A large surgery bill and a small urgent-care balance generally receive the same kind of legal treatment. But your total debts can affect eligibility for a particular bankruptcy chapter.
 
-## If you're still being treated
+### Chapter 7
 
-The discharge wipes out bills for care you already received. It does not obligate any provider to keep treating you, and people reasonably worry about their relationship with a doctor they still need. In practice, hospitals cannot refuse emergency care, and most large providers separate billing from treatment entirely. If you are in ongoing treatment with a small independent practice you owe money to, that is worth raising with an attorney before filing, because timing and communication can matter.
+Eligible medical debts generally can be discharged without requiring payments from future income. If you have nonexempt assets, the [trustee](/library/who-is-the-trustee) may use available value to pay creditors before the case ends.
 
-## The trap to avoid
+### Chapter 13
 
-Don't drain retirement accounts or take out home equity to pay medical bills before understanding your options. Retirement accounts are almost always fully protected in bankruptcy, so paying a dischargeable bill with protected money is paying with dollars you were entitled to keep. It is one of the most expensive mistakes people make on the way to filing, and it usually happens before they've talked to anyone.
+Medical creditors generally receive the treatment required for ordinary unsecured debts under [your plan](/library/chapter-13-monthly-payment). That may mean little payment, partial payment, or payment in full. Any remaining eligible balance is discharged after you complete the plan and meet the other requirements.
+
+## Collections, judgments, and shared responsibility
+
+### A collection account is still medical debt
+
+Sending a bill to collections or selling it to a debt buyer generally does not change whether it is dischargeable.
+
+A court judgment also does not automatically prevent discharge. But if the creditor obtained a lien against property, eliminating personal liability may not eliminate that lien. Additional bankruptcy procedures may be needed, and some liens survive.
+
+Filing generally stops an ordinary medical-debt [garnishment](/library/can-bankruptcy-stop-wage-garnishment) when the [automatic stay](/library/what-is-the-automatic-stay) applies. It does not necessarily return money already withheld before filing.
+
+### Another person may still owe the bill
+
+Your discharge generally protects you from personal liability, not everyone else who may be responsible.
+
+A co-signer or guarantor may remain liable. State law may also make a spouse responsible for certain medical expenses even without a separate signature.
+
+Chapter 13 can temporarily [protect some co-debtors](/library/what-cant-bankruptcy-fix) on qualifying consumer debts, but that protection has limits and does not discharge the other person’s obligation.
+
+## If you are still receiving treatment
+
+Separate the care you received before filing from care you receive afterward.
+
+A bill arriving after filing may still relate to a prefiling debt. The statement date alone does not decide the issue. Likewise, future treatment does not automatically become covered by the bankruptcy just because it is part of the same illness or treatment relationship.
+
+List known providers and collection agencies even if insurance is still processing claims or the final balance is uncertain.
+
+In Chapter 7, debts arising after filing generally are not covered by that case’s discharge. Chapter 13 has limited procedures for certain postfiling debts, but you should not assume new medical bills can simply be added to the plan.
+
+### Can you keep seeing the same provider?
+
+Bankruptcy does not generally guarantee continued nonemergency treatment by a particular provider. Ongoing care may depend on applicable law, insurance arrangements, and the provider’s policies.
+
+Federal emergency-care protections are more specific: covered hospital emergency departments must provide appropriate screening and, when an emergency medical condition exists, stabilizing treatment or an appropriate transfer, regardless of ability to pay.
+
+Those protections do not guarantee free care or unlimited ongoing treatment.
+
+If you rely on a provider you owe money to, address continuity of care before assuming bankruptcy will have no practical effect on that relationship.
+
+## Be careful about how you pay medical bills
+
+Before withdrawing retirement savings or borrowing against your home to pay medical debt, understand what the transaction changes.
+
+Qualifying [retirement savings](/library/retirement-accounts-in-bankruptcy) may be protected in bankruptcy. A withdrawal can reduce those savings, create taxes or additional early-distribution tax, and change the money’s exemption treatment.
+
+Using a home-equity loan to pay an unsecured medical bill creates debt secured by your house. Bankruptcy may discharge personal liability on an eligible loan, but the lien generally remains unless legally addressed.
+
+Putting medical bills on a credit card also changes the creditor and may add interest. The resulting balance is generally unsecured, but recent charges and any applicable fraud exception still require attention.
+
+The important question is whether the payment will solve the problem without sacrificing protections or creating a more difficult obligation.
 
 ## The bottom line
 
-If medical debt is a major part of what you owe, bankruptcy handles it about as well as it handles anything. The harder question is usually everything else attached to it: the income lost during an illness, the mortgage that fell behind. Those are the situations the rest of this Library is here to help you sort out. If you're looking for an attorney, start with [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) or search [NACBA's attorney directory](https://network.nacba.org/network/advanced-search).
+Bankruptcy can provide substantial relief from medical debt, including large balances already in collections.
+
+The broader financial picture still matters: ongoing treatment costs, insurance gaps, lost income, and other household obligations can continue after the old bills are discharged.
+
+A workable approach addresses both the medical debt you already owe and the expenses you are likely to face next.
