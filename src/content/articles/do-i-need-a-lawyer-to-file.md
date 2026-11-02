@@ -13,7 +13,7 @@ num: "11.10"
 showCheckup: true
 sources:
   - title: "U.S. Courts, filing without an attorney"
-    url: "https://www.uscourts.gov/services-forms/bankruptcy/filing-without-attorney"
+    url: "https://www.uscourts.gov/court-programs/bankruptcy/filing-without-attorney"
   - title: "11 U.S.C. § 110, bankruptcy petition preparers"
     url: "https://www.law.cornell.edu/uscode/text/11/110"
 ---

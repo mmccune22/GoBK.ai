@@ -17,7 +17,7 @@ sources:
   - title: "11 U.S.C. § 362, the automatic stay"
     url: "https://www.law.cornell.edu/uscode/text/11/362"
   - title: "U.S. Courts, Bankruptcy Basics"
-    url: "https://www.uscourts.gov/services-forms/bankruptcy/bankruptcy-basics"
+    url: "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics"
   - title: "U.S. Department of Labor, wage garnishment limits"
     url: "https://www.dol.gov/agencies/whd/garnishment"
 ---

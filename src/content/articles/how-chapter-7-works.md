@@ -14,7 +14,7 @@ num: "4.1"
 showCheckup: true
 sources:
   - title: "U.S. Courts, Chapter 7 Bankruptcy Basics"
-    url: "https://www.uscourts.gov/services-forms/bankruptcy/bankruptcy-basics/chapter-7-bankruptcy-basics"
+    url: "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-7-bankruptcy-basics"
   - title: "11 U.S.C. § 362, the automatic stay"
     url: "https://www.law.cornell.edu/uscode/text/11/362"
   - title: "11 U.S.C. § 522, exemptions"

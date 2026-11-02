@@ -21,9 +21,9 @@ sources:
   - title: "11 U.S.C. § 343, examination of the debtor"
     url: "https://www.law.cornell.edu/uscode/text/11/343"
   - title: "U.S. Courts, Chapter 7 Bankruptcy Basics"
-    url: "https://www.uscourts.gov/services-forms/bankruptcy/bankruptcy-basics/chapter-7-bankruptcy-basics"
+    url: "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-7-bankruptcy-basics"
   - title: "U.S. Courts, Chapter 13 Bankruptcy Basics"
-    url: "https://www.uscourts.gov/services-forms/bankruptcy/bankruptcy-basics/chapter-13-bankruptcy-basics"
+    url: "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-13-bankruptcy-basics"
 ---
 
 ## The job

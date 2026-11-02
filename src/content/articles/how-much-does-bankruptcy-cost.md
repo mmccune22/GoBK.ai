@@ -13,7 +13,7 @@ num: "11.11"
 showCheckup: true
 sources:
   - title: "U.S. Courts, bankruptcy filing fees"
-    url: "https://www.uscourts.gov/services-forms/fees/bankruptcy-court-miscellaneous-fee-schedule"
+    url: "https://www.uscourts.gov/court-programs/fees/bankruptcy-court-miscellaneous-fee-schedule"
   - title: "Fed. R. Bankr. P. 1006, installments and waiver"
     url: "https://www.law.cornell.edu/rules/frbp/rule_1006"
 ---

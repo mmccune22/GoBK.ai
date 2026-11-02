@@ -30,7 +30,7 @@ sources:
   - title: "Federal Register, Adjustment of Certain Dollar Amounts Applicable to Bankruptcy Cases (effective April 1, 2025)"
     url: "https://www.govinfo.gov/content/pkg/FR-2025-02-04/html/2025-02207.htm"
   - title: "U.S. Courts, Chapter 13 Bankruptcy Basics"
-    url: "https://www.uscourts.gov/services-forms/bankruptcy/bankruptcy-basics/chapter-13-bankruptcy-basics"
+    url: "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-13-bankruptcy-basics"
 ---
 
 ## The basic deal

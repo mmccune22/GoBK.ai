@@ -15,7 +15,7 @@ showCheckup: true
 jurisdictionNote: "Homestead exemptions are set by state law and vary more than almost any other part of bankruptcy. A few states protect an unlimited amount of home equity. Some protect only a small amount. Some let you choose the federal exemption instead. This one number often decides the answer, so confirm which exemption rules apply to you, which may not be your current state’s if you moved recently."
 sources:
   - title: "U.S. Courts, Chapter 7 Bankruptcy Basics"
-    url: "https://www.uscourts.gov/services-forms/bankruptcy/bankruptcy-basics/chapter-7-bankruptcy-basics"
+    url: "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-7-bankruptcy-basics"
   - title: "11 U.S.C. § 362, the automatic stay"
     url: "https://www.law.cornell.edu/uscode/text/11/362"
   - title: "11 U.S.C. § 363(h), sale of certain jointly owned property"

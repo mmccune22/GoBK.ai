@@ -14,7 +14,7 @@ num: "11.1"
 showCheckup: true
 sources:
   - title: "U.S. Courts, Bankruptcy Basics"
-    url: "https://www.uscourts.gov/services-forms/bankruptcy/bankruptcy-basics"
+    url: "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics"
 ---
 
 ## Step one: know your facts

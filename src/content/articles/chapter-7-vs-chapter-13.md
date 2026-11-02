@@ -14,11 +14,13 @@ num: "1.3"
 showCheckup: true
 sources:
   - title: "U.S. Courts, Chapter 7 Bankruptcy Basics"
-    url: "https://www.uscourts.gov/services-forms/bankruptcy/bankruptcy-basics/chapter-7-bankruptcy-basics"
+    url: "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-7-bankruptcy-basics"
   - title: "U.S. Courts, Chapter 13 Bankruptcy Basics"
-    url: "https://www.uscourts.gov/services-forms/bankruptcy/bankruptcy-basics/chapter-13-bankruptcy-basics"
-  - title: "U.S. Courts, bankruptcy filing fees"
-    url: "https://www.uscourts.gov/services-forms/fees/bankruptcy-court-miscellaneous-fee-schedule"
+    url: "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-13-bankruptcy-basics"
+  - title: "28 U.S.C. § 1930, bankruptcy filing fees and fee waivers"
+    url: "https://www.law.cornell.edu/uscode/text/28/1930"
+  - title: "U.S. Courts, bankruptcy court miscellaneous fee schedule"
+    url: "https://www.uscourts.gov/court-programs/fees/bankruptcy-court-miscellaneous-fee-schedule"
 ---
 
 ## The short version

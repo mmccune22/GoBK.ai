@@ -14,7 +14,7 @@ num: "1.1"
 showCheckup: true
 sources:
   - title: "U.S. Courts, Bankruptcy Basics"
-    url: "https://www.uscourts.gov/services-forms/bankruptcy/bankruptcy-basics"
+    url: "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics"
   - title: "11 U.S.C. § 362, the automatic stay"
     url: "https://www.law.cornell.edu/uscode/text/11/362"
   - title: "11 U.S.C. § 524, the discharge injunction"

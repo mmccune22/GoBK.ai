@@ -22,7 +22,7 @@ sources:
   - title: "11 U.S.C. § 1325(a)(4), the Chapter 7 comparison in Chapter 13"
     url: "https://www.law.cornell.edu/uscode/text/11/1325"
   - title: "U.S. Courts, Chapter 7 Bankruptcy Basics"
-    url: "https://www.uscourts.gov/services-forms/bankruptcy/bankruptcy-basics/chapter-7-bankruptcy-basics"
+    url: "https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics/chapter-7-bankruptcy-basics"
 ---
 
 ## The idea
