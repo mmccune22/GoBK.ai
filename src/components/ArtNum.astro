@@ -10,6 +10,6 @@ const part = num ? Number(num.split('.')[0]) : 0;
   ? <p class="anum-long">Part {part} · {num}</p>
   : <span class="anum">{num}</span>)}
 <style>
-  .anum { display: inline-block; min-width: 2.1rem; color: var(--fg-soft); font-size: 0.85em; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .anum { display: inline-block; min-width: 3.6em; margin-right: 0.3em; color: var(--fg-soft); font-size: 0.85em; font-weight: 600; font-variant-numeric: tabular-nums; }
   .anum-long { margin: 0 0 0.35rem; color: var(--fg-soft); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
 </style>
