@@ -1,12 +1,12 @@
 ---
 title: "Can I keep my car if I file bankruptcy?"
-shortAnswer: "Usually, yes. If you own the car outright, exemptions protect a certain amount of its value. If you are still paying on it, you can keep it by continuing the loan, paying it off at its current value, or restructuring it in Chapter 13."
+shortAnswer: "You can often keep a car in bankruptcy, but protecting your ownership interest and dealing with the loan are separate questions. Exemptions may protect some or all of your equity. If you have a loan, Chapter 7 options may include reaffirmation or qualifying redemption, while Chapter 13 may let you restructure repayment. Simply continuing payments does not guarantee protection from repossession in every Chapter 7 case."
 description: "How bankruptcy treats a paid-off car, a financed car, and a leased car, and the choices Chapter 7 and Chapter 13 give you."
 category: property-and-assets
 tags: [car, exemptions, chapter-7, chapter-13, secured-debt, repossession]
 doors: [understanding-bankruptcy]
 published: 2026-08-15
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
 startHere: true
 weight: 40

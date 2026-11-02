@@ -27,7 +27,7 @@ export const categories = [
   {
     id: 'property-and-assets',
     name: 'Your property',
-    blurb: 'Your house, car, retirement, property you own with someone else, and how exemptions protect them.',
+    blurb: 'How bankruptcy treats your house, car, retirement savings, and jointly owned property—and how exemptions help protect what you own.',
   },
   {
     id: 'debts',

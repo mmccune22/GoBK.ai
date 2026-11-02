@@ -1,12 +1,12 @@
 ---
 title: "Homestead and vehicle exemptions by state"
-shortAnswer: "The two exemptions people ask about first, home equity and vehicle, for all fifty states and D.C., verified against current sources in September 2026. Use this as a first-look map, not a final answer: several states adjust these amounts every year, some let you choose the federal list instead, and the number that matters is your equity, not your home's value."
+shortAnswer: "Homestead and vehicle exemptions help protect equity in your home and car. This guide compares the rules across all fifty states and D.C., including whether a state allows a choice between state and federal exemptions. Use it as a starting point: amounts and conditions change, recent moves can affect which rules apply, and special limits may matter. The key figure is generally your equity after secured loans, rather than the property’s total value."
 description: "A verified fifty-state reference table of homestead and vehicle exemption amounts, with the caveats that make the numbers usable."
 category: property-and-assets
 tags: [exemptions, house, car, documents]
 doors: []
 published: 2026-09-01
-updated: 2026-09-02
+updated: 2026-11-02
 status: draft
 weight: 18
 num: "6.2"
