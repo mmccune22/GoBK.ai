@@ -1,16 +1,16 @@
 ---
 title: "What are my alternatives to bankruptcy?"
-shortAnswer: "The realistic alternatives are creditor hardship programs, a debt management plan through a nonprofit credit counselor, negotiating settlements yourself, and in some situations doing nothing. Each fits a different kind of problem, and each has costs that the people selling them tend to leave out."
+shortAnswer: "Options include creditor hardship programs, nonprofit credit counseling, debt management plans, negotiated settlements, and consolidation loans. Some people with legally protected income and property may reasonably choose not to file. Each option addresses a different problem: temporary hardship, expensive interest, unaffordable balances, or limited exposure to collection. Compare total costs, repayment feasibility, collection risks, and tax consequences before committing. An alternative is useful only if it provides a workable path—not merely a smaller payment today."
 description: "The legitimate alternatives to bankruptcy, who each one fits, what it costs, and how to tell whether one of them is better for you than filing."
 category: alternatives
 tags: [credit-counseling, settlement]
 doors: [way-out]
 published: 2026-08-15
-updated: 2026-09-01
-status: draft
+updated: 2026-11-02
+status: reviewed
 startHere: true
-weight: 60
-num: "10.5"
+weight: 10
+num: "10.1"
 showCheckup: true
 sources:
   - title: "Consumer Financial Protection Bureau, What is the difference between a credit counselor and a debt settlement company?"

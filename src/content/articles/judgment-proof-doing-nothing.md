@@ -1,15 +1,15 @@
 ---
 title: "'Judgment-proof': when doing nothing is a real option"
-shortAnswer: "If your income is all protected (Social Security, disability, most pensions) and everything you own fits within exemptions, creditors can sue you, win, and still collect nothing, because there's nothing the law lets them take. People in that position sometimes rationally skip bankruptcy entirely. It's a strategy with real costs (the suits and calls continue, and it lasts only as long as your facts do), but for some, especially older debtors, it beats filing."
+shortAnswer: "If applicable law protects all your income and property from a particular creditor, that creditor may have little or nothing it can presently collect—even after obtaining a judgment. Sometimes called “collection-proof,” this status can make postponing or avoiding bankruptcy reasonable. It does not erase the debt, prevent lawsuits, or guarantee permanent protection. Different rules apply to support, taxes, and secured debts, and changed finances can create new collection exposure. Court notices and exemption procedures still require attention."
 description: "What being judgment-proof means, who actually qualifies, how to live it deliberately, and the events that end it."
 category: alternatives
 tags: [exemptions, income, settlement]
 doors: [way-out]
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
 weight: 35
-num: "10.4"
+num: "10.5"
 showCheckup: true
 sources:
   - title: "42 U.S.C. § 407, protection of Social Security benefits"

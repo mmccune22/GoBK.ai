@@ -1,15 +1,15 @@
 ---
 title: "Debt management plans and credit counseling agencies"
-shortAnswer: "A DMP is a nonprofit credit counseling agency consolidating your unsecured payments into one monthly amount, with creditors typically cutting interest rates substantially and waiving fees. You repay 100% of principal over about three to five years. It's the legitimate middle path: no legal protection, no forgiveness, but far less damage than settlement and real relief when the problem is interest rate rather than principal. It fits people who could pay the debt at 8% but are drowning at 28%."
+shortAnswer: "A debt management plan typically combines payments on participating unsecured debts through a credit counseling agency. Creditors may reduce interest or waive fees, while you generally repay the principal over several years. The plan is not a new loan and does not provide bankruptcy’s automatic stay. It can help when lower interest makes full repayment realistic. Check fees, creditor participation, account restrictions, and affordability; nonprofit status alone does not guarantee quality."
 description: "How debt management plans actually work, who they fit, how to vet an agency, and the honest comparison with bankruptcy and settlement."
 category: alternatives
 tags: [settlement, credit-counseling, credit-cards]
 doors: [way-out]
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
 weight: 25
-num: "10.2"
+num: "10.3"
 showCheckup: true
 sources:
   - title: "FTC, choosing a credit counselor"

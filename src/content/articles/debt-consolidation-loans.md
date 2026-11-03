@@ -1,15 +1,15 @@
 ---
 title: "Debt consolidation loans: help or trap?"
-shortAnswer: "A consolidation loan doesn't reduce debt; it moves it, and whether that helps depends entirely on the interest rate math and what happens to the freed-up cards. Genuinely lower fixed rate, fees counted, cards closed or frozen, payoff date real: help. But the common patterns are traps: rates that aren't actually better by the time you qualify, balance-transfer teasers that expire, and above all, securing unsecured debt with your house, which converts dischargeable debt into a foreclosure risk."
+shortAnswer: "Consolidation replaces existing debts with a new loan; it does not automatically reduce what you owe. It may help if the interest rate, fees, and repayment term produce a genuinely affordable payoff. A smaller payment achieved by stretching the loan can cost more overall. Reusing paid-off cards can leave you with both debts, while borrowing against your home puts property at risk to pay previously unsecured obligations. Confirm whether an advertised “consolidation” service is actually selling debt settlement."
 description: "When consolidation genuinely works, the rate-and-behavior math, and the one version to almost never do: pledging your home."
 category: alternatives
 tags: [settlement, house, credit-cards]
 doors: [way-out]
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
 weight: 30
-num: "10.3"
+num: "10.4"
 showCheckup: true
 sources:
   - title: "CFPB, debt consolidation guidance"

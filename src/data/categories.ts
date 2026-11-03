@@ -47,7 +47,7 @@ export const categories = [
   {
     id: 'alternatives',
     name: 'Alternatives to bankruptcy',
-    blurb: 'Settlement, debt management plans, consolidation loans, and when doing nothing is a real option.',
+    blurb: 'Hardship programs, settlement, repayment plans, consolidation, and when protected income or property may make filing unnecessary.',
   },
   {
     id: 'before-hiring',
