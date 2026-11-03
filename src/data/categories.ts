@@ -42,7 +42,7 @@ export const categories = [
   {
     id: 'life-after-bankruptcy',
     name: 'Life after bankruptcy',
-    blurb: 'Credit, renting, buying a home or car, and rebuilding on solid ground.',
+    blurb: 'Credit, renting, employment, major purchases, and building a financial life you can maintain.',
   },
   {
     id: 'alternatives',

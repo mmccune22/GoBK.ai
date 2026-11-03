@@ -1,16 +1,16 @@
 ---
 title: "What happens to my credit after bankruptcy?"
-shortAnswer: "A bankruptcy stays on your credit report for up to ten years, but most people's scores start recovering within a year or two, and many can qualify for a car loan quickly and a mortgage within two to four years. If your credit is already damaged by missed payments, bankruptcy often improves it."
+shortAnswer: "Bankruptcy is a significant negative credit event, but its effect depends partly on where your credit stood beforehand. Eliminating eligible debt can improve your financial position without immediately improving your score. Discharged accounts should accurately reflect their treatment, while prior late payments and the bankruptcy itself may remain reportable. Review your reports for errors, distinguish accurate negative history from incorrect balances, and avoid promises of an instant credit reset."
 description: "How long bankruptcy stays on a credit report, what happens to scores, when you can get a car loan or mortgage again, and how to rebuild."
 category: life-after-bankruptcy
 tags: [credit, chapter-7, chapter-13, house]
 doors: []
 published: 2026-08-15
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
 startHere: true
-weight: 70
-num: "9.6"
+weight: 10
+num: "9.1"
 sources:
   - title: "Consumer Financial Protection Bureau, How long does negative information stay on my credit report?"
     url: "https://www.consumerfinance.gov/ask-cfpb/how-long-does-negative-information-remain-on-my-credit-report-en-323/"

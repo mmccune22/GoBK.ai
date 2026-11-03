@@ -1,15 +1,15 @@
 ---
 title: "Rebuilding credit after bankruptcy: a realistic first year"
-shortAnswer: "The playbook is boring and it works: fix report errors first, add one secured card or credit-builder loan, keep utilization tiny, pay perfectly, and let time compound. Ignore the flood of predatory 'fresh start' offers that follow your discharge. Most filers who do the boring things see meaningful score recovery inside a year and real lending access inside two."
+shortAnswer: "Start with accurate credit reports and a budget that supports on-time payments. If new credit fits that budget, a reasonably priced secured card or credit-builder product may help establish positive payment history. Keep balances low, avoid unnecessary applications, and compare fees carefully. You do not need to carry interest-bearing debt to rebuild credit. Progress varies; no product or payment strategy guarantees a particular score within a year."
 description: "A month-by-month realistic plan for the first year after discharge: cleanup, one tradeline, utilization, the offers to ignore, and calibrated expectations."
 category: life-after-bankruptcy
 tags: [credit]
 doors: []
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
-weight: 15
-num: "9.1"
+weight: 30
+num: "9.3"
 showCheckup: true
 sources:
   - title: "CFPB, rebuilding credit"

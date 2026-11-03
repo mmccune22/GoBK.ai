@@ -1,15 +1,15 @@
 ---
 title: "Jobs, security clearances, and bankruptcy"
-shortAnswer: "Your current job is safe: no employer, government or private, may fire you over a bankruptcy, and government employers can't refuse to hire over one either. Private hiring is the soft spot, mostly in finance and security roles that run credit checks with your consent. And the counterintuitive truth security-clearance holders learn: adjudicators treat unresolved debt as the risk, not resolved debt; filing bankruptcy is routinely viewed as responsibly addressing the problem."
+shortAnswer: "Federal law generally prohibits government and private employers from firing you or discriminating regarding employment solely because you filed bankruptcy. Government hiring also has protection; private hiring is treated differently and may involve additional state-law protections. Bankruptcy does not automatically disqualify someone from a security clearance. Reviewers consider the circumstances, honesty, reporting compliance, and steps taken to resolve financial problems. Neither a job nor a clearance outcome can be guaranteed."
 description: "The anti-discrimination rules, where credit checks actually bite, the clearance calculus, and licensed professions."
 category: life-after-bankruptcy
 tags: [employment, credit]
 doors: []
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
-weight: 45
-num: "9.4"
+weight: 50
+num: "9.5"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 525, protection against discriminatory treatment"

@@ -1,14 +1,14 @@
 ---
 title: "How long does bankruptcy stay on my credit report?"
-shortAnswer: "Chapter 7 can be reported for up to ten years from the filing date; Chapter 13 typically falls off after seven. But the number that matters more is how fast scores recover, and for most filers that starts within a year or two, because the discharge also removes the delinquencies dragging the score down. Many people report better credit two years after filing than two years before."
+shortAnswer: "Chapter 7 generally can remain on your credit report for up to ten years from filing. Credit bureaus typically remove Chapter 13 after seven years, although the general federal reporting limit is ten years. Discharge does not automatically delete accurate prebankruptcy payment history. Credit can improve while the bankruptcy remains visible, but the pace depends on your overall credit record and subsequent financial activity."
 description: "The reporting clocks for each chapter, why scores recover before the entry disappears, and how to make sure the report is accurate after discharge."
 category: life-after-bankruptcy
 tags: [credit, chapter-7, chapter-13]
 doors: []
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
-weight: 25
+weight: 20
 num: "9.2"
 showCheckup: true
 sources:
