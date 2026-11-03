@@ -37,7 +37,7 @@ export const categories = [
   {
     id: 'creditor-actions',
     name: 'Urgent problems',
-    blurb: 'Garnishments, lawsuits, frozen accounts, foreclosure, repossession, and how fast bankruptcy can stop them.',
+    blurb: 'Garnishments, lawsuits, frozen accounts, foreclosure, and repossession: what bankruptcy can stop, what it may help recover, and why timing matters.',
   },
   {
     id: 'life-after-bankruptcy',

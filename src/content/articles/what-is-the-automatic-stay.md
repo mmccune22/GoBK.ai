@@ -1,15 +1,15 @@
 ---
 title: "The automatic stay: bankruptcy's pause button, explained"
-shortAnswer: "The moment any bankruptcy is filed, a federal injunction called the automatic stay snaps into place: garnishments, foreclosures, repossessions, lawsuits, levies, utility shutoffs, and collection calls must stop, immediately, without a judge signing anything. It's the reason bankruptcy can rescue emergencies. It has exceptions (mostly family support and criminal matters) and it can be shortened for repeat filers, but while it holds, it holds against everyone."
+shortAnswer: "Filing bankruptcy generally triggers the automatic stay, a federal protection that stops many collection actions without a separate court order. It can halt ordinary debt-collection lawsuits, garnishments, foreclosures, and repossessions. Exceptions apply, and prior filings or existing court orders can limit protection. Creditors may also ask the court to lift the stay. The stay creates time to address the problem; it does not erase the debt or guarantee that you can keep the property."
 description: "What the automatic stay stops, what it doesn't, what happens when creditors ignore it, and the repeat-filing limits."
 category: creditor-actions
 tags: [automatic-stay, garnishment, foreclosure, collections]
 doors: [help-now]
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
-weight: 55
-num: "8.6"
+weight: 10
+num: "8.1"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 362, the automatic stay"

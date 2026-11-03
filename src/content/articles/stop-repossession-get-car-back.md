@@ -1,15 +1,15 @@
 ---
 title: "Can bankruptcy stop a repossession, or get my car back?"
-shortAnswer: "Yes to stopping one: the moment you file, the automatic stay bars the repo man. And if the car was just taken but not yet auctioned, filing quickly, especially a Chapter 13 that provides for the loan, can often force the lender to return it. After the auction it's too late, so this is measured in days."
+shortAnswer: "Filing generally stops a pending repossession when the automatic stay applies. If the car has already been taken, recovery may still be possible, particularly through Chapter 13, but filing alone does not require its immediate return. Your remaining ownership rights, state-law deadlines, any sale, insurance, and the proposed loan treatment all matter. Act quickly: delay can narrow or eliminate the available options."
 description: "How filing stops repossession, when a repossessed car can be recovered, and the plan options once the car is safe."
 category: creditor-actions
 tags: [repossession, car, automatic-stay, chapter-13, cramdown]
 doors: [help-now]
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
 weight: 45
-num: "8.4"
+num: "8.5"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 362, the automatic stay"

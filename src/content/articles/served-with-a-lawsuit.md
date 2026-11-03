@@ -1,16 +1,16 @@
 ---
 title: "I just got served with a debt collection lawsuit. What now?"
-shortAnswer: "Don't ignore it; that's the only losing move. Most collection suits end in default judgments because nobody answers, and a judgment unlocks garnishment and bank levies. You typically have around three weeks to respond. Your realistic options: answer and make them prove it, negotiate, or, if this suit is one symptom of a bigger problem, file bankruptcy, which stops the case instantly."
+shortAnswer: "Read the papers and identify the response deadline immediately. Deadlines vary by court and jurisdiction; do not assume you have three weeks. Depending on the facts, you may contest the claim, negotiate, or address the debt through bankruptcy. Filing generally stops an ordinary collection lawsuit when the automatic stay applies, but planning to file does not extend the response deadline. A default judgment can create additional collection rights and complications."
 description: "What a collection lawsuit actually means, the deadline that matters, defenses worth raising, and where bankruptcy fits."
 category: creditor-actions
 tags: [lawsuit, collections, automatic-stay, garnishment]
 doors: [help-now]
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
 startHere: true
 weight: 25
-num: "8.2"
+num: "8.3"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 362, the automatic stay"

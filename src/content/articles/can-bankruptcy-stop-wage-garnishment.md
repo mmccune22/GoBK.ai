@@ -1,16 +1,16 @@
 ---
 title: "Can bankruptcy stop a wage garnishment?"
-shortAnswer: "Yes, in almost every case. Filing bankruptcy triggers an automatic stay that requires most creditors to stop garnishing immediately, and it usually takes effect within one or two pay periods."
+shortAnswer: "Bankruptcy generally stops garnishment for ordinary debts when the automatic stay applies. The legal protection usually begins at filing, but getting deductions stopped requires prompt notice to the creditor, payroll department, and others handling the garnishment. Support withholding and certain other deductions have different rules. Money already withheld may require separate action to recover, and a refund is not guaranteed."
 description: "How the automatic stay stops wage garnishment, which garnishments it doesn't stop, what happens to money already taken, and whether the debt comes back."
 category: creditor-actions
 tags: [garnishment, automatic-stay, chapter-7, chapter-13, lawsuit]
 doors: [help-now]
 published: 2026-08-15
-updated: 2026-09-01
+updated: 2026-11-02
 status: draft
 startHere: true
 weight: 20
-num: "8.1"
+num: "8.2"
 showCheckup: true
 jurisdictionNote: "How much of your paycheck can be garnished before bankruptcy depends on state law. Federal law caps most garnishments at 25 percent of disposable earnings, but many states protect more, and a few protect wages almost entirely. The bankruptcy stay works the same way everywhere."
 sources:
