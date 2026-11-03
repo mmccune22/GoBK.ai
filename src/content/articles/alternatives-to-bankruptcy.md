@@ -1,7 +1,7 @@
 ---
 title: "What are my alternatives to bankruptcy?"
 shortAnswer: "Options include creditor hardship programs, nonprofit credit counseling, debt management plans, negotiated settlements, and consolidation loans. Some people with legally protected income and property may reasonably choose not to file. Each option addresses a different problem: temporary hardship, expensive interest, unaffordable balances, or limited exposure to collection. Compare total costs, repayment feasibility, collection risks, and tax consequences before committing. An alternative is useful only if it provides a workable path—not merely a smaller payment today."
-description: "The legitimate alternatives to bankruptcy, who each one fits, what it costs, and how to tell whether one of them is better for you than filing."
+description: "The main alternatives to bankruptcy—hardship programs, debt management plans, settlement, consolidation, choosing not to file, and selling assets—and how to compare them."
 category: alternatives
 tags: [credit-counseling, settlement]
 doors: [way-out]
@@ -13,44 +13,119 @@ weight: 10
 num: "10.1"
 showCheckup: true
 sources:
-  - title: "Consumer Financial Protection Bureau, What is the difference between a credit counselor and a debt settlement company?"
+  - title: "CFPB, What's the difference between a credit counselor and a debt settlement or debt relief company?"
     url: "https://www.consumerfinance.gov/ask-cfpb/what-is-the-difference-between-a-credit-counselor-and-a-debt-settlement-or-debt-relief-company-en-1449/"
-  - title: "Federal Trade Commission, How to Get Out of Debt"
+  - title: "FTC, How To Get Out of Debt"
     url: "https://consumer.ftc.gov/articles/how-get-out-debt"
-  - title: "IRS Topic 431, canceled debt"
+  - title: "IRS, Topic No. 431, Canceled Debt – Is It Taxable or Not?"
     url: "https://www.irs.gov/taxtopics/tc431"
+  - title: "IRS Publication 4681, Canceled Debts, Foreclosures, Repossessions, and Abandonments"
+    url: "https://www.irs.gov/publications/p4681"
 ---
+
+## Start with the problem you need to solve
+
+A temporary income interruption is different from a debt balance you cannot realistically repay. High interest is different from a mortgage default or unpaid support.
+
+Before choosing an option, identify:
+
+- What you owe and whether the debts are secured or unsecured.
+- What remains after essential expenses and ongoing obligations.
+- Whether the income problem is temporary or likely to continue.
+- Any lawsuit, garnishment, repossession, or foreclosure deadlines.
+- Which income and property the law protects.
+
+A smaller payment helps only if it leads somewhere workable. Otherwise, it can postpone the same problem while adding interest, fees, or risk.
 
 ## Creditor hardship programs
 
-Most major credit card issuers, and many lenders, have internal hardship programs. They typically reduce the interest rate, sometimes to zero, and set a fixed payment for a period of months or years. The account is usually closed to new charges.
+Some creditors offer reduced interest, temporary payment relief, waived fees, or a structured repayment arrangement. Availability and terms vary, and the account may be restricted or closed to new purchases.
 
-This fits someone with a temporary problem, such as a job loss with a job coming, or a medical event that is resolving, who can realistically pay the balance at a lower rate. You call the creditor and ask. There is no fee. The downside is that you are still paying the full principal, and if the underlying problem is not temporary, you are delaying rather than solving.
+Contact the creditor directly and ask what assistance is available. Before agreeing, understand the payment, duration, total cost, credit reporting, and what happens when the program ends.
+
+This may fit a temporary setback or a balance you can repay under better terms. But a payment pause is not necessarily forgiveness, and interest or deferred amounts may remain due.
+
+A program with one creditor also does not resolve obligations to everyone else.
 
 ## Debt management plans
 
-A nonprofit credit counseling agency can set up a debt management plan. You make one monthly payment to the agency, which pays your creditors under terms the agency has negotiated: reduced interest, waived fees, a fixed payoff over roughly three to five years. You pay the full principal. (The full DMP answer in this section covers the vetting and the honest completion odds.)
+A credit counseling agency can review your budget and may recommend a debt management plan.
 
-This fits someone with mostly credit card debt who can afford to pay it back over a few years if the interest stops compounding. It does not help with secured debt, taxes, student loans, or judgments. It requires you to close the cards. There is usually a modest monthly fee. Look for agencies affiliated with the National Foundation for Credit Counseling and be wary of anyone who charges a large upfront fee.
+You generally make one payment to the agency, which distributes funds to participating creditors. Creditors may reduce interest or waive fees while you repay the principal over several years.
 
-## Negotiating settlements
+These plans commonly address unsecured debts such as credit cards. Do not assume every account, judgment, or debt type is eligible. Confirm participation and treatment before relying on the proposed payment.
 
-Creditors, and especially debt buyers who purchased your account for pennies on the dollar, will often accept less than the full balance in a lump sum. Settlements at 30 to 60 percent of the balance are common on older, charged-off accounts.
+Accounts often must be closed or restricted. Setup or monthly fees may apply, and nonprofit status alone does not establish that an agency is suitable.
 
-This fits someone who has a lump sum available and a manageable number of accounts. Two things to know. First, the creditor usually will not negotiate seriously until the account is well behind, so this path involves months of missed payments and possible lawsuits along the way. Second, forgiven debt over $600 is generally reported to the IRS as income. There is an exclusion if you were insolvent at the time, but you need to claim it.
+A debt management plan is not bankruptcy and creates no automatic stay. Its protections depend on creditor agreements rather than a court order binding all covered creditors.
 
-You can negotiate yourself. Debt settlement companies do the same thing for a substantial fee, often while telling you to stop paying and send money to them instead. The Consumer Financial Protection Bureau and the Federal Trade Commission have both warned about this industry repeatedly. If you want help, a bankruptcy attorney will often negotiate settlements for a flat fee and will tell you if bankruptcy would be cheaper. The debt settlement answer in this section covers the industry version, and the tax surprise, in full.
+See [Debt management plans and credit counseling agencies](/library/debt-management-plans).
 
-## Doing nothing
+## Negotiated settlements
 
-This sounds like avoidance, but for some people it is the rational choice. If your income comes from Social Security, disability, or a pension, it is generally protected from garnishment. If you own no property above your state's exemptions, a creditor with a judgment has nothing to take. People in this position are sometimes called judgment-proof, and the judgment-proof answer in this section treats it as the real option it is.
+Settlement means a creditor agrees to resolve a debt for less than the full amount. You may negotiate directly or use professional assistance.
 
-If that is you, creditors can sue and win, and it changes nothing. Bankruptcy would clean up your credit report and stop the calls, but it is not necessary to protect you. Doing nothing does mean living with collection activity and a damaged credit history, and it is a choice worth revisiting if your situation changes.
+There is no guaranteed discount or requirement that a creditor participate. A lump sum can help, but some agreements allow installments.
 
-## Selling or borrowing
+Before paying, obtain written terms addressing the balance being released, payment deadlines, and any pending lawsuit or judgment.
 
-Selling a house with equity, downsizing a car, or, less often, a family loan can resolve a debt problem without any of the above. Borrowing against a retirement account is almost always a mistake when bankruptcy is on the table, because retirement accounts are protected in bankruptcy and the loan is not. The same warning applies double to home equity: securing dischargeable debt with your house is the one consolidation move to almost never make, as the consolidation answer explains.
+Programs that require missed payments while settlement funds accumulate can expose you to collection, additional charges, and credit damage. Enrollment does not stop lawsuits.
 
-## How to compare
+Forgiven debt may create taxable income, although exclusions such as insolvency can reduce or eliminate it. The $600 threshold associated with certain Form 1099-C reporting is not a tax-free allowance.
 
-For each option, ask three things. What will I actually pay in total? How long will it take? What is protected while I do it? Bankruptcy generally wins on the first two for people with significant unsecured debt, and the automatic stay wins on the third. The alternatives win when the debt is modest relative to income, the problem is temporary, or when the credit consequences of bankruptcy matter for a specific near-term goal.
+See [Debt settlement: how it really works, and the tax surprise](/library/debt-settlement-how-it-works).
+
+## Consolidation loans
+
+A consolidation loan pays existing debts with new borrowing. It may simplify payments or reduce interest, but it does not automatically reduce principal.
+
+Compare the annual percentage rate, fees, repayment term, and total cost. A lower monthly payment achieved by extending repayment can cost more overall.
+
+The plan also needs to prevent new balances from building on the paid-off cards. Otherwise, you may end up owing both the consolidation loan and renewed credit card debt.
+
+Using home equity adds another risk: previously unsecured debts become an obligation secured by your house.
+
+See [Debt consolidation loans: help or trap?](/library/debt-consolidation-loans)
+
+## Choosing not to file
+
+If applicable law protects all your income and property from a particular creditor, postponing or avoiding bankruptcy may be reasonable.
+
+This is often called being **collection-proof** or **judgment-proof**. It does not mean you cannot be sued or that the debt disappears.
+
+A judgment can still matter. Exemptions may need to be claimed, liens may require attention, and future income or property can change what a creditor can collect. Support, tax, and secured creditors also have different rights.
+
+Social Security, disability payments, and pensions do not all have identical protections. Review the specific benefit, creditor, and applicable law rather than relying on a general label.
+
+See [“Judgment-proof”: when doing nothing is a real option](/library/judgment-proof-doing-nothing).
+
+## Selling assets or using savings
+
+Selling an unaffordable vehicle, downsizing, or using genuinely available savings may resolve a manageable debt problem.
+
+But first establish what you would give up. Property protected in bankruptcy may be difficult to replace after it is sold. [Retirement](/library/retirement-accounts-in-bankruptcy) withdrawals can create taxes and reduce protected savings. Retirement-plan loans have separate repayment and tax risks.
+
+[Borrowing from family](/library/loans-from-family-and-friends) can also replace institutional debt with a financial obligation that affects an important relationship.
+
+Avoid transfers below fair value, hidden assets, or selective repayments intended to keep property away from creditors. If bankruptcy remains possible, those transactions can affect the case.
+
+## How to compare the options
+
+For each proposal, ask:
+
+- **What will I pay in total?** Include interest, fees, potential taxes, and costs of obtaining funds.
+- **Can I complete it?** Account for necessary expenses and foreseeable setbacks.
+- **What happens while I wait?** Identify collection exposure and approaching deadlines.
+- **What property or protection am I giving up?**
+- **What remains afterward?** Include debts excluded from the arrangement.
+- **What happens if it fails?**
+
+Compare those answers with the actual consequences of Chapter 7 or Chapter 13, including eligibility, property risks, surviving debts, and required payments.
+
+Bankruptcy offers court-supervised protections and potential discharge. Alternatives may avoid a filing and resolve a narrower or temporary problem. Neither description alone determines the better choice.
+
+## The bottom line
+
+You do not have to choose bankruptcy simply because you are struggling with debt. You also do not have to exhaust every repayment product before considering it.
+
+Choose an approach that fits your income, debts, property, and deadlines. The useful alternative is one you can realistically complete without turning an unsecured debt problem into a larger financial risk.
