@@ -2,14 +2,14 @@
 title: "Will I lose my tax refund if I file bankruptcy?"
 shortAnswer: "It depends almost entirely on timing and your state's exemptions. The refund you've earned but not yet received is an asset on filing day, even mid-year, prorated. Trustees love refunds because they're pure, easy cash. The playbook: either receive and reasonably spend the refund on necessities before filing, or make sure an exemption covers it. Filed already? Don't spend an expected refund until you know whose it is."
 description: "Why tax refunds are the asset trustees chase, how the timing works across the calendar, EITC protection, and the safe ways to handle a refund before filing."
-category: before-hiring
+category: property-and-assets
 tags: [taxes, timing, exemptions, trustee, chapter-13]
 doors: []
 published: 2026-09-01
-updated: 2026-09-01
+updated: 2026-11-09
 status: draft
-weight: 58
-num: "11.6"
+weight: 85
+num: "6.8"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 541, property of the estate"
@@ -22,7 +22,7 @@ sources:
 
 Your refund is just your own money coming back, which means you *earned* it across the tax year, and the bankruptcy estate captures the portion earned before your filing date. File in March before receiving last year's refund, and that entire refund is an estate asset. File in October, and roughly ten-twelfths of *next* spring's refund is too, even though it won't arrive for months. Trustees in many districts routinely hold cases open for exactly this, sometimes with an agreement that you'll send a portion of the refund when it comes. If you make such an agreement, honor it; a discharge can be revoked over a kept-and-spent refund, and that's a self-inflicted wound with no remedy.
 
-Whether the estate's claim matters depends on your **state's exemptions**: some have wildcards that swallow a refund whole, some specifically protect refund components, and some protect nearly nothing. Many states (and, where it applies, the federal list) give particular shelter to the **Earned Income Tax Credit and Child Tax Credit** portions, which is worth raising with your attorney explicitly, because those credits are frequently the bulk of a family's refund.
+Whether the estate's claim matters depends on your **state's exemptions**: some have wildcards that swallow a refund whole, some specifically protect refund components, and some protect nearly nothing. Some states give particular shelter to the **Earned Income Tax Credit and Child Tax Credit** portions, which is worth raising with your attorney explicitly, because those credits are frequently the bulk of a family's refund.
 
 ## The playbook before filing
 

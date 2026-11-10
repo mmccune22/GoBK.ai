@@ -16,6 +16,9 @@ const { category, articles } = Astro.props;
       <nav class="crumbs" aria-label="Breadcrumb"><a href="/library">Library</a> / {category.name}</nav>
       <h1>{category.name}</h1>
       <p class="lede">{category.blurb}</p>
+      {'cta' in category && category.cta && (
+        <p class="cta"><a class="btn btn-primary" href={category.cta.href} target="_blank" rel="noopener">{category.cta.label}</a></p>
+      )}
     </div>
   </section>
   <section class="wrap body" data-pagefind-ignore>
@@ -37,6 +40,7 @@ const { category, articles } = Astro.props;
   .head { background: var(--grey); padding-block: var(--space-5); }
   .crumbs { font-size: 0.9rem; color: var(--fg-soft); margin-bottom: var(--space-2); }
   .head .lede { margin-top: var(--space-2); }
+  .head .cta { margin-top: var(--space-3); }
   .body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: var(--space-6); padding-top: var(--space-5); align-items: start; }
   .body > aside { order: -1; }
   .empty p { color: var(--fg-soft); }

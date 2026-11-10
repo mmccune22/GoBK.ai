@@ -27,7 +27,7 @@ export const categories = [
   {
     id: 'property-and-assets',
     name: 'Your property',
-    blurb: 'How bankruptcy treats your house, car, retirement savings, and jointly owned property—and how exemptions help protect what you own.',
+    blurb: 'How bankruptcy treats your house, car, retirement savings, bank accounts, tax refunds, and jointly owned property—and how exemptions help protect what you own.',
   },
   {
     id: 'debts',
@@ -51,8 +51,9 @@ export const categories = [
   },
   {
     id: 'before-hiring',
-    name: 'Before you hire a lawyer',
-    blurb: 'How to arrive at a consultation informed and organized: your numbers, your documents, what it will cost, and what technology can and can\'t do.',
+    name: 'Getting legal help',
+    blurb: 'You don\'t need to figure everything out first. How to find a bankruptcy attorney, prepare for a consultation, understand the costs, avoid common pre-filing mistakes, and use AI wisely.',
+    cta: { label: 'Find a bankruptcy attorney', href: 'https://nacba.org/page/find-an-attorney' },
   },
 ] as const;
 

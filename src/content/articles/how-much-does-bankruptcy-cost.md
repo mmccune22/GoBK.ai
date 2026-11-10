@@ -1,39 +1,60 @@
 ---
-title: "How much does it cost to file bankruptcy?"
-shortAnswer: "Three pieces: the court filing fee ($338 for Chapter 7, $313 for Chapter 13, waivable or payable in installments for low-income Chapter 7 filers), two required courses (roughly $10-$50 each), and the attorney fee, which is the real number. Chapter 7 attorney fees are flat and vary by market and complexity; Chapter 13 has the structural kindness that most of the fee is paid through the plan, so little money down. Yes, it's strange that being broke costs money; here's how people actually manage it."
-description: "The real costs of each chapter, how people afford to file, fee waivers and installments, and why the cheap quote isn't always the cheap case."
+title: "How much does bankruptcy cost?"
+shortAnswer: "Costs usually fall into three categories: the court filing fee ($338 for Chapter 7 and $313 for Chapter 13 as of 2026), two required courses, and attorney fees. Chapter 7 attorney fees are commonly paid before filing, while Chapter 13 fees are often paid partly through the plan. Filing fees can sometimes be paid in installments, and eligible low-income Chapter 7 filers can ask the court to waive the fee. Ask any attorney what the fee includes, what may cost extra, and what payment arrangements are available."
+description: "Bankruptcy costs explained: court filing fees, installments and waivers, the two required courses, how attorney fees are commonly structured in each chapter, and questions to ask."
 category: before-hiring
-tags: [cost, attorney, chapter-13]
+tags: [cost, attorney, chapter-7, chapter-13]
 doors: []
 published: 2026-09-01
-updated: 2026-09-01
-status: draft
-weight: 84
-num: "11.11"
+updated: 2026-11-09
+status: reviewed
+weight: 30
+num: "11.3"
 showCheckup: true
 sources:
-  - title: "U.S. Courts, bankruptcy filing fees"
+  - title: "U.S. Courts, Bankruptcy Court Miscellaneous Fee Schedule"
     url: "https://www.uscourts.gov/court-programs/fees/bankruptcy-court-miscellaneous-fee-schedule"
-  - title: "Fed. R. Bankr. P. 1006, installments and waiver"
+  - title: "28 U.S.C. § 1930, bankruptcy fees and Chapter 7 fee waivers"
+    url: "https://www.law.cornell.edu/uscode/text/28/1930"
+  - title: "Fed. R. Bankr. P. 1006, filing fees, installments, and waivers"
     url: "https://www.law.cornell.edu/rules/frbp/rule_1006"
+  - title: "11 U.S.C. § 111, approved credit counseling and debtor education providers"
+    url: "https://www.law.cornell.edu/uscode/text/11/111"
+  - title: "11 U.S.C. § 329, disclosure of attorney compensation"
+    url: "https://www.law.cornell.edu/uscode/text/11/329"
 ---
 
-## The fixed costs
+## Court filing fees
 
-The **court filing fee**: $338 for Chapter 7, $313 for Chapter 13 (amounts change occasionally; the courts publish the current schedule). Chapter 7 filers below 150% of the poverty line can apply for a full **waiver**; anyone can ask to pay in **installments** over a few months after filing. The **two courses** (pre-filing counseling, post-filing education) run roughly $10 to $50 each, with waivers for low-income filers. So the government's share of a bankruptcy is modest and flexible.
+The court filing fee is set nationally: $338 for Chapter 7 and $313 for Chapter 13 as of 2026. Amounts change periodically, so check the current schedule published by the federal courts.
 
-## The attorney fee: the real number
+**Installments.** You can ask the court to let you pay the filing fee in installments. Under the federal rules, the payments generally must be completed within 120 days after filing, and the court can extend that to 180 days for cause. Until the filing fee is paid in full, you generally cannot make further payments to an attorney or anyone else for services in the case.
 
-Fees vary by region, by complexity, and by market, enough that quoting a national figure would mislead more than help; consultations are free, so two local quotes cost you an afternoon. What's worth understanding is the *structure*:
+**Waiver.** In Chapter 7, the court may waive the filing fee if your household income is below 150 percent of the federal poverty guidelines and you cannot afford to pay in installments. The court decides; eligibility is not automatic.
 
-**Chapter 7** fees are almost always flat and paid **before filing**, for an unavoidable reason: a fee still owed at filing would itself be a dischargeable debt. This is why Chapter 7 filers often stop paying dischargeable credit cards (money that was vanishing anyway) and redirect it to the fee, and why a tax refund frequently becomes the fee. Both are ordinary, accepted paths; ask the attorney rather than improvising.
+## The two required courses
 
-**Chapter 13** flips the problem: most of the attorney fee rides **inside the plan**, in many districts at a court-approved standard amount, so people routinely start a 13 with little money down. For someone facing a foreclosure with empty pockets, that structure is sometimes the difference between help and none, and it's a fair thing to ask any attorney about directly: "what do I need to start?"
+You must complete a credit counseling course before filing and a financial management course after filing. Fees vary by provider and are often modest. Approved providers must offer their services to people who cannot afford the fee, so ask about a reduced fee or waiver before you start. See [The two required courses](/library/credit-counseling-and-debtor-education) for how each works.
 
-## About doing it for the price of the filing fee
+## Attorney fees
 
-Filing without a lawyer is legal and has a real place, covered honestly in [Do I need a lawyer to file bankruptcy?](/library/do-i-need-a-lawyer-to-file). The cost question has a sharper version, though: the expensive bankruptcy isn't the one with the higher quote; it's the one that goes wrong. A lost car that should have been exempt, a denied discharge, a dismissed 13 that burns the stay for the refile: any of these costs multiples of every fee discussed here. Price the risk, not just the retainer, and be suspicious of quotes dramatically below your market; volume mills make their margins somewhere.
+Attorney fees vary by location, chapter, and the complexity of the case, so a national figure would not be reliable. What helps more is understanding how fees are commonly structured.
 
-## The bottom line
+**Chapter 7.** Fees are often a flat amount paid in full before filing, because a fee still owed when the case is filed could generally be discharged like other debts. Some attorneys use other arrangements where permitted. If one is offered, ask how it works and what it means for you.
 
-If the fee is the only thing between you and filing, say that sentence out loud at a consultation. Between waivers, installments, plan-paid fees, redirected payments, and legal aid for those who qualify, consumer bankruptcy practice has spent decades building answers to exactly this problem. Being broke is the expected condition of the customer.
+**Chapter 13.** Attorneys commonly collect part of the fee before filing and the rest through plan payments, subject to court approval. Many districts set a standard fee that is presumed reasonable.
+
+Chapter 13 is a multiyear commitment with its own requirements. Choose a chapter based on what fits your situation, not mainly as a way to spread out attorney fees.
+
+Bankruptcy attorneys must disclose their compensation to the court, so fee arrangements are part of the case record.
+
+## Questions to ask about fees
+
+- What does the fee include?
+- What could cost extra, such as amended paperwork, a reaffirmation agreement, a creditor's objection, or a motion?
+- When is payment due, and what arrangements are available?
+- What happens to money I've paid if the case isn't filed?
+
+## If cost is a barrier
+
+Tell the attorney. Many have heard it before and can explain the realistic options. If you can't afford an attorney, legal aid and pro bono programs may help eligible people. See [How to find a bankruptcy attorney](/library/how-to-find-a-bankruptcy-attorney) for where to look.
