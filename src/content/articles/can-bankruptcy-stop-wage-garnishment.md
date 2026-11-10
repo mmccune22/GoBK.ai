@@ -10,7 +10,7 @@ updated: 2026-11-02
 status: reviewed
 startHere: true
 weight: 20
-num: "8.2"
+num: "8.3"
 showCheckup: true
 jurisdictionNote: "How much of your paycheck can be garnished before bankruptcy depends on state law. Federal law caps most garnishments at 25 percent of disposable earnings, but many states protect more, and a few protect wages almost entirely. The bankruptcy stay works the same way everywhere."
 sources:

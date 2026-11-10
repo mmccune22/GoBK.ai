@@ -9,7 +9,7 @@ published: 2026-09-01
 updated: 2026-11-02
 status: reviewed
 weight: 35
-num: "8.4"
+num: "8.5"
 showCheckup: true
 sources:
   - title: "31 C.F.R. Part 212, garnishment of accounts containing federal benefit payments"

@@ -1,44 +1,68 @@
 ---
 title: "How fast can I file if something is days away?"
-shortAnswer: "Same-day is possible. A bare-bones 'emergency' or 'skeleton' filing needs the petition, the list of creditors, and a credit counseling certificate you can earn online in an hour or two, and the automatic stay starts the moment it's filed. The rest of the paperwork is due within 14 days, and blowing that deadline gets cases dismissed, so an emergency filing is a sprint that must immediately become a marathon."
-description: "How emergency bankruptcy filings work: the minimum documents, the counseling requirement, the 14-day completion deadline, and when racing the clock is worth it."
+shortAnswer: "An emergency filing can sometimes be made within a day or two. A minimal filing generally requires the petition, a list of creditors, a Social Security number statement, the filing fee or a fee application, and a credit counseling certificate. The automatic stay generally begins when the case is filed, but creditors may need to be notified. The remaining paperwork is generally due within 14 days, and missing it can lead to dismissal. Prior dismissed cases can limit or prevent the stay. Contact an attorney as soon as you know the date."
+description: "How emergency bankruptcy filings work: the minimum documents, the credit counseling requirement, when the automatic stay starts, the 14-day deadline, and limits for repeat filers."
 category: creditor-actions
 tags: [timing, automatic-stay, foreclosure, garnishment, credit-counseling]
 doors: [help-now]
 published: 2026-09-01
 updated: 2026-11-09
-status: draft
-weight: 60
-num: "8.7"
+status: reviewed
+weight: 15
+num: "8.2"
 showCheckup: true
 sources:
-  - title: "Fed. R. Bankr. P. 1007, schedules and deadlines"
+  - title: "Fed. R. Bankr. P. 1007, lists, schedules, statements, and deadlines"
     url: "https://www.law.cornell.edu/rules/frbp/rule_1007"
-  - title: "11 U.S.C. § 109(h), the credit counseling requirement"
+  - title: "Fed. R. Bankr. P. 3015, filing a Chapter 13 plan"
+    url: "https://www.law.cornell.edu/rules/frbp/rule_3015"
+  - title: "11 U.S.C. § 109(h), credit counseling requirement"
     url: "https://www.law.cornell.edu/uscode/text/11/109"
+  - title: "11 U.S.C. § 362(c)(3)–(4), the stay for repeat filers"
+    url: "https://www.law.cornell.edu/uscode/text/11/362"
   - title: "11 U.S.C. § 521, debtor's duties"
     url: "https://www.law.cornell.edu/uscode/text/11/521"
 ---
 
 ## The minimum filing
 
-A complete bankruptcy takes a stack of schedules and statements. An **emergency filing** doesn't wait for the stack. The genuine minimum is small: the voluntary petition, the list of your creditors' names and addresses (the "matrix"), the filing fee or an application to pay it in installments, and proof you completed **credit counseling**.
+A complete bankruptcy filing includes detailed schedules and statements. In an emergency, a case can be started with less. The minimum generally includes:
 
-That counseling requirement is the one people panic about, and it shouldn't be: approved providers run the course online and by phone, it takes about an hour, costs little (fee waivers exist), and the certificate issues immediately. It must be done *before* filing except in true emergencies with strict conditions, so in practice: do the course today, even before you've decided. It expires in 180 days and commits you to nothing.
+- The voluntary petition.
+- A list of creditors' names and addresses.
+- A statement of your Social Security number.
+- The filing fee, or an application to pay in installments or, in Chapter 7, to waive the fee.
+- A certificate showing you completed credit counseling.
 
-File those pieces and **the automatic stay is in effect the moment the clerk's stamp hits** (electronically, that's minutes). The Friday sale is off. The Monday garnishment stops.
+Local requirements vary, so an attorney will confirm what your court needs.
 
-## The part that actually decides these cases
+## The credit counseling requirement
 
-The remaining schedules are due within **14 days**, and courts dismiss skeleton cases that don't finish, often without much sympathy. A dismissed case doesn't just restore the emergency; it burns you for next time, because a repeat filing within a year gets only a 30-day stay unless a judge extends it. So the honest framing: an emergency filing buys fourteen days to do carefully what should have taken weeks. It works when the sprint immediately becomes disciplined follow-through. It fails, expensively, when the filing was the plan instead of the start of one.
+You generally must complete credit counseling with an approved provider within 180 days before filing. Courses are offered online and by phone, often take about an hour or two, and usually provide a certificate promptly. See [The two required courses](/library/credit-counseling-and-debtor-education).
 
-## Fast, done right
+A temporary waiver exists for genuinely urgent situations, but its requirements are strict. If a deadline is approaching, completing the course early is usually the safer course. It does not commit you to filing.
 
-- **Call an attorney before assuming there's no time.** Consumer bankruptcy attorneys handle sale-week filings routinely; many can evaluate and file within a day or two when the situation warrants. Say the date in your first sentence.
-- **Deadlines to respect absolutely:** a foreclosure *sale* that has already happened, or a car already auctioned, is generally beyond reach. File before the gavel, not after.
-- **Timing inside the emergency still matters.** Filing the day before a paycheck can protect that paycheck; details like which chapter, and whether a garnishment from the last 90 days can be recovered, are exactly what the attorney sorts while the stay holds the line.
-- **Don't create wreckage on the way in.** No new borrowing, no moving assets to relatives, no draining retirement funds in the panic. Emergencies make people improvise; improvisation is what trustees ask about later.
+## When the stay begins
 
-## The bottom line
+The [automatic stay](/library/what-is-the-automatic-stay) generally takes effect when the case is filed. A creditor, sheriff, or auctioneer may not learn of the filing right away, though, so notifying them with the case number is often what actually stops a scheduled sale, garnishment, or repossession.
 
-If something with a date on it is bearing down, bankruptcy can very likely beat the date, tonight's date included. Do the counseling course now, gather what you have, and get in front of an attorney with the deadline in your first sentence. The emergency filing is real; the fourteen days after it are where the case is won.
+Timing matters. A foreclosure sale or vehicle auction that has already occurred is much harder to address. Some states provide redemption or confirmation periods after a sale, and a repossessed car that hasn't been sold may still be recoverable. See [Can bankruptcy stop a foreclosure?](/library/can-bankruptcy-stop-foreclosure) and [Can bankruptcy stop a repossession?](/library/stop-repossession-get-car-back)
+
+## The 14 days after filing
+
+The remaining schedules and statements are generally due within 14 days. In Chapter 13, the plan is generally due within that period too. The court can extend the deadline for cause, but a request must be made in time.
+
+If the paperwork isn't completed, the case can be dismissed. A dismissal can also affect a future filing.
+
+## If you've had a case dismissed recently
+
+- **One prior case dismissed within the past year:** the automatic stay generally ends after 30 days unless the court extends it, and a motion must be filed and heard quickly.
+- **Two or more prior cases dismissed within the past year:** the automatic stay generally does not take effect unless the court orders it.
+
+Tell an attorney about every prior case right away, because these rules change what an emergency filing can do.
+
+## Acting quickly
+
+If something has a date on it, contact a bankruptcy attorney as soon as you know the date, and mention it first. Many consumer bankruptcy attorneys handle urgent filings and can tell you whether one is possible in time.
+
+Avoid making major financial moves in the rush, such as borrowing, transferring property, or withdrawing retirement funds. See [What should I avoid before filing bankruptcy?](/library/what-to-avoid-before-filing)

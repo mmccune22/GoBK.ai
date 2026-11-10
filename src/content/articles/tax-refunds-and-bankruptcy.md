@@ -1,13 +1,13 @@
 ---
 title: "Will I lose my tax refund if I file bankruptcy?"
-shortAnswer: "It depends almost entirely on timing and your state's exemptions. The refund you've earned but not yet received is an asset on filing day, even mid-year, prorated. Trustees love refunds because they're pure, easy cash. The playbook: either receive and reasonably spend the refund on necessities before filing, or make sure an exemption covers it. Filed already? Don't spend an expected refund until you know whose it is."
-description: "Why tax refunds are the asset trustees chase, how the timing works across the calendar, EITC protection, and the safe ways to handle a refund before filing."
+shortAnswer: "It depends on timing and exemptions. The part of a refund earned before you file is generally an asset in the case, even if you haven't received it yet. Depending on your state's exemptions, a trustee may claim some or all of it. Receiving a refund and spending it on ordinary necessities before filing is often appropriate, but talk to an attorney first. In Chapter 13, refunds received during the plan may need to be paid in. Refunds can also be intercepted for certain tax, support, or government debts."
+description: "How tax refunds are treated in bankruptcy: why timing matters, exemptions, spending a refund before filing, trustee refund agreements, refunds in Chapter 13, and refund intercepts."
 category: property-and-assets
 tags: [taxes, timing, exemptions, trustee, chapter-13]
 doors: []
 published: 2026-09-01
 updated: 2026-11-09
-status: draft
+status: reviewed
 weight: 85
 num: "6.8"
 showCheckup: true
@@ -16,24 +16,51 @@ sources:
     url: "https://www.law.cornell.edu/uscode/text/11/541"
   - title: "11 U.S.C. § 522, exemptions"
     url: "https://www.law.cornell.edu/uscode/text/11/522"
+  - title: "11 U.S.C. § 362(b)(26), setoff of income tax refunds"
+    url: "https://www.law.cornell.edu/uscode/text/11/362"
+  - title: "11 U.S.C. § 727(d), revocation of discharge"
+    url: "https://www.law.cornell.edu/uscode/text/11/727"
+  - title: "Bureau of the Fiscal Service, Treasury Offset Program"
+    url: "https://fiscal.treasury.gov/top/"
 ---
 
-## How a refund becomes the estate's
+## Why timing matters
 
-Your refund is just your own money coming back, which means you *earned* it across the tax year, and the bankruptcy estate captures the portion earned before your filing date. File in March before receiving last year's refund, and that entire refund is an estate asset. File in October, and roughly ten-twelfths of *next* spring's refund is too, even though it won't arrive for months. Trustees in many districts routinely hold cases open for exactly this, sometimes with an agreement that you'll send a portion of the refund when it comes. If you make such an agreement, honor it; a discharge can be revoked over a kept-and-spent refund, and that's a self-inflicted wound with no remedy.
+A tax refund is money you earned over the tax year and overpaid in withholding or estimated taxes. When you file bankruptcy, the portion of a refund attributable to the time before filing is generally part of the bankruptcy estate.
 
-Whether the estate's claim matters depends on your **state's exemptions**: some have wildcards that swallow a refund whole, some specifically protect refund components, and some protect nearly nothing. Some states give particular shelter to the **Earned Income Tax Credit and Child Tax Credit** portions, which is worth raising with your attorney explicitly, because those credits are frequently the bulk of a family's refund.
+That includes a refund you haven't received yet. If you file before receiving last year's refund, that refund is generally part of the case. If you file late in the year, much of the following year's refund may be too, in proportion to the part of the year before filing.
 
-## The playbook before filing
+Trustees in many districts monitor refunds and may keep a case open until a refund arrives. Some ask the filer to turn over the portion that isn't exempt.
 
-Where the refund won't be exempt, the standard, fully legitimate move is: **receive it, spend it on necessities, then file.** Necessities means the mortgage or rent, utilities, food, car repairs, medical and dental care you've been deferring, insurance, and, yes, your bankruptcy attorney's fee; courts see all of that constantly and shrug.
+## Exemptions can protect some or all of it
 
-What turns a routine refund into a case problem is spending it on the other list: paying back the loan from Mom (that's a preference; the trustee can sue Mom to get it back), buying anything a trustee would call a luxury, or converting it into some new asset that isn't exempt. Same dollars, very different outcomes. The rule of thumb: spend it on living, keep the receipts, and when in doubt ask the attorney *before* the money moves.
+Whether a refund is at risk depends on the [exemptions](/library/what-are-bankruptcy-exemptions) available to you. In some states, a wildcard exemption can cover a refund; others offer less room. Some states specifically protect refundable credits such as the Earned Income Tax Credit or Child Tax Credit. Ask your attorney how your refund would be treated, since credits can make up much of a family's refund.
 
-## Chapter 13 and the ongoing refunds
+## Before filing
 
-In Chapter 13, refunds during the plan are a district-by-district story: many trustees expect refunds above a threshold to come into the plan as extra disposable income, others build them into the budget, and plans can often be drafted to let filers keep refunds by adjusting withholding to sensible levels. If your refund is really a forced savings plan (thousands back every April), say so; fixing your W-4 so the money arrives in your paycheck instead is often the cleanest answer of all, in or out of bankruptcy.
+If a refund would not be fully protected, receiving it and spending it on ordinary necessities before filing is often appropriate: rent or mortgage, utilities, food, insurance, car repairs, overdue medical care, and attorney fees.
 
-## The bottom line
+Some uses can create problems:
 
-Refunds are lost to trustees mainly by accident of timing, and timing is the one thing entirely in your control before filing. Tell your attorney what you typically get back and what you've received or expect this year; it's a five-minute conversation that routinely saves people their single largest check of the year.
+- **Repaying relatives or friends** may be recoverable by the trustee from the person you paid.
+- **Luxury purchases** shortly before filing can draw scrutiny.
+- **Converting it into a nonexempt asset** may simply move the problem.
+
+Keep receipts, and talk to an attorney before spending a large refund if you are planning to file. See [What should I avoid before filing bankruptcy?](/library/what-to-avoid-before-filing)
+
+## If you agree to turn over part of a refund
+
+If the trustee asks you to turn over part of a refund, follow the agreement. Spending money you've agreed to turn over can lead to revocation of your discharge. If you can't comply, tell your attorney before the deadline.
+
+## Refunds during Chapter 13
+
+Treatment varies by district and plan. Many trustees require refunds above a certain amount to be paid into the plan, while others account for them in the budget. If you regularly receive a large refund, your attorney may discuss adjusting your withholding so the money comes in your paycheck instead.
+
+## Refund intercepts
+
+A refund can be intercepted before it reaches you:
+
+- **Tax debts.** After you file, the IRS generally may still apply a refund for a pre-bankruptcy tax year to pre-bankruptcy tax debt.
+- **Support and government debts.** Through the Treasury Offset Program, refunds can be intercepted for past-due child support and certain federal or state debts, such as defaulted federal student loans. Whether an intercept is allowed after filing depends on the debt and timing.
+
+If you expect a refund and owe taxes, support, or a government debt, mention it to your attorney.

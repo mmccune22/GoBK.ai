@@ -10,7 +10,7 @@ updated: 2026-11-02
 status: reviewed
 startHere: true
 weight: 25
-num: "8.3"
+num: "8.4"
 showCheckup: true
 sources:
   - title: "CFPB, What should I do if I’m sued by a debt collector or creditor?"

@@ -9,7 +9,7 @@ published: 2026-09-01
 updated: 2026-11-02
 status: reviewed
 weight: 45
-num: "8.5"
+num: "8.6"
 showCheckup: true
 sources:
   - title: "11 U.S.C. § 362, the automatic stay and relief from stay"

@@ -8,7 +8,8 @@ doors: [help-now]
 published: 2026-08-15
 updated: 2026-11-02
 status: reviewed
-num: "8.6"
+weight: 50
+num: "8.7"
 startHere: false
 showCheckup: true
 jurisdictionNote: "Foreclosure timelines vary enormously. Some states require a court case that can take a year or more. Others allow the lender to sell in a few months with no court involvement. How much time you have before filing depends on which kind of state you are in."
