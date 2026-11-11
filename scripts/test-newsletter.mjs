@@ -3,12 +3,13 @@ import { readFile, access } from 'node:fs/promises';
 import { test } from 'node:test';
 import { newsletterBuildEnv } from './newsletter-build-config.mjs';
 import { newsletterPreviewEnv } from './newsletter-preview-config.mjs';
+import { newsletterProductionConfig } from './newsletter-production-config.mjs';
 import { newsletterConfig, newsletterEmails } from '../src/lib/newsletter.mjs';
 import { signupFormConfig, signupEmbedDocument } from '../src/lib/signup-forms.mjs';
 
-test('ordinary builds close legacy trial flags, including development and old preview branch', () => {
+test('unready manifest closes legacy flags on every branch', () => {
   for (const branch of [undefined, 'development', 'codex/jimmy-experiments']) {
-    const env = newsletterBuildEnv({ ...newsletterPreviewEnv, CF_PAGES_BRANCH: branch });
+    const env = newsletterBuildEnv({ ...newsletterPreviewEnv, GOBK_NEWSLETTER_LAUNCH_APPROVED: 'true', GOBK_EMAIL_PROVIDER_READY: 'true', CF_PAGES_BRANCH: branch }, { production: { ...newsletterProductionConfig, providerReady: false } });
     assert.equal(env.PUBLIC_GOBK_EMAIL_MODE, 'closed');
     assert.deepEqual(signupFormConfig('newsletter', env), { enabled: false, formUrl: '' });
     assert.deepEqual(signupFormConfig('series', env), { enabled: false, formUrl: '' });
@@ -21,16 +22,32 @@ test('trial mode is explicit and cannot build on Cloudflare', () => {
   assert.throws(() => newsletterBuildEnv({ CF_PAGES_BRANCH: 'development' }, { trial: true }));
 });
 
-test('live configuration requires launch approval and provider readiness with independent destinations', () => {
-  assert.equal(newsletterBuildEnv({ GOBK_NEWSLETTER_LAUNCH_APPROVED: 'true', ...newsletterPreviewEnv }).PUBLIC_GOBK_EMAIL_MODE, 'closed');
-  assert.equal(newsletterBuildEnv({ GOBK_EMAIL_PROVIDER_READY: 'true', ...newsletterPreviewEnv }).PUBLIC_GOBK_EMAIL_MODE, 'closed');
-  const env = { GOBK_NEWSLETTER_LAUNCH_APPROVED: 'true', GOBK_EMAIL_PROVIDER_READY: 'true', PUBLIC_GOBK_NEWSLETTER_SIGNUP_ENABLED: 'true', PUBLIC_GOBK_NEWSLETTER_FORM_URL: 'https://example.sibforms.com/serve/newsletter' };
-  const live = newsletterBuildEnv(env);
+test('ready manifest enables only the exact development branch or explicit local live verification', () => {
+  const production = { ...newsletterProductionConfig, approved: true, providerReady: true };
+  for (const branch of [undefined, 'main', 'codex/jimmy-experiments', 'development-other']) {
+    assert.equal(newsletterBuildEnv({ CF_PAGES_BRANCH: branch, ...newsletterPreviewEnv }, { production }).PUBLIC_GOBK_EMAIL_MODE, 'closed');
+  }
+  assert.equal(newsletterBuildEnv({ CF_PAGES_BRANCH: 'development' }, { production }).PUBLIC_GOBK_EMAIL_MODE, 'live');
+  assert.equal(newsletterBuildEnv({}, { production, live: true }).PUBLIC_GOBK_EMAIL_MODE, 'live');
+  assert.throws(() => newsletterBuildEnv({ CF_PAGES_BRANCH: 'development' }, { production, live: true }));
+  assert.throws(() => newsletterBuildEnv({}, { production, live: true, trial: true }));
+  for (const gate of ['approved', 'providerReady']) {
+    const blocked = { ...production, [gate]: false };
+    assert.equal(newsletterBuildEnv({ CF_PAGES_BRANCH: 'development' }, { production: blocked }).PUBLIC_GOBK_EMAIL_MODE, 'closed');
+    assert.throws(() => newsletterBuildEnv({}, { production: blocked, live: true }));
+  }
+});
+
+test('production subscriptions require distinct valid destinations', () => {
+  const signupEnv = { PUBLIC_GOBK_NEWSLETTER_SIGNUP_ENABLED: 'true', PUBLIC_GOBK_NEWSLETTER_FORM_URL: 'https://example.sibforms.com/serve/newsletter' };
+  const production = { ...newsletterProductionConfig, approved: true, providerReady: true, signupEnv };
+  const build = (forms) => newsletterBuildEnv({ CF_PAGES_BRANCH: 'development' }, { production: { ...production, signupEnv: forms } });
+  const live = build(signupEnv);
   assert.equal(signupFormConfig('newsletter', live).enabled, true);
   assert.equal(signupFormConfig('series', live).enabled, false);
-  assert.throws(() => newsletterBuildEnv({ ...env, PUBLIC_GOBK_SERIES_SIGNUP_ENABLED: 'true' }));
-  assert.throws(() => newsletterBuildEnv({ ...env, PUBLIC_GOBK_SERIES_SIGNUP_ENABLED: 'true', PUBLIC_GOBK_SERIES_FORM_URL: env.PUBLIC_GOBK_NEWSLETTER_FORM_URL }));
-  assert.throws(() => newsletterBuildEnv({ ...env, PUBLIC_GOBK_SERIES_SIGNUP_ENABLED: 'true', PUBLIC_GOBK_SERIES_FORM_URL: 'https://EXAMPLE.sibforms.com/serve/newsletter/' }));
+  assert.throws(() => build({ ...signupEnv, PUBLIC_GOBK_SERIES_SIGNUP_ENABLED: 'true' }));
+  assert.throws(() => build({ ...signupEnv, PUBLIC_GOBK_SERIES_SIGNUP_ENABLED: 'true', PUBLIC_GOBK_SERIES_FORM_URL: signupEnv.PUBLIC_GOBK_NEWSLETTER_FORM_URL }));
+  assert.throws(() => build({ ...signupEnv, PUBLIC_GOBK_SERIES_SIGNUP_ENABLED: 'true', PUBLIC_GOBK_SERIES_FORM_URL: 'https://EXAMPLE.sibforms.com/serve/newsletter/' }));
 });
 
 test('provider destinations reject credentials and foreign or unsafe URLs', () => {

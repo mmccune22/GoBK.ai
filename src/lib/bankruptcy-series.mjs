@@ -5,7 +5,7 @@ export const BANKRUPTCY_SERIES = {
   description: 'A calm introduction for people dealing with debt and considering bankruptcy, from a private snapshot to understanding what a case can involve.',
   scheduleNote: 'Day 1 arrives immediately after you confirm your subscription. The day numbers describe the email schedule, not filing deadlines or how long a bankruptcy case takes.',
   disclaimer: 'General educational information, not legal advice. Your circumstances should be reviewed with a qualified attorney.',
-  reviewStatus: 'Draft — Matt review pending',
+  reviewStatus: 'Approved by Jimmy for newsletter release, 2026-11-11',
 };
 
 const basicsUrl = 'https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics';
@@ -19,7 +19,7 @@ const sources = {
   discharge: { label: 'U.S. Courts: Discharge in Bankruptcy', url: `${basicsUrl}/discharge-bankruptcy-bankruptcy-basics` },
 };
 
-/** Editorial drafts. These delivery days are not a filing plan. Matt review is pending. */
+/** Approved email content. These delivery days are not a filing plan. */
 export const bankruptcySeriesEmails = [
   {
     slug: 'understand-your-options', day: 1,

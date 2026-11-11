@@ -3,16 +3,17 @@ import Base from '../../layouts/Base.astro';
 import Newsletter from '../../components/Newsletter.astro';
 import { NEWSLETTER, newsletterEmails, newsletterConfig } from '../../lib/newsletter.mjs';
 export function getStaticPaths() {
-  if (import.meta.env.PUBLIC_GOBK_EMAIL_MODE !== 'trial') return [];
+  if (!['trial', 'live'].includes(import.meta.env.PUBLIC_GOBK_EMAIL_MODE)) return [];
   return newsletterEmails.map((email) => ({ params: { slug: email.slug }, props: { email } }));
 }
 const { email } = Astro.props;
 const { enabled } = newsletterConfig(import.meta.env);
+const trial = import.meta.env.PUBLIC_GOBK_EMAIL_MODE === 'trial';
 ---
 <Base title={`${email.subject} — ${NEWSLETTER.name}`} description={email.preheader}>
   <section class="section paper-section"><div class="wrap narrow">
     <a href="/newsletter">← Back to The GoBK Guide</a>
-    <div class="draft-note"><strong>{email.kind} · Pending editorial and attorney review</strong><p>{enabled ? 'Reading this preview does not subscribe you. Choose your subscription on the email guides page.' : 'This is a reading preview. Signup is not open yet.'}</p></div>
+    <div class="draft-note"><strong>{trial ? '[TEST] Local delivery trial' : email.kind}</strong><p>{enabled ? 'Reading this issue does not subscribe you. Choose your subscription on the email guides page.' : 'Reading this issue does not subscribe you.'}</p></div>
     <article class="email-paper">
       <header><p class="k">{NEWSLETTER.name}{email.number ? ` · ISSUE ${String(email.number).padStart(2, '0')}` : ' · WELCOME'}</p><p class="subject"><strong>Subject:</strong> {email.subject}</p><p class="soft preview-text">{email.preheader}</p></header>
       <div class="prose">
@@ -26,7 +27,7 @@ const { enabled } = newsletterConfig(import.meta.env);
         {email.sources.length > 0 && <div class="sources"><h2>Further reading</h2><ul>{email.sources.map((source) => <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}<span class="visually-hidden"> (opens a new tab)</span></a></li>)}</ul></div>}
         <p class="signoff">—The GoBK Team</p>
       </div>
-      <footer><p>{NEWSLETTER.disclaimer}</p><p>Email editions will include unsubscribe and preference links. <a href="/privacy">Privacy</a></p></footer>
+      <footer><p>{NEWSLETTER.disclaimer}</p><p>Email editions include an unsubscribe link. <a href="/privacy">Privacy</a></p></footer>
     </article>
   </div></section>
   <Newsletter />

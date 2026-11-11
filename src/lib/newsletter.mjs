@@ -22,7 +22,7 @@ export const NEWSLETTER = {
 };
 const basics = { label: 'U.S. Courts: Bankruptcy Basics', url: 'https://www.uscourts.gov/court-programs/bankruptcy/bankruptcy-basics' };
 
-/** Editorial drafts. An experimental preview is not content approval or a mailing. */
+/** Newsletter content approved by Jimmy on 2026-11-11; delivery configuration is separate. */
 export const newsletterEmails = [
   {
     slug: 'welcome', kind: 'Welcome email', number: null,
@@ -39,7 +39,7 @@ export const newsletterEmails = [
     nextSlug: 'where-to-start', nextLabel: 'Read the first issue', sources: [],
   },
   {
-    slug: 'where-to-start', kind: 'Issue draft', number: 1,
+    slug: 'where-to-start', kind: 'Newsletter issue', number: 1,
     subject: 'Debt feels overwhelming? Start with a five-part snapshot.', preheader: 'A ten-minute way to organize what you owe, what comes in, and what needs attention.', title: 'Start with a clearer picture.',
     intro: [
       'A stack of bills can make it feel as though you have to solve everything at once. Start smaller: put the basic facts in one place so you can see what you need help understanding.',
@@ -55,7 +55,7 @@ export const newsletterEmails = [
     nextSlug: 'before-your-consultation', nextLabel: 'Next: prepare for a consultation', sources: [basics],
   },
   {
-    slug: 'before-your-consultation', kind: 'Issue draft', number: 2,
+    slug: 'before-your-consultation', kind: 'Newsletter issue', number: 2,
     subject: 'Before your first consultation: gather what you have.', preheader: 'Organize the facts, ask what the office needs, and make room for unknowns.', title: 'Bring a clearer picture, not a perfect one.',
     intro: [
       'If you’re preparing to talk with a bankruptcy attorney, it’s easy to worry that your paperwork is not organized enough. Start by asking the office what it wants for an initial consultation and how to provide it securely.',
@@ -71,7 +71,7 @@ export const newsletterEmails = [
     nextSlug: 'bankruptcy-words', nextLabel: 'Next: compare Chapter 7 and Chapter 13', sources: [],
   },
   {
-    slug: 'bankruptcy-words', kind: 'Issue draft', number: 3,
+    slug: 'bankruptcy-words', kind: 'Newsletter issue', number: 3,
     subject: 'Chapter 7 and Chapter 13: what changes?', preheader: 'The basic difference between liquidation and a repayment plan.', title: 'Two chapters. Different approaches.',
     intro: [
       'Bankruptcy conversations can start to sound like a list of chapter numbers. Before comparing options, it helps to understand what those names refer to.',
@@ -89,7 +89,7 @@ export const newsletterEmails = [
     sources: [{ label: 'U.S. Courts: Chapter 7', url: basics.url + '/chapter-7-bankruptcy-basics' }, { label: 'U.S. Courts: Chapter 13', url: basics.url + '/chapter-13-bankruptcy-basics' }],
   },
   {
-    slug: 'questions-for-an-attorney', kind: 'Issue draft', number: 4,
+    slug: 'questions-for-an-attorney', kind: 'Newsletter issue', number: 4,
     subject: 'Leave your consultation knowing the next step.', preheader: 'Five questions about options, costs, missing facts, and what happens next.', title: 'Leave with a next step you understand.',
     intro: [
       'A first conversation with an attorney can bring up more information than you expected. A short list of questions helps you keep track of what matters most to you.',

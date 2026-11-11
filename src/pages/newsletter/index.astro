@@ -2,17 +2,18 @@
 import Base from '../../layouts/Base.astro';
 import EmailSignupCard from '../../components/EmailSignupCard.astro';
 const trial = import.meta.env.PUBLIC_GOBK_EMAIL_MODE === 'trial';
+const live = import.meta.env.PUBLIC_GOBK_EMAIL_MODE === 'live';
 ---
 <Base title="Newsletter" description="Choose debt and bankruptcy updates or a short email series that explains the bankruptcy journey, from preparing to file to what comes next.">
   <section class="email-options" id="signup">
     <div class="wrap options-wrap">
       <h1>Help understanding bankruptcy, by email.</h1>
-      {trial && <p class="trial-note" role="note">Local newsletter trial. These forms send [TEST] emails through Brevo. Content is awaiting Matt’s editorial and attorney review.</p>}
+      {trial && <p class="trial-note" role="note">Local newsletter trial. [TEST] Use only an address authorized for this test. These forms send emails through Brevo.</p>}
       <div class="signup-options">
         <EmailSignupCard kind="newsletter" title="The GoBK Guide" timing="NEWSLETTER · ONGOING UPDATES" explanation="Plain-English answers about debt and bankruptcy, with useful checklists and questions to ask an attorney. Get occasional updates as you explore your options." />
         <EmailSignupCard kind="series" title="Bankruptcy Getting Started" timing="EMAIL SERIES · DAYS 1, 3, 5, 7, 10 & 14" explanation="Six short emails explain the bankruptcy journey, from understanding your options and preparing to file to what happens afterward. The series begins after you confirm your email; your own case timeline will vary." />
       </div>
-      {trial && <p class="samples">Explore the guide: <a href="/newsletter/where-to-start/">Read a sample issue</a>. Samples are editorial drafts awaiting review.</p>}
+      {(trial || live) && <p class="samples">Explore the guide: <a href="/newsletter/where-to-start/">Read a sample issue</a>. Reading does not subscribe you.</p>}
     </div>
   </section>
 </Base>

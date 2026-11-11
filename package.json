@@ -8,8 +8,12 @@
     "build": "node scripts/build-site.mjs && pagefind --site dist",
     "preview": "astro preview",
     "build:newsletter-test": "node scripts/build-site.mjs --newsletter-test && pagefind --site dist",
+    "build:newsletter-live": "node scripts/build-site.mjs --newsletter-live && pagefind --site dist",
     "test:newsletter": "node --test scripts/test-newsletter.mjs",
-    "test:newsletter-trial": "node --test scripts/test-newsletter-trial.mjs"
+    "test:newsletter-trial": "node --test scripts/test-newsletter-trial.mjs",
+    "test:newsletter-live": "node --test scripts/test-newsletter-live.mjs",
+    "newsletter:export": "node scripts/export-newsletter.mjs && node scripts/export-bankruptcy-series.mjs",
+    "test:email-export": "node --test scripts/test-email-export.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.0.0",
