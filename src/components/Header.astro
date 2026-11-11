@@ -4,6 +4,7 @@ interface Props { dark?: boolean }
 const path = Astro.url.pathname;
 const nav = [
   { href: '/library', label: 'Library' },
+  { href: '/newsletter', label: 'Newsletter' },
   { href: '/#find-a-lawyer', label: 'Find a lawyer' },
   { href: '/about', label: 'About' },
 ];
@@ -31,7 +32,9 @@ const nav = [
   nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: clamp(1rem, 2.5vw, 1.75rem); align-items: center; }
   nav a { white-space: nowrap; color: var(--fg); text-decoration: none; font-size: 1rem; font-weight: 600; padding: 0.35rem 0; border-bottom: 2px solid transparent; }
   nav a:hover, nav a[aria-current="page"] { border-bottom-color: var(--sage); }
-  @media (max-width: 40rem) {
+  @media (max-width: 52rem) {
+    .bar { flex-wrap: wrap; }
+    nav ul { flex-wrap: wrap; gap: 0.5rem 1rem; }
     .desc { display: none; }
     nav a { font-size: 0.95rem; }
   }

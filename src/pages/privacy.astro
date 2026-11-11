@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import { signupFormConfig } from '../lib/signup-forms.mjs';
+const enabled = signupFormConfig('newsletter', import.meta.env).enabled || signupFormConfig('series', import.meta.env).enabled;
 ---
 <Base title="Privacy" description="How GoBK handles information about visitors.">
   <section class="section">
@@ -7,9 +9,11 @@ import Base from '../layouts/Base.astro';
       <h1>Privacy</h1>
       <p class="lede">You can use GoBK without telling us who you are. That is by design.</p>
       <h2>What we collect</h2>
-      <p>Reading the Library requires no account, email, phone number, or payment. If you choose to sign up for the newsletter, we store the email address you give us and use it only to send you GoBK email. You can unsubscribe at any time.</p>
+      <p>Reading the Library requires no account, email, phone number, or payment.</p>
+      {enabled ? <p>If you choose the newsletter or Bankruptcy Getting Started email series, its email field sends your email address and subscription consent directly to Brevo. Brevo processes the subscription you select and stores your address for GoBK. Each choice has a separate signup; choosing one does not subscribe you to the other. This site does not keep a subscriber database. Confirm your email in your inbox before receiving emails. You can unsubscribe using the link in any email.</p> : <p>Newsletter and email series subscriptions are not open yet. The email guides page does not collect an email address or enroll you in either subscription.</p>}
+      <p>Do not send account numbers, financial records, court papers, or other private details through email replies.</p>
       <h2>What we do not do</h2>
-      <p>We do not sell or rent visitor information. We do not share newsletter addresses with law firms, debt settlement companies, or anyone else. We do not run advertising trackers on the Library.</p>
+      <p>We do not sell or rent visitor information. We do not share subscriber addresses with law firms or debt settlement companies. {enabled && 'Brevo processes the subscriptions described above.'} We do not run advertising trackers on the Library.</p>
       <h2>A plain note about limits</h2>
       <p>No website can promise perfect confidentiality. Your browser, device, network, and search engine keep their own records of where you go. If privacy matters to you, a private browsing window and a personal device are reasonable steps.</p>
       <p class="soft">This policy will be expanded before launch to reflect the specific services GoBK uses.</p>

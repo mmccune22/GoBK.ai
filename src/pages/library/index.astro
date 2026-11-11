@@ -6,6 +6,7 @@ import Newsletter from '../../components/Newsletter.astro';
 import { categories } from '../../data/categories';
 import ArtNum from '../../components/ArtNum.astro';
 import ReviewMark from '../../components/ReviewMark.astro';
+import LibraryWelcome from '../../components/LibraryWelcome.astro';
 
 const all = await getCollection('articles');
 const byCat = categories.map((c) => ({
@@ -21,6 +22,7 @@ const byCat = categories.map((c) => ({
       <h1>The GoBK Library</h1>
       <p class="lede">Answers about bankruptcy, debt, and your options. Browse freely.</p>
       <SearchBox size="large" />
+      <LibraryWelcome />
     </div>
   </section>
   <section class="wrap catalog" data-pagefind-ignore>

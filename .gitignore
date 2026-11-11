@@ -5,3 +5,6 @@ dist/
 *.log
 _git_lock_debris/
 _git_lock_debris/
+
+.env*
+newsletter-output/

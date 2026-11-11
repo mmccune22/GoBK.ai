@@ -1,0 +1,49 @@
+<aside class="welcome" aria-labelledby="welcome-heading" data-pagefind-ignore>
+  <div class="welcome-copy">
+    <p class="eyebrow">A quick welcome</p>
+    <h2 id="welcome-heading">Start here with Matt.</h2>
+    <p>A 38-second introduction to GoBK from Matt McCune. Then explore the Library at your own pace.</p>
+    <p class="video-hint" id="welcome-video-hint">The video starts muted. Use the player controls to turn on sound or pause.</p>
+    <a href="https://vimeo.com/1245564264" target="_blank" rel="noopener noreferrer">Watch on Vimeo <span class="sr-only">(opens in a new tab)</span></a>
+  </div>
+  <video
+    class="welcome-video"
+    controls
+    muted
+    playsinline
+    preload="metadata"
+    poster="/images/matt-gobk-welcome.jpg"
+    width="1920"
+    height="1080"
+    aria-label="Matt McCune welcomes you to GoBK"
+    aria-describedby="welcome-video-hint"
+  >
+    <source src="https://gobk.ai/wp-content/uploads/2026/11/Untitled-Video.mp4" type="video/mp4" />
+    <p>Your browser cannot play this video. <a href="https://vimeo.com/1245564264">Watch Matt's introduction on Vimeo.</a></p>
+  </video>
+</aside>
+<script>
+  const video = document.querySelector<HTMLVideoElement>('.welcome-video');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const hint = document.querySelector('#welcome-video-hint');
+  if (video && !reducedMotion.matches) {
+    video.muted = true;
+    video.play().catch(() => {
+      if (hint) hint.textContent = 'Press play to watch. Use the player controls to turn on sound or pause.';
+    });
+  } else if (hint) {
+    hint.textContent = 'Press play to watch. Use the player controls to turn on sound or pause.';
+  }
+</script>
+<style>
+  .welcome { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 1fr); align-items: center; gap: var(--space-4); margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--line); max-width: 48rem; }
+  .welcome-copy { max-width: 38ch; }
+  .eyebrow { color: var(--sage-deep); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.5rem; }
+  h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.75rem; }
+  .video-hint { color: var(--fg-soft); font-size: 0.85rem; }
+  .welcome-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 0.65rem; background: #173c35; }
+  @media (max-width: 35rem) {
+    .welcome { grid-template-columns: 1fr; gap: var(--space-3); }
+    .welcome-video { max-width: 420px; justify-self: center; }
+  }
+</style>

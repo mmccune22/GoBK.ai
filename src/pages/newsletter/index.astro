@@ -1,0 +1,41 @@
+---
+import Base from '../../layouts/Base.astro';
+import EmailSignupCard from '../../components/EmailSignupCard.astro';
+const trial = import.meta.env.PUBLIC_GOBK_EMAIL_MODE === 'trial';
+---
+<Base title="Newsletter" description="Choose debt and bankruptcy updates or a short email series that explains the bankruptcy journey, from preparing to file to what comes next.">
+  <section class="email-options" id="signup">
+    <div class="wrap options-wrap">
+      <h1>Help understanding bankruptcy, by email.</h1>
+      {trial && <p class="trial-note" role="note">Local newsletter trial. These forms send [TEST] emails through Brevo. Content is awaiting Matt’s editorial and attorney review.</p>}
+      <div class="signup-options">
+        <EmailSignupCard kind="newsletter" title="The GoBK Guide" timing="NEWSLETTER · ONGOING UPDATES" explanation="Plain-English answers about debt and bankruptcy, with useful checklists and questions to ask an attorney. Get occasional updates as you explore your options." />
+        <EmailSignupCard kind="series" title="Bankruptcy Getting Started" timing="EMAIL SERIES · DAYS 1, 3, 5, 7, 10 & 14" explanation="Six short emails explain the bankruptcy journey, from understanding your options and preparing to file to what happens afterward. The series begins after you confirm your email; your own case timeline will vary." />
+      </div>
+      {trial && <p class="samples">Explore the guide: <a href="/newsletter/where-to-start/">Read a sample issue</a>. Samples are editorial drafts awaiting review.</p>}
+    </div>
+  </section>
+</Base>
+<script>
+  const frames = [...document.querySelectorAll<HTMLIFrameElement>('iframe[data-email-signup]')];
+  window.addEventListener('message', (event) => {
+    if (event.data?.type !== 'gobk-signup-height' || !Number.isFinite(event.data.height)) return;
+    const frame = frames.find((candidate) => candidate.contentWindow === event.source);
+    if (!frame) return;
+    frame.style.height = `${Math.min(1200, Math.max(200, event.data.height))}px`;
+  });
+  for (const frame of frames) {
+    const requestHeight = () => frame.contentWindow?.postMessage({ type: 'gobk-signup-measure' }, window.location.origin);
+    frame.addEventListener('load', requestHeight);
+    requestHeight();
+  }
+</script>
+<style>
+  .email-options { padding-block: var(--space-5); background: var(--off); }
+  .options-wrap { max-width: 62rem; }
+  h1 { font-size: clamp(1.8rem, 3.8vw, 2.6rem); margin-bottom: var(--space-4); max-width: 25ch; }
+  .trial-note { padding: 1rem; border: 1px solid var(--rule); background: #fff; margin-bottom: var(--space-3); }
+  .samples { margin-top: var(--space-4); color: var(--fg-soft); }
+  .signup-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); align-items: start; }
+  @media (max-width: 48rem) { .email-options { padding-block: var(--space-4); } .signup-options { grid-template-columns: 1fr; } }
+</style>
