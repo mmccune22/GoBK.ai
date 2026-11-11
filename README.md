@@ -30,7 +30,8 @@ npm run build    # production build → dist/
 - All articles are `status: draft` — **pending attorney review by Matt McCune**;
   bylines flip to "Reviewed by" as Matt clears them
 - The **Bankruptcy Checkup** is designed but unbuilt (nav button is a placeholder)
-- Newsletter form posts to a placeholder; no email provider connected yet
+- The approved Guide newsletter and Getting Started series use separate Brevo
+  subscriptions; see [newsletter setup and delivery verification](NEWSLETTER-SETUP.md).
 - Private Cloudflare design review uses `development`; Jimmy's experiments use
   `codex/jimmy-experiments`. Neither publishes public gobk.ai or merges `main`.
   See [the Matt/Jimmy review workflow](docs/private-review-workflow.md).

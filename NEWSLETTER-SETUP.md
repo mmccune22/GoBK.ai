@@ -35,23 +35,35 @@ consent; choosing one does not subscribe the visitor to the other.
 ## Provider verification — November 11, 2026
 
 Both hosted form descriptions now reflect the approved offerings and current
-privacy wording. The Guide double-confirmation flow was tested with a controlled
+privacy wording. The earlier Guide double-confirmation flow was tested with a controlled
 alias: confirming delivered the first issue, with no `[TEST]` subject or banner
 (Gmail message `1a1cc02794bd46ae`). Unsubscribing that controlled alias also
 succeeded.
 
-The Guide uses display name `The GoBK Guide`, Brevo's free authenticated sender
-`jimmydanol@12168189.brevosend.com`, and Reply-To `matt@mccunelegal.com`.
-The received first issue passed SPF, DKIM and DMARC. This does not claim a custom
-`gobk.ai` sending domain.
+The current branded sender is `newsletter@bkfastpass.com`, using the authenticated
+`bkfastpass.com` domain and Reply-To `matt@mccunelegal.com`. Templates #4, #5,
+#8, #10, #13, #15, #16 and #17 use this sender. The Guide uses display name
+`The GoBK Guide`; its new first-issue receipt (`1a1cc36c32a5cf61`) was delivered
+to Gmail Inbox/Promotions with SPF, DKIM and DMARC passing.
 
 The active six-email Getting Started automation retains its schedule on days
 1, 3, 5, 7, 10 and 14. Its message templates #8, #10, #13, #15, #16 and #17 now
 contain the approved subjects and bodies without test labels. They use display
-name `GoBK Getting Started`, the same Brevo sender address and Matt Reply-To.
-The first automatic email after series confirmation was delivered with a clean
+name `GoBK Getting Started`, `newsletter@bkfastpass.com` and Matt Reply-To.
+The earlier first automatic email after series confirmation was delivered with a clean
 subject and body (Gmail message `1a1cc0631ce6b259`), correct Reply-To, and passing
 SPF, DKIM and DMARC. Unsubscribing the controlled test alias also succeeded.
+After the sender update, all six send actions in automation #1 were explicitly
+saved. A new automatic Day 1 email (`1a1cc386839ed789`) was delivered to Gmail
+Inbox/Updates from the branded sender with Matt Reply-To and passing SPF, DKIM
+and DMARC.
+
+The new confirmation-template #4 emails (`1a1cc3378b41e9d0` and
+`1a1cc37853291913`) also used the branded sender and Matt Reply-To and passed
+SPF, DKIM and DMARC, but Gmail placed both in Spam. Confirmation inbox placement
+remains a delivery limitation; the cause has not been established. Authentication
+passing does not establish inbox placement.
+
 Each workflow send action must be saved after a template change; changing the
 template alone can leave an old subject in the active automation. Later timed
 deliveries were not repeated during this launch check. No recurring Guide
